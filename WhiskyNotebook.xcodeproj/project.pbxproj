@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2487AD671A38DD77007ADE75 /* LogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2487AD661A38DD77007ADE75 /* LogWriter.swift */; };
+		24BF19381A397A1D00CDF7B8 /* DistilleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF19371A397A1D00CDF7B8 /* DistilleryCell.swift */; };
 		24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8D11A36D658002C1E88 /* AppDelegate.swift */; };
-		24FFF8D41A36D658002C1E88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8D31A36D658002C1E88 /* ViewController.swift */; };
 		24FFF8D71A36D658002C1E88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8D51A36D658002C1E88 /* Main.storyboard */; };
 		24FFF8D91A36D658002C1E88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8D81A36D658002C1E88 /* Images.xcassets */; };
 		24FFF8DC1A36D658002C1E88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */; };
 		24FFF8E81A36D658002C1E88 /* WhiskyNotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8E71A36D658002C1E88 /* WhiskyNotebookTests.swift */; };
+		24FFF8F21A36E1F3002C1E88 /* Distillery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F11A36E1F3002C1E88 /* Distillery.swift */; };
+		24FFF8F41A36E24C002C1E88 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F31A36E24C002C1E88 /* Region.swift */; };
+		24FFF8F61A36E465002C1E88 /* Distilleries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F51A36E465002C1E88 /* Distilleries.swift */; };
+		24FFF8F81A3783E8002C1E88 /* JSONRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F71A3783E8002C1E88 /* JSONRequest.swift */; };
+		24FFF8FA1A3797BD002C1E88 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F91A3797BD002C1E88 /* Logger.swift */; };
+		24FFF8FE1A38C6D6002C1E88 /* DistilleriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8FD1A38C6D6002C1E88 /* DistilleriesController.swift */; };
+		24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +34,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2487AD661A38DD77007ADE75 /* LogWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWriter.swift; sourceTree = "<group>"; };
+		24BF19371A397A1D00CDF7B8 /* DistilleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryCell.swift; sourceTree = "<group>"; };
 		24FFF8CC1A36D658002C1E88 /* WhiskyNotebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiskyNotebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FFF8D01A36D658002C1E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24FFF8D11A36D658002C1E88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24FFF8D31A36D658002C1E88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24FFF8D61A36D658002C1E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24FFF8D81A36D658002C1E88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24FFF8DB1A36D658002C1E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		24FFF8E11A36D658002C1E88 /* WhiskyNotebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhiskyNotebookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FFF8E61A36D658002C1E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24FFF8E71A36D658002C1E88 /* WhiskyNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiskyNotebookTests.swift; sourceTree = "<group>"; };
+		24FFF8F11A36E1F3002C1E88 /* Distillery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distillery.swift; sourceTree = "<group>"; };
+		24FFF8F31A36E24C002C1E88 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		24FFF8F51A36E465002C1E88 /* Distilleries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distilleries.swift; sourceTree = "<group>"; };
+		24FFF8F71A3783E8002C1E88 /* JSONRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONRequest.swift; sourceTree = "<group>"; };
+		24FFF8F91A3797BD002C1E88 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		24FFF8FD1A38C6D6002C1E88 /* DistilleriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleriesController.swift; sourceTree = "<group>"; };
+		24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +94,11 @@
 			isa = PBXGroup;
 			children = (
 				24FFF8D11A36D658002C1E88 /* AppDelegate.swift */,
-				24FFF8D31A36D658002C1E88 /* ViewController.swift */,
 				24FFF8D51A36D658002C1E88 /* Main.storyboard */,
 				24FFF8D81A36D658002C1E88 /* Images.xcassets */,
 				24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */,
+				24FFF9021A38CC06002C1E88 /* Distilleries */,
+				24FFF9011A38CBF9002C1E88 /* Utilities */,
 				24FFF8CF1A36D658002C1E88 /* Supporting Files */,
 			);
 			path = WhiskyNotebook;
@@ -110,6 +127,29 @@
 				24FFF8E61A36D658002C1E88 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24FFF9011A38CBF9002C1E88 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				24FFF8F71A3783E8002C1E88 /* JSONRequest.swift */,
+				24FFF8F91A3797BD002C1E88 /* Logger.swift */,
+				2487AD661A38DD77007ADE75 /* LogWriter.swift */,
+				24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		24FFF9021A38CC06002C1E88 /* Distilleries */ = {
+			isa = PBXGroup;
+			children = (
+				24FFF8F51A36E465002C1E88 /* Distilleries.swift */,
+				24FFF8FD1A38C6D6002C1E88 /* DistilleriesController.swift */,
+				24FFF8F11A36E1F3002C1E88 /* Distillery.swift */,
+				24BF19371A397A1D00CDF7B8 /* DistilleryCell.swift */,
+				24FFF8F31A36E24C002C1E88 /* Region.swift */,
+			);
+			name = Distilleries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +201,7 @@
 				TargetAttributes = {
 					24FFF8CB1A36D658002C1E88 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 37P3YGWA67;
 					};
 					24FFF8E01A36D658002C1E88 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -212,8 +253,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24FFF8D41A36D658002C1E88 /* ViewController.swift in Sources */,
+				24FFF8F61A36E465002C1E88 /* Distilleries.swift in Sources */,
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
+				24BF19381A397A1D00CDF7B8 /* DistilleryCell.swift in Sources */,
+				24FFF8F21A36E1F3002C1E88 /* Distillery.swift in Sources */,
+				24FFF8FE1A38C6D6002C1E88 /* DistilleriesController.swift in Sources */,
+				24FFF8FA1A3797BD002C1E88 /* Logger.swift in Sources */,
+				24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */,
+				2487AD671A38DD77007ADE75 /* LogWriter.swift in Sources */,
+				24FFF8F41A36E24C002C1E88 /* Region.swift in Sources */,
+				24FFF8F81A3783E8002C1E88 /* JSONRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,9 +387,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhiskyNotebook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -348,9 +401,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhiskyNotebook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -407,6 +464,7 @@
 				24FFF8ED1A36D658002C1E88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24FFF8EE1A36D658002C1E88 /* Build configuration list for PBXNativeTarget "WhiskyNotebookTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +473,7 @@
 				24FFF8F01A36D658002C1E88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

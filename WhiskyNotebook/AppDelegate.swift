@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  WhiskyNotebook
-//
-//  Created by Ben Hale on 09/12/2014.
-//  Copyright (c) 2014 Ben Hale. All rights reserved.
-//
+// Copyright 2014 Ben Hale. All Rights Reserved
 
 import UIKit
 
