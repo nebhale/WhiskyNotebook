@@ -18,13 +18,23 @@ final class Distilleries {
         }
     }
     
-    init() {
-        self.distilleries = []
+    init(distilleries: [Distillery]) {
+        self.distilleries = distilleries
+    }
+    
+    convenience init() {
+        self.init(distilleries: [])
     }
     
     func count() -> Int {
         return synchronized(self.monitor) {
             return self.distilleries.count
+        }
+    }
+    
+    func filter(includeElement: (Distillery) -> Bool) -> Distilleries {
+        return synchronized(self.monitor) {
+            return Distilleries(distilleries: self.distilleries.filter(includeElement))
         }
     }
     
