@@ -8,7 +8,7 @@ final class Distilleries {
     
     private let monitor = Monitor()
     
-    private let root = NSURL(string: "http://smws-server.cfapps.io/reference")!
+    private let root = NSURL(string: "http://whisky-notebook-server.cfapps.io/reference")!
     
     private var distilleries: [Distillery]
     
