@@ -28,6 +28,12 @@ final class Distilleries {
         }
     }
     
+    func map<T>(transform: (Distillery) -> T) -> [T] {
+        return synchronized(self.monitor) {
+            return self.distilleries.map(transform)
+        }
+    }
+    
     func update(closure: (() -> Void)? = nil) {
         JSONRequest(uri: self.root).link("distilleries") { (href) in
             JSONRequest(uri: href).payload { (payload: [[String:AnyObject]]) in

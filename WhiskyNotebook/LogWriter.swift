@@ -17,19 +17,19 @@ final class LogWriter {
     }
     
     func debug(name:String, closure: () -> (AnyObject)) {
-        log(Level.Debug) { return "[DEBUG] \(self.pad(name)) \(closure())" }
+        log(Level.Debug) { "[DEBUG] \(self.pad(name)) \(closure())" }
     }
     
     func info(name: String, closure: () -> (AnyObject)) {
-        log(Level.Info) { return "[INFO]  \(self.pad(name)) \(closure())" }
+        log(Level.Info) { "[INFO]  \(self.pad(name)) \(closure())" }
     }
     
     func warn(name: String, closure: () -> (AnyObject)) {
-        log(Level.Warn) { return "[WARN]  \(self.pad(name)) \(closure())" }
+        log(Level.Warn) { "[WARN]  \(self.pad(name)) \(closure())" }
     }
     
     func error(name: String, closure: () -> (AnyObject)) {
-        log(Level.Error) { return "[ERROR] \(self.pad(name)) \(closure())" }
+        log(Level.Error) { "[ERROR] \(self.pad(name)) \(closure())" }
     }
     
     private func log(level: Level, closure: () -> (String)) {

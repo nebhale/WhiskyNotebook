@@ -21,14 +21,24 @@ final class DistilleriesController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.distilleries.count()
+    }
+    
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+        return self.distilleries.map { distillery in
+            return distillery.id
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery") as DistilleryCell
-        cell.loadItem(self.distilleries[indexPath.row])        
+        cell.loadItem(self.distilleries[indexPath.section])
         return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
 }
