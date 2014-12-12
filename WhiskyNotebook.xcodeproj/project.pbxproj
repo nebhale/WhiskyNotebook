@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240678091A3C83A5007B674F /* NumberSectionProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240678081A3C83A5007B674F /* NumberSectionProject.swift */; };
+		241830F61A3B74D100C84F95 /* RegionSectionProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241830F51A3B74D100C84F95 /* RegionSectionProjection.swift */; };
+		247283841A3C75050041551E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247283831A3C75050041551E /* String.swift */; };
+		2475CBAC1A3CA2C10038804C /* FilteredSectionProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475CBAB1A3CA2C10038804C /* FilteredSectionProjection.swift */; };
 		2487AD671A38DD77007ADE75 /* LogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2487AD661A38DD77007ADE75 /* LogWriter.swift */; };
+		249BFFD71A3C1452002DE701 /* NameSectionProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BFFD61A3C1452002DE701 /* NameSectionProjection.swift */; };
+		249BFFD91A3C18A6002DE701 /* AbstractSectionProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BFFD81A3C18A6002DE701 /* AbstractSectionProjection.swift */; };
+		249BFFDB1A3C1969002DE701 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BFFDA1A3C1969002DE701 /* Section.swift */; };
 		24BF19381A397A1D00CDF7B8 /* DistilleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF19371A397A1D00CDF7B8 /* DistilleryCell.swift */; };
+		24D2EE6E1A3B374100CF4D7F /* DistilleriesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D2EE6D1A3B374100CF4D7F /* DistilleriesFactory.swift */; };
+		24D2EE701A3B4AF900CF4D7F /* SectionProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D2EE6F1A3B4AF900CF4D7F /* SectionProjection.swift */; };
 		24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8D11A36D658002C1E88 /* AppDelegate.swift */; };
 		24FFF8D71A36D658002C1E88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8D51A36D658002C1E88 /* Main.storyboard */; };
 		24FFF8D91A36D658002C1E88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8D81A36D658002C1E88 /* Images.xcassets */; };
 		24FFF8DC1A36D658002C1E88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */; };
 		24FFF8E81A36D658002C1E88 /* WhiskyNotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8E71A36D658002C1E88 /* WhiskyNotebookTests.swift */; };
 		24FFF8F21A36E1F3002C1E88 /* Distillery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F11A36E1F3002C1E88 /* Distillery.swift */; };
-		24FFF8F41A36E24C002C1E88 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F31A36E24C002C1E88 /* Region.swift */; };
-		24FFF8F61A36E465002C1E88 /* Distilleries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F51A36E465002C1E88 /* Distilleries.swift */; };
 		24FFF8F81A3783E8002C1E88 /* JSONRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F71A3783E8002C1E88 /* JSONRequest.swift */; };
 		24FFF8FA1A3797BD002C1E88 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F91A3797BD002C1E88 /* Logger.swift */; };
 		24FFF8FE1A38C6D6002C1E88 /* DistilleriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8FD1A38C6D6002C1E88 /* DistilleriesController.swift */; };
@@ -34,8 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240678081A3C83A5007B674F /* NumberSectionProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberSectionProject.swift; sourceTree = "<group>"; };
+		241830F51A3B74D100C84F95 /* RegionSectionProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSectionProjection.swift; sourceTree = "<group>"; };
+		247283831A3C75050041551E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2475CBAB1A3CA2C10038804C /* FilteredSectionProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredSectionProjection.swift; sourceTree = "<group>"; };
 		2487AD661A38DD77007ADE75 /* LogWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWriter.swift; sourceTree = "<group>"; };
+		249BFFD61A3C1452002DE701 /* NameSectionProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameSectionProjection.swift; sourceTree = "<group>"; };
+		249BFFD81A3C18A6002DE701 /* AbstractSectionProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractSectionProjection.swift; sourceTree = "<group>"; };
+		249BFFDA1A3C1969002DE701 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		24BF19371A397A1D00CDF7B8 /* DistilleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryCell.swift; sourceTree = "<group>"; };
+		24D2EE6D1A3B374100CF4D7F /* DistilleriesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleriesFactory.swift; sourceTree = "<group>"; };
+		24D2EE6F1A3B4AF900CF4D7F /* SectionProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionProjection.swift; sourceTree = "<group>"; };
 		24FFF8CC1A36D658002C1E88 /* WhiskyNotebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiskyNotebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FFF8D01A36D658002C1E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24FFF8D11A36D658002C1E88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +62,6 @@
 		24FFF8E61A36D658002C1E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24FFF8E71A36D658002C1E88 /* WhiskyNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiskyNotebookTests.swift; sourceTree = "<group>"; };
 		24FFF8F11A36E1F3002C1E88 /* Distillery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distillery.swift; sourceTree = "<group>"; };
-		24FFF8F31A36E24C002C1E88 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
-		24FFF8F51A36E465002C1E88 /* Distilleries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distilleries.swift; sourceTree = "<group>"; };
 		24FFF8F71A3783E8002C1E88 /* JSONRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONRequest.swift; sourceTree = "<group>"; };
 		24FFF8F91A3797BD002C1E88 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		24FFF8FD1A38C6D6002C1E88 /* DistilleriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleriesController.swift; sourceTree = "<group>"; };
@@ -136,6 +150,7 @@
 				24FFF8F91A3797BD002C1E88 /* Logger.swift */,
 				2487AD661A38DD77007ADE75 /* LogWriter.swift */,
 				24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */,
+				247283831A3C75050041551E /* String.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -143,11 +158,17 @@
 		24FFF9021A38CC06002C1E88 /* Distilleries */ = {
 			isa = PBXGroup;
 			children = (
-				24FFF8F51A36E465002C1E88 /* Distilleries.swift */,
+				249BFFD81A3C18A6002DE701 /* AbstractSectionProjection.swift */,
 				24FFF8FD1A38C6D6002C1E88 /* DistilleriesController.swift */,
+				24D2EE6D1A3B374100CF4D7F /* DistilleriesFactory.swift */,
 				24FFF8F11A36E1F3002C1E88 /* Distillery.swift */,
 				24BF19371A397A1D00CDF7B8 /* DistilleryCell.swift */,
-				24FFF8F31A36E24C002C1E88 /* Region.swift */,
+				2475CBAB1A3CA2C10038804C /* FilteredSectionProjection.swift */,
+				249BFFD61A3C1452002DE701 /* NameSectionProjection.swift */,
+				240678081A3C83A5007B674F /* NumberSectionProject.swift */,
+				241830F51A3B74D100C84F95 /* RegionSectionProjection.swift */,
+				249BFFDA1A3C1969002DE701 /* Section.swift */,
+				24D2EE6F1A3B4AF900CF4D7F /* SectionProjection.swift */,
 			);
 			name = Distilleries;
 			sourceTree = "<group>";
@@ -253,15 +274,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24FFF8F61A36E465002C1E88 /* Distilleries.swift in Sources */,
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
+				249BFFD71A3C1452002DE701 /* NameSectionProjection.swift in Sources */,
 				24BF19381A397A1D00CDF7B8 /* DistilleryCell.swift in Sources */,
+				2475CBAC1A3CA2C10038804C /* FilteredSectionProjection.swift in Sources */,
+				249BFFDB1A3C1969002DE701 /* Section.swift in Sources */,
+				249BFFD91A3C18A6002DE701 /* AbstractSectionProjection.swift in Sources */,
+				24D2EE6E1A3B374100CF4D7F /* DistilleriesFactory.swift in Sources */,
 				24FFF8F21A36E1F3002C1E88 /* Distillery.swift in Sources */,
 				24FFF8FE1A38C6D6002C1E88 /* DistilleriesController.swift in Sources */,
 				24FFF8FA1A3797BD002C1E88 /* Logger.swift in Sources */,
 				24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */,
+				240678091A3C83A5007B674F /* NumberSectionProject.swift in Sources */,
+				24D2EE701A3B4AF900CF4D7F /* SectionProjection.swift in Sources */,
 				2487AD671A38DD77007ADE75 /* LogWriter.swift in Sources */,
-				24FFF8F41A36E24C002C1E88 /* Region.swift in Sources */,
+				247283841A3C75050041551E /* String.swift in Sources */,
+				241830F61A3B74D100C84F95 /* RegionSectionProjection.swift in Sources */,
 				24FFF8F81A3783E8002C1E88 /* JSONRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

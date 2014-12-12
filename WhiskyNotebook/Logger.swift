@@ -19,7 +19,7 @@ final class Logger {
 
     let name: String
     
-    init(name: String) {
+    init(_ name: String) {
         self.name = name
         Logger.logWriter.registerName(name)
     }
