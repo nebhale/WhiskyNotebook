@@ -34,7 +34,7 @@ final class DistilleriesController: UIViewController, UISearchBarDelegate, UITab
 
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.filteredDistilleries = self.distilleries.filter { distillery in
-            return distillery.name.rangeOfString(searchText) != nil
+            return distillery.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil
         }
     }
     
