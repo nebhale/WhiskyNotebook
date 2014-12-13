@@ -34,14 +34,17 @@ class AbstractSectionProjection<T where T: Comparable, T: Equatable> : SectionPr
     // TODO: There appears to be a bug returning T.  Each release, you should attempt to remove this work around
     func key(distillery: Distillery) -> [T] {
         assert(false, "This method must be implemented by a child class")
+        return []
     }
     
     func sectionIndexTitle(section: Section<T>) -> String? {
         assert(false, "This method must be implemented by a child class")
+        return nil
     }
     
     func sectionTitle(section: Section<T>) -> String? {
         assert(false, "This method must be implemented by a child class")
+        return nil
     }
     
     final func at(indexPath: NSIndexPath) -> Distillery {
