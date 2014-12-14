@@ -20,7 +20,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mbx-SE-EtR" userLabel="Name, Number, Region Sort Control">
                                 <rect key="frame" x="16" y="20" width="568" height="29"/>
                                 <segments>
-                                    <segment title="Name"/>
+                                    <segment title="Number"/>
                                     <segment title="Name"/>
                                     <segment title="Region"/>
                                 </segments>
