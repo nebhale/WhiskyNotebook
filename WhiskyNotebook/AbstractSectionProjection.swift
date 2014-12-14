@@ -6,6 +6,8 @@ class AbstractSectionProjection<T where T: Comparable, T: Equatable> : SectionPr
     
     private let distilleries: [Distillery]
     
+    private let logger = Logger("AbstractSectionProjection")
+    
     private var sections: [Section<T>]
     
     init(_ distilleries: [Distillery], _ sections: [Section<T>]) {
@@ -13,7 +15,10 @@ class AbstractSectionProjection<T where T: Comparable, T: Equatable> : SectionPr
         self.sections = sections
         
         for distillery in self.distilleries {
-            self.section(key(distillery)[0]).distilleries.append(distillery)
+            let distilleryKey = key(distillery)[0]
+            self.logger.debug { "Mapping \(distillery) to key '\(distilleryKey)'" }
+            
+            self.section(distilleryKey).distilleries.append(distillery)
         }
         
         self.sections.sort { a, b in
@@ -60,20 +65,24 @@ class AbstractSectionProjection<T where T: Comparable, T: Equatable> : SectionPr
     }
     
     final func sectionIndexTitles() -> [String] {
-        var sectionIndexTitles: [String] = []
+        var titles: [String] = []
         
         for section in self.sections {
-            if let sectionIndexTitle = sectionIndexTitle(section) {
-                sectionIndexTitles.append(sectionIndexTitle)
+            if let title = sectionIndexTitle(section) {
+                self.logger.debug { "Mapping \(section) to index title '\(title)'" }
+                titles.append(title)
             }
         }
         
-        return sectionIndexTitles
+        return titles
     }
     
     final func sectionTitle(section: Int) -> String? {
         let section = self.sections[section]
-        return section.distilleries.isEmpty ? nil : sectionTitle(section)
+        let title = section.distilleries.isEmpty ? nil : sectionTitle(section)
+        self.logger.debug { "Mapping \(section) to title '\(title)'" }
+        
+        return title
     }
     
     final func source() -> [Distillery] {
@@ -87,6 +96,7 @@ class AbstractSectionProjection<T where T: Comparable, T: Equatable> : SectionPr
             }
         }
         
+        self.logger.debug { "Creating new section for '\(key)'" }
         let section = Section(key)
         self.sections.append(section)
         return section

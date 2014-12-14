@@ -2,7 +2,7 @@
 
 final class NumberSectionProjection<Void>: AbstractSectionProjection<String> {
     
-    let interval = 10
+    private let interval = 10
     
     init(_ distilleries: [Distillery]) {
         super.init(distilleries, [Section("B"), Section("G"), Section("R")])

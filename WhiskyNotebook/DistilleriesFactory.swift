@@ -20,6 +20,7 @@ final class DistilleriesFactory {
             
             for entity in payload {
                 if let distillery = self.process(entity) {
+                    self.logger.debug { "Created \(distillery)" }
                     distilleries.append(distillery)
                 }
             }
@@ -35,7 +36,7 @@ final class DistilleriesFactory {
         case(.Some(let id as String), .Some(let name as String), .Some(let region as String), .Some(let latitude as Double), .Some(let longitude as Double)):
             distillery = Distillery(id, name, Distillery.Region(rawValue: region)!, latitude, longitude)
         default:
-            self.logger.error { "Invalid distillery payload '\(entity)'" }
+            self.logger.warn { "Invalid distillery payload '\(entity)'" }
         }
         
         return distillery

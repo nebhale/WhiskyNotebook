@@ -2,7 +2,7 @@
 
 final class NameSectionProjection<Void>: AbstractSectionProjection<String> {
     
-    let letters = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    private let letters = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     
     init(_ distilleries: [Distillery]) {
         super.init(distilleries, self.letters.map { Section("\($0)") })

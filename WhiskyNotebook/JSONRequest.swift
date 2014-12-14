@@ -4,9 +4,9 @@ import Foundation
 
 final class JSONRequest {
     
-    let logger = Logger("JSONRequest")
+    private let logger = Logger("JSONRequest")
     
-    let uri: NSURL
+    private let uri: NSURL
     
     init(_ uri: NSURL) {
         self.uri = uri

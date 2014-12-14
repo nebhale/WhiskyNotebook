@@ -1,6 +1,7 @@
 // Copyright 2014 Ben Hale. All Rights Reserved
 
-final class Distillery: Comparable, Equatable, Hashable {
+final class Distillery: Comparable, Equatable, Hashable, Printable {
+
     let id: String
     
     let name: String
@@ -23,7 +24,13 @@ final class Distillery: Comparable, Equatable, Hashable {
         return id.hashValue
     }
     
-    enum Region: String, Comparable {
+    var description: String {
+        get {
+            return "Distillery \(self.id)"
+        }
+    }
+    
+    enum Region: String, Comparable, Printable {
         
         case Bourbon = "BOURBON"
         
@@ -46,6 +53,12 @@ final class Distillery: Comparable, Equatable, Hashable {
         case Speyside = "SPEYSIDE"
         
         case Wales = "WALES"
+        
+        var description: String {
+            get {
+                return self.rawValue
+            }
+        }
         
     }
 }

@@ -4,11 +4,30 @@ import Foundation
 
 final class LogWriter {
     
-    private let level = Level.Debug
+    private let level: Level
     
     private let monitor = Monitor()
     
     private var maxNameLength = 0
+    
+    init() {
+        if let level = configuration("Logging")?["Level"] as? String {
+            switch level {
+            case "Debug":
+                self.level = Level.Debug
+            case "Info":
+                self.level = Level.Info
+            case "Warn":
+                self.level = Level.Warn
+            case "Error":
+                self.level = Level.Error
+            default:
+                self.level = Level.Warn
+            }
+        } else {
+            self.level = Level.Warn
+        }
+    }
     
     func registerName(name: String) {
         synchronized(self.monitor) {

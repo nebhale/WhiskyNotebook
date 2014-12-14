@@ -17,7 +17,7 @@ final class Logger {
         return Static.instance!
     }
 
-    let name: String
+    private let name: String
     
     init(_ name: String) {
         self.name = name
