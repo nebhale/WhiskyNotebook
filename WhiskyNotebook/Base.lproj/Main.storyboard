@@ -1,10 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ivn-at-gXQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eEe-R9-3GL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Reference-->
+        <scene sceneID="QSI-ju-dOL">
+            <objects>
+                <viewController title="Reference" id="Xwu-jA-qBz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3v6-EW-XCH"/>
+                        <viewControllerLayoutGuide type="bottom" id="yMV-2u-kNh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iCt-3V-pH3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Reference" id="8Z5-Sz-vYD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kup-k8-xeR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1700" y="-268"/>
+        </scene>
+        <!--Log-->
+        <scene sceneID="qwQ-9K-SoQ">
+            <objects>
+                <viewController title="Log" id="G6N-Xl-a7Y" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2AV-ZE-BsS"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Mg-S7-YYg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FLz-fD-kV6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Log" id="wca-KN-oSR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6sW-0l-Eey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1700" y="-930"/>
+        </scene>
+        <!--Reference Controller-->
+        <scene sceneID="sjd-fb-cfL">
+            <objects>
+                <tabBarController id="eEe-R9-3GL" customClass="ReferenceController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="bU3-ME-AzL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="G6N-Xl-a7Y" kind="relationship" relationship="viewControllers" id="bRj-jX-cb6"/>
+                        <segue destination="Xwu-jA-qBz" kind="relationship" relationship="viewControllers" id="Vwd-XH-SXY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eue-H8-S0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2520" y="-599"/>
+        </scene>
         <!--Distilleries Controller-->
         <scene sceneID="JR7-hs-2Wv">
             <objects>
