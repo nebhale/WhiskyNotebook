@@ -25,9 +25,7 @@ final class Distillery: Comparable, Equatable, Hashable, Printable {
     }
     
     var description: String {
-        get {
-            return "Distillery \(self.id)"
-        }
+        get { return "Distillery \(self.id)" }
     }
     
     enum Region: String, Comparable, Printable {
