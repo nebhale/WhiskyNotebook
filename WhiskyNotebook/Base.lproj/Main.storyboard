@@ -1,176 +1,138 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eEe-R9-3GL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WJV-2N-BA7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Reference-->
-        <scene sceneID="QSI-ju-dOL">
-            <objects>
-                <viewController title="Reference" id="Xwu-jA-qBz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3v6-EW-XCH"/>
-                        <viewControllerLayoutGuide type="bottom" id="yMV-2u-kNh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iCt-3V-pH3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Reference" id="8Z5-Sz-vYD"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kup-k8-xeR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1700" y="-268"/>
-        </scene>
         <!--Log-->
-        <scene sceneID="qwQ-9K-SoQ">
+        <scene sceneID="I4Q-Jc-oec">
             <objects>
-                <viewController title="Log" id="G6N-Xl-a7Y" sceneMemberID="viewController">
+                <viewController id="QGd-xe-EEI" userLabel="Log" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2AV-ZE-BsS"/>
-                        <viewControllerLayoutGuide type="bottom" id="0Mg-S7-YYg"/>
+                        <viewControllerLayoutGuide type="top" id="jnc-7k-PgS"/>
+                        <viewControllerLayoutGuide type="bottom" id="ziP-p4-5BO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FLz-fD-kV6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="DYl-Dt-DZw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Log" id="wca-KN-oSR"/>
+                    <tabBarItem key="tabBarItem" title="Log" image="LogIcon" id="R5o-jU-p4c"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6sW-0l-Eey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f0A-rd-cgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1700" y="-930"/>
+            <point key="canvasLocation" x="642" y="-11"/>
         </scene>
-        <!--Reference Controller-->
-        <scene sceneID="sjd-fb-cfL">
+        <!--Distilleries-->
+        <scene sceneID="pp4-bU-zAj">
             <objects>
-                <tabBarController id="eEe-R9-3GL" customClass="ReferenceController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2VR-kG-6xH" userLabel="Distilleries" customClass="DistilleriesController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Jc5-Dy-91L">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" hidden="YES" contentMode="scaleToFill" id="yLj-5o-qRe">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" ambiguous="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-7q-2gw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="2VR-kG-6xH" id="ctx-tl-S6i"/>
+                                    </connections>
+                                </searchBar>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Ted-7q-2gw" firstAttribute="leading" secondItem="yLj-5o-qRe" secondAttribute="leading" symbolic="YES" id="83d-dw-Yfm"/>
+                                <constraint firstAttribute="trailing" secondItem="Ted-7q-2gw" secondAttribute="trailing" symbolic="YES" id="Ul1-AQ-5d0"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="distillery" textLabel="wyt-U3-jWA" detailTextLabel="Bim-c2-bjd" style="IBUITableViewCellStyleSubtitle" id="EoQ-fT-Z8O" customClass="DistilleryCell" customModule="WhiskyNotebook" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EoQ-fT-Z8O" id="tkG-4P-c2H">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wyt-U3-jWA">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bim-c2-bjd">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2VR-kG-6xH" id="Yez-Av-LDr"/>
+                            <outlet property="delegate" destination="2VR-kG-6xH" id="4f4-mf-LBI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Distilleries" id="5eN-Ww-wDr"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="O4K-dh-JrO" id="FzO-eU-etp"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eF1-Y8-wHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="O4K-dh-JrO">
+                    <connections>
+                        <outlet property="delegate" destination="2VR-kG-6xH" id="b46-ae-EhV"/>
+                        <outlet property="searchBar" destination="Ted-7q-2gw" id="LNd-K0-Uey"/>
+                        <outlet property="searchContentsController" destination="2VR-kG-6xH" id="FQR-C0-4W4"/>
+                        <outlet property="searchResultsDataSource" destination="2VR-kG-6xH" id="1eo-tY-QxO"/>
+                        <outlet property="searchResultsDelegate" destination="2VR-kG-6xH" id="lhF-IC-QPe"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1462" y="693"/>
+        </scene>
+        <!--Distilleries Navigation-->
+        <scene sceneID="iXz-6R-DXb">
+            <objects>
+                <navigationController id="AOf-Tb-BaD" userLabel="Distilleries Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Distilleries" image="DistilleriesIcon" id="fZb-X8-9no"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ptb-Vs-kP4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2VR-kG-6xH" kind="relationship" relationship="rootViewController" id="ykX-ff-9vb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Yj-Fc-nAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="642" y="693"/>
+        </scene>
+        <!--Root-->
+        <scene sceneID="oBl-F1-VLs">
+            <objects>
+                <tabBarController id="WJV-2N-BA7" userLabel="Root" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="bU3-ME-AzL">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Sw4-Oa-H9K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="G6N-Xl-a7Y" kind="relationship" relationship="viewControllers" id="bRj-jX-cb6"/>
-                        <segue destination="Xwu-jA-qBz" kind="relationship" relationship="viewControllers" id="Vwd-XH-SXY"/>
+                        <segue destination="QGd-xe-EEI" kind="relationship" relationship="viewControllers" id="FhR-PK-EFL"/>
+                        <segue destination="AOf-Tb-BaD" kind="relationship" relationship="viewControllers" id="4r6-uh-9Fr"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eue-H8-S0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIx-Lq-Prk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2520" y="-599"/>
-        </scene>
-        <!--Distilleries Controller-->
-        <scene sceneID="JR7-hs-2Wv">
-            <objects>
-                <viewController id="Ivn-at-gXQ" customClass="DistilleriesController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eMD-B8-WMt"/>
-                        <viewControllerLayoutGuide type="bottom" id="CHP-4R-eZ5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cpP-XN-LZj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mbx-SE-EtR" userLabel="Name, Number, Region Sort Control">
-                                <rect key="frame" x="16" y="20" width="568" height="29"/>
-                                <segments>
-                                    <segment title="Number"/>
-                                    <segment title="Name"/>
-                                    <segment title="Region"/>
-                                </segments>
-                                <connections>
-                                    <action selector="projectionChanged:" destination="Ivn-at-gXQ" eventType="valueChanged" id="Dck-52-Rn9"/>
-                                </connections>
-                            </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zoh-6g-Y5X" userLabel="Distilleries Table View">
-                                <rect key="frame" x="0.0" y="56" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="iaI-rg-3E5">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="Ivn-at-gXQ" id="OqV-dj-dyF"/>
-                                    </connections>
-                                </searchBar>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="distillery" textLabel="7cD-oF-9yR" detailTextLabel="wtw-lf-rsE" style="IBUITableViewCellStyleSubtitle" id="c9l-ku-ppz" userLabel="Distillery Cell" customClass="DistilleryCell" customModule="WhiskyNotebook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c9l-ku-ppz" id="yak-EU-tPC">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7cD-oF-9yR">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wtw-lf-rsE">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Ivn-at-gXQ" id="hdW-c4-Ufk"/>
-                                    <outlet property="delegate" destination="Ivn-at-gXQ" id="EAc-0H-SUo"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Zoh-6g-Y5X" secondAttribute="trailing" id="21N-NZ-EPD"/>
-                            <constraint firstItem="Zoh-6g-Y5X" firstAttribute="top" secondItem="mbx-SE-EtR" secondAttribute="bottom" constant="8" id="91G-81-UfD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mbx-SE-EtR" secondAttribute="trailing" id="Bnq-gH-qX3"/>
-                            <constraint firstItem="CHP-4R-eZ5" firstAttribute="top" secondItem="Zoh-6g-Y5X" secondAttribute="bottom" constant="8" symbolic="YES" id="Q5I-kS-9tS"/>
-                            <constraint firstItem="Zoh-6g-Y5X" firstAttribute="leading" secondItem="cpP-XN-LZj" secondAttribute="leading" id="lin-X8-PVy"/>
-                            <constraint firstItem="mbx-SE-EtR" firstAttribute="leading" secondItem="cpP-XN-LZj" secondAttribute="leadingMargin" id="qhc-PS-kSL"/>
-                            <constraint firstItem="mbx-SE-EtR" firstAttribute="top" secondItem="eMD-B8-WMt" secondAttribute="bottom" id="xgB-If-qM2"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="6Tp-eU-qjy" id="HUt-mg-JNe"/>
-                        <outlet property="segmentedControl" destination="mbx-SE-EtR" id="I9m-qv-Uft"/>
-                        <outlet property="tableView" destination="Zoh-6g-Y5X" id="hjc-MZ-aci"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wys-25-JLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" id="gys-Mr-B4b">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="Ivn-at-gXQ" id="I2f-4m-vJ4"/>
-                    </connections>
-                </searchBar>
-                <searchDisplayController id="Tde-k7-dkt">
-                    <connections>
-                        <outlet property="delegate" destination="Ivn-at-gXQ" id="3db-Ka-Y60"/>
-                        <outlet property="searchBar" destination="iaI-rg-3E5" id="kif-Pj-Duh"/>
-                        <outlet property="searchContentsController" destination="Ivn-at-gXQ" id="Sug-nN-yhp"/>
-                        <outlet property="searchResultsDataSource" destination="Ivn-at-gXQ" id="BkS-7w-kVD"/>
-                        <outlet property="searchResultsDelegate" destination="Ivn-at-gXQ" id="izq-f8-qMu"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="6Tp-eU-qjy">
-                    <connections>
-                        <outlet property="delegate" destination="Ivn-at-gXQ" id="iLy-ZE-PEH"/>
-                        <outlet property="searchBar" destination="gys-Mr-B4b" id="1LR-1f-fXx"/>
-                        <outlet property="searchContentsController" destination="Ivn-at-gXQ" id="vY5-WM-7XJ"/>
-                        <outlet property="searchResultsDataSource" destination="Ivn-at-gXQ" id="0Yd-YY-bDW"/>
-                        <outlet property="searchResultsDelegate" destination="Ivn-at-gXQ" id="QBl-wv-qgD"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="238" y="-409"/>
+            <point key="canvasLocation" x="-178" y="320"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DistilleriesIcon" width="30" height="30"/>
+        <image name="LogIcon" width="30" height="30"/>
+    </resources>
 </document>

@@ -2,105 +2,83 @@
 
 import UIKit
 
-final class DistilleriesController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
+final class DistilleriesController: UITableViewController {
     
-    let logger = Logger("DistilleriesTableViewController")
+    private let logger = Logger("DistilleriesController")
     
-    @IBOutlet
-    var tableView: UITableView!
+    private var projection: Projection?
     
-    @IBOutlet
-    var segmentedControl: UISegmentedControl!
+    private var filteredProjection: Projection?
     
-    private var sectionProjection: SectionProjection?
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         DistilleriesFactory().create { distilleries in
-            self.logger.info { return "Distilleries creation complete" }
-            
-            switch self.segmentedControl.selectedSegmentIndex {
-            case 0:
-                self.sectionProjection = NumberSectionProjection<Void>(distilleries)
-            case 1:
-                self.sectionProjection = NameSectionProjection<Void>(distilleries)
-            case 2:
-                self.sectionProjection = RegionSectionProjection<Void>(distilleries)
-            default:
-                self.logger.error { "Unknown segment index selected" }
-            }
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                self.tableView.reloadData()
-                
-                // self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController!.searchBar.frame.size.height);
-                self.tableView.hidden = false
-            }
-        }
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if let sectionProjection = self.sectionProjection {
-            return sectionProjection.sectionCount()
-        } else {
-            return 0
-        }
-    }
-    
-    @IBAction
-    func projectionChanged(segmentedControl: UISegmentedControl) {
-        if let sectionProjection = self.sectionProjection {
-            switch self.segmentedControl.selectedSegmentIndex {
-            case 0:
-                self.sectionProjection = NumberSectionProjection<Void>(sectionProjection)
-            case 1:
-                self.sectionProjection = NameSectionProjection<Void>(sectionProjection)
-            case 2:
-                self.sectionProjection = RegionSectionProjection<Void>(sectionProjection)
-            default:
-                self.logger.error { "Unknown segment index selected" }
-            }
-            
-            self.tableView.reloadData()
-        }
-    }
-    
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
-        if let sectionProjection = self.sectionProjection {
-            return sectionProjection.sectionIndexTitles()
-        } else {
-            return []
-        }
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery") as DistilleryCell
-        
-        if let sectionProjection = self.sectionProjection {
-            cell.loadItem(sectionProjection.at(indexPath))
-        }
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sectionProjection = self.sectionProjection {
-            return sectionProjection.distilleryCount(section)
-        } else {
-            return 0
-        }
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sectionProjection?.sectionTitle(section)
-    }
+            self.logger.info { "Distilleries creation complete" }
+            self.projection = StandardProjection(distilleries.sorted { $0 < $1 })
 
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if let sectionProjection = self.sectionProjection {
-            self.sectionProjection = FilteredSectionProjection(sectionProjection) { distillery in
-                return distillery.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil
+            onMain {
+                self.hideSearchBar()
+                self.tableView.tableHeaderView?.hidden = false
+                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+                self.tableView.reloadData()
             }
+        }
+    }
+        
+    // Table View
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if let projection = projection(tableView) {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery") as DistilleryCell
+            cell.loadItem(projection.at(indexPath.row))
+            return cell
+        }
+        
+        let defaultValue = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        self.logger.debug { "Using default cellForRowAtIndexPath" }
+        return defaultValue
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let projection = projection(tableView) {
+            return projection.count()
+        }
+        
+        let defaultValue = super.tableView(tableView, numberOfRowsInSection: section)
+        self.logger.debug { "Using default numberOfRowsInSection \(defaultValue)" }
+        return defaultValue
+    }
+    
+    private func projection(tableView: UITableView) -> Projection? {
+        return self.filteredProjection != nil ? self.filteredProjection : self.projection
+    }
+    
+    // Search Bar
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        if let searchBar = self.searchDisplayController?.searchBar {
+            searchBar.frame.origin.y = min(0, scrollView.contentOffset.y + scrollView.contentInset.top)
+        }
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.logger.debug { "Search text changed to '\(searchText)'" }
+        
+        if let projection = self.projection {
+            self.filteredProjection = FilteredProjection(projection.source(), searchText)
+        }
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.filteredProjection = nil
+    }
+    
+    private func hideSearchBar() {
+        self.logger.debug { "Hiding SearchBar" }
+        
+        if let searchBar = self.searchDisplayController?.searchBar {
+            self.tableView.contentOffset.y = min(0, searchBar.frame.size.height - self.tableView.contentInset.top)
         }
     }
     

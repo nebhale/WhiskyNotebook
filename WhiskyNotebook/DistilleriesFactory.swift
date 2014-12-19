@@ -6,7 +6,7 @@ final class DistilleriesFactory {
     
     private let logger = Logger("DistilleriesFactory")
     
-    private let root = NSURL(string: "http://whisky-notebook-server.cfapps.io/reference")!
+    private let root = NSURL(string: "http://localhost:8080/reference")!
     
     func create(closure: ([Distillery]) -> Void) {
         JSONRequest(self.root).link("distilleries") { (href) in

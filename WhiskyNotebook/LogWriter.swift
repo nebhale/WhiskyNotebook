@@ -4,6 +4,8 @@ import Foundation
 
 final class LogWriter {
     
+    private let dateFormatter: NSDateFormatter
+    
     private let level: Level
     
     private let monitor = Monitor()
@@ -11,7 +13,13 @@ final class LogWriter {
     private var maxNameLength = 0
     
     init() {
-        if let level = configuration("Logging")?["Level"] as? String {
+        let config = configuration("Logging")
+        
+        self.dateFormatter = NSDateFormatter()
+        self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        self.dateFormatter.dateFormat = config?["Format"] as? String
+        
+        if let level = config?["Level"] as? String {
             switch level {
             case "Debug":
                 self.level = Level.Debug
@@ -54,7 +62,7 @@ final class LogWriter {
     private func log(level: Level, closure: () -> (String)) {
         synchronized(self.monitor) {
             if self.level.rawValue <= level.rawValue {
-                println(closure())
+                println("\(self.dateFormatter.stringFromDate(NSDate())) \(closure())")
             }
         }
     }

@@ -2,7 +2,7 @@
 
 import UIKit
 
-final class ReferenceController: UITabBarController {
+final class RootController: UITabBarController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
