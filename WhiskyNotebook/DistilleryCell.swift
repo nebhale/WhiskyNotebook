@@ -4,10 +4,19 @@ import UIKit
 
 final class DistilleryCell: UITableViewCell {
     
-    func loadItem(distillery: Distillery) {
-        self.textLabel?.text = "\(distillery.id) \(distillery.name)"
-        self.detailTextLabel?.text = distillery.region.rawValue
+    @IBOutlet
+    var id: UILabel?
 
+    @IBOutlet
+    var name: UILabel?
+
+    @IBOutlet
+    var region: UILabel?
+
+    func loadItem(distillery: Distillery) {
+        self.id?.text = distillery.id
+        self.name?.text = distillery.name
+        self.region?.text = distillery.region.rawValue
     }
     
 }

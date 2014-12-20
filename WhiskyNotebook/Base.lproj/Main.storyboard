@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WJV-2N-BA7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Log-->
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Log" image="LogIcon" id="R5o-jU-p4c"/>
+                    <tabBarItem key="tabBarItem" title="Drams" image="DramsIcon" id="R5o-jU-p4c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0A-rd-cgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -31,44 +32,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" hidden="YES" contentMode="scaleToFill" id="yLj-5o-qRe">
+                        <searchBar key="tableHeaderView" hidden="YES" contentMode="redraw" searchBarStyle="minimal" id="Ted-7q-2gw">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <searchBar contentMode="redraw" ambiguous="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-7q-2gw">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="2VR-kG-6xH" id="ctx-tl-S6i"/>
-                                    </connections>
-                                </searchBar>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="Ted-7q-2gw" firstAttribute="leading" secondItem="yLj-5o-qRe" secondAttribute="leading" symbolic="YES" id="83d-dw-Yfm"/>
-                                <constraint firstAttribute="trailing" secondItem="Ted-7q-2gw" secondAttribute="trailing" symbolic="YES" id="Ul1-AQ-5d0"/>
-                            </constraints>
-                        </view>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="2VR-kG-6xH" id="ctx-tl-S6i"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="distillery" textLabel="wyt-U3-jWA" detailTextLabel="Bim-c2-bjd" style="IBUITableViewCellStyleSubtitle" id="EoQ-fT-Z8O" customClass="DistilleryCell" customModule="WhiskyNotebook" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="distillery" id="EoQ-fT-Z8O" customClass="DistilleryCell" customModule="WhiskyNotebook" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EoQ-fT-Z8O" id="tkG-4P-c2H">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wyt-U3-jWA">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-UL-j32">
+                                            <rect key="frame" x="16" y="8" width="50" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="0ls-UK-jhJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfP-ke-ZWY">
+                                            <rect key="frame" x="74" y="8" width="43" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bim-c2-bjd">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhM-vu-Rff">
+                                            <rect key="frame" x="74" y="22.5" width="36.5" height="13.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IhM-vu-Rff" firstAttribute="leading" secondItem="Lj1-UL-j32" secondAttribute="trailing" constant="8" symbolic="YES" id="295-YH-KpH"/>
+                                        <constraint firstItem="Lj1-UL-j32" firstAttribute="top" secondItem="tfP-ke-ZWY" secondAttribute="top" id="FYx-j9-3Im"/>
+                                        <constraint firstItem="Lj1-UL-j32" firstAttribute="bottom" secondItem="IhM-vu-Rff" secondAttribute="bottom" id="Lgh-h1-6Eo"/>
+                                        <constraint firstItem="Lj1-UL-j32" firstAttribute="leading" secondItem="tkG-4P-c2H" secondAttribute="leadingMargin" constant="8" id="LyX-VQ-sr5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Lj1-UL-j32" secondAttribute="bottom" id="W3i-LZ-msg"/>
+                                        <constraint firstItem="Lj1-UL-j32" firstAttribute="top" secondItem="tkG-4P-c2H" secondAttribute="topMargin" id="tSh-8h-p1M"/>
+                                        <constraint firstItem="tfP-ke-ZWY" firstAttribute="leading" secondItem="Lj1-UL-j32" secondAttribute="trailing" constant="8" symbolic="YES" id="vzm-zb-uBC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="id" destination="Lj1-UL-j32" id="DPh-Rj-gJk"/>
+                                    <outlet property="name" destination="tfP-ke-ZWY" id="q8z-8C-okG"/>
+                                    <outlet property="region" destination="IhM-vu-Rff" id="oBH-Zi-cSU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -92,7 +106,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1462" y="693"/>
+            <point key="canvasLocation" x="1462" y="694"/>
         </scene>
         <!--Distilleries Navigation-->
         <scene sceneID="iXz-6R-DXb">
@@ -133,6 +147,6 @@
     </scenes>
     <resources>
         <image name="DistilleriesIcon" width="30" height="30"/>
-        <image name="LogIcon" width="30" height="30"/>
+        <image name="DramsIcon" width="30" height="30"/>
     </resources>
 </document>

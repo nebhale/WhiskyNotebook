@@ -56,12 +56,6 @@ final class DistilleriesController: UITableViewController {
     
     // Search Bar
     
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        if let searchBar = self.searchDisplayController?.searchBar {
-            searchBar.frame.origin.y = min(0, scrollView.contentOffset.y + scrollView.contentInset.top)
-        }
-    }
-    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.logger.debug { "Search text changed to '\(searchText)'" }
         
