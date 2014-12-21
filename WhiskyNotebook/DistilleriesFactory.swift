@@ -6,11 +6,19 @@ final class DistilleriesFactory {
     
     private let logger = Logger("DistilleriesFactory")
     
-    private let root = NSURL(string: "http://localhost:8080/reference")!
+    private let root: NSURL?
+    
+    init() {
+        if let root = configuration("Reference")?["Root"] as? String {
+            self.root = NSURL(string: root)
+        }
+    }
     
     func create(closure: ([Distillery]) -> Void) {
-        JSONRequest(self.root).link("distilleries") { (href) in
-            self.handleDistilleryLink(href, closure)
+        if let root = self.root {
+            JSONRequest(root).link("distilleries") { (href) in
+                self.handleDistilleryLink(href, closure)
+            }
         }
     }
     

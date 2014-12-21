@@ -11,6 +11,9 @@
 		2437C39C1A3D841700685CCB /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437C39B1A3D841700685CCB /* Configuration.swift */; };
 		247283841A3C75050041551E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247283831A3C75050041551E /* String.swift */; };
 		2475CBAC1A3CA2C10038804C /* FilteredProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475CBAB1A3CA2C10038804C /* FilteredProjection.swift */; };
+		2478E41C1A464CA000091DA2 /* Logging-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2478E41B1A464CA000091DA2 /* Logging-Release.plist */; };
+		2478E41E1A46504900091DA2 /* Reference-Local.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2478E41D1A46504900091DA2 /* Reference-Local.plist */; };
+		2478E4231A4651D600091DA2 /* Reference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2478E4221A4651D600091DA2 /* Reference.plist */; };
 		2484C9121A3D907F00BA6840 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484C9111A3D907F00BA6840 /* RootController.swift */; };
 		2487AD671A38DD77007ADE75 /* LogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2487AD661A38DD77007ADE75 /* LogWriter.swift */; };
 		249BFFD91A3C18A6002DE701 /* StandardProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BFFD81A3C18A6002DE701 /* StandardProjection.swift */; };
@@ -45,6 +48,9 @@
 		2437C39B1A3D841700685CCB /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		247283831A3C75050041551E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2475CBAB1A3CA2C10038804C /* FilteredProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredProjection.swift; sourceTree = "<group>"; };
+		2478E41B1A464CA000091DA2 /* Logging-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Logging-Release.plist"; sourceTree = "<group>"; };
+		2478E41D1A46504900091DA2 /* Reference-Local.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Reference-Local.plist"; sourceTree = "<group>"; };
+		2478E4221A4651D600091DA2 /* Reference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Reference.plist; sourceTree = "<group>"; };
 		2484C9111A3D907F00BA6840 /* RootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 		2487AD661A38DD77007ADE75 /* LogWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWriter.swift; sourceTree = "<group>"; };
 		249BFFD81A3C18A6002DE701 /* StandardProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardProjection.swift; sourceTree = "<group>"; };
@@ -112,20 +118,23 @@
 				24FC641F1A42B32900DE8744 /* Main.storyboard */,
 				24FFF8D81A36D658002C1E88 /* Images.xcassets */,
 				2484C9111A3D907F00BA6840 /* RootController.swift */,
+				24FFF8CF1A36D658002C1E88 /* Configuration */,
 				24FFF9021A38CC06002C1E88 /* Distilleries */,
 				24FFF9011A38CBF9002C1E88 /* Utilities */,
-				24FFF8CF1A36D658002C1E88 /* Supporting Files */,
 			);
 			path = WhiskyNotebook;
 			sourceTree = "<group>";
 		};
-		24FFF8CF1A36D658002C1E88 /* Supporting Files */ = {
+		24FFF8CF1A36D658002C1E88 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				24FFF8D01A36D658002C1E88 /* Info.plist */,
 				2437C3991A3D7DD300685CCB /* Logging.plist */,
+				2478E41B1A464CA000091DA2 /* Logging-Release.plist */,
+				2478E41D1A46504900091DA2 /* Reference-Local.plist */,
+				2478E4221A4651D600091DA2 /* Reference.plist */,
 			);
-			name = "Supporting Files";
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 		24FFF8E41A36D658002C1E88 /* WhiskyNotebookTests */ = {
@@ -256,8 +265,11 @@
 			files = (
 				24FFF8DC1A36D658002C1E88 /* LaunchScreen.xib in Resources */,
 				2437C39A1A3D7DD300685CCB /* Logging.plist in Resources */,
+				2478E4231A4651D600091DA2 /* Reference.plist in Resources */,
 				24FFF8D91A36D658002C1E88 /* Images.xcassets in Resources */,
 				24FC64211A42B32900DE8744 /* Main.storyboard in Resources */,
+				2478E41E1A46504900091DA2 /* Reference-Local.plist in Resources */,
+				2478E41C1A464CA000091DA2 /* Logging-Release.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +344,83 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2478E41F1A4651A800091DA2 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Local;
+		};
+		2478E4201A4651A800091DA2 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WhiskyNotebook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Local;
+		};
+		2478E4211A4651A800091DA2 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WhiskyNotebookTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhiskyNotebook.app/WhiskyNotebook";
+			};
+			name = Local;
+		};
 		24FFF8E91A36D658002C1E88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -482,6 +571,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24FFF8E91A36D658002C1E88 /* Debug */,
+				2478E41F1A4651A800091DA2 /* Local */,
 				24FFF8EA1A36D658002C1E88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -491,6 +581,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24FFF8EC1A36D658002C1E88 /* Debug */,
+				2478E4201A4651A800091DA2 /* Local */,
 				24FFF8ED1A36D658002C1E88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -500,6 +591,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24FFF8EF1A36D658002C1E88 /* Debug */,
+				2478E4211A4651A800091DA2 /* Local */,
 				24FFF8F01A36D658002C1E88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
