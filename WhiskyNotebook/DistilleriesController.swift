@@ -30,7 +30,7 @@ final class DistilleriesController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let projection = projection(tableView) {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery") as DistilleryCell
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery", forIndexPath: indexPath) as DistilleryCell
             cell.loadItem(projection.at(indexPath.row))
             return cell
         }
@@ -66,6 +66,10 @@ final class DistilleriesController: UITableViewController {
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         self.filteredProjection = nil
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, willShowSearchResultsTableView tableView: UITableView) {
+        tableView.rowHeight = self.tableView.rowHeight
     }
     
     private func hideSearchBar() {
