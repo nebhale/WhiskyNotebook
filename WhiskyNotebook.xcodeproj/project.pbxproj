@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2437C39A1A3D7DD300685CCB /* Logging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2437C3991A3D7DD300685CCB /* Logging.plist */; };
 		2437C39C1A3D841700685CCB /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437C39B1A3D841700685CCB /* Configuration.swift */; };
+		245965AE1A4703F900AA0912 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245965AD1A4703F900AA0912 /* Region.swift */; };
 		247283841A3C75050041551E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247283831A3C75050041551E /* String.swift */; };
 		2475CBAC1A3CA2C10038804C /* FilteredProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475CBAB1A3CA2C10038804C /* FilteredProjection.swift */; };
 		2478E41C1A464CA000091DA2 /* Logging-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2478E41B1A464CA000091DA2 /* Logging-Release.plist */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		2437C3991A3D7DD300685CCB /* Logging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Logging.plist; sourceTree = "<group>"; };
 		2437C39B1A3D841700685CCB /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		245965AD1A4703F900AA0912 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		247283831A3C75050041551E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2475CBAB1A3CA2C10038804C /* FilteredProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredProjection.swift; sourceTree = "<group>"; };
 		2478E41B1A464CA000091DA2 /* Logging-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Logging-Release.plist"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				24BF19371A397A1D00CDF7B8 /* DistilleryCell.swift */,
 				2475CBAB1A3CA2C10038804C /* FilteredProjection.swift */,
 				24D2EE6F1A3B4AF900CF4D7F /* Projection.swift */,
+				245965AD1A4703F900AA0912 /* Region.swift */,
 				249BFFD81A3C18A6002DE701 /* StandardProjection.swift */,
 			);
 			name = Distilleries;
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2484C9121A3D907F00BA6840 /* RootController.swift in Sources */,
+				245965AE1A4703F900AA0912 /* Region.swift in Sources */,
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
 				24BF19381A397A1D00CDF7B8 /* DistilleryCell.swift in Sources */,
 				2475CBAC1A3CA2C10038804C /* FilteredProjection.swift in Sources */,

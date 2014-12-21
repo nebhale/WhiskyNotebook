@@ -4,6 +4,8 @@ import Foundation
 
 final class LogWriter {
     
+    // MARK: Properties
+    
     private let dateFormatter: NSDateFormatter
     
     private let level: Level
@@ -11,6 +13,8 @@ final class LogWriter {
     private let monitor = Monitor()
     
     private var maxNameLength = 0
+    
+    // MARK: Initializers
     
     init() {
         let config = configuration("Logging")
@@ -36,6 +40,8 @@ final class LogWriter {
             self.level = Level.Warn
         }
     }
+    
+    // MARK:
     
     func registerName(name: String) {
         synchronized(self.monitor) {

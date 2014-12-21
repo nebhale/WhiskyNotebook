@@ -4,15 +4,21 @@ import Foundation
 
 final class DistilleriesFactory {
     
+    // MARK: Properties
+    
     private let logger = Logger("DistilleriesFactory")
     
     private let root: NSURL?
+    
+    // MARK: Initializers
     
     init() {
         if let root = configuration("Reference")?["Root"] as? String {
             self.root = NSURL(string: root)
         }
     }
+    
+    // MARK:
     
     func create(closure: ([Distillery]) -> Void) {
         if let root = self.root {
@@ -42,7 +48,7 @@ final class DistilleriesFactory {
         
         switch(entity["id"], entity["name"], entity["region"], entity["latitude"], entity["longitude"]) {
         case(.Some(let id as String), .Some(let name as String), .Some(let region as String), .Some(let latitude as Double), .Some(let longitude as Double)):
-            distillery = Distillery(id, name, Distillery.Region(rawValue: region)!, latitude, longitude)
+            distillery = Distillery(id, name, Region(rawValue: region)!, latitude, longitude)
         default:
             self.logger.warn { "Invalid distillery payload '\(entity)'" }
         }

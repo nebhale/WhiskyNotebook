@@ -4,11 +4,15 @@ import UIKit
 
 final class FilteredProjection: Projection {
     
+    // MARK: Properties
+    
     private let distilleries: [Distillery]
+    
+    private let filtered: [Distillery]
     
     private let logger = Logger("FilteredProject")
     
-    private let filtered: [Distillery]
+    // MARK: Initializers
     
     init(_ distilleries: [Distillery]?, _ substring: String = "") {
         if let distilleries = distilleries {
@@ -23,6 +27,8 @@ final class FilteredProjection: Projection {
         
         self.logger.debug { "Filtered from \(self.distilleries.count) to \(self.filtered.count)" }
     }
+    
+    // MARK: Projection
     
     func at(index: Int) -> Distillery {
         return self.filtered[index]

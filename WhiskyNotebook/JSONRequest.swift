@@ -4,9 +4,13 @@ import Foundation
 
 final class JSONRequest {
     
+    // MARK: Properties
+    
     private let logger = Logger("JSONRequest")
     
     private let uri: NSURL
+    
+    // MARK: Initializers
     
     init(_ uri: NSURL) {
         self.uri = uri
@@ -15,6 +19,8 @@ final class JSONRequest {
     convenience init(_ uri: String) {
         self.init(NSURL(string: uri)!)
     }
+    
+    // MARK:
     
     func link(rel: String, closure: (NSURL) -> ()) {
         payload { (payload: [String:[String:[String:String]]]) in

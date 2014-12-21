@@ -128,7 +128,7 @@
         <!--Root-->
         <scene sceneID="oBl-F1-VLs">
             <objects>
-                <tabBarController id="WJV-2N-BA7" userLabel="Root" sceneMemberID="viewController">
+                <tabBarController id="WJV-2N-BA7" userLabel="Root" customClass="RootController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Sw4-Oa-H9K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

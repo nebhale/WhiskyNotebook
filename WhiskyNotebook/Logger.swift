@@ -4,6 +4,8 @@ import Foundation
 
 final class Logger {
     
+    // MARK: Properties
+    
     private class var logWriter: LogWriter {
         struct Static {
             static var instance: LogWriter?
@@ -19,10 +21,14 @@ final class Logger {
 
     private let name: String
     
+    // MARK: Initializers
+    
     init(_ name: String) {
         self.name = name
         Logger.logWriter.registerName(name)
     }
+    
+    // MARK:
 
     func debug(closure: () -> (AnyObject)) {
         Logger.logWriter.debug(self.name, closure)
