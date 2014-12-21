@@ -82,6 +82,7 @@
                                     <outlet property="id" destination="Lj1-UL-j32" id="DPh-Rj-gJk"/>
                                     <outlet property="name" destination="tfP-ke-ZWY" id="q8z-8C-okG"/>
                                     <outlet property="region" destination="IhM-vu-Rff" id="oBH-Zi-cSU"/>
+                                    <segue destination="ug4-FL-xoV" kind="show" identifier="showDistillery" id="IFN-WQ-mtX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -107,6 +108,24 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1462" y="694"/>
+        </scene>
+        <!--Distillery-->
+        <scene sceneID="FT0-Mn-4HZ">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="ug4-FL-xoV" userLabel="Distillery" customClass="DistilleryController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DdP-Ud-CDh"/>
+                        <viewControllerLayoutGuide type="bottom" id="rTV-RE-sMC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5JN-rp-2h5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eqi-Wm-3aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2180" y="688"/>
         </scene>
         <!--Distilleries Navigation-->
         <scene sceneID="iXz-6R-DXb">

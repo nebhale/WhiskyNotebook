@@ -22,8 +22,12 @@ final class DistilleriesController: UITableViewController {
         }
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.filteredProjection = nil
+        
+        onMain {
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: UISearchDisplayDelegate
@@ -36,11 +40,11 @@ final class DistilleriesController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let projection = self.filteredProjection {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery", forIndexPath: indexPath) as DistilleryCell
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery") as DistilleryCell
             cell.loadItem(projection.at(indexPath.row))
             return cell
         } else if let projection = self.projection {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery") as DistilleryCell
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("distillery", forIndexPath: indexPath) as DistilleryCell
             cell.loadItem(projection.at(indexPath.row))
             return cell
         } else {
@@ -58,7 +62,26 @@ final class DistilleriesController: UITableViewController {
         }
     }
     
-    // MARK: UIViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDistillery" {
+            self.logger.debug { "Handling showDistillery segue" }
+            
+            var distillery: Distillery?
+            if let projection = self.filteredProjection {
+                if let row = self.searchDisplayController?.searchResultsTableView.indexPathForSelectedRow()?.row {
+                    distillery = projection.at(row)
+                }
+            } else if let projection = self.projection {
+                if let row = self.tableView.indexPathForSelectedRow()?.row {
+                    distillery = projection.at(row)
+                }
+            }
+            
+            (segue.destinationViewController as DistilleryController).distillery = distillery
+        } else {
+            self.logger.debug { "Discarding segue \(segue)" }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +92,7 @@ final class DistilleriesController: UITableViewController {
         DistilleriesFactory().create { distilleries in
             self.logger.info { "Distilleries creation complete" }
             self.projection = StandardProjection(distilleries.sorted { $0 < $1 })
-
+            
             onMain {
                 self.hideSearchBar()
                 self.tableView.tableHeaderView?.hidden = false
