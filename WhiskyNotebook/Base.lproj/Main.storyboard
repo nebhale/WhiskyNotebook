@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WJV-2N-BA7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -120,12 +121,31 @@
                     <view key="view" contentMode="scaleToFill" id="5JN-rp-2h5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HIJ-tp-mQU">
+                                <rect key="frame" x="0.0" y="64" width="600" height="337.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HIJ-tp-mQU" secondAttribute="height" multiplier="16:9" id="hwE-gh-oCY"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="ug4-FL-xoV" id="4bq-eM-fMV"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HIJ-tp-mQU" firstAttribute="leading" secondItem="5JN-rp-2h5" secondAttribute="leading" id="Gje-Kn-Vou"/>
+                            <constraint firstAttribute="trailing" secondItem="HIJ-tp-mQU" secondAttribute="trailing" id="c3S-Fu-iUd"/>
+                            <constraint firstItem="HIJ-tp-mQU" firstAttribute="top" secondItem="DdP-Ud-CDh" secondAttribute="bottom" id="uU2-ub-anL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="HIJ-tp-mQU" id="lgq-b1-7Le"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eqi-Wm-3aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2180" y="688"/>
+            <point key="canvasLocation" x="2342" y="694"/>
         </scene>
         <!--Distilleries Navigation-->
         <scene sceneID="iXz-6R-DXb">
