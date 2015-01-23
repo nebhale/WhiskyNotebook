@@ -1,5 +1,6 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+import CloudKit
 import UIKit
 
 @UIApplicationMain

@@ -20,6 +20,9 @@
 		24E670E11A72D00C005AA399 /* ProfileEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E670E01A72D00C005AA399 /* ProfileEditController.swift */; };
 		24E670E31A72D8B3005AA399 /* ProfileDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E670E21A72D8B3005AA399 /* ProfileDataController.swift */; };
 		24E670E51A72DCE0005AA399 /* ProfileEditDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E670E41A72DCE0005AA399 /* ProfileEditDataController.swift */; };
+		24E670E71A72E1BD005AA399 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E670E61A72E1BD005AA399 /* User.swift */; };
+		24EA78751A72E46500A8CD0D /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EA78741A72E46500A8CD0D /* UserRepository.swift */; };
+		24EA78771A72E57500A8CD0D /* Memento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EA78761A72E57500A8CD0D /* Memento.swift */; };
 		24FC64211A42B32900DE8744 /* WhiskyNotebook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FC641F1A42B32900DE8744 /* WhiskyNotebook.storyboard */; };
 		24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8D11A36D658002C1E88 /* AppDelegate.swift */; };
 		24FFF8DC1A36D658002C1E88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */; };
@@ -53,6 +56,9 @@
 		24E670E01A72D00C005AA399 /* ProfileEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditController.swift; sourceTree = "<group>"; };
 		24E670E21A72D8B3005AA399 /* ProfileDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDataController.swift; sourceTree = "<group>"; };
 		24E670E41A72DCE0005AA399 /* ProfileEditDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditDataController.swift; sourceTree = "<group>"; };
+		24E670E61A72E1BD005AA399 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		24EA78741A72E46500A8CD0D /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		24EA78761A72E57500A8CD0D /* Memento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memento.swift; sourceTree = "<group>"; };
 		24FC64201A42B32900DE8744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WhiskyNotebook.storyboard; sourceTree = "<group>"; };
 		24FFF8CC1A36D658002C1E88 /* WhiskyNotebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiskyNotebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FFF8D01A36D658002C1E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +99,8 @@
 				24E670E21A72D8B3005AA399 /* ProfileDataController.swift */,
 				24E670E01A72D00C005AA399 /* ProfileEditController.swift */,
 				24E670E41A72DCE0005AA399 /* ProfileEditDataController.swift */,
+				24E670E61A72E1BD005AA399 /* User.swift */,
+				24EA78741A72E46500A8CD0D /* UserRepository.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -169,6 +177,7 @@
 				2487AD661A38DD77007ADE75 /* LogWriter.swift */,
 				24C730F41A40D6E20025AFE9 /* OnMain.swift */,
 				24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */,
+				24EA78761A72E57500A8CD0D /* Memento.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -286,14 +295,17 @@
 			files = (
 				24E670DF1A72CDE4005AA399 /* ProfileController.swift in Sources */,
 				24E670E11A72D00C005AA399 /* ProfileEditController.swift in Sources */,
+				24EA78751A72E46500A8CD0D /* UserRepository.swift in Sources */,
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
 				24E670E51A72DCE0005AA399 /* ProfileEditDataController.swift in Sources */,
 				24FFF8FA1A3797BD002C1E88 /* Logger.swift in Sources */,
 				24C730F51A40D6E20025AFE9 /* OnMain.swift in Sources */,
 				24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */,
+				24EA78771A72E57500A8CD0D /* Memento.swift in Sources */,
 				2437C39C1A3D841700685CCB /* Configuration.swift in Sources */,
 				24E670E31A72D8B3005AA399 /* ProfileDataController.swift in Sources */,
 				2487AD671A38DD77007ADE75 /* LogWriter.swift in Sources */,
+				24E670E71A72E1BD005AA399 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
