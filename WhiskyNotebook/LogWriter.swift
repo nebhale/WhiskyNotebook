@@ -1,10 +1,16 @@
-// Copyright 2014 Ben Hale. All Rights Reserved
+// Copyright 2014-2015 Ben Hale. All Rights Reserved
 
 import Foundation
 
 final class LogWriter {
     
-    // MARK: Properties
+    class var instance: LogWriter {
+        struct Static {
+            static let instance = LogWriter()
+        }
+        
+        return Static.instance
+    }
     
     private let dateFormatter: NSDateFormatter
     
@@ -14,9 +20,7 @@ final class LogWriter {
     
     private var maxNameLength = 0
     
-    // MARK: Initializers
-    
-    init() {
+    private init() {
         let config = configuration("Logging")
         
         self.dateFormatter = NSDateFormatter()
@@ -41,34 +45,34 @@ final class LogWriter {
         }
     }
     
-    // MARK:
-    
     func registerName(name: String) {
         synchronized(self.monitor) {
             self.maxNameLength = max(self.maxNameLength, countElements(name))
         }
     }
     
-    func debug(name:String, closure: () -> (AnyObject)) {
-        log(Level.Debug) { "[DEBUG] \(self.pad(name)) \(closure())" }
+    typealias MessageProvider = () -> AnyObject?
+    
+    func debug(name:String, messageProvider: MessageProvider) {
+        log(Level.Debug) { "[DEBUG] \(self.pad(name)) \(messageProvider())" }
     }
     
-    func info(name: String, closure: () -> (AnyObject)) {
-        log(Level.Info) { "[INFO]  \(self.pad(name)) \(closure())" }
+    func info(name: String, messageProvider: MessageProvider) {
+        log(Level.Info) { "[INFO]  \(self.pad(name)) \(messageProvider())" }
     }
     
-    func warn(name: String, closure: () -> (AnyObject)) {
-        log(Level.Warn) { "[WARN]  \(self.pad(name)) \(closure())" }
+    func warn(name: String, messageProvider: MessageProvider) {
+        log(Level.Warn) { "[WARN]  \(self.pad(name)) \(messageProvider())" }
     }
     
-    func error(name: String, closure: () -> (AnyObject)) {
-        log(Level.Error) { "[ERROR] \(self.pad(name)) \(closure())" }
+    func error(name: String, messageProvider: MessageProvider) {
+        log(Level.Error) { "[ERROR] \(self.pad(name)) \(messageProvider())" }
     }
     
-    private func log(level: Level, closure: () -> (String)) {
+    private func log(level: Level, messageProvider: MessageProvider) {
         synchronized(self.monitor) {
             if self.level.rawValue <= level.rawValue {
-                println("\(self.dateFormatter.stringFromDate(NSDate())) \(closure())")
+                println("\(self.dateFormatter.stringFromDate(NSDate())) \(messageProvider())")
             }
         }
     }

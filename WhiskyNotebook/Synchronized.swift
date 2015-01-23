@@ -1,21 +1,21 @@
-// Copyright 2014 Ben Hale. All Rights Reserved
+// Copyright 2014-2015 Ben Hale. All Rights Reserved
 
 import Foundation
 
 final class Monitor {}
 
-func synchronized<T>(monitor: Monitor, closure: () -> T) -> T {
+func synchronized<T>(monitor: Monitor, f: () -> T) -> T {
     var result: T
     
     objc_sync_enter(monitor)
-    result = closure()
+    result = f()
     objc_sync_exit(monitor)
     
     return result
 }
 
-func synchronized(monitor: Monitor, closure: () -> Void) {
+func synchronized(monitor: Monitor, f: () -> Void) {
     objc_sync_enter(monitor)
-    closure()
+    f()
     objc_sync_exit(monitor)
 }

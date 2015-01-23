@@ -1,10 +1,13 @@
-// Copyright 2014 Ben Hale. All Rights Reserved
+// Copyright 2014-2015 Ben Hale. All Rights Reserved
 
 import Foundation
 
-func configuration(name: String) -> [String: AnyObject]? {
+
+typealias Configuration = [String : AnyObject]
+
+func configuration(name: String) -> Configuration? {
     var qualifiedName: String
-    if let configuration = (NSBundle.mainBundle().infoDictionary as? [String: AnyObject])?["Configuration"] as? String {
+    if let configuration = (NSBundle.mainBundle().infoDictionary as? Configuration)?["Configuration"] as? String {
         qualifiedName = "\(name)-\(configuration)"
     } else {
         qualifiedName = name

@@ -1,49 +1,34 @@
-// Copyright 2014 Ben Hale. All Rights Reserved
+// Copyright 2014-2015 Ben Hale. All Rights Reserved
 
 import Foundation
 
 final class Logger {
     
-    // MARK: Properties
+    private let logWriter = LogWriter.instance
     
-    private class var logWriter: LogWriter {
-        struct Static {
-            static var instance: LogWriter?
-            static var token: dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.token) {
-            Static.instance = LogWriter()
-        }
-        
-        return Static.instance!
-    }
-
     private let name: String
     
-    // MARK: Initializers
-    
-    init(_ name: String) {
+    init(name: String) {
         self.name = name
-        Logger.logWriter.registerName(name)
+        self.logWriter.registerName(name)
     }
     
-    // MARK:
-
-    func debug(closure: () -> (AnyObject)) {
-        Logger.logWriter.debug(self.name, closure)
+    typealias MessageProvider = () -> AnyObject?
+    
+    func debug(messageProvider: MessageProvider) {
+        self.logWriter.debug(self.name, messageProvider)
     }
 
-    func info(closure: () -> (AnyObject)) {
-        Logger.logWriter.info(self.name, closure)
+    func info(messageProvider: MessageProvider) {
+        self.logWriter.info(self.name, messageProvider)
     }
     
-    func warn(closure: () -> (AnyObject)) {
-        Logger.logWriter.warn(self.name, closure)
+    func warn(messageProvider: MessageProvider) {
+        self.logWriter.warn(self.name, messageProvider)
     }
 
-    func error(closure: () -> (AnyObject)) {
-        Logger.logWriter.error(self.name, closure)
+    func error(messageProvider: MessageProvider) {
+        self.logWriter.error(self.name, messageProvider)
     }
 
 }
