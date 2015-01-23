@@ -4,6 +4,8 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private let logger = Logger(name: "AppDelegate")
 
     var window: UIWindow?
 
