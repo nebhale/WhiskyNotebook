@@ -17,8 +17,6 @@ final class ProfileController: UIViewController, UIBarPositioningDelegate {
     
     @IBAction
     func profileEditSave(segue: UIStoryboardSegue) {
-        self.logger.debug { "Profile edit saved" }
-        
         if let controller = segue.sourceViewController.childViewControllers.first as? ProfileEditDataController {
             UserRepository.instance.save(controller.toUser())
         }

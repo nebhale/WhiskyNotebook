@@ -12,12 +12,21 @@ final class ProfileEditDataController: UITableViewController {
     @IBOutlet
     var name: UITextField?
     
+    var user: User? {
+        didSet {
+            onMain {
+                self.name?.text = self.user?.name
+                self.membership?.text = self.user?.membership
+            }
+        }
+    }
+    
     var userRepositoryMemento: Memento?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.userRepositoryMemento = UserRepository.instance.subscribe(onUser)
+        self.userRepositoryMemento = UserRepository.instance.subscribe { self.user = $0 }
         
         // Segued View calculates a non-standard row height
         self.tableView.rowHeight = 44
@@ -29,12 +38,11 @@ final class ProfileEditDataController: UITableViewController {
         UserRepository.instance.unsubscribe(self.userRepositoryMemento)
     }
     
-    func toUser() -> User {
-        return User(id: "", name: self.name?.text, membership: self.membership?.text)
-    }
-    
-    private func onUser(user: User) {
-        self.logger.debug { "User updated: \(user)" }
+    func toUser() -> User? {
+        self.user?.name = self.name?.text
+        self.user?.membership = self.membership?.text
+        
+        return self.user
     }
     
 }

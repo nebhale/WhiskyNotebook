@@ -6,9 +6,7 @@ final class Memento: Equatable, Hashable {
     
     private let id = NSUUID()
     
-    var hashValue: Int {
-        return self.id.hashValue
-    }
+    var hashValue: Int { return self.id.hashValue }
     
 }
 

@@ -12,25 +12,27 @@ final class ProfileDataController: UITableViewController {
     @IBOutlet
     var name: UILabel?
     
+    var user: User? {
+        didSet {
+            onMain {
+                self.name?.text = self.user?.name
+                self.membership?.text = self.user?.membership
+            }
+        }
+    }
+    
     var userRepositoryMemento: Memento?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.userRepositoryMemento = UserRepository.instance.subscribe(onUser)
+        self.userRepositoryMemento = UserRepository.instance.subscribe { self.user = $0 }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
         UserRepository.instance.unsubscribe(self.userRepositoryMemento)
-    }
-    
-    private func onUser(user: User) {
-        onMain {
-            self.name?.text = user.name
-            self.membership?.text = user.membership
-        }
     }
     
 }

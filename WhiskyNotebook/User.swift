@@ -1,25 +1,35 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
-final class User: Equatable, Hashable, Printable {
+import CloudKit
+
+final class User: RecordBased, Equatable, Hashable, Printable {
     
-    let id: String
+    private let record: CKRecord
     
-    let name: String?
+    var description: String { return "<User: \(self.id); name=\(self.name), membership=\(self.membership)>" }
     
-    let membership: String?
+    var hashValue: Int { return self.id.hashValue }
     
-    var description: String {
-        return "<User: \(self.id); name=\(self.name), membership=\(self.membership)>"
+    var id: String {
+        get { return self.record.recordID.recordName }
     }
     
-    var hashValue: Int {
-        return self.id.hashValue
+    var name: String? {
+        get { return self.record.objectForKey("Name") as? String }
+        set { self.record.setObject(newValue, forKey: "Name") }
     }
     
-    init(id: String, name: String?, membership: String?) {
-        self.id = id
-        self.name = name
-        self.membership = membership
+    var membership: String? {
+        get { return self.record.objectForKey("Membership") as? String }
+        set { self.record.setObject(newValue, forKey: "Membership") }
+    }
+    
+    init(record: CKRecord) {
+        self.record = record
+    }
+    
+    func toRecord() -> CKRecord {
+        return self.record
     }
     
 }

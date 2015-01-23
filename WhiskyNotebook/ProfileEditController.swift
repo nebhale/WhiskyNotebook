@@ -10,8 +10,4 @@ final class ProfileEditController: UIViewController, UIBarPositioningDelegate {
         return UIBarPosition.TopAttached
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(false)
-    }
-    
 }
