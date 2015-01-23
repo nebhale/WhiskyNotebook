@@ -13,7 +13,7 @@ final class Logger {
         self.logWriter.registerName(name)
     }
     
-    typealias MessageProvider = () -> AnyObject?
+    typealias MessageProvider = () -> AnyObject
     
     func debug(messageProvider: MessageProvider) {
         self.logWriter.debug(self.name, messageProvider)

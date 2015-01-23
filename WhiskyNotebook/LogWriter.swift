@@ -51,7 +51,7 @@ final class LogWriter {
         }
     }
     
-    typealias MessageProvider = () -> AnyObject?
+    typealias MessageProvider = () -> AnyObject
     
     func debug(name:String, messageProvider: MessageProvider) {
         log(Level.Debug) { "[DEBUG] \(self.pad(name)) \(messageProvider())" }
