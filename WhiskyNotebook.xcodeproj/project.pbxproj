@@ -236,6 +236,9 @@
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 37P3YGWA67;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Passbook = {
 								enabled = 1;
 							};
