@@ -38,6 +38,8 @@ final class UserRepository {
     
     func save(user: User?) {
         if let user = user {
+            self.logger.debug { "Saving user \(user)" }
+            
             self.database.saveRecord(user.toRecord()) { record, error in
                 if error != nil {
                     // TODO:
@@ -46,6 +48,7 @@ final class UserRepository {
                 }
                 
                 self.user = User(record: record)
+                self.logger.info { "Saved user: \(self.user)" }
             }
         }
     }
@@ -68,6 +71,8 @@ final class UserRepository {
     }
     
     private func fetch() {
+        self.logger.debug { "Fetching user" }
+        
         CKContainer.defaultContainer().fetchUserRecordIDWithCompletionHandler { recordId, error in
             if error != nil {
                 //TODO:
@@ -83,6 +88,7 @@ final class UserRepository {
                 }
 
                 self.user = User(record: record)
+                self.logger.info { "Fetched user: \(self.user)" }
             }
         }
     }
