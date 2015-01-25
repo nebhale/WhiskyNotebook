@@ -15,7 +15,7 @@ final class UserRepository {
     
     typealias Listener = User? -> Void
     
-    private let database = CKContainer.defaultContainer().privateCloudDatabase
+    private let database = CKContainer.defaultContainer().publicCloudDatabase
     
     private var listeners: [Memento : Listener] = [:]
     
@@ -34,7 +34,7 @@ final class UserRepository {
     }
     
     private init() {
-        Subscription(recordType: "Distillery", database: self.database, notificationHandler: fetch)
+        Subscription(recordType: CKRecordTypeUserRecord, database: self.database, notificationHandler: fetch)
     }
     
     func save(user: User?) {

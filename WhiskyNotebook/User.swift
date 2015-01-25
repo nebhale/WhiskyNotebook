@@ -7,9 +7,13 @@ final class User: RecordBased, Equatable, Hashable, Printable {
     
     private let record: CKRecord
     
-    var description: String { return "<User: \(self.id); name=\(self.name), membership=\(self.membership)>" }
+    var description: String { return "<User: \(self.id); name=\(self.name), membership=\(self.membership), administrator=\(self.administrator)>" }
     
     var hashValue: Int { return self.id.hashValue }
+    
+    var administrator: Bool? {
+        get { return (self.record.objectForKey("Administrator") as? String)?.toBool() }
+    }
     
     var id: String {
         get { return self.record.recordID.recordName }

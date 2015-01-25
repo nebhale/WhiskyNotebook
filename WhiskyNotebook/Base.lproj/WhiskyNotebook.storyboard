@@ -56,6 +56,41 @@
             </objects>
             <point key="canvasLocation" x="2042" y="2142"/>
         </scene>
+        <!--Distilleries-->
+        <scene sceneID="nPd-zE-YIj">
+            <objects>
+                <tableViewController id="WPZ-SP-INN" userLabel="Distilleries" customClass="DistilleriesController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sAK-1y-iFC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Distillery" textLabel="sqz-GZ-QQk" style="IBUITableViewCellStyleDefault" id="1tg-ti-kjq">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1tg-ti-kjq" id="wfa-P6-Yfy">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sqz-GZ-QQk">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WPZ-SP-INN" id="yXp-QB-47C"/>
+                            <outlet property="delegate" destination="WPZ-SP-INN" id="cbH-Fl-v3h"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Distilleries" id="0P0-Nv-Zzz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8IK-Jm-Ca4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3929" y="1251"/>
+        </scene>
         <!--Profile Data-->
         <scene sceneID="yHk-gK-E7M">
             <objects>
@@ -215,6 +250,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="tlw-bh-T3H" kind="relationship" relationship="viewControllers" id="oqS-9k-7c6"/>
                         <segue destination="XOM-gL-ICL" kind="relationship" relationship="viewControllers" id="2uL-s2-Yww"/>
                     </connections>
                 </tabBarController>
@@ -314,8 +350,28 @@
             </objects>
             <point key="canvasLocation" x="3023" y="3039"/>
         </scene>
+        <!--Distilleries Navigation-->
+        <scene sceneID="DD7-Wh-C0A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tlw-bh-T3H" userLabel="Distilleries Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Distilleries" image="DistilleriesIcon" id="AAe-LJ-YRN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vnm-t8-DcA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WPZ-SP-INN" kind="relationship" relationship="rootViewController" id="Pr5-HI-lbH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aW-Cd-NJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3023" y="1251"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="DistilleriesIcon" width="30" height="30"/>
         <image name="ProfileIcon" width="30" height="30"/>
     </resources>
 </document>

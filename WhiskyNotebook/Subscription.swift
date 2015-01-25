@@ -22,15 +22,8 @@ final class Subscription {
         
         RemoteNotificationBroker.instance.subscribe(didReceiveRemoteNotification)
         
-        if !NSUserDefaults.standardUserDefaults().boolForKey(self.subscriptionId) {
-            self.logger.debug { "Subscription does not exist: \(self.subscriptionId)" }
-            
-            saveSubscription(subscriptionForRecordType(recordType, subscriptionId: self.subscriptionId, predicate: predicate), database: database) { subscription in
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: subscription.subscriptionID)
-                self.notificationHandler()
-            }
-        } else {
-            self.logger.debug { "Subscription exists: \(self.subscriptionId)" }
+        saveSubscription(subscriptionForRecordType(recordType, subscriptionId: self.subscriptionId, predicate: predicate), database: database) { subscription in
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: subscription.subscriptionID)
             self.notificationHandler()
         }
     }
