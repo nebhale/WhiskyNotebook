@@ -7,6 +7,8 @@ final class DistilleriesController: UITableViewController {
     
     private let logger = Logger(name: "DistilleriesController")
     
+    private var addButton: UIBarButtonItem?
+    
     var distilleries: [Distillery] = [] {
         didSet {
             onMain { self.tableView.reloadData() }
@@ -15,7 +17,10 @@ final class DistilleriesController: UITableViewController {
     
     var user: User? {
         didSet {
-            onMain { self.tableView.reloadData() }
+            onMain {
+                self.navigationItem.rightBarButtonItem = (self.user?.administrator? == true) ? self.addButton : nil
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -28,6 +33,9 @@ final class DistilleriesController: UITableViewController {
         
         self.distilleryRepositoryMemento = DistilleryRepository.instance.subscribe { self.distilleries = $0 }
         self.userRepositoryMemento = UserRepository.instance.subscribe { self.user = $0 }
+        
+        self.addButton = self.navigationItem.rightBarButtonItem
+        self.navigationItem.rightBarButtonItem = nil
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,11 +50,7 @@ final class DistilleriesController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let administrator = self.user?.administrator {
-            return administrator
-        } else {
-            return false
-        }
+        return self.user?.administrator? == true
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

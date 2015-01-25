@@ -85,7 +85,9 @@
                             <outlet property="delegate" destination="WPZ-SP-INN" id="cbH-Fl-v3h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Distilleries" id="0P0-Nv-Zzz"/>
+                    <navigationItem key="navigationItem" title="Distilleries" id="0P0-Nv-Zzz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ir3-G8-V3S"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IK-Jm-Ca4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
