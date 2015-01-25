@@ -54,8 +54,8 @@ final class DistilleriesController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("Distillery", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = distilleries[indexPath.row].id
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("Distillery", forIndexPath: indexPath) as DistilleryCell
+        cell.loadItem(distilleries[indexPath.row])
         
         return cell
     }
