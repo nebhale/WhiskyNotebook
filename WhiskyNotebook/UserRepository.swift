@@ -2,6 +2,7 @@
 
 import CloudKit
 
+
 final class UserRepository {
     
     class var instance: UserRepository {
@@ -33,7 +34,7 @@ final class UserRepository {
     }
     
     private init() {
-        fetch()
+        Subscription(recordType: "Distillery", database: self.database, notificationHandler: fetch)
     }
     
     func save(user: User?) {

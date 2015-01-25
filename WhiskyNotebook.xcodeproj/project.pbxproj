@@ -24,6 +24,8 @@
 		24EA78751A72E46500A8CD0D /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EA78741A72E46500A8CD0D /* UserRepository.swift */; };
 		24EA78771A72E57500A8CD0D /* Memento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EA78761A72E57500A8CD0D /* Memento.swift */; };
 		24EA787B1A72F84A00A8CD0D /* RecordBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EA787A1A72F84A00A8CD0D /* RecordBased.swift */; };
+		24EC987A1A74CDE1002D57C3 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EC98791A74CDE1002D57C3 /* Subscription.swift */; };
+		24EC987C1A74D874002D57C3 /* RemoteNotificationBroker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EC987B1A74D874002D57C3 /* RemoteNotificationBroker.swift */; };
 		24FC64211A42B32900DE8744 /* WhiskyNotebook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FC641F1A42B32900DE8744 /* WhiskyNotebook.storyboard */; };
 		24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8D11A36D658002C1E88 /* AppDelegate.swift */; };
 		24FFF8DC1A36D658002C1E88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */; };
@@ -61,6 +63,8 @@
 		24EA78741A72E46500A8CD0D /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		24EA78761A72E57500A8CD0D /* Memento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memento.swift; sourceTree = "<group>"; };
 		24EA787A1A72F84A00A8CD0D /* RecordBased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBased.swift; sourceTree = "<group>"; };
+		24EC98791A74CDE1002D57C3 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		24EC987B1A74D874002D57C3 /* RemoteNotificationBroker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationBroker.swift; sourceTree = "<group>"; };
 		24FC64201A42B32900DE8744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WhiskyNotebook.storyboard; sourceTree = "<group>"; };
 		24FFF8CC1A36D658002C1E88 /* WhiskyNotebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiskyNotebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FFF8D01A36D658002C1E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +141,9 @@
 			children = (
 				24FC641F1A42B32900DE8744 /* WhiskyNotebook.storyboard */,
 				24FFF8D11A36D658002C1E88 /* AppDelegate.swift */,
+				24EA787A1A72F84A00A8CD0D /* RecordBased.swift */,
+				24EC987B1A74D874002D57C3 /* RemoteNotificationBroker.swift */,
+				24EC98791A74CDE1002D57C3 /* Subscription.swift */,
 				24E670DD1A72CDC4005AA399 /* Profile */,
 				24FFF9011A38CBF9002C1E88 /* Utilities */,
 			);
@@ -179,7 +186,6 @@
 				2487AD661A38DD77007ADE75 /* LogWriter.swift */,
 				24EA78761A72E57500A8CD0D /* Memento.swift */,
 				24C730F41A40D6E20025AFE9 /* OnMain.swift */,
-				24EA787A1A72F84A00A8CD0D /* RecordBased.swift */,
 				24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */,
 			);
 			name = Utilities;
@@ -300,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24E670DF1A72CDE4005AA399 /* ProfileController.swift in Sources */,
+				24EC987C1A74D874002D57C3 /* RemoteNotificationBroker.swift in Sources */,
 				24E670E11A72D00C005AA399 /* ProfileEditController.swift in Sources */,
 				24EA78751A72E46500A8CD0D /* UserRepository.swift in Sources */,
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
@@ -308,6 +315,7 @@
 				24C730F51A40D6E20025AFE9 /* OnMain.swift in Sources */,
 				24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */,
 				24EA787B1A72F84A00A8CD0D /* RecordBased.swift in Sources */,
+				24EC987A1A74CDE1002D57C3 /* Subscription.swift in Sources */,
 				24EA78771A72E57500A8CD0D /* Memento.swift in Sources */,
 				2437C39C1A3D841700685CCB /* Configuration.swift in Sources */,
 				24E670E31A72D8B3005AA399 /* ProfileDataController.swift in Sources */,

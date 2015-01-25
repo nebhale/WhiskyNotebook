@@ -2,6 +2,7 @@
 
 import Foundation
 
+
 final class Memento: Equatable, Hashable {
     
     private let id = NSUUID()

@@ -2,6 +2,7 @@
 
 import Foundation
 
+
 final class Monitor {}
 
 func synchronized<T>(monitor: Monitor, f: () -> T) -> T {

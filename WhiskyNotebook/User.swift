@@ -2,6 +2,7 @@
 
 import CloudKit
 
+
 final class User: RecordBased, Equatable, Hashable, Printable {
     
     private let record: CKRecord

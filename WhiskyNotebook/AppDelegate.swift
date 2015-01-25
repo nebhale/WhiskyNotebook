@@ -2,6 +2,7 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: UIBackgroundFetchResult -> Void) {
         self.logger.debug { userInfo }
-        return completionHandler(UIBackgroundFetchResult.NoData)
+        return completionHandler(RemoteNotificationBroker.instance.publish(userInfo))
     }
 
 }

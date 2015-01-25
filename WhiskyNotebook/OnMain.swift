@@ -2,6 +2,7 @@
 
 import Foundation
 
+
 func onMain(f: () -> Void) {
     dispatch_async(dispatch_get_main_queue(), f)
 }

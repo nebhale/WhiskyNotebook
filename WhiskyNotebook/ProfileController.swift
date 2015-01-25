@@ -2,6 +2,7 @@
 
 import UIKit
 
+
 final class ProfileController: UIViewController, UIBarPositioningDelegate {
     
     private let logger = Logger(name: "ProfileController")

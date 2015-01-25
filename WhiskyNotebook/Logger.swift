@@ -2,7 +2,10 @@
 
 import Foundation
 
+
 final class Logger {
+    
+    typealias MessageProvider = () -> AnyObject
     
     private let logWriter = LogWriter.instance
     
@@ -12,8 +15,6 @@ final class Logger {
         self.name = name
         self.logWriter.registerName(name)
     }
-    
-    typealias MessageProvider = () -> AnyObject
     
     func debug(messageProvider: MessageProvider) {
         self.logWriter.debug(self.name, messageProvider)

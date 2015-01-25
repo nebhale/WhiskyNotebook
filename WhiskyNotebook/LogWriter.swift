@@ -2,6 +2,7 @@
 
 import Foundation
 
+
 final class LogWriter {
     
     class var instance: LogWriter {
@@ -11,6 +12,8 @@ final class LogWriter {
         
         return Static.instance
     }
+    
+    typealias MessageProvider = () -> AnyObject
     
     private let dateFormatter: NSDateFormatter
     
@@ -50,8 +53,6 @@ final class LogWriter {
             self.maxNameLength = max(self.maxNameLength, countElements(name))
         }
     }
-    
-    typealias MessageProvider = () -> AnyObject
     
     func debug(name:String, messageProvider: MessageProvider) {
         log(Level.Debug) { "[DEBUG] \(self.pad(name)) \(messageProvider())" }
