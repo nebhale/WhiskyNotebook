@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OXs-1h-3Yi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -71,7 +72,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11l-XF-Fes">
-                                            <rect key="frame" x="16" y="8" width="50" height="27.5"/>
+                                            <rect key="frame" x="16" y="8" width="50" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="Jjc-Y2-9WN"/>
                                             </constraints>
@@ -80,13 +81,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-Pz-DNx">
-                                            <rect key="frame" x="513" y="13" width="45.5" height="17"/>
+                                            <rect key="frame" x="513" y="13" width="46" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKw-5R-doU">
-                                            <rect key="frame" x="74" y="11" width="48" height="21.5"/>
+                                            <rect key="frame" x="74" y="11" width="48" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -107,6 +108,7 @@
                                     <outlet property="id" destination="11l-XF-Fes" id="RUP-i5-QIv"/>
                                     <outlet property="name" destination="fKw-5R-doU" id="iHo-8p-2Hk"/>
                                     <outlet property="region" destination="LXu-Pz-DNx" id="u5a-ft-4We"/>
+                                    <segue destination="spC-YP-TbU" kind="show" identifier="ShowDistillery" id="nhJ-td-pTf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -198,6 +200,40 @@
             </objects>
             <point key="canvasLocation" x="3929" y="2142"/>
         </scene>
+        <!--Distillery-->
+        <scene sceneID="9UH-7c-ER7">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="spC-YP-TbU" userLabel="Distillery" customClass="DistilleryController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="34E-8z-QZ5"/>
+                        <viewControllerLayoutGuide type="bottom" id="vhQ-KV-EON"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xms-Gu-LZG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JWc-2e-S2x">
+                                <rect key="frame" x="0.0" y="64" width="600" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JWc-2e-S2x" secondAttribute="height" multiplier="4:3" id="qkZ-9i-vTU"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JWc-2e-S2x" firstAttribute="leading" secondItem="Xms-Gu-LZG" secondAttribute="leading" id="En4-qu-W1P"/>
+                            <constraint firstAttribute="trailing" secondItem="JWc-2e-S2x" secondAttribute="trailing" id="GmV-n4-PKB"/>
+                            <constraint firstItem="JWc-2e-S2x" firstAttribute="top" secondItem="34E-8z-QZ5" secondAttribute="bottom" id="zxk-Zc-sPJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="JWc-2e-S2x" id="IC5-Lh-9e9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GWz-hK-Wp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4823" y="1251"/>
+        </scene>
         <!--Distillery Add Data-->
         <scene sceneID="Oqa-6I-aeS">
             <objects>
@@ -215,7 +251,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Id" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6MS-BC-edX" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="8" width="576" height="27.5"/>
+                                                    <rect key="frame" x="16" y="8" width="576" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                     <connections>
@@ -238,7 +274,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ctw-2g-la6" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="8" width="576" height="27.5"/>
+                                                    <rect key="frame" x="16" y="8" width="576" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                                     <connections>

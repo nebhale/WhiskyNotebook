@@ -16,26 +16,10 @@ final class DistilleryAddController: UIViewController, UIBarPositioningDelegate 
     
     func pinLocation() {
         if validLatitude() && validLongitude() {
-            switch(self.mapView, dataController()?.latitude?.text.toDouble(), dataController()?.longitude?.text.toDouble()) {
-            case(.Some(let mapView), .Some(let latitude), .Some(let longitude)):
-                if let annotations = self.mapView?.annotations {
-                    for annotation in annotations {
-                        self.logger.debug { "Removing existing annotation \(annotation)" }
-                        self.mapView?.removeAnnotation(annotation as MKAnnotation)
-                    }
-                }
-                
-                self.logger.debug { "Adding annotation for \(latitude), \(longitude)" }
-                let location = CLLocationCoordinate2DMake(latitude, longitude)
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = location
-                self.mapView?.addAnnotation(annotation)
-                
-                self.mapView?.setCenterCoordinate(location, animated: true)
-                
-                let region = MKCoordinateRegionMakeWithDistance(location, 250_000, 250_000)
-                self.mapView?.setRegion(region, animated: true)
+            switch(dataController()?.latitude?.text.toDouble(), dataController()?.longitude?.text.toDouble()) {
+            case(.Some(let latitude), .Some(let longitude)):
+                let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                DistilleryAnnotation(coordinate: coordinate).addToMapView(self.mapView)
             default:
                 self.logger.debug { "Unable to add annotation for \(self.dataController()?.latitude?.text), \(self.dataController()?.longitude?.text)" }
             }

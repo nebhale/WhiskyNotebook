@@ -17,6 +17,8 @@
 		2478E41C1A464CA000091DA2 /* Logging-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2478E41B1A464CA000091DA2 /* Logging-Release.plist */; };
 		2487AD671A38DD77007ADE75 /* LogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2487AD661A38DD77007ADE75 /* LogWriter.swift */; };
 		249DE4CE1A74F6C1003E94BF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4CD1A74F6C1003E94BF /* String.swift */; };
+		249DE4D01A76136E003E94BF /* DistilleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4CF1A76136E003E94BF /* DistilleryController.swift */; };
+		249DE4D21A76201D003E94BF /* DistilleryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4D11A76201D003E94BF /* DistilleryAnnotation.swift */; };
 		24B3F2D51A756FBE002CFB46 /* DistilleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3F2D41A756FBE002CFB46 /* DistilleryCell.swift */; };
 		24C730F51A40D6E20025AFE9 /* OnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C730F41A40D6E20025AFE9 /* OnMain.swift */; };
 		24E670D81A72C407005AA399 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E670D71A72C407005AA399 /* PassKit.framework */; };
@@ -65,6 +67,8 @@
 		2478E41B1A464CA000091DA2 /* Logging-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Logging-Release.plist"; sourceTree = "<group>"; };
 		2487AD661A38DD77007ADE75 /* LogWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWriter.swift; sourceTree = "<group>"; };
 		249DE4CD1A74F6C1003E94BF /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		249DE4CF1A76136E003E94BF /* DistilleryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryController.swift; sourceTree = "<group>"; };
+		249DE4D11A76201D003E94BF /* DistilleryAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAnnotation.swift; sourceTree = "<group>"; };
 		24B3F2D41A756FBE002CFB46 /* DistilleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryCell.swift; sourceTree = "<group>"; };
 		24C730F41A40D6E20025AFE9 /* OnMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnMain.swift; sourceTree = "<group>"; };
 		24E670D71A72C407005AA399 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
@@ -136,7 +140,9 @@
 				24EC987E1A74DB07002D57C3 /* Distillery.swift */,
 				2400FD011A7586B9003C1CE1 /* DistilleryAddController.swift */,
 				2400FD031A7589F6003C1CE1 /* DistilleryAddDataController.swift */,
+				249DE4D11A76201D003E94BF /* DistilleryAnnotation.swift */,
 				24B3F2D41A756FBE002CFB46 /* DistilleryCell.swift */,
+				249DE4CF1A76136E003E94BF /* DistilleryController.swift */,
 				24EC98801A74DDFF002D57C3 /* DistilleryRepository.swift */,
 			);
 			name = Distilleries;
@@ -354,9 +360,11 @@
 				24FFF8FA1A3797BD002C1E88 /* Logger.swift in Sources */,
 				24EC98811A74DDFF002D57C3 /* DistilleryRepository.swift in Sources */,
 				24C730F51A40D6E20025AFE9 /* OnMain.swift in Sources */,
+				249DE4D01A76136E003E94BF /* DistilleryController.swift in Sources */,
 				24EC98831A74E11C002D57C3 /* DistilleriesController.swift in Sources */,
 				2400FD081A75EA09003C1CE1 /* ChainedTextField.swift in Sources */,
 				24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */,
+				249DE4D21A76201D003E94BF /* DistilleryAnnotation.swift in Sources */,
 				24EA787B1A72F84A00A8CD0D /* RecordBased.swift in Sources */,
 				24EC987A1A74CDE1002D57C3 /* Subscription.swift in Sources */,
 				24B3F2D51A756FBE002CFB46 /* DistilleryCell.swift in Sources */,

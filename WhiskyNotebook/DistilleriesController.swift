@@ -61,6 +61,14 @@ final class DistilleriesController: UITableViewController {
         return 1
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowDistillery" {
+            if let row = self.tableView.indexPathForSelectedRow()?.row {
+                (segue.destinationViewController as DistilleryController).distillery = self.distilleries[row]
+            }
+        }
+    }
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return self.user?.administrator? == true
     }
