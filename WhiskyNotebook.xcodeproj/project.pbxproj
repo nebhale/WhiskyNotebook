@@ -19,6 +19,7 @@
 		249DE4CE1A74F6C1003E94BF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4CD1A74F6C1003E94BF /* String.swift */; };
 		249DE4D01A76136E003E94BF /* DistilleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4CF1A76136E003E94BF /* DistilleryController.swift */; };
 		249DE4D21A76201D003E94BF /* DistilleryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4D11A76201D003E94BF /* DistilleryAnnotation.swift */; };
+		249DE4D41A762EA3003E94BF /* DistilleryDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4D31A762EA3003E94BF /* DistilleryDataController.swift */; };
 		24B3F2D51A756FBE002CFB46 /* DistilleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3F2D41A756FBE002CFB46 /* DistilleryCell.swift */; };
 		24C730F51A40D6E20025AFE9 /* OnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C730F41A40D6E20025AFE9 /* OnMain.swift */; };
 		24E670D81A72C407005AA399 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E670D71A72C407005AA399 /* PassKit.framework */; };
@@ -69,6 +70,7 @@
 		249DE4CD1A74F6C1003E94BF /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		249DE4CF1A76136E003E94BF /* DistilleryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryController.swift; sourceTree = "<group>"; };
 		249DE4D11A76201D003E94BF /* DistilleryAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAnnotation.swift; sourceTree = "<group>"; };
+		249DE4D31A762EA3003E94BF /* DistilleryDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryDataController.swift; sourceTree = "<group>"; };
 		24B3F2D41A756FBE002CFB46 /* DistilleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryCell.swift; sourceTree = "<group>"; };
 		24C730F41A40D6E20025AFE9 /* OnMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnMain.swift; sourceTree = "<group>"; };
 		24E670D71A72C407005AA399 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
@@ -143,6 +145,7 @@
 				249DE4D11A76201D003E94BF /* DistilleryAnnotation.swift */,
 				24B3F2D41A756FBE002CFB46 /* DistilleryCell.swift */,
 				249DE4CF1A76136E003E94BF /* DistilleryController.swift */,
+				249DE4D31A762EA3003E94BF /* DistilleryDataController.swift */,
 				24EC98801A74DDFF002D57C3 /* DistilleryRepository.swift */,
 			);
 			name = Distilleries;
@@ -366,6 +369,7 @@
 				24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */,
 				249DE4D21A76201D003E94BF /* DistilleryAnnotation.swift in Sources */,
 				24EA787B1A72F84A00A8CD0D /* RecordBased.swift in Sources */,
+				249DE4D41A762EA3003E94BF /* DistilleryDataController.swift in Sources */,
 				24EC987A1A74CDE1002D57C3 /* Subscription.swift in Sources */,
 				24B3F2D51A756FBE002CFB46 /* DistilleryCell.swift in Sources */,
 				24EA78771A72E57500A8CD0D /* Memento.swift in Sources */,

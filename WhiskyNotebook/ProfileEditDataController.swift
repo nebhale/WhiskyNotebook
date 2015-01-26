@@ -29,7 +29,6 @@ final class ProfileEditDataController: UITableViewController, UITextFieldDelegat
         
         self.userRepositoryMemento = UserRepository.instance.subscribe { self.user = $0 }
         
-        // Segued View calculates a non-standard row height
         self.tableView.rowHeight = 44
     }
     

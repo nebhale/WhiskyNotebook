@@ -18,6 +18,7 @@ final class DistilleryController: UIViewController {
             onMain {
                 self.navigationItem.title = self.distillery?.name
                 DistilleryAnnotation(distillery: self.distillery).addToMapView(self.mapView)
+                (self.childViewControllers.first as? DistilleryDataController)?.region?.text = self.distillery?.region
             }
         }
     }
