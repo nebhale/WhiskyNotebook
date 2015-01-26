@@ -248,7 +248,7 @@
         <scene sceneID="IOn-4L-w6z">
             <objects>
                 <tableViewController id="Ofw-5n-OT5" userLabel="Distillery Data" customClass="DistilleryDataController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="4X2-k0-2Bz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="4X2-k0-2Bz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="37"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
