@@ -45,6 +45,15 @@ final class Distillery: RecordBased, Comparable, Equatable, Hashable, Printable 
         self.init(record: CKRecord(recordType: "Distillery"))
     }
     
+    convenience init(data: [String]) {
+        self.init(record: CKRecord(recordType: "Distillery"))
+        
+        self.id = data[0]
+        self.name = data[1]
+        self.region = data[2]
+        self.location = CLLocation(latitude: data[3].toDouble()!, longitude: data[4].toDouble()!)
+    }
+    
     func toRecord() -> CKRecord {
         return self.record
     }

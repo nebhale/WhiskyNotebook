@@ -117,6 +117,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Distilleries" id="0P0-Nv-Zzz">
+                        <barButtonItem key="leftBarButtonItem" title="Import" id="NE1-1W-AkM">
+                            <connections>
+                                <action selector="importDistilleries" destination="WPZ-SP-INN" id="Zzv-pb-4ja"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ir3-G8-V3S">
                             <connections>
                                 <segue destination="PNe-jL-FXg" kind="popoverPresentation" popoverAnchorBarButtonItem="ir3-G8-V3S" id="j8t-G4-W2G">
