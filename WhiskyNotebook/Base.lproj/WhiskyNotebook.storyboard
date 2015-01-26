@@ -71,37 +71,36 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1tg-ti-kjq" id="wfa-P6-Yfy">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11l-XF-Fes">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11l-XF-Fes">
                                             <rect key="frame" x="16" y="8" width="50" height="27"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="Jjc-Y2-9WN"/>
+                                                <constraint firstAttribute="width" constant="50" id="8M6-l9-fa3"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-Pz-DNx">
-                                            <rect key="frame" x="513" y="13" width="46" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-Pz-DNx">
+                                            <rect key="frame" x="74" y="21" width="37" height="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKw-5R-doU">
-                                            <rect key="frame" x="74" y="11" width="46" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="74" y="8" width="43" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="LXu-Pz-DNx" secondAttribute="trailing" id="0c4-8X-Hfx"/>
-                                        <constraint firstAttribute="centerY" secondItem="11l-XF-Fes" secondAttribute="centerY" id="3gx-rX-BkT"/>
-                                        <constraint firstItem="11l-XF-Fes" firstAttribute="top" secondItem="wfa-P6-Yfy" secondAttribute="topMargin" id="FQU-5X-C0g"/>
-                                        <constraint firstItem="11l-XF-Fes" firstAttribute="leading" secondItem="wfa-P6-Yfy" secondAttribute="leadingMargin" constant="8" id="IzK-Hu-qTa"/>
-                                        <constraint firstAttribute="centerY" secondItem="fKw-5R-doU" secondAttribute="centerY" id="TBm-YH-3gx"/>
-                                        <constraint firstItem="fKw-5R-doU" firstAttribute="leading" secondItem="11l-XF-Fes" secondAttribute="trailing" constant="8" symbolic="YES" id="hV8-bc-UD8"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="11l-XF-Fes" secondAttribute="bottom" id="jK5-fW-8Ab"/>
-                                        <constraint firstAttribute="centerY" secondItem="LXu-Pz-DNx" secondAttribute="centerY" id="rVs-iA-Umh"/>
+                                        <constraint firstItem="fKw-5R-doU" firstAttribute="leading" secondItem="11l-XF-Fes" secondAttribute="trailing" constant="8" symbolic="YES" id="6Zi-Hf-Yel"/>
+                                        <constraint firstItem="11l-XF-Fes" firstAttribute="leading" secondItem="wfa-P6-Yfy" secondAttribute="leadingMargin" constant="8" id="8YX-48-990"/>
+                                        <constraint firstItem="fKw-5R-doU" firstAttribute="top" secondItem="11l-XF-Fes" secondAttribute="top" id="FpZ-mC-PyB"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="11l-XF-Fes" secondAttribute="bottom" id="qP0-JZ-sBa"/>
+                                        <constraint firstItem="11l-XF-Fes" firstAttribute="top" secondItem="wfa-P6-Yfy" secondAttribute="topMargin" id="uac-LK-gMp"/>
+                                        <constraint firstItem="LXu-Pz-DNx" firstAttribute="bottom" secondItem="11l-XF-Fes" secondAttribute="bottom" id="umT-o3-WtO"/>
+                                        <constraint firstItem="LXu-Pz-DNx" firstAttribute="leading" secondItem="11l-XF-Fes" secondAttribute="trailing" constant="8" symbolic="YES" id="xnR-I4-fJt"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -262,7 +261,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q6-G4-yE0" userLabel="Region">
                                                     <rect key="frame" x="16" y="8" width="576" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -312,7 +311,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Id" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6MS-BC-edX" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="8" width="576" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="jy8-cX-v8h" id="OGh-0z-l12"/>
@@ -335,7 +334,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ctw-2g-la6" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="8" width="576" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="jy8-cX-v8h" id="Dii-O7-BrF"/>
@@ -358,7 +357,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Region" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dpd-Uv-l37" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="8" width="576" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="jy8-cX-v8h" id="N2G-CJ-pxf"/>
@@ -385,7 +384,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Latitude" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qqa-pm-29s" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="8" width="576" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="jy8-cX-v8h" id="gy9-kZ-R4d"/>
@@ -408,7 +407,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Longitude" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sqc-fG-duw" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="8" width="576" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="jy8-cX-v8h" id="uMu-o2-MYd"/>
@@ -464,13 +463,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="eNF-h5-gti"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJ9-0q-dXC" userLabel="Name Value">
                                                     <rect key="frame" x="124" y="8" width="468" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -496,13 +495,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="p0O-kV-FAx"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCX-Hr-fdB" userLabel="Membership Value">
                                                     <rect key="frame" x="124" y="8" width="468" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -631,14 +630,14 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="RSG-Rl-00e"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SLV-Da-L5a" userLabel="Name Value" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="124" y="8" width="468" height="27"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="Jlw-MP-nJv" id="nDV-5I-pYo"/>
@@ -667,14 +666,14 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="yQb-9x-n8y"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="omb-Na-s0h" userLabel="Membership Value" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="124" y="8" width="468" height="27"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="Jlw-MP-nJv" id="o6d-C6-Ywx"/>

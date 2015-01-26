@@ -61,7 +61,7 @@
 		2400FD031A7589F6003C1CE1 /* DistilleryAddDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAddDataController.swift; sourceTree = "<group>"; };
 		2400FD051A758F99003C1CE1 /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 		2400FD071A75EA09003C1CE1 /* ChainedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainedTextField.swift; sourceTree = "<group>"; };
-		24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WhiskyNotebook.entitlements; path = WhiskyNotebook/WhiskyNotebook.entitlements; sourceTree = "<group>"; };
+		24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WhiskyNotebook.entitlements; sourceTree = "<group>"; };
 		2437C3991A3D7DD300685CCB /* Logging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Logging.plist; sourceTree = "<group>"; };
 		2437C39B1A3D841700685CCB /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		245965B11A47206C00AA0912 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -75,7 +75,7 @@
 		24C730F41A40D6E20025AFE9 /* OnMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnMain.swift; sourceTree = "<group>"; };
 		24E670D71A72C407005AA399 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		24E670D91A72C41F005AA399 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		24E670DB1A72CB5B005AA399 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = WhiskyNotebook/Images.xcassets; sourceTree = "<group>"; };
+		24E670DB1A72CB5B005AA399 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24E670DE1A72CDE4005AA399 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		24E670E01A72D00C005AA399 /* ProfileEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditController.swift; sourceTree = "<group>"; };
 		24E670E21A72D8B3005AA399 /* ProfileDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDataController.swift; sourceTree = "<group>"; };
@@ -155,10 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				24FFF8CE1A36D658002C1E88 /* WhiskyNotebook */,
-				24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */,
-				24E670DB1A72CB5B005AA399 /* Images.xcassets */,
-				24FFF8CF1A36D658002C1E88 /* Configuration */,
-				24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */,
 				24E670D91A72C41F005AA399 /* CloudKit.framework */,
 				245965B11A47206C00AA0912 /* MapKit.framework */,
 				24E670D71A72C407005AA399 /* PassKit.framework */,
@@ -188,6 +184,10 @@
 				24EC987D1A74DABC002D57C3 /* Distilleries */,
 				24E670DD1A72CDC4005AA399 /* Profile */,
 				24FFF9011A38CBF9002C1E88 /* Utilities */,
+				24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */,
+				24E670DB1A72CB5B005AA399 /* Images.xcassets */,
+				24FFF8CF1A36D658002C1E88 /* Configuration */,
+				24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */,
 			);
 			path = WhiskyNotebook;
 			sourceTree = "<group>";
@@ -200,7 +200,6 @@
 				2478E41B1A464CA000091DA2 /* Logging-Release.plist */,
 			);
 			name = Configuration;
-			path = WhiskyNotebook;
 			sourceTree = "<group>";
 		};
 		24FFF8E41A36D658002C1E88 /* WhiskyNotebookTests */ = {
@@ -413,7 +412,6 @@
 				24FFF8DB1A36D658002C1E88 /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = WhiskyNotebook;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
