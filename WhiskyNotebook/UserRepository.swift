@@ -34,7 +34,7 @@ final class UserRepository {
     }
     
     private init() {
-        Subscription(recordType: CKRecordTypeUserRecord, database: self.database, notificationHandler: fetch)
+        Subscription(recordType: CKRecordTypeUserRecord, database: self.database, subscriptionOptions: CKSubscriptionOptions.FiresOnRecordUpdate, notificationHandler: fetch)
     }
     
     func save(user: User?) {

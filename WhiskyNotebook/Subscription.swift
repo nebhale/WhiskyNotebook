@@ -16,13 +16,14 @@ final class Subscription {
     
     private let subscriptionId: String
     
-    init(recordType: String, database: CKDatabase, predicate: NSPredicate? = NSPredicate(format: "TRUEPREDICATE"), notificationHandler: NotificationHandler) {
+    init(recordType: String, database: CKDatabase, predicate: NSPredicate? = NSPredicate(format: "TRUEPREDICATE"), subscriptionOptions: CKSubscriptionOptions = CKSubscriptionOptions.FiresOnRecordCreation | CKSubscriptionOptions.FiresOnRecordUpdate | CKSubscriptionOptions.FiresOnRecordDeletion, notificationHandler: NotificationHandler) {
         self.notificationHandler = notificationHandler
         self.subscriptionId = "\(recordType)|\(UIDevice.currentDevice().identifierForVendor.UUIDString)"
         
         RemoteNotificationBroker.instance.subscribe(didReceiveRemoteNotification)
         
-        saveSubscription(subscriptionForRecordType(recordType, subscriptionId: self.subscriptionId, predicate: predicate), database: database) { subscription in
+        let subscription = subscriptionForRecordType(recordType, subscriptionId: self.subscriptionId, predicate: predicate, subscriptionOptions: subscriptionOptions)
+        saveSubscription(subscription, database: database) { subscription in
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: subscription.subscriptionID)
             self.notificationHandler()
         }
@@ -56,12 +57,12 @@ final class Subscription {
         }
     }
     
-    private func subscriptionForRecordType(recordType: String, subscriptionId: String, predicate: NSPredicate?) -> CKSubscription {
+    private func subscriptionForRecordType(recordType: String, subscriptionId: String, predicate: NSPredicate?, subscriptionOptions: CKSubscriptionOptions) -> CKSubscription {
         let notificationInfo = CKNotificationInfo()
         notificationInfo.alertBody = subscriptionId
         notificationInfo.shouldSendContentAvailable = true
         
-        let subscription = CKSubscription(recordType: recordType, predicate: predicate, subscriptionID: subscriptionId, options: CKSubscriptionOptions.FiresOnRecordCreation | CKSubscriptionOptions.FiresOnRecordUpdate | CKSubscriptionOptions.FiresOnRecordDeletion)
+        let subscription = CKSubscription(recordType: recordType, predicate: predicate, subscriptionID: subscriptionId, options: subscriptionOptions)
         subscription.notificationInfo = notificationInfo
         
         return subscription
