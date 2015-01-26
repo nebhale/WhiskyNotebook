@@ -1,6 +1,16 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+import Foundation
+
 extension String {
+    
+    func contains(substring: String) -> Bool {
+        return self.rangeOfString(substring) != nil
+    }
+    
+    func containsIgnoreCase(substring: String) -> Bool {
+        return self.rangeOfString(substring, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil
+    }
     
     func toBool() -> Bool {
         return self == "\(true)"
