@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2400FD021A7586B9003C1CE1 /* DistilleryAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400FD011A7586B9003C1CE1 /* DistilleryAddController.swift */; };
+		2400FD041A7589F6003C1CE1 /* DistilleryAddDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400FD031A7589F6003C1CE1 /* DistilleryAddDataController.swift */; };
+		2400FD061A758F99003C1CE1 /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400FD051A758F99003C1CE1 /* Scanner.swift */; };
+		2400FD081A75EA09003C1CE1 /* ChainedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400FD071A75EA09003C1CE1 /* ChainedTextField.swift */; };
 		2437C39A1A3D7DD300685CCB /* Logging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2437C3991A3D7DD300685CCB /* Logging.plist */; };
 		2437C39C1A3D841700685CCB /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437C39B1A3D841700685CCB /* Configuration.swift */; };
 		245965B21A47206C00AA0912 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245965B11A47206C00AA0912 /* MapKit.framework */; };
@@ -50,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2400FD011A7586B9003C1CE1 /* DistilleryAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAddController.swift; sourceTree = "<group>"; };
+		2400FD031A7589F6003C1CE1 /* DistilleryAddDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAddDataController.swift; sourceTree = "<group>"; };
+		2400FD051A758F99003C1CE1 /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
+		2400FD071A75EA09003C1CE1 /* ChainedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainedTextField.swift; sourceTree = "<group>"; };
 		24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WhiskyNotebook.entitlements; path = WhiskyNotebook/WhiskyNotebook.entitlements; sourceTree = "<group>"; };
 		2437C3991A3D7DD300685CCB /* Logging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Logging.plist; sourceTree = "<group>"; };
 		2437C39B1A3D841700685CCB /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -124,10 +132,12 @@
 		24EC987D1A74DABC002D57C3 /* Distilleries */ = {
 			isa = PBXGroup;
 			children = (
-				24EC987E1A74DB07002D57C3 /* Distillery.swift */,
-				24EC98801A74DDFF002D57C3 /* DistilleryRepository.swift */,
 				24EC98821A74E11C002D57C3 /* DistilleriesController.swift */,
+				24EC987E1A74DB07002D57C3 /* Distillery.swift */,
+				2400FD011A7586B9003C1CE1 /* DistilleryAddController.swift */,
+				2400FD031A7589F6003C1CE1 /* DistilleryAddDataController.swift */,
 				24B3F2D41A756FBE002CFB46 /* DistilleryCell.swift */,
+				24EC98801A74DDFF002D57C3 /* DistilleryRepository.swift */,
 			);
 			name = Distilleries;
 			sourceTree = "<group>";
@@ -162,6 +172,7 @@
 			children = (
 				24FC641F1A42B32900DE8744 /* WhiskyNotebook.storyboard */,
 				24FFF8D11A36D658002C1E88 /* AppDelegate.swift */,
+				2400FD071A75EA09003C1CE1 /* ChainedTextField.swift */,
 				24EA787A1A72F84A00A8CD0D /* RecordBased.swift */,
 				24EC987B1A74D874002D57C3 /* RemoteNotificationBroker.swift */,
 				24EC98791A74CDE1002D57C3 /* Subscription.swift */,
@@ -208,8 +219,9 @@
 				2487AD661A38DD77007ADE75 /* LogWriter.swift */,
 				24EA78761A72E57500A8CD0D /* Memento.swift */,
 				24C730F41A40D6E20025AFE9 /* OnMain.swift */,
-				24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */,
+				2400FD051A758F99003C1CE1 /* Scanner.swift */,
 				249DE4CD1A74F6C1003E94BF /* String.swift */,
+				24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -328,18 +340,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2400FD041A7589F6003C1CE1 /* DistilleryAddDataController.swift in Sources */,
 				24E670DF1A72CDE4005AA399 /* ProfileController.swift in Sources */,
 				24EC987C1A74D874002D57C3 /* RemoteNotificationBroker.swift in Sources */,
 				249DE4CE1A74F6C1003E94BF /* String.swift in Sources */,
 				24E670E11A72D00C005AA399 /* ProfileEditController.swift in Sources */,
+				2400FD021A7586B9003C1CE1 /* DistilleryAddController.swift in Sources */,
 				24EA78751A72E46500A8CD0D /* UserRepository.swift in Sources */,
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
 				24E670E51A72DCE0005AA399 /* ProfileEditDataController.swift in Sources */,
 				24EC987F1A74DB07002D57C3 /* Distillery.swift in Sources */,
+				2400FD061A758F99003C1CE1 /* Scanner.swift in Sources */,
 				24FFF8FA1A3797BD002C1E88 /* Logger.swift in Sources */,
 				24EC98811A74DDFF002D57C3 /* DistilleryRepository.swift in Sources */,
 				24C730F51A40D6E20025AFE9 /* OnMain.swift in Sources */,
 				24EC98831A74E11C002D57C3 /* DistilleriesController.swift in Sources */,
+				2400FD081A75EA09003C1CE1 /* ChainedTextField.swift in Sources */,
 				24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */,
 				24EA787B1A72F84A00A8CD0D /* RecordBased.swift in Sources */,
 				24EC987A1A74CDE1002D57C3 /* Subscription.swift in Sources */,

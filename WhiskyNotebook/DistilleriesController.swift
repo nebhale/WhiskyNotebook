@@ -45,6 +45,18 @@ final class DistilleriesController: UITableViewController {
         UserRepository.instance.unsubscribe(self.userRepositoryMemento)
     }
     
+    @IBAction
+    func distilleryAddCancel(segue: UIStoryboardSegue) {
+        self.logger.debug { "Distillery add canceled" }
+    }
+    
+    @IBAction
+    func distilleryAddSave(segue: UIStoryboardSegue) {
+        if let controller = segue.sourceViewController.childViewControllers.first as? DistilleryAddDataController {
+            DistilleryRepository.instance.save(controller.toDistillery())
+        }
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

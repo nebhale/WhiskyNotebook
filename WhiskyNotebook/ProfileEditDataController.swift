@@ -3,7 +3,7 @@
 import UIKit
 
 
-final class ProfileEditDataController: UITableViewController {
+final class ProfileEditDataController: UITableViewController, UITextFieldDelegate {
     
     private let logger = Logger(name: "ProfileEditDataController")
     
@@ -37,6 +37,10 @@ final class ProfileEditDataController: UITableViewController {
         self.didReceiveMemoryWarning()
         
         UserRepository.instance.unsubscribe(self.userRepositoryMemento)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return ChainedTextField.textFieldShouldReturn(textField)
     }
     
     func toUser() -> User? {

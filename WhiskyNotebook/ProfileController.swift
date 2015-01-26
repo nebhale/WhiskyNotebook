@@ -7,9 +7,6 @@ final class ProfileController: UIViewController, UIBarPositioningDelegate {
     
     private let logger = Logger(name: "ProfileController")
     
-    @IBOutlet
-    var activityIndicator: UIActivityIndicatorView?
-    
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
     }
@@ -23,7 +20,6 @@ final class ProfileController: UIViewController, UIBarPositioningDelegate {
     func profileEditSave(segue: UIStoryboardSegue) {
         if let controller = segue.sourceViewController.childViewControllers.first as? ProfileEditDataController {
             UserRepository.instance.save(controller.toUser())
-            self.activityIndicator?.startAnimating()
         }
     }
     

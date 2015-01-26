@@ -71,16 +71,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11l-XF-Fes">
-                                            <rect key="frame" x="16" y="6" width="50" height="31.5"/>
+                                            <rect key="frame" x="16" y="8" width="50" height="27.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="Jjc-Y2-9WN"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-Pz-DNx">
-                                            <rect key="frame" x="513" y="13.5" width="45.5" height="17"/>
+                                            <rect key="frame" x="513" y="13" width="45.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -95,9 +95,11 @@
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="LXu-Pz-DNx" secondAttribute="trailing" id="0c4-8X-Hfx"/>
                                         <constraint firstAttribute="centerY" secondItem="11l-XF-Fes" secondAttribute="centerY" id="3gx-rX-BkT"/>
+                                        <constraint firstItem="11l-XF-Fes" firstAttribute="top" secondItem="wfa-P6-Yfy" secondAttribute="topMargin" id="FQU-5X-C0g"/>
                                         <constraint firstItem="11l-XF-Fes" firstAttribute="leading" secondItem="wfa-P6-Yfy" secondAttribute="leadingMargin" constant="8" id="IzK-Hu-qTa"/>
                                         <constraint firstAttribute="centerY" secondItem="fKw-5R-doU" secondAttribute="centerY" id="TBm-YH-3gx"/>
                                         <constraint firstItem="fKw-5R-doU" firstAttribute="leading" secondItem="11l-XF-Fes" secondAttribute="trailing" constant="8" symbolic="YES" id="hV8-bc-UD8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="11l-XF-Fes" secondAttribute="bottom" id="jK5-fW-8Ab"/>
                                         <constraint firstAttribute="centerY" secondItem="LXu-Pz-DNx" secondAttribute="centerY" id="rVs-iA-Umh"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -114,12 +116,236 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Distilleries" id="0P0-Nv-Zzz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ir3-G8-V3S"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ir3-G8-V3S">
+                            <connections>
+                                <segue destination="PNe-jL-FXg" kind="popoverPresentation" popoverAnchorBarButtonItem="ir3-G8-V3S" id="j8t-G4-W2G">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IK-Jm-Ca4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3929" y="1251"/>
+        </scene>
+        <!--Distillery Add-->
+        <scene sceneID="UPT-mq-qdr">
+            <objects>
+                <viewController id="PNe-jL-FXg" userLabel="Distillery Add" customClass="DistilleryAddController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lkv-4C-TZm"/>
+                        <viewControllerLayoutGuide type="bottom" id="jtM-4H-Cwi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KTm-DX-bwZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Xa-Ha-eHm">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Distillery" id="Efb-4d-Y7b">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ER7-Y2-S5f">
+                                            <connections>
+                                                <segue destination="Px8-GK-aed" kind="unwind" unwindAction="distilleryAddCancel:" id="VDW-PX-aNh"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="save" id="d5K-Q9-A0G">
+                                            <connections>
+                                                <segue destination="Px8-GK-aed" kind="unwind" unwindAction="distilleryAddSave:" id="1c3-EQ-KA1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="PNe-jL-FXg" id="g5V-ke-un8"/>
+                                </connections>
+                            </navigationBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t58-es-NZA">
+                                <rect key="frame" x="0.0" y="64" width="600" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Cdl-nJ-vjT"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="jy8-cX-v8h" kind="embed" id="SYv-5l-0m9"/>
+                                </connections>
+                            </containerView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6F-3R-Vh8">
+                                <rect key="frame" x="0.0" y="314" width="600" height="286"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Xa-Ha-eHm" firstAttribute="top" secondItem="Lkv-4C-TZm" secondAttribute="bottom" id="5DS-fu-baI"/>
+                            <constraint firstItem="W6F-3R-Vh8" firstAttribute="leading" secondItem="KTm-DX-bwZ" secondAttribute="leading" id="8AL-ay-Thg"/>
+                            <constraint firstAttribute="trailing" secondItem="W6F-3R-Vh8" secondAttribute="trailing" id="8ta-Db-4BO"/>
+                            <constraint firstItem="jtM-4H-Cwi" firstAttribute="top" secondItem="W6F-3R-Vh8" secondAttribute="bottom" id="HWp-Vt-Bmd"/>
+                            <constraint firstAttribute="trailing" secondItem="t58-es-NZA" secondAttribute="trailing" id="WYX-NE-uCo"/>
+                            <constraint firstItem="t58-es-NZA" firstAttribute="top" secondItem="2Xa-Ha-eHm" secondAttribute="bottom" id="YW6-O8-hzG"/>
+                            <constraint firstItem="t58-es-NZA" firstAttribute="leading" secondItem="KTm-DX-bwZ" secondAttribute="leading" id="ZXO-F6-oS9"/>
+                            <constraint firstItem="2Xa-Ha-eHm" firstAttribute="leading" secondItem="KTm-DX-bwZ" secondAttribute="leading" id="lPx-m0-ngr"/>
+                            <constraint firstAttribute="trailing" secondItem="2Xa-Ha-eHm" secondAttribute="trailing" id="s9K-jF-a3A"/>
+                            <constraint firstItem="W6F-3R-Vh8" firstAttribute="top" secondItem="t58-es-NZA" secondAttribute="bottom" id="sYd-1W-VAG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="W6F-3R-Vh8" id="80V-U7-ouA"/>
+                        <outlet property="saveButton" destination="d5K-Q9-A0G" id="DP6-4H-stx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R9f-We-B82" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Px8-GK-aed" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3929" y="2142"/>
+        </scene>
+        <!--Distillery Add Data-->
+        <scene sceneID="Oqa-6I-aeS">
+            <objects>
+                <tableViewController id="jy8-cX-v8h" userLabel="Distillery Add Data" customClass="DistilleryAddDataController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Opd-Pd-5iZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="Cnn-xe-V0W" userLabel="Identity">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RDi-Co-CoE">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RDi-Co-CoE" id="wqN-cF-del">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Id" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6MS-BC-edX" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="576" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="jy8-cX-v8h" id="OGh-0z-l12"/>
+                                                        <outlet property="next" destination="Ctw-2g-la6" id="COO-63-RRC"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6MS-BC-edX" firstAttribute="leading" secondItem="wqN-cF-del" secondAttribute="leadingMargin" constant="8" id="0jb-eS-ZLp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6MS-BC-edX" secondAttribute="bottom" id="gvb-YH-fSJ"/>
+                                                <constraint firstItem="6MS-BC-edX" firstAttribute="top" secondItem="wqN-cF-del" secondAttribute="topMargin" id="ouY-1n-MsF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6MS-BC-edX" secondAttribute="trailing" id="vyf-JQ-8lU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qTO-qF-8uO">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qTO-qF-8uO" id="3RQ-rn-hxJ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ctw-2g-la6" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="576" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="jy8-cX-v8h" id="Dii-O7-BrF"/>
+                                                        <outlet property="next" destination="Dpd-Uv-l37" id="4R4-mo-GW2"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ctw-2g-la6" secondAttribute="bottom" id="CEe-Nz-5BD"/>
+                                                <constraint firstItem="Ctw-2g-la6" firstAttribute="leading" secondItem="3RQ-rn-hxJ" secondAttribute="leadingMargin" constant="8" id="DNF-ri-3Tf"/>
+                                                <constraint firstItem="Ctw-2g-la6" firstAttribute="top" secondItem="3RQ-rn-hxJ" secondAttribute="topMargin" id="G8O-nV-0v5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ctw-2g-la6" secondAttribute="trailing" id="fzc-8b-05N"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yj5-Yv-bCb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yj5-Yv-bCb" id="iZB-3f-iEd">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Region" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dpd-Uv-l37" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="576" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="jy8-cX-v8h" id="N2G-CJ-pxf"/>
+                                                        <outlet property="next" destination="qqa-pm-29s" id="4uL-T5-q1D"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dpd-Uv-l37" firstAttribute="top" secondItem="iZB-3f-iEd" secondAttribute="topMargin" id="J0h-q6-9Vs"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Dpd-Uv-l37" secondAttribute="trailing" id="hos-uX-gNM"/>
+                                                <constraint firstItem="Dpd-Uv-l37" firstAttribute="leading" secondItem="iZB-3f-iEd" secondAttribute="leadingMargin" constant="8" id="og4-cI-7Gi"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Dpd-Uv-l37" secondAttribute="bottom" id="ygq-wM-hOX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="s05-Cw-lFk" userLabel="Location">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vGF-rs-T5S">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vGF-rs-T5S" id="g25-5w-dDj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Latitude" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qqa-pm-29s" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="576" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="jy8-cX-v8h" id="gy9-kZ-R4d"/>
+                                                        <outlet property="next" destination="sqc-fG-duw" id="Fmb-6U-bG4"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qqa-pm-29s" firstAttribute="top" secondItem="g25-5w-dDj" secondAttribute="topMargin" id="3Mn-OS-VNB"/>
+                                                <constraint firstItem="qqa-pm-29s" firstAttribute="leading" secondItem="g25-5w-dDj" secondAttribute="leadingMargin" constant="8" id="BaR-XG-fUG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qqa-pm-29s" secondAttribute="trailing" id="Ih2-ML-R4f"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qqa-pm-29s" secondAttribute="bottom" id="zSK-aB-EBR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9mx-Sx-ica">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9mx-Sx-ica" id="uwe-bV-vmk">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Longitude" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sqc-fG-duw" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="576" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="jy8-cX-v8h" id="uMu-o2-MYd"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sqc-fG-duw" secondAttribute="trailing" id="0bi-Wu-LBb"/>
+                                                <constraint firstItem="sqc-fG-duw" firstAttribute="top" secondItem="uwe-bV-vmk" secondAttribute="topMargin" id="KoP-Ee-v3e"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sqc-fG-duw" secondAttribute="bottom" id="gL7-aD-emh"/>
+                                                <constraint firstItem="sqc-fG-duw" firstAttribute="leading" secondItem="uwe-bV-vmk" secondAttribute="leadingMargin" constant="8" id="oZ8-Gj-5j1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="jy8-cX-v8h" id="gNK-YL-2lc"/>
+                            <outlet property="delegate" destination="jy8-cX-v8h" id="fyG-xE-Rap"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="id" destination="6MS-BC-edX" id="o5G-mO-xPK"/>
+                        <outlet property="latitude" destination="qqa-pm-29s" id="pDl-14-WK9"/>
+                        <outlet property="longitude" destination="sqc-fG-duw" id="4Wy-Al-PzP"/>
+                        <outlet property="name" destination="Ctw-2g-la6" id="D2R-cr-cUQ"/>
+                        <outlet property="region" destination="Dpd-Uv-l37" id="NsM-LS-xoF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3T-1J-2su" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4709" y="2142"/>
         </scene>
         <!--Profile Data-->
         <scene sceneID="yHk-gK-E7M">
@@ -313,11 +539,15 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SLV-Da-L5a" userLabel="Name Value">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SLV-Da-L5a" userLabel="Name Value" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="124" y="8" width="468" height="27"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Jlw-MP-nJv" id="nDV-5I-pYo"/>
+                                                        <outlet property="next" destination="omb-Na-s0h" id="Jfi-4s-cTc"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -345,11 +575,14 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="omb-Na-s0h" userLabel="Membership Value">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="omb-Na-s0h" userLabel="Membership Value" customClass="ChainedTextField" customModule="WhiskyNotebook" customModuleProvider="target">
                                                     <rect key="frame" x="124" y="8" width="468" height="27"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Jlw-MP-nJv" id="o6d-C6-Ywx"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
