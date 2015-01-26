@@ -36,8 +36,6 @@ final class DistilleriesController: UITableViewController {
         
         self.addButton = self.navigationItem.rightBarButtonItem
         self.navigationItem.rightBarButtonItem = nil
-        
-        self.tableView.rowHeight = 46
     }
     
     override func didReceiveMemoryWarning() {
