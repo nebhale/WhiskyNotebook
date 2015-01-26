@@ -55,6 +55,22 @@ func ==(x: Distillery, y: Distillery) -> Bool {
 }
 
 func <(x: Distillery, y: Distillery) -> Bool {
-    // TODO:
-    return x.id < y.id
+    let parseId: String -> Int = { $0.substringFromIndex(advance($0.startIndex, 1)).toInt()! }
+    
+    let comparisonValue: String? -> Int = { candidateId in
+        let id = candidateId != nil ? candidateId! : "0"
+        
+        switch(id[0]) {
+        case "B":
+            return 2000 + parseId(id)
+        case "G":
+            return 7000 + parseId(id)
+        case "R":
+            return 18000 + parseId(id)
+        default:
+            return id.toInt()!
+        }
+    }
+    
+    return comparisonValue(x.id) < comparisonValue(y.id)
 }

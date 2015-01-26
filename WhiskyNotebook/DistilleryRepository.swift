@@ -112,7 +112,7 @@ final class DistilleryRepository {
             }
             
             if let records = records as? [CKRecord] {
-                self.distilleries = records.map { return Distillery(record: $0) }
+                self.distilleries = records.map { return Distillery(record: $0) }.sorted { $0 < $1 }
                 self.logger.info { "Fetched distilleries: \(self.distilleries)" }
             }
         }

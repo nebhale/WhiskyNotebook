@@ -12,6 +12,10 @@ extension String {
         return self.rangeOfString(substring, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil
     }
     
+    subscript (i: Int) -> String {
+        return String(Array(self)[i])
+    }
+    
     func toBool() -> Bool {
         return self == "\(true)"
     }
