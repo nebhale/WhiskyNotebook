@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OXs-1h-3Yi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OXs-1h-3Yi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -264,18 +264,30 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dOP-dK-igW" id="asM-yR-bhl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q6-G4-yE0" userLabel="Region">
-                                                    <rect key="frame" x="16" y="8" width="576" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osw-L9-Nu9" userLabel="Region">
+                                                    <rect key="frame" x="16" y="8" width="60" height="27.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="Xjh-x6-nog"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q6-G4-yE0" userLabel="Region Value">
+                                                    <rect key="frame" x="84" y="8" width="508" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="0Q6-G4-yE0" firstAttribute="leading" secondItem="asM-yR-bhl" secondAttribute="leadingMargin" constant="8" id="6Ez-Wl-Or4"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="0Q6-G4-yE0" secondAttribute="bottom" id="KiP-wf-xP2"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="0Q6-G4-yE0" secondAttribute="trailing" id="Xd7-rC-pdJ"/>
-                                                <constraint firstItem="0Q6-G4-yE0" firstAttribute="top" secondItem="asM-yR-bhl" secondAttribute="topMargin" id="tsX-XI-7m0"/>
+                                                <constraint firstItem="0Q6-G4-yE0" firstAttribute="leading" secondItem="osw-L9-Nu9" secondAttribute="trailing" constant="8" symbolic="YES" id="03K-SM-WJK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0Q6-G4-yE0" secondAttribute="trailing" id="0A8-Ze-kmx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="osw-L9-Nu9" secondAttribute="bottom" id="IEP-xU-fff"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0Q6-G4-yE0" secondAttribute="bottom" id="L0y-Ol-H9c"/>
+                                                <constraint firstItem="osw-L9-Nu9" firstAttribute="top" secondItem="asM-yR-bhl" secondAttribute="topMargin" id="crB-QC-Jqf"/>
+                                                <constraint firstItem="osw-L9-Nu9" firstAttribute="leading" secondItem="asM-yR-bhl" secondAttribute="leadingMargin" constant="8" id="jrd-zd-DeO"/>
+                                                <constraint firstItem="0Q6-G4-yE0" firstAttribute="top" secondItem="asM-yR-bhl" secondAttribute="topMargin" id="lc4-cY-GyW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
