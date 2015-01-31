@@ -1,6 +1,7 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
 import CloudKit
+import Foundation
 
 
 final class UserRepository {
@@ -14,6 +15,8 @@ final class UserRepository {
     }
     
     typealias Listener = User? -> Void
+    
+    private let cacheURL = URLForCached("User")
     
     private let database = CKContainer.defaultContainer().publicCloudDatabase
     
@@ -34,7 +37,8 @@ final class UserRepository {
     }
     
     private init() {
-        Subscription(recordType: CKRecordTypeUserRecord, database: self.database, subscriptionOptions: CKSubscriptionOptions.FiresOnRecordUpdate, notificationHandler: fetch)
+        self.user = fetchFromCache()
+        Subscription(recordType: CKRecordTypeUserRecord, database: self.database, subscriptionOptions: CKSubscriptionOptions.FiresOnRecordUpdate, notificationHandler: fetchFromCloudKit)
     }
     
     func save(user: User?) {
@@ -43,12 +47,13 @@ final class UserRepository {
             
             self.database.saveRecord(user.toRecord()) { record, error in
                 if error != nil {
-                    // TODO:
+                    // TODO: Handle error saving record
                     self.logger.error { "Error saving user: \(error)"}
                     return
                 }
                 
                 self.user = User(record: record)
+                self.saveToCache(self.user)
                 self.logger.info { "Saved user: \(self.user)" }
             }
         }
@@ -71,26 +76,56 @@ final class UserRepository {
         }
     }
     
-    private func fetch() {
+    private func fetchFromCache() -> User? {
+        if let cacheURL = self.cacheURL {
+            if let data = NSData(contentsOfURL: cacheURL) {
+                let user = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? User
+                self.logger.debug { "Fetched user from cache: \(user)" }
+                return user
+            } else {
+                self.logger.debug { "No user to fetch from cache" }
+                return nil
+            }
+        } else {
+            self.logger.warn { "Unable to fetch user from cache" }
+            return nil
+        }
+    }
+    
+    private func fetchFromCloudKit() {
         self.logger.debug { "Fetching user" }
         
         CKContainer.defaultContainer().fetchUserRecordIDWithCompletionHandler { recordId, error in
             if error != nil {
-                //TODO:
+                //TODO: Handle error fetching user record id
                 self.logger.error { "Error fetching user: \(error)" }
                 return
             }
             
             self.database.fetchRecordWithID(recordId) { record, error in
                 if error != nil {
-                    //TODO:
+                    //TODO: Handle error fetching record
                     self.logger.error { "Error fetching user: \(error)" }
                     return
                 }
-
+                
                 self.user = User(record: record)
+                self.saveToCache(self.user)
                 self.logger.info { "Fetched user: \(self.user)" }
             }
+        }
+    }
+    
+    private func saveToCache(user: User?) {
+        switch (user, self.cacheURL) {
+        case (.Some(let user), .Some(let cacheURL)):
+            NSKeyedArchiver.archivedDataWithRootObject(user).writeToURL(cacheURL, atomically: true)
+            self.logger.debug { "Saved user to cache: \(user)" }
+        case (.None, .Some(let cacheURL)):
+            NSFileManager.defaultManager().removeItemAtURL(cacheURL, error: nil)
+            self.logger.debug { "Removed user from cache" }
+        default:
+            self.logger.warn { "Unable to save user to cache" }
         }
     }
     

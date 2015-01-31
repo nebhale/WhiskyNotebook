@@ -47,7 +47,7 @@ final class Subscription {
         
         database.saveSubscription(subscription) { subscription, error in
             if error != nil {
-                // TODO:
+                // TODO: Handle error saving subscription
                 self.logger.error { "Error saving subscription: \(error)"}
                 return
             }

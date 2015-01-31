@@ -3,13 +3,15 @@
 import CloudKit
 
 
-final class User: RecordBased, Equatable, Hashable, Printable {
+class User: NSObject, Equatable, Hashable, NSCoding, Printable, RecordBased {
+    
+    private let logger = Logger(name: "User")
     
     private let record: CKRecord
     
-    var description: String { return "<User: \(self.id); name=\(self.name), membership=\(self.membership), administrator=\(self.administrator)>" }
+    override var description: String { return "<User: \(self.id); name=\(self.name), membership=\(self.membership), administrator=\(self.administrator)>" }
     
-    var hashValue: Int { return self.id.hashValue }
+    override var hashValue: Int { return self.id.hashValue }
     
     var administrator: Bool? {
         get { return (self.record.objectForKey("Administrator") as? String)?.toBool() }
@@ -29,8 +31,16 @@ final class User: RecordBased, Equatable, Hashable, Printable {
         set { self.record.setObject(newValue, forKey: "Membership") }
     }
     
-    init(record: CKRecord) {
+    required init(coder: NSCoder) {
+        self.record = CKRecord(coder: coder)
+    }
+    
+    required init(record: CKRecord) {
         self.record = record
+    }
+    
+    func encodeWithCoder(coder: NSCoder) {
+        self.record.encodeWithCoder(coder)
     }
     
     func toRecord() -> CKRecord {

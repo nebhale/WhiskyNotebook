@@ -13,15 +13,15 @@ func configuration(name: String) -> Configuration? {
         qualifiedName = name
     }
     
-    var path: String?
-    if let candidate = NSBundle.mainBundle().pathForResource(qualifiedName, ofType: "plist") {
-        path = candidate
-    } else if let candidate = NSBundle.mainBundle().pathForResource(name, ofType: "plist") {
-        path = candidate
+    var url: NSURL?
+    if let candidate = NSBundle.mainBundle().URLForResource(qualifiedName, withExtension: "plist") {
+        url = candidate
+    } else if let candidate = NSBundle.mainBundle().URLForResource(name, withExtension: "plist") {
+        url = candidate
     }
     
-    if let path = path {
-        return NSDictionary(contentsOfFile: path) as? [String: AnyObject]
+    if let url = url {
+        return NSDictionary(contentsOfURL: url) as? [String: AnyObject]
     } else {
         return nil
     }

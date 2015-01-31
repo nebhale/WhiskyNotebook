@@ -9,7 +9,7 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     
     private var addButton: UIBarButtonItem?
     
-    var distilleries: [Distillery] = [] {
+    var distilleries: [Distillery]? = [] {
         didSet {
             onMain { self.tableView.reloadData() }
         }
@@ -55,7 +55,7 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
         let contents = String(contentsOfURL: url, encoding: NSUTF8StringEncoding, error: &error)
         
         if error != nil {
-            // TODO:
+            // TODO: Handle error reading imported file
             self.logger.error { "Error reading imported file: \(error)" }
             return
         }
@@ -84,7 +84,7 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowDistillery" {
             if let row = self.tableView.indexPathForSelectedRow()?.row {
-                (segue.destinationViewController as DistilleryController).distillery = self.distilleries[row]
+                (segue.destinationViewController as DistilleryController).distillery = self.distilleries?[row]
             }
         }
     }
@@ -95,19 +95,23 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Distillery", forIndexPath: indexPath) as DistilleryCell
-        cell.loadItem(distilleries[indexPath.row])
+        cell.loadItem(distilleries?[indexPath.row])
         
         return cell
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if UITableViewCellEditingStyle.Delete == editingStyle {
-            DistilleryRepository.instance.delete(self.distilleries[indexPath.row])
+            DistilleryRepository.instance.delete(self.distilleries?[indexPath.row])
         }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return distilleries.count
+        if let distilleries = self.distilleries {
+            return distilleries.count
+        } else {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
     }
     
     override func viewDidLoad() {

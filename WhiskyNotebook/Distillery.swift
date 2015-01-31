@@ -3,13 +3,15 @@
 import CloudKit
 
 
-final class Distillery: RecordBased, Comparable, Equatable, Hashable, Printable {
+class Distillery: NSObject, Comparable, Equatable, Hashable, NSCoding, Printable, RecordBased {
+    
+    private let logger = Logger(name: "Distillery")
     
     private let record: CKRecord
     
-    var description: String { return "<Distillery: \(self.id); name=\(self.name), region=\(self.region), location=\(self.location)>" }
+    override var description: String { return "<Distillery: \(self.id); name=\(self.name), region=\(self.region), location=\(self.location)>" }
     
-    var hashValue: Int {
+    override var hashValue: Int {
         if let id = self.id {
             return id.hashValue
         } else {
@@ -37,11 +39,15 @@ final class Distillery: RecordBased, Comparable, Equatable, Hashable, Printable 
         set { self.record.setObject(newValue, forKey: "Location") }
     }
     
-    init(record: CKRecord) {
+    required init(coder: NSCoder) {
+        self.record = CKRecord(coder: coder)
+    }
+    
+    required init(record: CKRecord) {
         self.record = record
     }
     
-    convenience init() {
+    convenience override init() {
         self.init(record: CKRecord(recordType: "Distillery"))
     }
     
@@ -52,6 +58,10 @@ final class Distillery: RecordBased, Comparable, Equatable, Hashable, Printable 
         self.name = data[1]
         self.region = data[2]
         self.location = CLLocation(latitude: data[3].toDouble()!, longitude: data[4].toDouble()!)
+    }
+    
+    func encodeWithCoder(coder: NSCoder) {
+        self.record.encodeWithCoder(coder)
     }
     
     func toRecord() -> CKRecord {
