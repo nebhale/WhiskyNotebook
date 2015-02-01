@@ -16,6 +16,11 @@ final class DistilleryAddController: UIViewController, UIBarPositioningDelegate 
     @IBOutlet
     var saveButton: UIBarButtonItem?
     
+    @IBAction
+    func hideKeyboard(sender: UITapGestureRecognizer) {
+        self.view.endEditing(false)
+    }
+    
     func pinLocation() {
         if validLatitude() && validLongitude() {
             switch(dataController()?.latitude?.text.toDouble(), dataController()?.longitude?.text.toDouble()) {

@@ -46,16 +46,22 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     
     @IBAction
     func distilleryAddCancel(segue: UIStoryboardSegue) {
-        self.logger.debug { "Distillery add canceled" }
-        
-        self.importedDistilleries.removeAll(keepCapacity: false)
+        if let sourceViewController = segue.sourceViewController as? DistilleryAddController {
+            sourceViewController.dismissViewControllerAnimated(true) {
+                self.importedDistilleries.removeAll(keepCapacity: false)
+            }
+        }
     }
     
     @IBAction
     func distilleryAddSave(segue: UIStoryboardSegue) {
-        if let controller = segue.sourceViewController.childViewControllers.first as? DistilleryAddDataController {
-            DistilleryRepository.instance.save(controller.toDistillery())
-            processImportedDistilleries()
+        if let sourceViewController = segue.sourceViewController as? DistilleryAddController {
+            sourceViewController.dismissViewControllerAnimated(true) {
+                if let addDataController = sourceViewController.childViewControllers.first as? DistilleryAddDataController {
+                    DistilleryRepository.instance.save(addDataController.toDistillery())
+                    self.processImportedDistilleries()
+                }
+            }
         }
     }
     

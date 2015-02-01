@@ -23,10 +23,6 @@ final class DistilleryAddDataController: UITableViewController, UITextFieldDeleg
     @IBOutlet
     var longitude: UITextField?
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return ChainedTextField.textFieldShouldReturn(textField)
-    }
-    
     func fromDistillery(distillery: Distillery?) {
         self.id?.text = distillery?.id
         self.name?.text = distillery?.name
@@ -36,6 +32,10 @@ final class DistilleryAddDataController: UITableViewController, UITextFieldDeleg
             self.latitude?.text = location.coordinate.latitude.description
             self.longitude?.text = location.coordinate.longitude.description
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return ChainedTextField.textFieldShouldReturn(textField)
     }
     
     func toDistillery() -> Distillery? {

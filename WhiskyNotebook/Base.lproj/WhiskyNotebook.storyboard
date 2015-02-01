@@ -181,6 +181,7 @@
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="2Xa-Ha-eHm" firstAttribute="top" secondItem="Lkv-4C-TZm" secondAttribute="bottom" id="5DS-fu-baI"/>
                             <constraint firstItem="W6F-3R-Vh8" firstAttribute="leading" secondItem="KTm-DX-bwZ" secondAttribute="leading" id="8AL-ay-Thg"/>
@@ -193,6 +194,9 @@
                             <constraint firstAttribute="trailing" secondItem="2Xa-Ha-eHm" secondAttribute="trailing" id="s9K-jF-a3A"/>
                             <constraint firstItem="W6F-3R-Vh8" firstAttribute="top" secondItem="t58-es-NZA" secondAttribute="bottom" id="sYd-1W-VAG"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5HZ-uJ-OQi" appends="YES" id="PXN-sw-KVi"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="W6F-3R-Vh8" id="80V-U7-ouA"/>
@@ -201,6 +205,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9f-We-B82" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Px8-GK-aed" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="5HZ-uJ-OQi">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="PNe-jL-FXg" id="30H-al-Imw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3929" y="2142"/>
         </scene>
