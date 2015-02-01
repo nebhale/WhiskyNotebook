@@ -108,6 +108,7 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Distillery", forIndexPath: indexPath) as DistilleryCell
+        cell.accessoryView = nil
         cell.loadItem(distilleries?[indexPath.row])
         
         return cell
@@ -117,7 +118,7 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
         if UITableViewCellEditingStyle.Delete == editingStyle {
             DistilleryRepository.instance.delete(resolvedDistilleries()?[indexPath.row])
             
-            if let cell = tableView.cellForRowAtIndexPath(indexPath) as? DistilleryCell {
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) {
                 let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
                 activityIndicator.startAnimating()
                 cell.accessoryView = activityIndicator
