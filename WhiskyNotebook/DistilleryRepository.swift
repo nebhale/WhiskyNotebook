@@ -15,7 +15,7 @@ final class DistilleryRepository {
     }
     
     typealias Listener = [Distillery]? -> Void
-
+    
     private let cacheURL = URLForCached("Distilleries")
     
     private let database = CKContainer.defaultContainer().publicCloudDatabase
@@ -39,7 +39,7 @@ final class DistilleryRepository {
             }
         }
     }
-
+    
     private init() {
         self.distilleries = fetchFromCache()
         Subscription(recordType: recordType, database: self.database, predicate: self.predicate, notificationHandler: fetchFromCloudKit)
@@ -126,24 +126,44 @@ final class DistilleryRepository {
     private func fetchFromCloudKit() {
         self.logger.debug { "Fetching distilleries" }
         
-        let query = CKQuery(recordType: self.recordType, predicate: self.predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "Id", ascending: true)]
+        var distilleries: [Distillery] = []
+        fetchFromCloudKit(&distilleries, query: CKQuery(recordType: self.recordType, predicate: self.predicate))
+    }
+    
+    private func fetchFromCloudKit(inout distilleries: [Distillery], cursor: CKQueryCursor? = nil, query: CKQuery? = nil) {
+        var operation: CKQueryOperation
         
-        self.database.performQuery(query, inZoneWithID: nil) { records, error in
+        if let cursor = cursor {
+            operation = CKQueryOperation(cursor: cursor)
+        } else if let query = query {
+            operation = CKQueryOperation(query: query)
+        } else {
+            self.logger.warn { "Unable to fetch from CloudKit without a cursor or query" }
+            return
+        }
+        
+        operation.recordFetchedBlock = { distilleries.append(Distillery(record: $0)) }
+        operation.queryCompletionBlock = { cursor, error in
             if error != nil {
-                //TODO: Handle error performing query
+                // TODO: Handle error performing query
                 self.logger.error { "Error fetching distilleries: \(error)" }
                 return
             }
             
-            if let records = records as? [CKRecord] {
-                let distilleries: [Distillery] = records.map { return Distillery(record: $0) }.sorted { $0 < $1 }
-                self.saveToCache(distilleries)
-                
-                self.logger.info { "Fetched distilleries: \(distilleries)" }
-                self.distilleries = distilleries
+            if cursor != nil {
+                self.logger.debug { "Fetching more distilleries" }
+                self.fetchFromCloudKit(&distilleries, cursor: cursor)
+                return
             }
+            
+            distilleries.sort { $0 < $1 }
+            self.saveToCache(distilleries)
+            
+            self.logger.info { "Fetched distilleries: \(distilleries)" }
+            self.distilleries = distilleries
         }
+        
+        self.database.addOperation(operation)
     }
     
     private func saveToCache(distilleries: [Distillery]?) {
@@ -158,5 +178,5 @@ final class DistilleryRepository {
             self.logger.warn { "Unable to save cached distilleries" }
         }
     }
-
+    
 }
