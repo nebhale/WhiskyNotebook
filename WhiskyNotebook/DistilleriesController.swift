@@ -3,7 +3,7 @@
 import UIKit
 
 
-final class DistilleriesController: UITableViewController, UIDocumentPickerDelegate {
+final class DistilleriesController: UITableViewController, UIDocumentPickerDelegate, UISearchResultsUpdating {
     
     private let logger = Logger(name: "DistilleriesController")
     
@@ -20,6 +20,10 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     private var importButton: UIBarButtonItem?
     
     private var importedDistilleries: [Distillery] = []
+    
+    private var searchController = UISearchController(searchResultsController: nil)
+    
+    private var searchDistilleries: [Distillery]?
     
     var user: User? {
         didSet {
@@ -90,8 +94,9 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowDistillery" {
             if let row = self.tableView.indexPathForSelectedRow()?.row {
-                (segue.destinationViewController as DistilleryController).distillery = self.distilleries?[row]
+                (segue.destinationViewController as DistilleryController).distillery = resolvedDistilleries()?[row]
             }
+            self.searchController.active = false
         } else if segue.identifier == "AddDistillery" && !self.importedDistilleries.isEmpty {
             (segue.destinationViewController as DistilleryAddController).importedDistillery = self.importedDistilleries.removeAtIndex(0)
         }
@@ -110,7 +115,7 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if UITableViewCellEditingStyle.Delete == editingStyle {
-            DistilleryRepository.instance.delete(self.distilleries?[indexPath.row])
+            DistilleryRepository.instance.delete(resolvedDistilleries()?[indexPath.row])
             
             if let cell = tableView.cellForRowAtIndexPath(indexPath) as? DistilleryCell {
                 let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
@@ -123,11 +128,42 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let distilleries = self.distilleries {
+        if let distilleries = resolvedDistilleries() {
             return distilleries.count
         } else {
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let query = searchController.searchBar.text
+        self.searchDistilleries = self.distilleries?.filter { distillery in
+            if query.isEmpty {
+                return true
+            }
+            
+            if let id = distillery.id {
+                if id.containsIgnoreCase(query) {
+                    return true
+                }
+            }
+            
+            if let name = distillery.name {
+                if name.containsIgnoreCase(query) {
+                    return true
+                }
+            }
+            
+            if let region = distillery.region {
+                if region.containsIgnoreCase(query) {
+                    return true
+                }
+            }
+            
+            return false
+        }
+        
+        onMain { self.tableView.reloadData() }
     }
     
     override func viewDidLoad() {
@@ -141,6 +177,23 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
         
         self.importButton = self.navigationItem.leftBarButtonItem
         self.navigationItem.leftBarButtonItem = nil
+        
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.searchResultsUpdater = self
+        
+        let searchBar = self.searchController.searchBar
+        searchBar.searchBarStyle = .Minimal
+        searchBar.sizeToFit()
+        self.tableView.tableHeaderView = searchBar
+    }
+    
+    private func resolvedDistilleries() -> [Distillery]? {
+        if self.searchController.active {
+            return self.searchDistilleries
+        } else {
+            return self.distilleries
+        }
     }
     
     private func processImportedDistilleries() {

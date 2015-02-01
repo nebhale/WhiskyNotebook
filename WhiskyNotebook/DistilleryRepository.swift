@@ -20,16 +20,6 @@ final class DistilleryRepository {
     
     private let database = CKContainer.defaultContainer().publicCloudDatabase
     
-    private var listeners: [Memento : Listener] = [:]
-    
-    private let logger = Logger(name: "DistilleryRepository")
-    
-    private let monitor = Monitor()
-    
-    private let predicate = NSPredicate(format: "TRUEPREDICATE")
-    
-    private let recordType = "Distillery"
-    
     private var distilleries: [Distillery]? {
         didSet {
             synchronized(self.monitor) {
@@ -39,6 +29,16 @@ final class DistilleryRepository {
             }
         }
     }
+    
+    private var listeners: [Memento : Listener] = [:]
+    
+    private let logger = Logger(name: "DistilleryRepository")
+    
+    private let monitor = Monitor()
+    
+    private let predicate = NSPredicate(format: "TRUEPREDICATE")
+    
+    private let recordType = "Distillery"
     
     private init() {
         self.distilleries = fetchFromCache()
