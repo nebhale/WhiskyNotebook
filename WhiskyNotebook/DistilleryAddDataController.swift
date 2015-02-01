@@ -27,6 +27,17 @@ final class DistilleryAddDataController: UITableViewController, UITextFieldDeleg
         return ChainedTextField.textFieldShouldReturn(textField)
     }
     
+    func fromDistillery(distillery: Distillery?) {
+        self.id?.text = distillery?.id
+        self.name?.text = distillery?.name
+        self.region?.text = distillery?.region
+        
+        if let location = distillery?.location? {
+            self.latitude?.text = location.coordinate.latitude.description
+            self.longitude?.text = location.coordinate.longitude.description
+        }
+    }
+    
     func toDistillery() -> Distillery? {
         switch(self.id?.text, self.name?.text, self.region?.text, self.latitude?.text.toDouble(), self.longitude?.text.toDouble()) {
         case(.Some(let id), .Some(let name), .Some(let region), .Some(let latitude), .Some(let longitude)):

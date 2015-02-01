@@ -8,6 +8,8 @@ final class DistilleryAddController: UIViewController, UIBarPositioningDelegate 
     
     private let logger = Logger(name: "DistilleryAddController")
     
+    var importedDistillery: Distillery?
+    
     @IBOutlet
     var mapView: MKMapView?
     
@@ -46,6 +48,14 @@ final class DistilleryAddController: UIViewController, UIBarPositioningDelegate 
         
         dataController()?.latitude?.addTarget(self, action: "pinLocation", forControlEvents: UIControlEvents.EditingChanged)
         dataController()?.longitude?.addTarget(self, action: "pinLocation", forControlEvents: UIControlEvents.EditingChanged)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        dataController()?.fromDistillery(self.importedDistillery)
+        toggleSaveButtonEnabled()
+        pinLocation()
     }
     
     private func dataController() -> DistilleryAddDataController? {

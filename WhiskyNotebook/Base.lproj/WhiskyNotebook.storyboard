@@ -124,7 +124,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ir3-G8-V3S">
                             <connections>
-                                <segue destination="PNe-jL-FXg" kind="popoverPresentation" popoverAnchorBarButtonItem="ir3-G8-V3S" id="j8t-G4-W2G">
+                                <segue destination="PNe-jL-FXg" kind="popoverPresentation" identifier="AddDistillery" popoverAnchorBarButtonItem="ir3-G8-V3S" id="j8t-G4-W2G">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>

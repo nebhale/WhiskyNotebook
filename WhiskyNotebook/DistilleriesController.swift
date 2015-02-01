@@ -19,6 +19,8 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     
     private var importButton: UIBarButtonItem?
     
+    private var importedDistilleries: [Distillery] = []
+    
     var user: User? {
         didSet {
             onMain {
@@ -41,12 +43,15 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     @IBAction
     func distilleryAddCancel(segue: UIStoryboardSegue) {
         self.logger.debug { "Distillery add canceled" }
+        
+        self.importedDistilleries.removeAll(keepCapacity: false)
     }
     
     @IBAction
     func distilleryAddSave(segue: UIStoryboardSegue) {
         if let controller = segue.sourceViewController.childViewControllers.first as? DistilleryAddDataController {
             DistilleryRepository.instance.save(controller.toDistillery())
+            processImportedDistilleries()
         }
     }
     
@@ -62,10 +67,11 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
         
         if let contents = contents {
             for line in contents.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).componentsSeparatedByString("\n") {
-                let distillery = Distillery(data: line.componentsSeparatedByString(","))
-                DistilleryRepository.instance.save(distillery)
+                self.importedDistilleries.append(Distillery(data: line.componentsSeparatedByString(",")))
             }
         }
+        
+        processImportedDistilleries()
     }
     
     @IBAction
@@ -86,6 +92,8 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
             if let row = self.tableView.indexPathForSelectedRow()?.row {
                 (segue.destinationViewController as DistilleryController).distillery = self.distilleries?[row]
             }
+        } else if segue.identifier == "AddDistillery" && !self.importedDistilleries.isEmpty {
+            (segue.destinationViewController as DistilleryAddController).importedDistillery = self.importedDistilleries.removeAtIndex(0)
         }
     }
     
@@ -103,6 +111,14 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if UITableViewCellEditingStyle.Delete == editingStyle {
             DistilleryRepository.instance.delete(self.distilleries?[indexPath.row])
+            
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) as? DistilleryCell {
+                let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+                activityIndicator.startAnimating()
+                cell.accessoryView = activityIndicator
+            }
+            
+            tableView.setEditing(false, animated: true)
         }
     }
     
@@ -125,6 +141,12 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
         
         self.importButton = self.navigationItem.leftBarButtonItem
         self.navigationItem.leftBarButtonItem = nil
+    }
+    
+    private func processImportedDistilleries() {
+        if !self.importedDistilleries.isEmpty {
+            onMain { self.performSegueWithIdentifier("AddDistillery", sender: self) }
+        }
     }
     
 }
