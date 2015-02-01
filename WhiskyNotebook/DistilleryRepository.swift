@@ -107,16 +107,18 @@ final class DistilleryRepository {
     
     private func fetchFromCache() -> [Distillery]? {
         if let cacheURL = self.cacheURL {
+            self.logger.debug { "Fetching cached distilleries" }
+            
             if let data = NSData(contentsOfURL: cacheURL) {
                 let distilleries = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Distillery]
-                self.logger.debug { "Fetched distilleries from cache: \(distilleries)" }
+                self.logger.debug { "Fetched cached distilleries: \(distilleries)" }
                 return distilleries
             } else {
-                self.logger.debug { "No distilleries to fetch from cache" }
+                self.logger.debug { "No cached distilleries to fetch" }
                 return nil
             }
         } else {
-            self.logger.warn { "Unable to fetch distilleries from cache" }
+            self.logger.warn { "Unable to fetch cached distilleries" }
             return nil
         }
     }
@@ -135,9 +137,11 @@ final class DistilleryRepository {
             }
             
             if let records = records as? [CKRecord] {
-                self.distilleries = records.map { return Distillery(record: $0) }.sorted { $0 < $1 }
-                self.saveToCache(self.distilleries)
-                self.logger.info { "Fetched distilleries: \(self.distilleries)" }
+                let distilleries: [Distillery] = records.map { return Distillery(record: $0) }.sorted { $0 < $1 }
+                self.saveToCache(distilleries)
+                
+                self.logger.info { "Fetched distilleries: \(distilleries)" }
+                self.distilleries = distilleries
             }
         }
     }
@@ -146,12 +150,12 @@ final class DistilleryRepository {
         switch (distilleries, self.cacheURL) {
         case (.Some(let distilleries), .Some(let cacheURL)):
             NSKeyedArchiver.archivedDataWithRootObject(distilleries).writeToURL(cacheURL, atomically: true)
-            self.logger.debug { "Saved distilleries to cache: \(distilleries)" }
+            self.logger.debug { "Saved cached distilleries: \(distilleries)" }
         case (.None, .Some(let cacheURL)):
             NSFileManager.defaultManager().removeItemAtURL(cacheURL, error: nil)
-            self.logger.debug { "Removed distilleries from cache"}
+            self.logger.debug { "Removed cached distilleries"}
         default:
-            self.logger.warn { "Unable to save distilleries to cache" }
+            self.logger.warn { "Unable to save cached distilleries" }
         }
     }
 
