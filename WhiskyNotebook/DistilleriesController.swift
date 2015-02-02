@@ -115,7 +115,7 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Distillery", forIndexPath: indexPath) as DistilleryCell
         cell.accessoryView = nil
-        cell.loadItem(distilleries?[indexPath.row])
+        cell.loadItem(resolvedDistilleries()?[indexPath.row])
         
         return cell
     }
