@@ -23,11 +23,10 @@ final class DistilleryAddController: UIViewController, UIBarPositioningDelegate 
 
     func pinLocation() {
         if validLatitude() && validLongitude() {
-            switch(dataController()?.latitude?.text.toDouble(), dataController()?.longitude?.text.toDouble()) {
-            case(.Some(let latitude), .Some(let longitude)):
+            if let latitude = dataController()?.latitude?.text.toDouble(), let longitude = dataController()?.longitude?.text.toDouble() {
                 let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
                 DistilleryAnnotation(coordinate: coordinate).addToMapView(self.mapView)
-            default:
+            } else {
                 self.logger.debug { "Unable to add annotation for \(self.dataController()?.latitude?.text), \(self.dataController()?.longitude?.text)" }
             }
         }

@@ -5,15 +5,9 @@ import Foundation
 
 
 final class UserRepository {
-    
-    class var instance: UserRepository {
-        struct Static {
-            static let instance = UserRepository()
-        }
-        
-        return Static.instance
-    }
-    
+
+    static let instance = UserRepository()
+
     typealias Listener = User? -> Void
 
     private let cacheURL = URLForCached("User")

@@ -27,8 +27,8 @@ final class DistilleryAddDataController: UITableViewController, UITextFieldDeleg
         self.id?.text = distillery?.id
         self.name?.text = distillery?.name
         self.region?.text = distillery?.region
-        
-        if let location = distillery?.location? {
+
+        if let location = distillery?.location {
             self.latitude?.text = location.coordinate.latitude.description
             self.longitude?.text = location.coordinate.longitude.description
         }
@@ -39,8 +39,7 @@ final class DistilleryAddDataController: UITableViewController, UITextFieldDeleg
     }
 
     func toDistillery() -> Distillery? {
-        switch(self.id?.text, self.name?.text, self.region?.text, self.latitude?.text.toDouble(), self.longitude?.text.toDouble()) {
-        case(.Some(let id), .Some(let name), .Some(let region), .Some(let latitude), .Some(let longitude)):
+        if let id = self.id?.text, let name = self.name?.text, let region = self.region?.text, let latitude = self.latitude?.text.toDouble(), let longitude = self.longitude?.text.toDouble() {
             let distillery = Distillery()
 
             distillery.id = id
@@ -49,7 +48,7 @@ final class DistilleryAddDataController: UITableViewController, UITextFieldDeleg
             distillery.location = CLLocation(latitude: latitude, longitude: longitude)
 
             return distillery
-        default:
+        } else {
             return nil
         }
     }

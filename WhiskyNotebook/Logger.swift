@@ -15,21 +15,21 @@ final class Logger {
         self.name = name
         self.logWriter.registerName(name)
     }
-    
-    func debug(messageProvider: MessageProvider) {
-        self.logWriter.debug(self.name, messageProvider)
+
+    func debug(@noescape messageProvider: MessageProvider) {
+        self.logWriter.debug(self.name, messageProvider: messageProvider)
     }
 
-    func info(messageProvider: MessageProvider) {
-        self.logWriter.info(self.name, messageProvider)
-    }
-    
-    func warn(messageProvider: MessageProvider) {
-        self.logWriter.warn(self.name, messageProvider)
+    func info(@noescape messageProvider: MessageProvider) {
+        self.logWriter.info(self.name, messageProvider: messageProvider)
     }
 
-    func error(messageProvider: MessageProvider) {
-        self.logWriter.error(self.name, messageProvider)
+    func warn(@noescape messageProvider: MessageProvider) {
+        self.logWriter.warn(self.name, messageProvider: messageProvider)
+    }
+
+    func error(@noescape messageProvider: MessageProvider) {
+        self.logWriter.error(self.name, messageProvider: messageProvider)
     }
 
 }

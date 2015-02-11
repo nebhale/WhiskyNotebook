@@ -5,15 +5,9 @@ import Foundation
 
 
 final class DistilleryRepository {
-    
-    class var instance: DistilleryRepository {
-        struct Static {
-            static let instance = DistilleryRepository()
-        }
-        
-        return Static.instance
-    }
-    
+
+    static let instance = DistilleryRepository()
+
     typealias Listener = [Distillery]? -> Void
 
     private let cacheURL = URLForCached("Distilleries")
@@ -131,8 +125,8 @@ final class DistilleryRepository {
     }
 
     private func fetchFromCloudKit(inout distilleries: [Distillery], cursor: CKQueryCursor? = nil, query: CKQuery? = nil) {
-        var operation: CKQueryOperation
-        
+        let operation: CKQueryOperation
+
         if let cursor = cursor {
             operation = CKQueryOperation(cursor: cursor)
         } else if let query = query {

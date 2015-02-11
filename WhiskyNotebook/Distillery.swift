@@ -78,8 +78,8 @@ func <(x: Distillery, y: Distillery) -> Bool {
 
     let comparisonValue: String? -> Int = { candidateId in
         let id = candidateId != nil ? candidateId! : "0"
-        
-        switch(id[0]) {
+
+        switch id[0] {
         case "B":
             return 2000 + parseId(id)
         case "G":

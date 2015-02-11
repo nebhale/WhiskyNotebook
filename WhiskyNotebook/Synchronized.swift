@@ -5,7 +5,7 @@ import Foundation
 
 final class Monitor {}
 
-func synchronized<T>(monitor: Monitor, f: () -> T) -> T {
+func synchronized<T>(monitor: Monitor, @noescape f: () -> T) -> T {
     var result: T
 
     objc_sync_enter(monitor)
@@ -15,7 +15,7 @@ func synchronized<T>(monitor: Monitor, f: () -> T) -> T {
     return result
 }
 
-func synchronized(monitor: Monitor, f: () -> Void) {
+func synchronized(monitor: Monitor, @noescape f: () -> Void) {
     objc_sync_enter(monitor)
     f()
     objc_sync_exit(monitor)

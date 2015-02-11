@@ -28,8 +28,8 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     var user: User? {
         didSet {
             onMain {
-                self.navigationItem.rightBarButtonItem = (self.user?.administrator? == true) ? self.addButton : nil
-                self.navigationItem.leftBarButtonItem = (self.user?.administrator? == true) ? self.importButton : nil
+                self.navigationItem.rightBarButtonItem = (self.user?.administrator == true) ? self.addButton : nil
+                self.navigationItem.leftBarButtonItem = (self.user?.administrator == true) ? self.importButton : nil
                 self.tableView.reloadData()
             }
         }
@@ -100,23 +100,30 @@ final class DistilleriesController: UITableViewController, UIDocumentPickerDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowDistillery" {
             if let row = self.tableView.indexPathForSelectedRow()?.row {
-                (segue.destinationViewController as DistilleryController).distillery = resolvedDistilleries()?[row]
+                if let controller = segue.destinationViewController as? DistilleryController {
+                    controller.distillery = resolvedDistilleries()?[row]
+                }
             }
             self.searchController.active = false
         } else if segue.identifier == "AddDistillery" && !self.importedDistilleries.isEmpty {
-            (segue.destinationViewController as DistilleryAddController).importedDistillery = self.importedDistilleries.removeAtIndex(0)
+            if let controller = segue.destinationViewController as? DistilleryAddController {
+                controller.importedDistillery = self.importedDistilleries.removeAtIndex(0)
+            }
         }
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return self.user?.administrator? == true
+        return self.user?.administrator == true
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("Distillery", forIndexPath: indexPath) as DistilleryCell
-        cell.accessoryView = nil
-        cell.loadItem(resolvedDistilleries()?[indexPath.row])
-        
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("Distillery", forIndexPath: indexPath) as! UITableViewCell
+
+        if let distilleryCell = cell as? DistilleryCell {
+            distilleryCell.accessoryView = nil
+            distilleryCell.loadItem(resolvedDistilleries()?[indexPath.row])
+        }
+
         return cell
     }
 

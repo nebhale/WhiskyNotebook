@@ -3,15 +3,9 @@
 import UIKit
 
 final class RemoteNotificationBroker {
-    
-    class var instance: RemoteNotificationBroker {
-        struct Static {
-            static let instance = RemoteNotificationBroker()
-        }
-        
-        return Static.instance
-    }
-    
+
+    static let instance = RemoteNotificationBroker()
+
     typealias Listener = UserInfo -> UIBackgroundFetchResult
 
     typealias UserInfo = [NSObject : AnyObject]
@@ -51,11 +45,11 @@ final class RemoteNotificationBroker {
     }
 
     private func max(a: UIBackgroundFetchResult, _ b: UIBackgroundFetchResult) -> UIBackgroundFetchResult {
-        switch(a) {
+        switch a {
         case .NoData:
             return b
         case .NewData:
-            switch(b) {
+            switch b  {
             case .NoData:
                 return a
             case .NewData:
