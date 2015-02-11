@@ -4,13 +4,13 @@ import Foundation
 
 
 final class Logger {
-    
+
     typealias MessageProvider = () -> AnyObject
-    
+
     private let logWriter = LogWriter.instance
-    
+
     private let name: String
-    
+
     init(name: String) {
         self.name = name
         self.logWriter.registerName(name)
@@ -33,6 +33,3 @@ final class Logger {
     }
 
 }
-
-
-

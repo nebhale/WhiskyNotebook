@@ -4,11 +4,11 @@ import UIKit
 
 
 final class ProfileEditController: UIViewController, UIBarPositioningDelegate {
-    
+
     private let logger = Logger(name: "ProfileEditController")
-    
+
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
     }
-    
+
 }

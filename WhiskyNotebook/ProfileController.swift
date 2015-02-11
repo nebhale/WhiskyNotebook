@@ -4,9 +4,9 @@ import UIKit
 
 
 final class ProfileController: UIViewController, UIBarPositioningDelegate {
-    
+
     private let logger = Logger(name: "ProfileController")
-    
+
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
     }
@@ -15,12 +15,12 @@ final class ProfileController: UIViewController, UIBarPositioningDelegate {
     func profileEditCancel(segue: UIStoryboardSegue) {
         self.logger.debug { "Profile edit canceled" }
     }
-    
+
     @IBAction
     func profileEditSave(segue: UIStoryboardSegue) {
         if let controller = segue.sourceViewController.childViewControllers.first as? ProfileEditDataController {
             UserRepository.instance.save(controller.toUser())
         }
     }
-    
+
 }

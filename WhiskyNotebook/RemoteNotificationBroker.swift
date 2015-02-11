@@ -13,27 +13,27 @@ final class RemoteNotificationBroker {
     }
     
     typealias Listener = UserInfo -> UIBackgroundFetchResult
-    
+
     typealias UserInfo = [NSObject : AnyObject]
-    
+
     private init() {}
-    
+
     private let monitor = Monitor()
-    
+
     private var listeners: [Memento : Listener] = [:]
-    
+
     func publish(userInfo: UserInfo) -> UIBackgroundFetchResult {
         return synchronized(self.monitor) {
             var result = UIBackgroundFetchResult.NoData
-            
+
             for listener in self.listeners.values {
                 result = self.max(result, listener(userInfo))
             }
-            
+
             return result
         }
     }
-    
+
     func subscribe(listener: Listener) -> Memento {
         return synchronized(self.monitor) {
             let memento = Memento()
@@ -41,7 +41,7 @@ final class RemoteNotificationBroker {
             return memento
         }
     }
-    
+
     func unsubscribe(memento: Memento?) {
         if let memento = memento {
             synchronized(self.monitor) {
@@ -49,7 +49,7 @@ final class RemoteNotificationBroker {
             }
         }
     }
-    
+
     private func max(a: UIBackgroundFetchResult, _ b: UIBackgroundFetchResult) -> UIBackgroundFetchResult {
         switch(a) {
         case .NoData:
@@ -67,5 +67,5 @@ final class RemoteNotificationBroker {
             return a
         }
     }
-    
+
 }

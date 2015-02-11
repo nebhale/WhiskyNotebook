@@ -14,18 +14,18 @@ final class LogWriter {
     }
     
     typealias MessageProvider = () -> AnyObject
-    
+
     private let dateFormatter: NSDateFormatter
-    
+
     private let level: Level
-    
+
     private let monitor = Monitor()
-    
+
     private var maxNameLength = 0
-    
+
     private init() {
         let config = configuration("Logging")
-        
+
         self.dateFormatter = NSDateFormatter()
         self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         self.dateFormatter.dateFormat = config?["Format"] as? String
@@ -47,7 +47,7 @@ final class LogWriter {
             self.level = Level.Warn
         }
     }
-    
+
     func registerName(name: String) {
         synchronized(self.monitor) {
             self.maxNameLength = max(self.maxNameLength, countElements(name))
@@ -77,21 +77,21 @@ final class LogWriter {
             }
         }
     }
-    
+
     private func pad(name: String) -> String {
         var padded = name
         
         while countElements(padded) < self.maxNameLength {
             padded += " "
         }
-        
+
         return padded
     }
-    
+
     private enum Level: Int {
-        
+
         case Debug, Info, Warn, Error
-        
+
     }
-    
+
 }

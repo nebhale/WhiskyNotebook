@@ -9,10 +9,10 @@ final class DistilleryController: UIViewController {
     private let locationManager = CLLocationManager()
 
     private let logger = Logger(name: "DistilleryController")
-    
+
     @IBOutlet
     var mapView: MKMapView?
-    
+
     var distillery: Distillery? {
         didSet {
             onMain {
@@ -22,5 +22,5 @@ final class DistilleryController: UIViewController {
             }
         }
     }
-    
+
 }

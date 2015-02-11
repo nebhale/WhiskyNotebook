@@ -4,8 +4,9 @@ import CloudKit
 
 
 protocol RecordBased {
-    
+
     init(record: CKRecord)
-    
+
     func toRecord() -> CKRecord
+
 }

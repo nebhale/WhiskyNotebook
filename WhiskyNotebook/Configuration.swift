@@ -19,7 +19,7 @@ func configuration(name: String) -> Configuration? {
     } else if let candidate = NSBundle.mainBundle().URLForResource(name, withExtension: "plist") {
         url = candidate
     }
-    
+
     if let url = url {
         return NSDictionary(contentsOfURL: url) as? [String: AnyObject]
     } else {

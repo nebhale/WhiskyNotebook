@@ -7,11 +7,11 @@ final class Monitor {}
 
 func synchronized<T>(monitor: Monitor, f: () -> T) -> T {
     var result: T
-    
+
     objc_sync_enter(monitor)
     result = f()
     objc_sync_exit(monitor)
-    
+
     return result
 }
 
