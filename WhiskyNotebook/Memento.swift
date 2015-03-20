@@ -2,15 +2,23 @@
 
 import Foundation
 
+public struct Memento: Equatable, Hashable {
 
-final class Memento: Equatable, Hashable {
+    private let id: NSUUID
 
-    private let id = NSUUID()
+    public var hashValue: Int { return self.id.hashValue }
 
-    var hashValue: Int { return self.id.hashValue }
+    public init() {
+        self.id = NSUUID()
+    }
 
+    public init(id: NSUUID) {
+        self.id = id
+    }
+    
 }
 
-func ==(x: Memento, y: Memento) -> Bool {
+
+public func ==(x: Memento, y: Memento) -> Bool {
     return x.id == y.id
 }

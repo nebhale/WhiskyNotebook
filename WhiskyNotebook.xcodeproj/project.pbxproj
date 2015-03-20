@@ -19,6 +19,7 @@
 		245965B21A47206C00AA0912 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245965B11A47206C00AA0912 /* MapKit.framework */; };
 		2478E41C1A464CA000091DA2 /* Logging-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2478E41B1A464CA000091DA2 /* Logging-Release.plist */; };
 		2487AD671A38DD77007ADE75 /* LogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2487AD661A38DD77007ADE75 /* LogWriter.swift */; };
+		249DCC131ABCCB0600E3B9E4 /* MementoSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DCC121ABCCB0600E3B9E4 /* MementoSpec.swift */; };
 		249DE4CE1A74F6C1003E94BF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4CD1A74F6C1003E94BF /* String.swift */; };
 		249DE4D01A76136E003E94BF /* DistilleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4CF1A76136E003E94BF /* DistilleryController.swift */; };
 		249DE4D21A76201D003E94BF /* DistilleryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4D11A76201D003E94BF /* DistilleryAnnotation.swift */; };
@@ -46,7 +47,6 @@
 		24FC64211A42B32900DE8744 /* WhiskyNotebook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FC641F1A42B32900DE8744 /* WhiskyNotebook.storyboard */; };
 		24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8D11A36D658002C1E88 /* AppDelegate.swift */; };
 		24FFF8DC1A36D658002C1E88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */; };
-		24FFF8E81A36D658002C1E88 /* WhiskyNotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8E71A36D658002C1E88 /* WhiskyNotebookTests.swift */; };
 		24FFF8FA1A3797BD002C1E88 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8F91A3797BD002C1E88 /* Logger.swift */; };
 		24FFF9001A38CBE0002C1E88 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +90,7 @@
 		245965B11A47206C00AA0912 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2478E41B1A464CA000091DA2 /* Logging-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Logging-Release.plist"; sourceTree = "<group>"; };
 		2487AD661A38DD77007ADE75 /* LogWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWriter.swift; sourceTree = "<group>"; };
+		249DCC121ABCCB0600E3B9E4 /* MementoSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MementoSpec.swift; sourceTree = "<group>"; };
 		249DE4CD1A74F6C1003E94BF /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		249DE4CF1A76136E003E94BF /* DistilleryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryController.swift; sourceTree = "<group>"; };
 		249DE4D11A76201D003E94BF /* DistilleryAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAnnotation.swift; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		24FFF8DB1A36D658002C1E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		24FFF8E11A36D658002C1E88 /* WhiskyNotebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhiskyNotebookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FFF8E61A36D658002C1E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24FFF8E71A36D658002C1E88 /* WhiskyNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiskyNotebookTests.swift; sourceTree = "<group>"; };
 		24FFF8F91A3797BD002C1E88 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		24FFF8FF1A38CBE0002C1E88 /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		249DCC111ABCCAF300E3B9E4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				249DCC121ABCCB0600E3B9E4 /* MementoSpec.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		24E670DD1A72CDC4005AA399 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +238,7 @@
 		24FFF8E41A36D658002C1E88 /* WhiskyNotebookTests */ = {
 			isa = PBXGroup;
 			children = (
-				24FFF8E71A36D658002C1E88 /* WhiskyNotebookTests.swift */,
+				249DCC111ABCCAF300E3B9E4 /* Utilities */,
 				24FFF8E51A36D658002C1E88 /* Supporting Files */,
 				242A43481ABCAF750002B938 /* Nimble.framework */,
 				242A434A1ABCAF800002B938 /* Quick.framework */,
@@ -413,7 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24FFF8E81A36D658002C1E88 /* WhiskyNotebookTests.swift in Sources */,
+				249DCC131ABCCB0600E3B9E4 /* MementoSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
