@@ -11,6 +11,8 @@
 		2400FD041A7589F6003C1CE1 /* DistilleryAddDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400FD031A7589F6003C1CE1 /* DistilleryAddDataController.swift */; };
 		2400FD061A758F99003C1CE1 /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400FD051A758F99003C1CE1 /* Scanner.swift */; };
 		2400FD081A75EA09003C1CE1 /* ChainedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400FD071A75EA09003C1CE1 /* ChainedTextField.swift */; };
+		242A43491ABCAF750002B938 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A43481ABCAF750002B938 /* Nimble.framework */; };
+		242A434B1ABCAF800002B938 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A434A1ABCAF800002B938 /* Quick.framework */; };
 		242B04691A7D45AB009AB968 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B04681A7D45AB009AB968 /* Cache.swift */; };
 		2437C39A1A3D7DD300685CCB /* Logging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2437C3991A3D7DD300685CCB /* Logging.plist */; };
 		2437C39C1A3D841700685CCB /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437C39B1A3D841700685CCB /* Configuration.swift */; };
@@ -23,6 +25,8 @@
 		249DE4D41A762EA3003E94BF /* DistilleryDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249DE4D31A762EA3003E94BF /* DistilleryDataController.swift */; };
 		24B3F2D51A756FBE002CFB46 /* DistilleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3F2D41A756FBE002CFB46 /* DistilleryCell.swift */; };
 		24C730F51A40D6E20025AFE9 /* OnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C730F41A40D6E20025AFE9 /* OnMain.swift */; };
+		24D9565C1ABCB1F300CCF888 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 242A434A1ABCAF800002B938 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24D9565D1ABCB1F700CCF888 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 242A43481ABCAF750002B938 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24E670D81A72C407005AA399 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E670D71A72C407005AA399 /* PassKit.framework */; };
 		24E670DA1A72C41F005AA399 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E670D91A72C41F005AA399 /* CloudKit.framework */; };
 		24E670DC1A72CB5B005AA399 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E670DB1A72CB5B005AA399 /* Images.xcassets */; };
@@ -57,11 +61,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		24D9565B1ABCB1D900CCF888 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24D9565D1ABCB1F700CCF888 /* Nimble.framework in Copy Frameworks */,
+				24D9565C1ABCB1F300CCF888 /* Quick.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2400FD011A7586B9003C1CE1 /* DistilleryAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAddController.swift; sourceTree = "<group>"; };
 		2400FD031A7589F6003C1CE1 /* DistilleryAddDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAddDataController.swift; sourceTree = "<group>"; };
 		2400FD051A758F99003C1CE1 /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 		2400FD071A75EA09003C1CE1 /* ChainedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainedTextField.swift; sourceTree = "<group>"; };
+		242A43481ABCAF750002B938 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		242A434A1ABCAF800002B938 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		242B04681A7D45AB009AB968 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WhiskyNotebook.entitlements; sourceTree = "<group>"; };
 		2437C3991A3D7DD300685CCB /* Logging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Logging.plist; sourceTree = "<group>"; };
@@ -118,6 +139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242A434B1ABCAF800002B938 /* Quick.framework in Frameworks */,
+				242A43491ABCAF750002B938 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,9 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				24FFF8CE1A36D658002C1E88 /* WhiskyNotebook */,
-				24E670D91A72C41F005AA399 /* CloudKit.framework */,
-				245965B11A47206C00AA0912 /* MapKit.framework */,
-				24E670D71A72C407005AA399 /* PassKit.framework */,
 				24FFF8E41A36D658002C1E88 /* WhiskyNotebookTests */,
 				24FFF8CD1A36D658002C1E88 /* Products */,
 			);
@@ -190,6 +210,9 @@
 				24E670DB1A72CB5B005AA399 /* Images.xcassets */,
 				24FFF8CF1A36D658002C1E88 /* Configuration */,
 				24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */,
+				24E670D91A72C41F005AA399 /* CloudKit.framework */,
+				245965B11A47206C00AA0912 /* MapKit.framework */,
+				24E670D71A72C407005AA399 /* PassKit.framework */,
 			);
 			path = WhiskyNotebook;
 			sourceTree = "<group>";
@@ -209,6 +232,8 @@
 			children = (
 				24FFF8E71A36D658002C1E88 /* WhiskyNotebookTests.swift */,
 				24FFF8E51A36D658002C1E88 /* Supporting Files */,
+				242A43481ABCAF750002B938 /* Nimble.framework */,
+				242A434A1ABCAF800002B938 /* Quick.framework */,
 			);
 			path = WhiskyNotebookTests;
 			sourceTree = "<group>";
@@ -264,6 +289,7 @@
 				24FFF8DD1A36D658002C1E88 /* Sources */,
 				24FFF8DE1A36D658002C1E88 /* Frameworks */,
 				24FFF8DF1A36D658002C1E88 /* Resources */,
+				24D9565B1ABCB1D900CCF888 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -539,6 +565,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -558,6 +585,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WhiskyNotebookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
