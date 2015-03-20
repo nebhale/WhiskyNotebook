@@ -1,0 +1,18 @@
+language: objective-c
+xcode_project: WhiskyNotebook.xcodeproj
+xcode_scheme: WhiskyNotebook
+xcode_sdk: iphonesimulator8.1
+
+before_install:
+- brew update
+- brew install carthage
+install: carthage update
+
+cache:
+  directories:
+  - Carthage/Build
+
+notifications:
+  email: false
+  slack:
+    secure: ijVeAxOpM7vEzrFzqSC5zpa7xuCFizuyou8cjcg+y6rz43S/PrhlIQDDxkTbbp/16MiVjckSo+CNf3RT3mjiheLARUwiqZn8lhETRis2qsP/idk6naByYbKfqnb/JreKXWuqXWKb27luD8nWN+kRvSckGRtpIqHpX4XDiwsfNfs=
