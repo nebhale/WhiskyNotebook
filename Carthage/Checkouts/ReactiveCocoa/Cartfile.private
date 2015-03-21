@@ -1,0 +1,3 @@
+github "jspahrsummers/xcconfigs" >= 0.7.1
+github "Quick/Quick" "master"
+github "Quick/Nimble" "master"

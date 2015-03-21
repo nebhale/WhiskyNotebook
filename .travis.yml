@@ -6,7 +6,7 @@ xcode_sdk: iphonesimulator8.1
 before_install:
 - brew update
 - brew install carthage
-install: carthage update
+install: carthage build --platform iOS
 
 cache:
   directories:
