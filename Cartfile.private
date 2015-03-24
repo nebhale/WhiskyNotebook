@@ -1,4 +1,5 @@
 # Copyright 2014-2015 Ben Hale. All Rights Reserved
 
-github "Quick/Nimble" "master"
+github "Quick/Nimble"
 github "Quick/Quick"
+github "ReactiveCocoa/ReactiveCocoa" "v3.0-alpha.2"
