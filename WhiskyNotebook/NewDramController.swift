@@ -3,17 +3,19 @@
 import ReactiveCocoa
 import UIKit
 
-public class NewDramController: UITableViewController {
+public final class NewDramController: UITableViewController {
 
     private var dram = MutableProperty(Dram())
 
-    @IBOutlet
-    public var save: UIBarButtonItem!
+    private let logger = Logger()
 
     @IBOutlet
     public var id: UITextField!
 
     public var repository = DramRepositoryManager.sharedInstance
+
+    @IBOutlet
+    public var save: UIBarButtonItem!
 
     public var scheduler: SchedulerType = QueueScheduler()
 
@@ -27,6 +29,8 @@ public class NewDramController: UITableViewController {
     }
 
     public func performSave() {
+        self.logger.info("Dram save initiated")
+
         let producer = SignalProducer<Dram, NoError>(value: self.dram.value) |> startOn(self.scheduler)
         producer.start(next: { self.repository.save($0) })
     }

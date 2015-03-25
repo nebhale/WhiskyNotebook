@@ -3,7 +3,7 @@
 import ReactiveCocoa
 import UIKit
 
-public class DramsController: UITableViewController {
+public final class DramsController: UITableViewController {
 
     private var drams: [Dram] = [] {
         didSet { self.tableView.reloadData() }

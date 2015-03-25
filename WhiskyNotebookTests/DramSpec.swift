@@ -5,7 +5,7 @@ import Quick
 import WhiskyNotebook
 
 
-class DramSpec: QuickSpec {
+final class DramSpec: QuickSpec {
     override func spec() {
         describe("Dram") {
             it("initializes all properties to nil") {

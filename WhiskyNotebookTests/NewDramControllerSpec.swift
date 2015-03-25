@@ -6,7 +6,8 @@ import ReactiveCocoa
 import UIKit
 import WhiskyNotebook
 
-class NewDramControllerSpec: QuickSpec {
+
+final class NewDramControllerSpec: QuickSpec {
     override func spec() {
         let storyboard = UIStoryboard(name: "WhiskyNotebook", bundle: nil)
 

@@ -5,7 +5,8 @@ import Quick
 import ReactiveCocoa
 import WhiskyNotebook
 
-class InMemoryDramRepositorySpec: QuickSpec {
+
+final class InMemoryDramRepositorySpec: QuickSpec {
 
     override func spec() {
         describe("InMemoryDramRepository") {
@@ -15,13 +16,13 @@ class InMemoryDramRepositorySpec: QuickSpec {
                 repository = InMemoryDramRepository()
             }
 
-            pending("saves dram") {
+            it("saves dram") {
                 expect(repository.drams.value.count).to(equal(0))
                 repository.save(Dram())
                 expect(repository.drams.value.count).to(equal(1))
             }
 
-            pending("signals changes to drams") {
+            it("signals changes to drams") {
                 let dram = Dram()
                 var sentValue: [Dram]?
 

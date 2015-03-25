@@ -7,12 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24030E911AC30D7A00E3AC6A /* ConfigurationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24030E901AC30D7A00E3AC6A /* ConfigurationSpec.swift */; };
+		24030E931AC30EC800E3AC6A /* ConfigurationProviderManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24030E921AC30EC800E3AC6A /* ConfigurationProviderManagerSpec.swift */; };
+		24030E951AC30FF400E3AC6A /* LevelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24030E941AC30FF400E3AC6A /* LevelSpec.swift */; };
 		242A43491ABCAF750002B938 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A43481ABCAF750002B938 /* Nimble.framework */; };
 		242A434B1ABCAF800002B938 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A434A1ABCAF800002B938 /* Quick.framework */; };
 		242C6E301AC153B100CF7624 /* DramsControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C6E2F1AC153B100CF7624 /* DramsControllerSpec.swift */; };
+		246BA42E1AC27D1800532F6D /* Logging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 246BA42D1AC27D1800532F6D /* Logging.plist */; };
+		246BA4321AC27F8600532F6D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4311AC27F8600532F6D /* Logger.swift */; };
+		246BA4341AC2800700532F6D /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4331AC2800700532F6D /* LoggerSpec.swift */; };
+		246BA4361AC282EA00532F6D /* MessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4351AC282EA00532F6D /* MessageProvider.swift */; };
+		246BA4381AC283F000532F6D /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4371AC283F000532F6D /* Level.swift */; };
+		246BA43A1AC2848400532F6D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4391AC2848400532F6D /* Configuration.swift */; };
+		246BA43C1AC2887A00532F6D /* ConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA43B1AC2887A00532F6D /* ConfigurationProvider.swift */; };
+		246BA43E1AC289E500532F6D /* MessagePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA43D1AC289E500532F6D /* MessagePosition.swift */; };
+		246BA4401AC28CFB00532F6D /* MessageWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA43F1AC28CFB00532F6D /* MessageWriter.swift */; };
+		246BA4421AC28EEB00532F6D /* PrintlnMessageWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4411AC28EEB00532F6D /* PrintlnMessageWriter.swift */; };
+		246BA4441AC28F1000532F6D /* MessageWriterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4431AC28F1000532F6D /* MessageWriterManager.swift */; };
+		246BA4461AC28F8900532F6D /* PlistConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4451AC28F8900532F6D /* PlistConfigurationProvider.swift */; };
+		246BA4481AC28FCE00532F6D /* ConfigurationProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4471AC28FCE00532F6D /* ConfigurationProviderManager.swift */; };
+		246BA44A1AC2A12400532F6D /* MessageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4491AC2A12400532F6D /* MessageFormatter.swift */; };
+		246BA44C1AC2A15900532F6D /* DefaultMessageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA44B1AC2A15900532F6D /* DefaultMessageFormatter.swift */; };
+		247D771B1AC3E0DD00A5CD9C /* RootOnly.plist in Resources */ = {isa = PBXBuildFile; fileRef = 247D771A1AC3E0DD00A5CD9C /* RootOnly.plist */; };
+		247D771D1AC3E0F900A5CD9C /* Named.plist in Resources */ = {isa = PBXBuildFile; fileRef = 247D771C1AC3E0F900A5CD9C /* Named.plist */; };
+		247D771F1AC3E13000A5CD9C /* LevelSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 247D771E1AC3E13000A5CD9C /* LevelSet.plist */; };
+		247D77211AC3E13E00A5CD9C /* FormatSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 247D77201AC3E13E00A5CD9C /* FormatSet.plist */; };
 		247E22E01AC0895B0012045C /* NewDramControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E22DF1AC0895B0012045C /* NewDramControllerSpec.swift */; };
 		247E22E21AC0C1960012045C /* DramRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E22E11AC0C1960012045C /* DramRepository.swift */; };
 		247E22E41AC0C1BE0012045C /* DramRepositoryManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E22E31AC0C1BE0012045C /* DramRepositoryManagerSpec.swift */; };
+		248F7F2A1AC366B8007DE22B /* MessagePositionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F7F291AC366B8007DE22B /* MessagePositionSpec.swift */; };
+		248F7F2C1AC36746007DE22B /* MessageWriterManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F7F2B1AC36746007DE22B /* MessageWriterManagerSpec.swift */; };
+		248F7F2E1AC3D414007DE22B /* Basename.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F7F2D1AC3D414007DE22B /* Basename.swift */; };
+		248F7F301AC3D468007DE22B /* BasenameSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F7F2F1AC3D468007DE22B /* BasenameSpec.swift */; };
+		248F7F321AC3D943007DE22B /* PrintlnMessageWriterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F7F311AC3D943007DE22B /* PrintlnMessageWriterSpec.swift */; };
+		248F7F341AC3DC29007DE22B /* PlistConfigurationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F7F331AC3DC29007DE22B /* PlistConfigurationProviderSpec.swift */; };
+		248F7F381AC3DF68007DE22B /* Empty.plist in Resources */ = {isa = PBXBuildFile; fileRef = 248F7F371AC3DF68007DE22B /* Empty.plist */; };
 		24A4C8991ABD8AD8006F8BDF /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A4C8971ABD8AD8006F8BDF /* LlamaKit.framework */; };
 		24A4C89A1ABD8AD8006F8BDF /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A4C8981ABD8AD8006F8BDF /* ReactiveCocoa.framework */; };
 		24AA19201AC1E4B200AFE71E /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA191F1AC1E4B200AFE71E /* RegularExpression.swift */; };
@@ -27,6 +56,7 @@
 		24D9565C1ABCB1F300CCF888 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 242A434A1ABCAF800002B938 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24D9565D1ABCB1F700CCF888 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 242A43481ABCAF750002B938 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24E670DC1A72CB5B005AA399 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E670DB1A72CB5B005AA399 /* Images.xcassets */; };
+		24EF82CB1AC3F2F7009E6588 /* DefaultMessageFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF82CA1AC3F2F7009E6588 /* DefaultMessageFormatterSpec.swift */; };
 		24FC64211A42B32900DE8744 /* WhiskyNotebook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FC641F1A42B32900DE8744 /* WhiskyNotebook.storyboard */; };
 		24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFF8D11A36D658002C1E88 /* AppDelegate.swift */; };
 		24FFF8DC1A36D658002C1E88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */; };
@@ -58,13 +88,42 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24030E901AC30D7A00E3AC6A /* ConfigurationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationSpec.swift; sourceTree = "<group>"; };
+		24030E921AC30EC800E3AC6A /* ConfigurationProviderManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationProviderManagerSpec.swift; sourceTree = "<group>"; };
+		24030E941AC30FF400E3AC6A /* LevelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSpec.swift; sourceTree = "<group>"; };
 		242A43481ABCAF750002B938 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		242A434A1ABCAF800002B938 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		242C6E2F1AC153B100CF7624 /* DramsControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramsControllerSpec.swift; sourceTree = "<group>"; };
 		24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WhiskyNotebook.entitlements; sourceTree = "<group>"; };
+		246BA42D1AC27D1800532F6D /* Logging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Logging.plist; sourceTree = "<group>"; };
+		246BA4311AC27F8600532F6D /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		246BA4331AC2800700532F6D /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
+		246BA4351AC282EA00532F6D /* MessageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageProvider.swift; sourceTree = "<group>"; };
+		246BA4371AC283F000532F6D /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		246BA4391AC2848400532F6D /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		246BA43B1AC2887A00532F6D /* ConfigurationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationProvider.swift; sourceTree = "<group>"; };
+		246BA43D1AC289E500532F6D /* MessagePosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePosition.swift; sourceTree = "<group>"; };
+		246BA43F1AC28CFB00532F6D /* MessageWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageWriter.swift; sourceTree = "<group>"; };
+		246BA4411AC28EEB00532F6D /* PrintlnMessageWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintlnMessageWriter.swift; sourceTree = "<group>"; };
+		246BA4431AC28F1000532F6D /* MessageWriterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageWriterManager.swift; sourceTree = "<group>"; };
+		246BA4451AC28F8900532F6D /* PlistConfigurationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistConfigurationProvider.swift; sourceTree = "<group>"; };
+		246BA4471AC28FCE00532F6D /* ConfigurationProviderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationProviderManager.swift; sourceTree = "<group>"; };
+		246BA4491AC2A12400532F6D /* MessageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFormatter.swift; sourceTree = "<group>"; };
+		246BA44B1AC2A15900532F6D /* DefaultMessageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMessageFormatter.swift; sourceTree = "<group>"; };
+		247D771A1AC3E0DD00A5CD9C /* RootOnly.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RootOnly.plist; sourceTree = "<group>"; };
+		247D771C1AC3E0F900A5CD9C /* Named.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Named.plist; sourceTree = "<group>"; };
+		247D771E1AC3E13000A5CD9C /* LevelSet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LevelSet.plist; sourceTree = "<group>"; };
+		247D77201AC3E13E00A5CD9C /* FormatSet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FormatSet.plist; sourceTree = "<group>"; };
 		247E22DF1AC0895B0012045C /* NewDramControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDramControllerSpec.swift; sourceTree = "<group>"; };
 		247E22E11AC0C1960012045C /* DramRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramRepository.swift; sourceTree = "<group>"; };
 		247E22E31AC0C1BE0012045C /* DramRepositoryManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramRepositoryManagerSpec.swift; sourceTree = "<group>"; };
+		248F7F291AC366B8007DE22B /* MessagePositionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePositionSpec.swift; sourceTree = "<group>"; };
+		248F7F2B1AC36746007DE22B /* MessageWriterManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageWriterManagerSpec.swift; sourceTree = "<group>"; };
+		248F7F2D1AC3D414007DE22B /* Basename.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basename.swift; sourceTree = "<group>"; };
+		248F7F2F1AC3D468007DE22B /* BasenameSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasenameSpec.swift; sourceTree = "<group>"; };
+		248F7F311AC3D943007DE22B /* PrintlnMessageWriterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintlnMessageWriterSpec.swift; sourceTree = "<group>"; };
+		248F7F331AC3DC29007DE22B /* PlistConfigurationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistConfigurationProviderSpec.swift; sourceTree = "<group>"; };
+		248F7F371AC3DF68007DE22B /* Empty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Empty.plist; sourceTree = "<group>"; };
 		24A4C8971ABD8AD8006F8BDF /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = ../Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
 		24A4C8981ABD8AD8006F8BDF /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = ../Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		24AA191F1AC1E4B200AFE71E /* RegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
@@ -77,6 +136,7 @@
 		24BC95B31ABDCA0800CF4108 /* NewDramController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDramController.swift; sourceTree = "<group>"; };
 		24BC95B51ABDCA8100CF4108 /* DramsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramsController.swift; sourceTree = "<group>"; };
 		24E670DB1A72CB5B005AA399 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		24EF82CA1AC3F2F7009E6588 /* DefaultMessageFormatterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMessageFormatterSpec.swift; sourceTree = "<group>"; };
 		24FC64201A42B32900DE8744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WhiskyNotebook.storyboard; sourceTree = "<group>"; };
 		24FFF8CC1A36D658002C1E88 /* WhiskyNotebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiskyNotebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FFF8D01A36D658002C1E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +193,42 @@
 			name = Dram;
 			sourceTree = "<group>";
 		};
+		246BA42F1AC27F3400532F6D /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				246BA4391AC2848400532F6D /* Configuration.swift */,
+				246BA43B1AC2887A00532F6D /* ConfigurationProvider.swift */,
+				246BA4471AC28FCE00532F6D /* ConfigurationProviderManager.swift */,
+				246BA44B1AC2A15900532F6D /* DefaultMessageFormatter.swift */,
+				246BA4371AC283F000532F6D /* Level.swift */,
+				246BA4311AC27F8600532F6D /* Logger.swift */,
+				246BA4491AC2A12400532F6D /* MessageFormatter.swift */,
+				246BA43D1AC289E500532F6D /* MessagePosition.swift */,
+				246BA4351AC282EA00532F6D /* MessageProvider.swift */,
+				246BA43F1AC28CFB00532F6D /* MessageWriter.swift */,
+				246BA4431AC28F1000532F6D /* MessageWriterManager.swift */,
+				246BA4451AC28F8900532F6D /* PlistConfigurationProvider.swift */,
+				246BA4411AC28EEB00532F6D /* PrintlnMessageWriter.swift */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		246BA4301AC27F3D00532F6D /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				24030E921AC30EC800E3AC6A /* ConfigurationProviderManagerSpec.swift */,
+				24030E901AC30D7A00E3AC6A /* ConfigurationSpec.swift */,
+				24EF82CA1AC3F2F7009E6588 /* DefaultMessageFormatterSpec.swift */,
+				24030E941AC30FF400E3AC6A /* LevelSpec.swift */,
+				246BA4331AC2800700532F6D /* LoggerSpec.swift */,
+				248F7F291AC366B8007DE22B /* MessagePositionSpec.swift */,
+				248F7F2B1AC36746007DE22B /* MessageWriterManagerSpec.swift */,
+				248F7F331AC3DC29007DE22B /* PlistConfigurationProviderSpec.swift */,
+				248F7F311AC3D943007DE22B /* PrintlnMessageWriterSpec.swift */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
 		24FFF8C31A36D658002C1E88 = {
 			isa = PBXGroup;
 			children = (
@@ -156,8 +252,10 @@
 			children = (
 				24FC641F1A42B32900DE8744 /* WhiskyNotebook.storyboard */,
 				24FFF8D11A36D658002C1E88 /* AppDelegate.swift */,
-				245ABEEF1AC0AF0100AA339A /* Dram */,
+				248F7F2D1AC3D414007DE22B /* Basename.swift */,
 				24AA191F1AC1E4B200AFE71E /* RegularExpression.swift */,
+				245ABEEF1AC0AF0100AA339A /* Dram */,
+				246BA42F1AC27F3400532F6D /* Logging */,
 				24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */,
 				24E670DB1A72CB5B005AA399 /* Images.xcassets */,
 				24FFF8CF1A36D658002C1E88 /* Supporting Files */,
@@ -172,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				24FFF8D01A36D658002C1E88 /* Info.plist */,
+				246BA42D1AC27D1800532F6D /* Logging.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -179,8 +278,10 @@
 		24FFF8E41A36D658002C1E88 /* WhiskyNotebookTests */ = {
 			isa = PBXGroup;
 			children = (
-				245ABEF01AC0AF1400AA339A /* Dram */,
+				248F7F2F1AC3D468007DE22B /* BasenameSpec.swift */,
 				24AA19211AC1E5ED00AFE71E /* RegularExpressionSpec.swift */,
+				245ABEF01AC0AF1400AA339A /* Dram */,
+				246BA4301AC27F3D00532F6D /* Logging */,
 				24FFF8E51A36D658002C1E88 /* Supporting Files */,
 				242A43481ABCAF750002B938 /* Nimble.framework */,
 				242A434A1ABCAF800002B938 /* Quick.framework */,
@@ -191,7 +292,12 @@
 		24FFF8E51A36D658002C1E88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				248F7F371AC3DF68007DE22B /* Empty.plist */,
 				24FFF8E61A36D658002C1E88 /* Info.plist */,
+				247D771A1AC3E0DD00A5CD9C /* RootOnly.plist */,
+				247D771C1AC3E0F900A5CD9C /* Named.plist */,
+				247D771E1AC3E13000A5CD9C /* LevelSet.plist */,
+				247D77201AC3E13E00A5CD9C /* FormatSet.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -295,6 +401,7 @@
 			files = (
 				24FFF8DC1A36D658002C1E88 /* LaunchScreen.xib in Resources */,
 				24E670DC1A72CB5B005AA399 /* Images.xcassets in Resources */,
+				246BA42E1AC27D1800532F6D /* Logging.plist in Resources */,
 				24FC64211A42B32900DE8744 /* WhiskyNotebook.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +410,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247D771F1AC3E13000A5CD9C /* LevelSet.plist in Resources */,
+				247D77211AC3E13E00A5CD9C /* FormatSet.plist in Resources */,
+				247D771B1AC3E0DD00A5CD9C /* RootOnly.plist in Resources */,
+				247D771D1AC3E0F900A5CD9C /* Named.plist in Resources */,
+				248F7F381AC3DF68007DE22B /* Empty.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,13 +444,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				246BA43A1AC2848400532F6D /* Configuration.swift in Sources */,
+				246BA43C1AC2887A00532F6D /* ConfigurationProvider.swift in Sources */,
+				246BA4461AC28F8900532F6D /* PlistConfigurationProvider.swift in Sources */,
+				248F7F2E1AC3D414007DE22B /* Basename.swift in Sources */,
+				246BA4481AC28FCE00532F6D /* ConfigurationProviderManager.swift in Sources */,
 				24BC95B41ABDCA0800CF4108 /* NewDramController.swift in Sources */,
+				246BA4381AC283F000532F6D /* Level.swift in Sources */,
 				24AA19201AC1E4B200AFE71E /* RegularExpression.swift in Sources */,
 				247E22E21AC0C1960012045C /* DramRepository.swift in Sources */,
 				24AA19241AC1EB4600AFE71E /* InMemoryDramRepository.swift in Sources */,
+				246BA4321AC27F8600532F6D /* Logger.swift in Sources */,
 				24AA19281AC1EE2200AFE71E /* DramRepositoryManager.swift in Sources */,
+				246BA44C1AC2A15900532F6D /* DefaultMessageFormatter.swift in Sources */,
 				24BC95B01ABDBF9D00CF4108 /* Dram.swift in Sources */,
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
+				246BA4401AC28CFB00532F6D /* MessageWriter.swift in Sources */,
+				246BA4361AC282EA00532F6D /* MessageProvider.swift in Sources */,
+				246BA43E1AC289E500532F6D /* MessagePosition.swift in Sources */,
+				246BA4441AC28F1000532F6D /* MessageWriterManager.swift in Sources */,
+				246BA4421AC28EEB00532F6D /* PrintlnMessageWriter.swift in Sources */,
+				246BA44A1AC2A12400532F6D /* MessageFormatter.swift in Sources */,
 				24BC95B61ABDCA8100CF4108 /* DramsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,11 +474,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				24AA19261AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift in Sources */,
+				248F7F321AC3D943007DE22B /* PrintlnMessageWriterSpec.swift in Sources */,
+				248F7F2C1AC36746007DE22B /* MessageWriterManagerSpec.swift in Sources */,
 				24AA19221AC1E5ED00AFE71E /* RegularExpressionSpec.swift in Sources */,
+				248F7F341AC3DC29007DE22B /* PlistConfigurationProviderSpec.swift in Sources */,
+				24030E931AC30EC800E3AC6A /* ConfigurationProviderManagerSpec.swift in Sources */,
 				247E22E41AC0C1BE0012045C /* DramRepositoryManagerSpec.swift in Sources */,
 				24BC95B21ABDC2EC00CF4108 /* DramSpec.swift in Sources */,
+				246BA4341AC2800700532F6D /* LoggerSpec.swift in Sources */,
+				24030E911AC30D7A00E3AC6A /* ConfigurationSpec.swift in Sources */,
+				24030E951AC30FF400E3AC6A /* LevelSpec.swift in Sources */,
 				242C6E301AC153B100CF7624 /* DramsControllerSpec.swift in Sources */,
 				247E22E01AC0895B0012045C /* NewDramControllerSpec.swift in Sources */,
+				248F7F301AC3D468007DE22B /* BasenameSpec.swift in Sources */,
+				248F7F2A1AC366B8007DE22B /* MessagePositionSpec.swift in Sources */,
+				24EF82CB1AC3F2F7009E6588 /* DefaultMessageFormatterSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +612,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = WhiskyNotebook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -517,6 +655,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -539,6 +678,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = WhiskyNotebookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,12 +1,10 @@
 language: objective-c
-xcode_project: WhiskyNotebook.xcodeproj
-xcode_scheme: WhiskyNotebook
-xcode_sdk: iphonesimulator8.1
 
 before_install:
 - brew update
+- brew outdated xctool || brew upgrade xctool
 - brew install carthage
-install: carthage build --platform iOS
+install: carthage bootstrap --platform iOS
 
 cache:
   directories:

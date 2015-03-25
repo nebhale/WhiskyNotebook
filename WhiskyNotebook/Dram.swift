@@ -40,7 +40,7 @@ extension Dram {
 
     private func validId() -> Bool {
         if let id = self.id {
-            return id =~ "^[\\d]{1,3}\\.[\\d]{1,3}$"
+            return (id =~ "^[\\d]{1,3}\\.[\\d]{1,3}$").matched
         } else {
             return false
         }
