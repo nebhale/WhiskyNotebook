@@ -109,7 +109,7 @@ public final class Signal<T, E: ErrorType> {
 	/// Returns a Disposable which can be used to stop the invocation of the
 	/// callbacks. Disposing of the Disposable will have no effect on the Signal
 	/// itself.
-	public func observe(next: T -> () = doNothing, error: E -> () = doNothing, completed: () -> () = doNothing, interrupted: () -> () = doNothing) -> Disposable? {
+	public func observe(next: (T -> ())? = nil, error: (E -> ())? = nil, completed: (() -> ())? = nil, interrupted: (() -> ())? = nil) -> Disposable? {
 		return observe(Event.sink(next: next, error: error, completed: completed, interrupted: interrupted))
 	}
 }
@@ -962,12 +962,6 @@ public func timeoutWithError<T, E>(error: E, afterInterval interval: NSTimeInter
 	}
 }
 
-/*
-TODO
-
-public func throttle<T>(interval: NSTimeInterval, onScheduler scheduler: DateSchedulerType)(signal: Signal<T>) -> Signal<T>
-*/
-
 /// Promotes a signal that does not generate errors into one that can.
 ///
 /// This does not actually cause errors to be generated for the given signal,
@@ -989,6 +983,6 @@ public func observe<T, E, S: SinkType where S.Element == Event<T, E>>(sink: S)(s
 }
 
 /// Signal.observe() as a free function, for easier use with |>.
-public func observe<T, E>(next: T -> () = doNothing, error: E -> () = doNothing, completed: () -> () = doNothing, interrupted: () -> () = doNothing)(signal: Signal<T, E>) -> Disposable? {
+public func observe<T, E>(next: (T -> ())? = nil, error: (E -> ())? = nil, completed: (() -> ())? = nil, interrupted: (() -> ())? = nil)(signal: Signal<T, E>) -> Disposable? {
 	return signal.observe(next: next, error: error, completed: completed, interrupted: interrupted)
 }

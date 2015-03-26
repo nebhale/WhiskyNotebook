@@ -16,27 +16,31 @@ public final class DefaultMessageFormatter: MessageFormatter {
             .replace("%level", with: level.toLoggingString())
             .replace("%line", with: messagePosition.line)
             .replace("%message", with: messageProvider())
+            .replace("%thread", with: thread())
     }
-    
+
     private func dateFormatter() -> ReplacementGenerator {
         return { captures in
             let dateFormatter = NSDateFormatter()
             dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-            dateFormatter.dateFormat = captures[0]
+            dateFormatter.dateFormat = captures[1]
 
             return dateFormatter.stringFromDate(NSDate())
         }
     }
-    
+
+    private func thread() -> String {
+        return NSThread.isMainThread() ? "Main" : "Background"
+    }
+
 }
 
 // MARK: - Level Logging
-
 extension Level {
     public func toLoggingString() -> String {
         return pad(self.toString().uppercaseString, size: 5)
     }
-    
+
     private func pad(value: String, size: Int) -> String {
         var padded = value
         while count(padded) < size { padded += " " }
@@ -45,27 +49,26 @@ extension Level {
 }
 
 // MARK - Pattern Replacement
-
 public typealias ReplacementGenerator = [String] -> AnyObject
 
 extension String {
     public func replace(pattern: String, @autoclosure with replacement: () -> AnyObject) -> String {
         return replace(pattern, with: { regex in replacement() })
     }
-    
-    public func replace(pattern: String, @noescape with replacement: ReplacementGenerator) -> String {
-        let match: RegExMatch = self =~ pattern
 
-        if match.matched {
-            return self.stringByReplacingOccurrencesOfString(pattern, withString: "\(replacement(match.captures))", options: .RegularExpressionSearch, range: nil)
+    public func replace(pattern: String, @noescape with replacement: ReplacementGenerator) -> String {
+        let captures = self.matches(pattern)?.map { match -> [String] in
+            return (0..<match.numberOfRanges).map { i -> String in
+                let range = match.rangeAtIndex(i)
+                return self[range.location..(range.location + range.length)]!
+            }
+            }.flatMap { $0 }
+
+        if captures?.count > 0 {
+            return self.stringByReplacingOccurrencesOfString(pattern, withString: "\(replacement(captures!))", options: .RegularExpressionSearch, range: nil)
         } else {
             return self
         }
     }
-
-    private func extractCaptures(string: String, matches: [NSTextCheckingResult]) -> [String] {
-        return matches.map { match in
-            return (self as NSString).substringWithRange(match.rangeAtIndex(1))
-        }
-    }
+    
 }

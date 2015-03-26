@@ -7,5 +7,7 @@ public protocol DramRepository {
 
     var drams: MutableProperty<[Dram]> { get }
 
+    func delete(dram: Dram)
+
     func save(dram: Dram)
 }

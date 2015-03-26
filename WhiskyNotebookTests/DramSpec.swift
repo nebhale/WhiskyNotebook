@@ -20,7 +20,7 @@ final class DramSpec: QuickSpec {
 
             it("bases equality on id") {
                 expect(Dram(id: "test-id")).to(equal(Dram(id: "test-id")))
-                expect(Dram(id: "test-id")).notTo(equal(Dram(id: "anoter-test-id")))
+                expect(Dram(id: "test-id")).toNot(equal(Dram(id: "anoter-test-id")))
             }
 
             it("bases hash value on id") {

@@ -5,6 +5,6 @@
 	<key>Level</key>
 	<string>Debug</string>
 	<key>Format</key>
-	<string>%date{HH:mm:ss} %level [%file:%line] %message</string>
+	<string>%date{HH:mm:ss} %level &lt;%thread&gt; [%file:%line] %message</string>
 </dict>
 </plist>
