@@ -7,7 +7,7 @@ import UIKit
 import WhiskyNotebook
 
 
-class DramsControllerSpec: QuickSpec {
+final class DramsControllerSpec: QuickSpec {
     override func spec() {
         let storyboard = UIStoryboard(name: "WhiskyNotebook", bundle: nil)
 

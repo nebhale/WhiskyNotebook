@@ -3,7 +3,7 @@
 import ReactiveCocoa
 
 
-public class InMemoryDramRepository: DramRepository {
+public final class InMemoryDramRepository: DramRepository {
 
     public var drams = MutableProperty<[Dram]>([])
 
