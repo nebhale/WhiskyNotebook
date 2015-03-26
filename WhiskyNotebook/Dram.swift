@@ -14,10 +14,14 @@ public struct Dram {
     }
 }
 
+// MARK: - Equatable
+
 extension Dram: Equatable {}
 public func ==(x: Dram, y: Dram) -> Bool {
     return x.id == y.id
 }
+
+// MARK: - Hashable
 
 extension Dram: Hashable {
     public var hashValue: Int {
@@ -29,9 +33,13 @@ extension Dram: Hashable {
     }
 }
 
+// MARK: - Printable
+
 extension Dram: Printable {
     public var description: String { return "<Dram: \(self.id)>" }
 }
+
+// MARK: - Validation
 
 extension Dram {
     public func valid() -> Bool {

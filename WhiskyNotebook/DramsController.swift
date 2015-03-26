@@ -13,14 +13,6 @@ public final class DramsController: UITableViewController {
 
     public var scheduler: SchedulerType = UIScheduler()
 
-    @IBAction
-    func cancelNewDram(segue : UIStoryboardSegue) {}
-
-    @IBAction
-    func saveNewDram(segue : UIStoryboardSegue) {
-        (segue.sourceViewController as? NewDramController)?.performSave()
-    }
-
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +20,8 @@ public final class DramsController: UITableViewController {
         producer.start(next: { self.drams = $0 }) // TODO: Inline once segfault is fixed
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension DramsController: UITableViewDataSource {
     override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -51,5 +45,18 @@ extension DramsController: UITableViewDataSource {
 extension Dram {
     public func configure(cell: UITableViewCell) {
         cell.textLabel?.text = id
+    }
+}
+
+// MARK: - New Dram
+
+extension DramsController {
+
+    @IBAction
+    func cancelNewDram(segue : UIStoryboardSegue) {}
+
+    @IBAction
+    func saveNewDram(segue : UIStoryboardSegue) {
+        (segue.sourceViewController as? NewDramController)?.performSave()
     }
 }

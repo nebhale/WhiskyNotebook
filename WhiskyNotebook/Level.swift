@@ -9,6 +9,17 @@ public enum Level: Int {
     case Warn
 
     case Error
+}
+
+// MARK: - Printable
+
+extension Level: Printable {
+    public var description: String { return "<Level: \(self.rawValue)>" }
+}
+
+// MARK: - String Representation
+
+extension Level {
 
     public static func fromString(string: String) -> Level {
         switch(string) {
@@ -24,7 +35,7 @@ public enum Level: Int {
             return .Debug
         }
     }
-    
+
     public func toString() -> String {
         switch(self) {
         case .Debug:
@@ -37,8 +48,4 @@ public enum Level: Int {
             return "Error"
         }
     }
-}
-
-extension Level: Printable {
-    public var description: String { return "<Level: \(self.rawValue)>" }
 }

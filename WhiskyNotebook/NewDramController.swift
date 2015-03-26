@@ -27,12 +27,15 @@ public final class NewDramController: UITableViewController {
 
         self.dram.producer.start(next: { self.save.enabled = $0.valid() }) // TODO: Inline once segfault is fixed
     }
+}
 
+// MARK: - Save
+
+extension NewDramController {
     public func performSave() {
         self.logger.info("Dram save initiated")
 
         let producer = SignalProducer<Dram, NoError>(value: self.dram.value) |> startOn(self.scheduler)
         producer.start(next: { self.repository.save($0) })
     }
-    
 }

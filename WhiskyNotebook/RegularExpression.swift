@@ -2,34 +2,8 @@
 
 import Foundation
 
-public struct RegExMatch {
-
-    public let matched: Bool
-
-    public let captures: [String]
-
-    public init(matched: Bool, captures: [String]) {
-        self.matched = matched
-        self.captures = captures
-    }
-}
-
-extension RegExMatch: Printable {
-    public var description: String { return "<RegExMatch: matched=\(self.matched), captures=\(captures)>" }
-}
-
-extension RegExMatch: BooleanType {
-
-    public var boolValue: Bool { return self.matched }
-}
-
 
 infix operator =~ { associativity left precedence 130 }
-
-//
-//public func =~ (input: String?, pattern: String) -> Bool {
-//    return (input =~ pattern).matched
-//}
 
 public func =~ (input: String?, pattern: String) -> RegExMatch {
     if let input = input, let regex = NSRegularExpression(pattern: pattern, options: nil, error: nil) {
@@ -47,3 +21,27 @@ public func =~ (input: String?, pattern: String) -> RegExMatch {
     }
 }
 
+public struct RegExMatch {
+
+    public let matched: Bool
+
+    public let captures: [String]
+
+    public init(matched: Bool, captures: [String]) {
+        self.matched = matched
+        self.captures = captures
+    }
+}
+
+// MARK: - Printable
+
+extension RegExMatch: Printable {
+    public var description: String { return "<RegExMatch: matched=\(self.matched), captures=\(captures)>" }
+}
+
+// MARK: - BooleanType
+
+extension RegExMatch: BooleanType {
+
+    public var boolValue: Bool { return self.matched }
+}

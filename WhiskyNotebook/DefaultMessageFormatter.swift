@@ -30,6 +30,8 @@ public final class DefaultMessageFormatter: MessageFormatter {
     
 }
 
+// MARK: - Level Logging
+
 extension Level {
     public func toLoggingString() -> String {
         return pad(self.toString().uppercaseString, size: 5)
@@ -41,6 +43,8 @@ extension Level {
         return padded
     }
 }
+
+// MARK - Pattern Replacement
 
 public typealias ReplacementGenerator = [String] -> AnyObject
 
