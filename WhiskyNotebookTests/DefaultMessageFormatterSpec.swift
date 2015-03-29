@@ -25,7 +25,7 @@ final class DefaultMessageFormatterSpec: QuickSpec {
 
             it("expands %date{}") {
                 configuration.format = "%date{HH:mm}"
-                expect(messageFormatter.format(configuration: configuration, level: level, messagePosition: messagePosition, messageProvider: messageProvider) =~ "[\\d]{2}:[\\d]{2}").to(beTruthy())
+                expect(messageFormatter.format(configuration: configuration, level: level, messagePosition: messagePosition, messageProvider: messageProvider)! =~ "[\\d]{2}:[\\d]{2}").to(beTruthy())
             }
 
             it("expands %file") {
@@ -54,6 +54,11 @@ final class DefaultMessageFormatterSpec: QuickSpec {
             it("expands %message") {
                 configuration.format = "%message"
                 expect(messageFormatter.format(configuration: configuration, level: level, messagePosition: messagePosition, messageProvider: messageProvider)).to(equal(messageProvider() as? String))
+            }
+
+            it("expands %thread") {
+                configuration.format = "%thread"
+                expect(messageFormatter.format(configuration: configuration, level: .Debug, messagePosition: messagePosition, messageProvider: messageProvider)).to(equal("Main"))
             }
         }
     }

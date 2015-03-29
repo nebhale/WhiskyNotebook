@@ -16,6 +16,14 @@ final class InMemoryDramRepositorySpec: QuickSpec {
                 repository = InMemoryDramRepository()
             }
 
+            it("deletes dram") {
+                let dram = Dram()
+                repository.save(dram)
+                expect(repository.drams.value.count).to(equal(1))
+                repository.delete(dram)
+                expect(repository.drams.value.count).to(equal(0))
+            }
+
             it("saves dram") {
                 expect(repository.drams.value.count).to(equal(0))
                 repository.save(Dram())
@@ -24,12 +32,12 @@ final class InMemoryDramRepositorySpec: QuickSpec {
 
             it("signals changes to drams") {
                 let dram = Dram()
-                var sentValue: [Dram]?
+                let sentValue = MutableProperty<[Dram]>([])
+                sentValue <~ repository.drams.producer
 
-                repository.drams.producer.start(next: { sentValue = $0 }) // TODO: Inline once segfault is fixed
                 repository.save(dram)
 
-                expect(sentValue).to(contain(dram))
+                expect(sentValue.value).to(contain(dram))
             }
         }
     }

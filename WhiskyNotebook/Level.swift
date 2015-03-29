@@ -1,24 +1,18 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
 public enum Level: Int {
-
     case Debug
-
     case Info
-
     case Warn
-
     case Error
 }
 
 // MARK: - Printable
-
 extension Level: Printable {
     public var description: String { return "<Level: \(self.rawValue)>" }
 }
 
 // MARK: - String Representation
-
 extension Level {
 
     public static func fromString(string: String) -> Level {

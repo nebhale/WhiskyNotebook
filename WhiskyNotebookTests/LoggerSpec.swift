@@ -51,7 +51,7 @@ final class LoggerSpec: QuickSpec {
                 logger.debug("test-message")
                 expect(messageWriter.configuration).to(equal(Configuration(name: "test-name")))
                 expect(messageWriter.level).to(equal(Level.Debug))
-                expect(messageWriter.messagePosition).notTo(beNil())
+                expect(messageWriter.messagePosition).toNot(beNil())
                 expect(messageWriter.message).to(equal("test-message"))
             }
 
@@ -59,7 +59,7 @@ final class LoggerSpec: QuickSpec {
                 logger.debug { "test-message" }
                 expect(messageWriter.configuration).to(equal(Configuration(name: "test-name")))
                 expect(messageWriter.level).to(equal(Level.Debug))
-                expect(messageWriter.messagePosition).notTo(beNil())
+                expect(messageWriter.messagePosition).toNot(beNil())
                 expect(messageWriter.message).to(equal("test-message"))
             }
 
@@ -67,7 +67,7 @@ final class LoggerSpec: QuickSpec {
                 logger.info("test-message")
                 expect(messageWriter.configuration).to(equal(Configuration(name: "test-name")))
                 expect(messageWriter.level).to(equal(Level.Info))
-                expect(messageWriter.messagePosition).notTo(beNil())
+                expect(messageWriter.messagePosition).toNot(beNil())
                 expect(messageWriter.message).to(equal("test-message"))
             }
 
@@ -75,7 +75,7 @@ final class LoggerSpec: QuickSpec {
                 logger.info { "test-message" }
                 expect(messageWriter.configuration).to(equal(Configuration(name: "test-name")))
                 expect(messageWriter.level).to(equal(Level.Info))
-                expect(messageWriter.messagePosition).notTo(beNil())
+                expect(messageWriter.messagePosition).toNot(beNil())
                 expect(messageWriter.message).to(equal("test-message"))
             }
 
@@ -83,7 +83,7 @@ final class LoggerSpec: QuickSpec {
                 logger.warn("test-message")
                 expect(messageWriter.configuration).to(equal(Configuration(name: "test-name")))
                 expect(messageWriter.level).to(equal(Level.Warn))
-                expect(messageWriter.messagePosition).notTo(beNil())
+                expect(messageWriter.messagePosition).toNot(beNil())
                 expect(messageWriter.message).to(equal("test-message"))
             }
 
@@ -91,7 +91,7 @@ final class LoggerSpec: QuickSpec {
                 logger.warn { "test-message" }
                 expect(messageWriter.configuration).to(equal(Configuration(name: "test-name")))
                 expect(messageWriter.level).to(equal(Level.Warn))
-                expect(messageWriter.messagePosition).notTo(beNil())
+                expect(messageWriter.messagePosition).toNot(beNil())
                 expect(messageWriter.message).to(equal("test-message"))
             }
 
@@ -99,7 +99,7 @@ final class LoggerSpec: QuickSpec {
                 logger.error("test-message")
                 expect(messageWriter.configuration).to(equal(Configuration(name: "test-name")))
                 expect(messageWriter.level).to(equal(Level.Error))
-                expect(messageWriter.messagePosition).notTo(beNil())
+                expect(messageWriter.messagePosition).toNot(beNil())
                 expect(messageWriter.message).to(equal("test-message"))
             }
 
@@ -107,7 +107,7 @@ final class LoggerSpec: QuickSpec {
                 logger.error { "test-message" }
                 expect(messageWriter.configuration).to(equal(Configuration(name: "test-name")))
                 expect(messageWriter.level).to(equal(Level.Error))
-                expect(messageWriter.messagePosition).notTo(beNil())
+                expect(messageWriter.messagePosition).toNot(beNil())
                 expect(messageWriter.message).to(equal("test-message"))
             }
         }

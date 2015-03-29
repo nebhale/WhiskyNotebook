@@ -52,7 +52,6 @@ public final class PlistConfigurationProvider: ConfigurationProvider {
 }
 
 // MARK: - Dictionary Addition
-
 func +=(inout dictionary: [String : Configuration], configuration: Configuration) -> [String : Configuration] {
     dictionary[configuration.name] = configuration
     return dictionary

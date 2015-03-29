@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7JM-e1-Jsg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7JM-e1-Jsg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -52,7 +52,7 @@
         <scene sceneID="jTi-KP-qTu">
             <objects>
                 <tableViewController storyboardIdentifier="NewDramController" title="New Dram" id="f9C-jg-9Qe" customClass="NewDramController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Jif-OT-gz3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Jif-OT-gz3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,25 +87,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Dram" id="8Kd-ia-9yM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AlJ-WY-V81">
-                            <connections>
-                                <segue destination="RVo-S4-9OJ" kind="unwind" unwindAction="cancelNewDram:" id="jLs-gb-dul"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="save" id="rr5-jV-P32">
-                            <connections>
-                                <action selector="performSave" destination="f9C-jg-9Qe" id="GO4-1v-ckP"/>
-                                <segue destination="RVo-S4-9OJ" kind="unwind" unwindAction="saveNewDram:" id="eCc-yQ-ylk"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AlJ-WY-V81"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="save" id="rr5-jV-P32"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancel" destination="AlJ-WY-V81" id="wuh-5L-UNO"/>
                         <outlet property="id" destination="RTC-W8-Fgi" id="5FJ-UQ-RV5"/>
                         <outlet property="save" destination="rr5-jV-P32" id="LC9-FG-o0N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULs-Gt-lMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="RVo-S4-9OJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4463" y="655"/>
         </scene>

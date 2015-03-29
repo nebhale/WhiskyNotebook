@@ -19,7 +19,6 @@ public struct MessagePosition {
 }
 
 // MARK: - Printable
-
 extension MessagePosition: Printable {
     public var description: String { return "<MessagePosition: column=\(self.column), file=\(self.file), function=\(self.function), line=\(self.line)>"}
 }
