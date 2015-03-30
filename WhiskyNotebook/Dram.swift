@@ -7,10 +7,15 @@ public struct Dram {
 
     public var id: String?
 
-    public init() {}
+    public var date: NSDate
 
-    public init(id: String?) {
+    public init() {
+        self.date = NSDate()
+    }
+
+    public init(id: String?, date: NSDate) {
         self.id = id;
+        self.date = date
     }
 }
 
@@ -33,13 +38,17 @@ extension Dram: Hashable {
 
 // MARK: - Printable
 extension Dram: Printable {
-    public var description: String { return "<Dram: \(self.id)>" }
+    public var description: String { return "<Dram: \(self.id); date=\(self.date)>" }
 }
 
 // MARK: - Validation
 extension Dram {
     public func valid() -> Bool {
-        return validId()
+        return validId() && validDate()
+    }
+
+    private func validDate() -> Bool {
+        return self.date < NSDate()
     }
 
     private func validId() -> Bool {
