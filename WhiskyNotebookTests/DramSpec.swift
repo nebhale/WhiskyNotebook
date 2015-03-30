@@ -8,10 +8,10 @@ import WhiskyNotebook
 final class DramSpec: QuickSpec {
     override func spec() {
         describe("Dram") {
-            it("initializes all properties except date to nil") {
+            it("initializes all properties to nil") {
                 let dram = Dram()
                 expect(dram.id).to(beNil())
-                expect(dram.date).toNot(beNil())
+                expect(dram.date).to(beNil())
             }
 
             it("initializes all properties to values") {
@@ -48,13 +48,14 @@ final class DramSpec: QuickSpec {
 
             it("validates date") {
                 let now = NSDate()
-                let past = now.dateByAddingTimeInterval(-1000)
-                let future = now.dateByAddingTimeInterval(1000)
+                let past = now.dateByAddingTimeInterval(-86400)
+                let future = now.dateByAddingTimeInterval(86400)
 
 
                 expect(Dram(id: "1.2", date: now).valid()).to(beTrue())
                 expect(Dram(id: "1.2", date: past).valid()).to(beTrue())
                 expect(Dram(id: "1.2", date: future).valid()).to(beFalse())
+                expect(Dram(id: "1.2", date: nil).valid()).to(beFalse())
             }
         }
     }

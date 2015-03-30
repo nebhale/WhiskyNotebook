@@ -12,6 +12,9 @@ public final class NewDramController: UITableViewController {
     public var cancel: UIBarButtonItem!
 
     @IBOutlet
+    public var date: UIDatePicker!
+
+    @IBOutlet
     public var id: UITextField!
 
     private let logger = Logger()
@@ -25,6 +28,8 @@ public final class NewDramController: UITableViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
+        self.date.maximumDate = NSDate()
+
         initCancel()
         initDramUpdate()
         initSave()
@@ -32,7 +37,7 @@ public final class NewDramController: UITableViewController {
     }
 }
 
-// MARK: Cancel
+// MARK: - Cancel
 extension NewDramController {
     private func initCancel() {
         self.cancel.rac_command = toRACCommand(Action<AnyObject?, AnyObject?, NSError> { _ in
@@ -47,9 +52,15 @@ extension NewDramController {
 // MARK: - Dram Update
 extension NewDramController {
     private func initDramUpdate() {
+        self.dram.value.id = self.id.text
         self.id.rac_textSignal().toSignalProducer()
             |> map { $0 as? String  }
             |> start(next: { self.dram.value.id = $0 })
+
+        self.dram.value.date = self.date.date
+        self.date.rac_signalForControlEvents(.ValueChanged).toSignalProducer()
+            |> map { ($0 as? UIDatePicker)?.date }
+            |> start(next: { self.dram.value.date = $0 })
     }
 }
 

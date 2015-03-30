@@ -32,27 +32,18 @@ final class DramsControllerSpec: QuickSpec {
                     expect(controller.numberOfSectionsInTableView(controller.tableView)).to(equal(1))
                 }
 
-                it("provides a properly configured cell") {
+                it("provides a DramCell") {
                     var dram = Dram(id: "test", date: NSDate())
-
                     repository.save(dram)
 
                     let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-                    expect(cell.textLabel?.text).to(equal(dram.id))
+                    expect(cell).to(beAnInstanceOf(DramCell))
                 }
-
 
                 it("specifies the number of drams as the number of rows in section") {
                     expect(controller.tableView(controller.tableView, numberOfRowsInSection: 0)).to(equal(0))
                     repository.save(Dram())
                     expect(controller.tableView(controller.tableView, numberOfRowsInSection: 0)).to(equal(1))
-                }
-
-                it("configures UITableViewCell") {
-                    let cell = UITableViewCell()
-                    Dram(id: "test-id", date: NSDate()).configure(cell)
-
-                    expect(cell.textLabel?.text).to(equal("test-id"))
                 }
             }
 

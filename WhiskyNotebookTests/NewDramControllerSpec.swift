@@ -25,6 +25,12 @@ final class NewDramControllerSpec: QuickSpec {
                 controller.viewDidLoad()
             }
 
+            it("sets maxium date to today") {
+                let maximumDate = controller.date.maximumDate
+                let today = NSDate()
+                expect(maximumDate).to(equalToDay(today))
+            }
+
             describe("Cancel") {
                 var command: RACCommand!
                 var button: UIBarButtonItem!
@@ -47,17 +53,26 @@ final class NewDramControllerSpec: QuickSpec {
                     controller.id.sendActionsForControlEvents(.EditingChanged)
                     expect(controller.id.text).to(equal("1.2"))
                 }
+
+                it("updates dram with date value") {
+                    let today = NSDate()
+                    let yesterday = today.dateByAddingTimeInterval(-86400)
+                    expect(controller.date.date).to(equalToDay(today))
+                    controller.date.date = yesterday
+                    controller.date.sendActionsForControlEvents(.ValueChanged)
+                    expect(controller.date.date).to(equalToDay(yesterday))
+                }
             }
 
             describe("Interface Update") {
-                it("enables save button when an identifier has text") {
+                it("enables save button when drams is valid") {
                     expect(controller.save.enabled).to(beFalse())
                     controller.id.text = "1.2"
                     controller.id.sendActionsForControlEvents(.EditingChanged)
                     expect(controller.save.enabled).to(beTrue())
                 }
 
-                it("disables save button when an identifier does not have text") {
+                it("disables save button when dram is invalid") {
                     controller.save.enabled = true
                     expect(controller.save.enabled).to(beTrue())
                     controller.id.text = ""
