@@ -33,7 +33,7 @@ final class DramsControllerSpec: QuickSpec {
                 }
 
                 it("provides a properly configured cell") {
-                    var dram = Dram(id: "test")
+                    var dram = Dram(id: "test", date: NSDate())
 
                     repository.save(dram)
 
@@ -50,7 +50,7 @@ final class DramsControllerSpec: QuickSpec {
 
                 it("configures UITableViewCell") {
                     let cell = UITableViewCell()
-                    Dram(id: "test-id").configure(cell)
+                    Dram(id: "test-id", date: NSDate()).configure(cell)
 
                     expect(cell.textLabel?.text).to(equal("test-id"))
                 }
