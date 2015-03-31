@@ -12,50 +12,28 @@ final class DramSpec: QuickSpec {
                 let dram = Dram()
                 expect(dram.id).to(beNil())
                 expect(dram.date).to(beNil())
+                expect(dram.rating).to(beNil())
             }
 
             it("initializes all properties to values") {
                 let id = "test-id"
                 let date = NSDate()
-                let dram = Dram(id: id, date: date)
+                let rating = Rating.Positive
+                let dram = Dram(id: id, date: date, rating: rating)
                 expect(dram.id).to(equal(id))
                 expect(dram.date).to(equal(date))
+                expect(dram.rating).to(equal(rating))
             }
 
             it("bases equality on id") {
-                expect(Dram(id: "test-id", date: NSDate())).to(equal(Dram(id: "test-id", date: NSDate())))
-                expect(Dram(id: "test-id", date: NSDate())).toNot(equal(Dram(id: "anoter-test-id", date: NSDate())))
+                expect(Dram(id: "test-id", date: nil, rating: nil)).to(equal(Dram(id: "test-id", date: nil, rating: nil)))
+                expect(Dram(id: "test-id", date: nil, rating: nil)).toNot(equal(Dram(id: "anoter-test-id", date: nil, rating: nil)))
             }
 
             it("bases hash value on id") {
                 let id = "test-id"
-                expect(Dram(id: id, date: NSDate()).hashValue).to(equal(id.hashValue))
+                expect(Dram(id: id, date: nil, rating: nil).hashValue).to(equal(id.hashValue))
                 expect(Dram().hashValue).to(equal(0))
-            }
-
-            it("validates id") {
-                expect(Dram().valid()).to(beFalse())
-                expect(Dram(id: "", date: NSDate()).valid()).to(beFalse())
-                expect(Dram(id: "test-id", date: NSDate()).valid()).to(beFalse())
-                expect(Dram(id: "1.", date: NSDate()).valid()).to(beFalse())
-                expect(Dram(id: ".1", date: NSDate()).valid()).to(beFalse())
-                expect(Dram(id: "1234.1", date: NSDate()).valid()).to(beFalse())
-                expect(Dram(id: "1.1234", date: NSDate()).valid()).to(beFalse())
-                expect(Dram(id: "1.2", date: NSDate()).valid()).to(beTrue())
-                expect(Dram(id: "12.34", date: NSDate()).valid()).to(beTrue())
-                expect(Dram(id: "123.456", date: NSDate()).valid()).to(beTrue())
-            }
-
-            it("validates date") {
-                let now = NSDate()
-                let past = now.dateByAddingTimeInterval(-86400)
-                let future = now.dateByAddingTimeInterval(86400)
-
-
-                expect(Dram(id: "1.2", date: now).valid()).to(beTrue())
-                expect(Dram(id: "1.2", date: past).valid()).to(beTrue())
-                expect(Dram(id: "1.2", date: future).valid()).to(beFalse())
-                expect(Dram(id: "1.2", date: nil).valid()).to(beFalse())
             }
         }
     }

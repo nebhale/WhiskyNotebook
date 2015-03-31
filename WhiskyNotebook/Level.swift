@@ -5,6 +5,21 @@ public enum Level: Int {
     case Info
     case Warn
     case Error
+
+    public init(_ string: String) {
+        switch(string) {
+        case let value where value =~ (Level.Debug.toString(), true):
+            self = .Debug
+        case let value where value =~ (Level.Info.toString(), true):
+            self = .Info
+        case let value where value =~ (Level.Warn.toString(), true):
+            self = .Warn
+        case let value where value =~ (Level.Error.toString(), true):
+            self = .Error
+        default:
+            self = .Debug
+        }
+    }
 }
 
 // MARK: - Printable
@@ -14,21 +29,6 @@ extension Level: Printable {
 
 // MARK: - String Representation
 extension Level {
-
-    public static func fromString(string: String) -> Level {
-        switch(string) {
-        case let value where value =~ (Level.Debug.toString(), true):
-            return .Debug
-        case let value where value =~ (Level.Info.toString(), true):
-            return .Info
-        case let value where value =~ (Level.Warn.toString(), true):
-            return .Warn
-        case let value where value =~ (Level.Error.toString(), true):
-            return .Error
-        default:
-            return .Debug
-        }
-    }
 
     public func toString() -> String {
         switch(self) {

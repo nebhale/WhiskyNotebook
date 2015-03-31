@@ -32,7 +32,7 @@ public final class PlistConfigurationProvider: ConfigurationProvider {
         var configuration = Configuration(name: name)
 
         if let level = source["Level"] as? String {
-            configuration.level = Level.fromString(level)
+            configuration.level = Level(level)
         }
 
         if let format = source["Format"] as? String {
