@@ -33,7 +33,7 @@ extension DramsController {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Dram", forIndexPath: indexPath) as! UITableViewCell
 
         if let cell = cell as? DramCell {
-            cell.configure(drams[indexPath.row])
+            cell.dram.value = drams[indexPath.row]
         }
 
         return cell

@@ -151,6 +151,11 @@ extension MutableProperty: SinkType {
 	public init(object: NSObject?, keyPath: String) {
 		self.object = object
 		self.keyPath = keyPath
+		
+		/// DynamicProperty stay alive as long as object is alive.
+		/// This is made possible by strong reference cycles.
+		super.init()
+		object?.rac_willDeallocSignal()?.toSignalProducer().start(completed: { self })
 	}
 }
 
@@ -210,6 +215,6 @@ public func <~ <T, P: MutablePropertyType where P.Value == T>(property: P, produ
 ///
 /// The binding will automatically terminate when either property is
 /// deinitialized.
-public func <~ <T, P: PropertyType where P.Value == T>(destinationProperty: MutableProperty<T>, sourceProperty: P) -> Disposable {
+public func <~ <Destination: MutablePropertyType, Source: PropertyType where Source.Value == Destination.Value>(destinationProperty: Destination, sourceProperty: Source) -> Disposable {
 	return destinationProperty <~ sourceProperty.producer
 }

@@ -33,7 +33,7 @@ final class DramsControllerSpec: QuickSpec {
                 }
 
                 it("provides a DramCell") {
-                    var dram = Dram(id: "test", date: NSDate())
+                    var dram = Dram(id: "test", date: NSDate(), rating: nil)
                     repository.save(dram)
 
                     let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))

@@ -9,11 +9,14 @@ public struct Dram {
 
     public var date: NSDate?
 
+    public var rating: Rating?
+
     public init() {}
 
-    public init(id: String?, date: NSDate?) {
+    public init(id: String?, date: NSDate?, rating: Rating?) {
         self.id = id;
         self.date = date
+        self.rating = rating
     }
 }
 
@@ -36,28 +39,5 @@ extension Dram: Hashable {
 
 // MARK: - Printable
 extension Dram: Printable {
-    public var description: String { return "<Dram: \(self.id); date=\(self.date)>" }
-}
-
-// MARK: - Validation
-extension Dram {
-    public func valid() -> Bool {
-        return validId() && validDate()
-    }
-
-    private func validDate() -> Bool {
-        if let date = self.date {
-            return date <= NSDate()
-        } else {
-            return false
-        }
-    }
-
-    private func validId() -> Bool {
-        if let id = self.id {
-            return id =~ "^[\\d]{1,3}\\.[\\d]{1,3}$"
-        } else {
-            return false
-        }
-    }
+    public var description: String { return "<Dram: \(self.id); date=\(self.date), rating=\(self.rating)>" }
 }

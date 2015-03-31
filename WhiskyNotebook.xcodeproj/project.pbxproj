@@ -51,6 +51,7 @@
 		24AA19241AC1EB4600AFE71E /* InMemoryDramRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA19231AC1EB4600AFE71E /* InMemoryDramRepository.swift */; };
 		24AA19261AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA19251AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift */; };
 		24AA19281AC1EE2200AFE71E /* DramRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA19271AC1EE2200AFE71E /* DramRepositoryManager.swift */; };
+		24B84B3A1ACA8EDC007E52AB /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B84B391ACA8EDC007E52AB /* Rating.swift */; };
 		24BC95B01ABDBF9D00CF4108 /* Dram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC95AF1ABDBF9D00CF4108 /* Dram.swift */; };
 		24BC95B21ABDC2EC00CF4108 /* DramSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC95B11ABDC2EC00CF4108 /* DramSpec.swift */; };
 		24BC95B41ABDCA0800CF4108 /* NewDramController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC95B31ABDCA0800CF4108 /* NewDramController.swift */; };
@@ -148,6 +149,7 @@
 		24AA19231AC1EB4600AFE71E /* InMemoryDramRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryDramRepository.swift; sourceTree = "<group>"; };
 		24AA19251AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryDramRepositorySpec.swift; sourceTree = "<group>"; };
 		24AA19271AC1EE2200AFE71E /* DramRepositoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramRepositoryManager.swift; sourceTree = "<group>"; };
+		24B84B391ACA8EDC007E52AB /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		24BC95AF1ABDBF9D00CF4108 /* Dram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dram.swift; sourceTree = "<group>"; };
 		24BC95B11ABDC2EC00CF4108 /* DramSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramSpec.swift; sourceTree = "<group>"; };
 		24BC95B31ABDCA0800CF4108 /* NewDramController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDramController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				24BC95B51ABDCA8100CF4108 /* DramsController.swift */,
 				24AA19231AC1EB4600AFE71E /* InMemoryDramRepository.swift */,
 				24BC95B31ABDCA0800CF4108 /* NewDramController.swift */,
+				24B84B391ACA8EDC007E52AB /* Rating.swift */,
 			);
 			name = Dram;
 			sourceTree = "<group>";
@@ -216,12 +219,12 @@
 		245ABEF01AC0AF1400AA339A /* Dram */ = {
 			isa = PBXGroup;
 			children = (
+				2402FE001ACA87C000B629D7 /* DramCellSpec.swift */,
 				247E22E31AC0C1BE0012045C /* DramRepositoryManagerSpec.swift */,
 				242C6E2F1AC153B100CF7624 /* DramsControllerSpec.swift */,
 				24BC95B11ABDC2EC00CF4108 /* DramSpec.swift */,
 				24AA19251AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift */,
 				247E22DF1AC0895B0012045C /* NewDramControllerSpec.swift */,
-				2402FE001ACA87C000B629D7 /* DramCellSpec.swift */,
 			);
 			name = Dram;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
 				246BA4401AC28CFB00532F6D /* MessageWriter.swift in Sources */,
 				246BA4361AC282EA00532F6D /* MessageProvider.swift in Sources */,
+				24B84B3A1ACA8EDC007E52AB /* Rating.swift in Sources */,
 				246BA43E1AC289E500532F6D /* MessagePosition.swift in Sources */,
 				246BA4441AC28F1000532F6D /* MessageWriterManager.swift in Sources */,
 				24EDAFB21AC6C48500514E45 /* Float.swift in Sources */,

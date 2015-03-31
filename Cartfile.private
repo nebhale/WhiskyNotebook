@@ -3,4 +3,4 @@
 github "nebhale/ExSwift" "enhanced-carthage-support"
 github "Quick/Nimble"
 github "Quick/Quick"
-github "ReactiveCocoa/ReactiveCocoa" "v3.0-alpha.3"
+github "ReactiveCocoa/ReactiveCocoa" "swift-development"

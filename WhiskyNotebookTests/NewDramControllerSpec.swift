@@ -62,6 +62,14 @@ final class NewDramControllerSpec: QuickSpec {
                     controller.date.sendActionsForControlEvents(.ValueChanged)
                     expect(controller.date.date).to(equalToDay(yesterday))
                 }
+
+                it("updates dram with rating value") {
+                    let rating = Rating.Neutral
+                    expect(controller.rating.selectedSegmentIndex).to(equal(UISegmentedControlNoSegment))
+                    controller.rating.selectedSegmentIndex = rating.rawValue
+                    controller.rating.sendActionsForControlEvents(.ValueChanged)
+                    expect(controller.rating.selectedSegmentIndex).to(equal(rating.rawValue))
+                }
             }
 
             describe("Interface Update") {
@@ -78,6 +86,30 @@ final class NewDramControllerSpec: QuickSpec {
                     controller.id.text = ""
                     controller.id.sendActionsForControlEvents(.EditingChanged)
                     expect(controller.save.enabled).to(beFalse())
+                }
+
+                it("validates Dram id") {
+                    expect(Dram().validId()).to(beFalse())
+                    expect(Dram(id: "", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(id: "test-id", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(id: "1.", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(id: ".1", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(id: "1234.1", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(id: "1.1234", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(id: "1.2", date: nil, rating: nil).validId()).to(beTrue())
+                    expect(Dram(id: "12.34", date: nil, rating: nil).validId()).to(beTrue())
+                    expect(Dram(id: "123.456", date: nil, rating: nil).validId()).to(beTrue())
+                }
+
+                it("validates Dram date") {
+                    let now = NSDate()
+                    let past = now.dateByAddingTimeInterval(-86400)
+                    let future = now.dateByAddingTimeInterval(86400)
+
+                    expect(Dram(id: nil, date: now, rating: nil).validDate()).to(beTrue())
+                    expect(Dram(id: nil, date: past, rating: nil).validDate()).to(beTrue())
+                    expect(Dram(id: nil, date: future, rating: nil).validDate()).to(beFalse())
+                    expect(Dram(id: nil, date: nil, rating: nil).validDate()).to(beFalse())
                 }
             }
 

@@ -19,11 +19,13 @@ public final class NewDramController: UITableViewController {
 
     private let logger = Logger()
 
+    @IBOutlet
+    public var rating: UISegmentedControl!
+
     public var repository = DramRepositoryManager.sharedInstance
 
     @IBOutlet
     public var save: UIBarButtonItem!
-    private var saveEnabled: DynamicProperty!  // TODO: Remove pending https://github.com/ReactiveCocoa/ReactiveCocoa/issues/1855
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -52,24 +54,52 @@ extension NewDramController {
 // MARK: - Dram Update
 extension NewDramController {
     private func initDramUpdate() {
+        self.dram.value.date = self.date.date
+        self.date.rac_signalForControlEvents(.ValueChanged).toSignalProducer()
+            |> map { ($0 as? UIDatePicker)?.date }
+            |> start(next: { self.dram.value.date = $0 })
+
         self.dram.value.id = self.id.text
         self.id.rac_textSignal().toSignalProducer()
             |> map { $0 as? String  }
             |> start(next: { self.dram.value.id = $0 })
 
-        self.dram.value.date = self.date.date
-        self.date.rac_signalForControlEvents(.ValueChanged).toSignalProducer()
-            |> map { ($0 as? UIDatePicker)?.date }
-            |> start(next: { self.dram.value.date = $0 })
+        self.dram.value.rating = self.rating.selectedSegmentIndex.toRating()
+        self.rating.rac_signalForControlEvents(.ValueChanged).toSignalProducer()
+            |> map { ($0 as? UISegmentedControl)?.selectedSegmentIndex.toRating() }
+            |> start(next: { self.dram.value.rating = $0 })
+    }
+}
+
+extension Int {
+    public func toRating() -> Rating? {
+        return Rating(rawValue: self)
     }
 }
 
 // MARK: - Interface Update
 extension NewDramController {
     private func initSaveEnabled() {
-        self.saveEnabled = DynamicProperty(object: self.save, keyPath: "enabled")
-        self.saveEnabled <~ self.dram.producer
-            |> map { $0.valid() }
+        DynamicProperty(object: self.save, keyPath: "enabled") <~ self.dram.producer
+            |> map { $0.validId() && $0.validDate() }
+    }
+}
+
+extension Dram {
+    public func validDate() -> Bool {
+        if let date = self.date {
+            return date <= NSDate()
+        } else {
+            return false
+        }
+    }
+
+    public func validId() -> Bool {
+        if let id = self.id {
+            return id =~ "^[\\d]{1,3}\\.[\\d]{1,3}$"
+        } else {
+            return false
+        }
     }
 }
 
