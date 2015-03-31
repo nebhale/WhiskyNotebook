@@ -17,13 +17,13 @@ extension Level {
 
     public static func fromString(string: String) -> Level {
         switch(string) {
-        case "debug", "DEBUG", "Debug":
+        case let value where value =~ (Level.Debug.toString(), true):
             return .Debug
-        case "info", "INFO", "Info":
+        case let value where value =~ (Level.Info.toString(), true):
             return .Info
-        case "warn", "WARN", "Warn":
+        case let value where value =~ (Level.Warn.toString(), true):
             return .Warn
-        case "error", "ERROR", "Error":
+        case let value where value =~ (Level.Error.toString(), true):
             return .Error
         default:
             return .Debug
