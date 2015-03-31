@@ -31,21 +31,16 @@ extension DramsController {
 
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Dram", forIndexPath: indexPath) as! UITableViewCell
-        let dram = drams[indexPath.row]
 
-        dram.configure(cell)
+        if let cell = cell as? DramCell {
+            cell.configure(drams[indexPath.row])
+        }
 
         return cell
     }
 
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.drams.count
-    }
-}
-
-extension Dram {
-    public func configure(cell: UITableViewCell) {
-        cell.textLabel?.text = id
     }
 }
 

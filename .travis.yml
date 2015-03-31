@@ -4,7 +4,7 @@ before_install:
 - brew update
 - brew outdated xctool || brew upgrade xctool
 - brew install carthage
-install: carthage bootstrap --platform iOS
+install: carthage build --platform iOS
 
 cache:
   directories:

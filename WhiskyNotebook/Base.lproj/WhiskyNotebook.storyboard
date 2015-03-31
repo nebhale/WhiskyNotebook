@@ -14,19 +14,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Dram" textLabel="4Q6-xj-9Z0" style="IBUITableViewCellStyleDefault" id="jEU-9P-UHW">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Dram" id="jEU-9P-UHW" customClass="DramCell" customModule="WhiskyNotebook" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEU-9P-UHW" id="h94-vC-RAW">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Q6-xj-9Z0">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-jZ-TZz">
+                                            <rect key="frame" x="8" y="8" width="36" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Identifier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKZ-jl-qK8">
+                                            <rect key="frame" x="8" y="8" width="584" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="h8s-jZ-TZz" firstAttribute="top" secondItem="h94-vC-RAW" secondAttribute="topMargin" id="6SD-YX-i1O"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="h8s-jZ-TZz" secondAttribute="bottom" id="ALm-cj-0bj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QKZ-jl-qK8" secondAttribute="trailing" id="HdU-IP-f2f"/>
+                                        <constraint firstItem="h8s-jZ-TZz" firstAttribute="leading" secondItem="h94-vC-RAW" secondAttribute="leadingMargin" id="TkZ-9t-LTQ"/>
+                                        <constraint firstItem="QKZ-jl-qK8" firstAttribute="top" secondItem="h94-vC-RAW" secondAttribute="topMargin" id="UOr-WN-yjd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="QKZ-jl-qK8" secondAttribute="bottom" id="Us5-H1-meJ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="QKZ-jl-qK8" secondAttribute="bottom" id="dOd-nP-C21"/>
+                                        <constraint firstItem="QKZ-jl-qK8" firstAttribute="top" secondItem="h94-vC-RAW" secondAttribute="topMargin" id="kMq-aa-ZrJ"/>
+                                        <constraint firstItem="QKZ-jl-qK8" firstAttribute="leading" secondItem="h94-vC-RAW" secondAttribute="leadingMargin" id="nTK-4z-aIK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="h8s-jZ-TZz" id="fzS-Jp-3qe"/>
+                                    <outlet property="id" destination="QKZ-jl-qK8" id="tHj-E9-VrB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -80,6 +101,33 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="zUy-ni-Jsb">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="zgx-kg-4Vj">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zgx-kg-4Vj" id="eZO-OI-sWC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fFe-uL-jxb">
+                                                    <rect key="frame" x="8" y="-0.5" width="584" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="449434776.26549298">
+                                                        <!--2015-03-30 18:59:36 +0000-->
+                                                    </date>
+                                                    <date key="minimumDate" timeIntervalSinceReferenceDate="-568036800">
+                                                        <!--1983-01-01 12:00:00 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fFe-uL-jxb" firstAttribute="top" secondItem="eZO-OI-sWC" secondAttribute="topMargin" id="0pa-ZU-yIm"/>
+                                                <constraint firstItem="fFe-uL-jxb" firstAttribute="leading" secondItem="eZO-OI-sWC" secondAttribute="leadingMargin" id="2wl-oh-zUC"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fFe-uL-jxb" secondAttribute="bottom" id="hgS-Kt-ihD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fFe-uL-jxb" secondAttribute="trailing" id="sys-MD-3WN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="f9C-jg-9Qe" id="ioH-5r-txh"/>
@@ -92,6 +140,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cancel" destination="AlJ-WY-V81" id="wuh-5L-UNO"/>
+                        <outlet property="date" destination="fFe-uL-jxb" id="q8o-P5-lzl"/>
                         <outlet property="id" destination="RTC-W8-Fgi" id="5FJ-UQ-RV5"/>
                         <outlet property="save" destination="rr5-jV-P32" id="LC9-FG-o0N"/>
                     </connections>

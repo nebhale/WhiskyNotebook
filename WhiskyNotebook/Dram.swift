@@ -7,13 +7,11 @@ public struct Dram {
 
     public var id: String?
 
-    public var date: NSDate
+    public var date: NSDate?
 
-    public init() {
-        self.date = NSDate()
-    }
+    public init() {}
 
-    public init(id: String?, date: NSDate) {
+    public init(id: String?, date: NSDate?) {
         self.id = id;
         self.date = date
     }
@@ -48,7 +46,11 @@ extension Dram {
     }
 
     private func validDate() -> Bool {
-        return self.date < NSDate()
+        if let date = self.date {
+            return date <= NSDate()
+        } else {
+            return false
+        }
     }
 
     private func validId() -> Bool {
