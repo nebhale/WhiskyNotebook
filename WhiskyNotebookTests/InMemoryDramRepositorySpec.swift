@@ -30,6 +30,15 @@ final class InMemoryDramRepositorySpec: QuickSpec {
                 expect(repository.drams.value.count).to(equal(1))
             }
 
+            it("replaces existing dram") {
+                let dram = Dram()
+                expect(repository.drams.value.count).to(equal(0))
+                repository.save(dram)
+                expect(repository.drams.value.count).to(equal(1))
+                repository.save(dram)
+                expect(repository.drams.value.count).to(equal(1))
+            }
+
             it("signals changes to drams") {
                 let dram = Dram()
                 let sentValue = MutableProperty<[Dram]>([])

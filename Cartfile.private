@@ -1,6 +1,6 @@
 # Copyright 2014-2015 Ben Hale. All Rights Reserved
 
-github "nebhale/ExSwift" "enhanced-carthage-support"
+github "pNre/ExSwift" "Swift-1.2"
 github "Quick/Nimble"
 github "Quick/Quick"
 github "ReactiveCocoa/ReactiveCocoa" "swift-development"

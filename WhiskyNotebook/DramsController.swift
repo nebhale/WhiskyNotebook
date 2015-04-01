@@ -92,20 +92,19 @@ extension DramsController {
 extension DramsController {
     private func initModelUpdate() {
         self.repository.drams.producer
-            |> map { (drams: [Dram]) -> ([Dram], [NSIndexPath!], [NSIndexPath!]) in
-                let delete = (self.drams - drams).map { NSIndexPath(forRow: self.drams.indexOf($0)!, inSection: 0) }
-                let add = (drams - self.drams).map { NSIndexPath(forRow: drams.indexOf($0)!, inSection: 0) }
-                return (drams, delete, add)
-            }
+            |> map { Delta(old: self.drams, new: $0) }
             |> observeOn(UIScheduler())
-            |> start(next: { drams, delete, add in
-                self.drams = drams
+            |> start(next: { delta in
+                self.drams = delta.new
                 self.tableView.beginUpdates()
-                self.tableView.deleteRowsAtIndexPaths(delete, withRowAnimation: .Automatic)
-                self.tableView.insertRowsAtIndexPaths(add, withRowAnimation: .Automatic)
+                self.tableView.deleteRowsAtIndexPaths(self.toIndexPaths(delta.deleted, section: 0), withRowAnimation: .Automatic)
+                self.tableView.reloadRowsAtIndexPaths(self.toIndexPaths(delta.modified, section: 0), withRowAnimation: .Automatic)
+                self.tableView.insertRowsAtIndexPaths(self.toIndexPaths(delta.added, section: 0), withRowAnimation: .Automatic)
                 self.tableView.endUpdates()
             })
     }
-    
-}
 
+    private func toIndexPaths(rows: [Int], section: Int) -> [NSIndexPath] {
+        return rows.map { NSIndexPath(forRow: $0, inSection: section) }
+    }
+}
