@@ -32,6 +32,8 @@
 		246BA4481AC28FCE00532F6D /* ConfigurationProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4471AC28FCE00532F6D /* ConfigurationProviderManager.swift */; };
 		246BA44A1AC2A12400532F6D /* MessageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4491AC2A12400532F6D /* MessageFormatter.swift */; };
 		246BA44C1AC2A15900532F6D /* DefaultMessageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA44B1AC2A15900532F6D /* DefaultMessageFormatter.swift */; };
+		2474C51A1ACC536B0028A641 /* Delta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2474C5191ACC536B0028A641 /* Delta.swift */; };
+		2474C51C1ACC72680028A641 /* DeltaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2474C51B1ACC72680028A641 /* DeltaSpec.swift */; };
 		247D771B1AC3E0DD00A5CD9C /* RootOnly.plist in Resources */ = {isa = PBXBuildFile; fileRef = 247D771A1AC3E0DD00A5CD9C /* RootOnly.plist */; };
 		247D771D1AC3E0F900A5CD9C /* Named.plist in Resources */ = {isa = PBXBuildFile; fileRef = 247D771C1AC3E0F900A5CD9C /* Named.plist */; };
 		247D771F1AC3E13000A5CD9C /* LevelSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 247D771E1AC3E13000A5CD9C /* LevelSet.plist */; };
@@ -130,6 +132,8 @@
 		246BA4471AC28FCE00532F6D /* ConfigurationProviderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationProviderManager.swift; sourceTree = "<group>"; };
 		246BA4491AC2A12400532F6D /* MessageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFormatter.swift; sourceTree = "<group>"; };
 		246BA44B1AC2A15900532F6D /* DefaultMessageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMessageFormatter.swift; sourceTree = "<group>"; };
+		2474C5191ACC536B0028A641 /* Delta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delta.swift; sourceTree = "<group>"; };
+		2474C51B1ACC72680028A641 /* DeltaSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeltaSpec.swift; sourceTree = "<group>"; };
 		247D771A1AC3E0DD00A5CD9C /* RootOnly.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RootOnly.plist; sourceTree = "<group>"; };
 		247D771C1AC3E0F900A5CD9C /* Named.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Named.plist; sourceTree = "<group>"; };
 		247D771E1AC3E13000A5CD9C /* LevelSet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LevelSet.plist; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 		245ABEEF1AC0AF0100AA339A /* Dram */ = {
 			isa = PBXGroup;
 			children = (
+				2474C5191ACC536B0028A641 /* Delta.swift */,
 				24BC95AF1ABDBF9D00CF4108 /* Dram.swift */,
 				2402FDFC1AC9E38600B629D7 /* DramCell.swift */,
 				247E22E11AC0C1960012045C /* DramRepository.swift */,
@@ -225,6 +230,7 @@
 				24BC95B11ABDC2EC00CF4108 /* DramSpec.swift */,
 				24AA19251AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift */,
 				247E22DF1AC0895B0012045C /* NewDramControllerSpec.swift */,
+				2474C51B1ACC72680028A641 /* DeltaSpec.swift */,
 			);
 			name = Dram;
 			sourceTree = "<group>";
@@ -539,6 +545,7 @@
 				24EDAFB41AC6C48500514E45 /* Int.swift in Sources */,
 				24EDAFB91AC6C48500514E45 /* String.swift in Sources */,
 				2402FDFD1AC9E38600B629D7 /* DramCell.swift in Sources */,
+				2474C51A1ACC536B0028A641 /* Delta.swift in Sources */,
 				246BA44A1AC2A12400532F6D /* MessageFormatter.swift in Sources */,
 				24BC95B61ABDCA8100CF4108 /* DramsController.swift in Sources */,
 			);
@@ -565,6 +572,7 @@
 				2402FDFF1ACA826900B629D7 /* NimbleMatchers.swift in Sources */,
 				248F7F2A1AC366B8007DE22B /* MessagePositionSpec.swift in Sources */,
 				24EF82CB1AC3F2F7009E6588 /* DefaultMessageFormatterSpec.swift in Sources */,
+				2474C51C1ACC72680028A641 /* DeltaSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

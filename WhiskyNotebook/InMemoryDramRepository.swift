@@ -18,6 +18,10 @@ public final class InMemoryDramRepository: DramRepository {
 
     public func save(dram: Dram) {
         self.logger.info("Saving Dram: \(dram)")
-        self.drams.value.append(dram)
+        if let index = self.drams.value.indexOf(dram) {
+            self.drams.value[index] = dram
+        } else {
+            self.drams.value.append(dram)
+        }
     }
 }
