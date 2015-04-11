@@ -17,6 +17,7 @@ public final class DefaultMessageFormatter: MessageFormatter {
             .replace("%line", with: messagePosition.line)
             .replace("%message", with: messageProvider())
             .replace("%thread", with: thread())
+            .replace("\n", with: " ")
     }
 
     private func dateFormatter() -> ReplacementGenerator {

@@ -9,9 +9,9 @@ import WhiskyNotebook
 final class DeltaSpec: QuickSpec {
     override func spec() {
         describe("DeltaSpec") {
-            let dram1 = Dram(identifier: "1", date: nil, rating: .Positive)
-            let dram2 = Dram(identifier: "2", date: nil, rating: .Positive)
-            let dram3 = Dram(identifier: "3", date: nil, rating: .Positive)
+            let dram1 = Dram(id: "1", date: nil, rating: .Positive)
+            let dram2 = Dram(id: "2", date: nil, rating: .Positive)
+            let dram3 = Dram(id: "3", date: nil, rating: .Positive)
 
             var dram2b = dram2
             dram2b.rating = .Neutral

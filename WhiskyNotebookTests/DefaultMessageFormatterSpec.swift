@@ -60,6 +60,11 @@ final class DefaultMessageFormatterSpec: QuickSpec {
                 configuration.format = "%thread"
                 expect(messageFormatter.format(configuration: configuration, level: .Debug, messagePosition: messagePosition, messageProvider: messageProvider)).to(equal("Main"))
             }
+
+            it("replaces newlines with spaces") {
+                configuration.format = "%message"
+                expect(messageFormatter.format(configuration: configuration, level: level, messagePosition: messagePosition, messageProvider: { "test\nmessage" })).to(equal("test message"))
+            }
         }
     }
 }

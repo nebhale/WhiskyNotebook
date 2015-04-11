@@ -35,7 +35,7 @@ final class DramsDataSourceSpec: QuickSpec {
                 }
 
                 it("provides a DramCell") {
-                    var dram = Dram(identifier: "test", date: NSDate(), rating: nil)
+                    var dram = Dram(id: "test", date: NSDate(), rating: nil)
                     repository.save(dram)
 
                     let cell = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
@@ -53,9 +53,9 @@ final class DramsDataSourceSpec: QuickSpec {
                     let past = now.dateByAddingTimeInterval(-86400)
                     let future = now.dateByAddingTimeInterval(86400)
 
-                    let dram1 = Dram(identifier: "now", date: now, rating: nil)
-                    let dram2 = Dram(identifier: "past", date: past, rating: nil)
-                    let dram3 = Dram(identifier: "future", date: future, rating: nil)
+                    let dram1 = Dram(id: "now", date: now, rating: nil)
+                    let dram2 = Dram(id: "past", date: past, rating: nil)
+                    let dram3 = Dram(id: "future", date: future, rating: nil)
 
                     repository.save(dram1)
                     repository.save(dram2)
@@ -65,9 +65,9 @@ final class DramsDataSourceSpec: QuickSpec {
                     let cell2 = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)) as! DramCell
                     let cell3 = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0)) as! DramCell
 
-                    expect(cell1.currentDram.value).to(equal(dram3))
-                    expect(cell2.currentDram.value).to(equal(dram1))
-                    expect(cell3.currentDram.value).to(equal(dram2))
+                    expect(cell1.id.text).toEventually(equal("future"))
+                    expect(cell2.id.text).toEventually(equal("now"))
+                    expect(cell3.id.text).toEventually(equal("past"))
                 }
             }
 
@@ -77,10 +77,13 @@ final class DramsDataSourceSpec: QuickSpec {
                 }
 
                 it("deletes dram") {
+                    var drams = Set<Dram>()
+                    repository.drams |> start(next: { drams = $0 })
+
                     repository.save(Dram())
-                    expect(repository.currentDrams.value.count).toEventually(equal(1))
+                    expect(drams.count).toEventually(equal(1))
                     dataSource.tableView(tableView, commitEditingStyle: .Delete, forRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-                    expect(repository.currentDrams.value.count).toEventually(equal(0))
+                    expect(drams.count).toEventually(equal(0))
                 }
 
                 it("specifies editing style depending on table editing mode") {

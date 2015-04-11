@@ -17,6 +17,10 @@
 		242A43491ABCAF750002B938 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A43481ABCAF750002B938 /* Nimble.framework */; };
 		242A434B1ABCAF800002B938 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A434A1ABCAF800002B938 /* Quick.framework */; };
 		242C6E301AC153B100CF7624 /* DramsControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C6E2F1AC153B100CF7624 /* DramsControllerSpec.swift */; };
+		244AD3FC1AD98F9200F7C48D /* CloudKitDramRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244AD3FB1AD98F9200F7C48D /* CloudKitDramRepository.swift */; };
+		244AD3FE1AD9900A00F7C48D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244AD3FD1AD9900A00F7C48D /* CloudKit.framework */; };
+		244AD4001AD9970A00F7C48D /* SetOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244AD3FF1AD9970A00F7C48D /* SetOperators.swift */; };
+		244AD4021AD9984600F7C48D /* SetOperatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244AD4011AD9984600F7C48D /* SetOperatorsSpec.swift */; };
 		24516C0C1AD95CC8000FB800 /* DramsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24516C0B1AD95CC8000FB800 /* DramsDataSource.swift */; };
 		24516C0E1AD96611000FB800 /* DramsDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24516C0D1AD96611000FB800 /* DramsDataSourceSpec.swift */; };
 		246BA42E1AC27D1800532F6D /* Logging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 246BA42D1AC27D1800532F6D /* Logging.plist */; };
@@ -55,6 +59,8 @@
 		24AA19241AC1EB4600AFE71E /* InMemoryDramRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA19231AC1EB4600AFE71E /* InMemoryDramRepository.swift */; };
 		24AA19261AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA19251AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift */; };
 		24AA19281AC1EE2200AFE71E /* DramRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA19271AC1EE2200AFE71E /* DramRepositoryManager.swift */; };
+		24B6090F1ADA61CC001E3DEB /* SignalingCompletionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6090E1ADA61CC001E3DEB /* SignalingCompletionHandler.swift */; };
+		24B609111ADA645D001E3DEB /* SignalingCompletionHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B609101ADA645D001E3DEB /* SignalingCompletionHandlerSpec.swift */; };
 		24B84B3A1ACA8EDC007E52AB /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B84B391ACA8EDC007E52AB /* Rating.swift */; };
 		24BC95B01ABDBF9D00CF4108 /* Dram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC95AF1ABDBF9D00CF4108 /* Dram.swift */; };
 		24BC95B21ABDC2EC00CF4108 /* DramSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC95B11ABDC2EC00CF4108 /* DramSpec.swift */; };
@@ -119,6 +125,10 @@
 		242A434A1ABCAF800002B938 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		242C6E2F1AC153B100CF7624 /* DramsControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramsControllerSpec.swift; sourceTree = "<group>"; };
 		24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WhiskyNotebook.entitlements; sourceTree = "<group>"; };
+		244AD3FB1AD98F9200F7C48D /* CloudKitDramRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitDramRepository.swift; sourceTree = "<group>"; };
+		244AD3FD1AD9900A00F7C48D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		244AD3FF1AD9970A00F7C48D /* SetOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetOperators.swift; sourceTree = "<group>"; };
+		244AD4011AD9984600F7C48D /* SetOperatorsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetOperatorsSpec.swift; sourceTree = "<group>"; };
 		24516C0B1AD95CC8000FB800 /* DramsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramsDataSource.swift; sourceTree = "<group>"; };
 		24516C0D1AD96611000FB800 /* DramsDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramsDataSourceSpec.swift; sourceTree = "<group>"; };
 		246BA42D1AC27D1800532F6D /* Logging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Logging.plist; sourceTree = "<group>"; };
@@ -157,6 +167,8 @@
 		24AA19231AC1EB4600AFE71E /* InMemoryDramRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryDramRepository.swift; sourceTree = "<group>"; };
 		24AA19251AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryDramRepositorySpec.swift; sourceTree = "<group>"; };
 		24AA19271AC1EE2200AFE71E /* DramRepositoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramRepositoryManager.swift; sourceTree = "<group>"; };
+		24B6090E1ADA61CC001E3DEB /* SignalingCompletionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalingCompletionHandler.swift; sourceTree = "<group>"; };
+		24B609101ADA645D001E3DEB /* SignalingCompletionHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalingCompletionHandlerSpec.swift; sourceTree = "<group>"; };
 		24B84B391ACA8EDC007E52AB /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		24BC95AF1ABDBF9D00CF4108 /* Dram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dram.swift; sourceTree = "<group>"; };
 		24BC95B11ABDC2EC00CF4108 /* DramSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramSpec.swift; sourceTree = "<group>"; };
@@ -192,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244AD3FE1AD9900A00F7C48D /* CloudKit.framework in Frameworks */,
 				24A4C89A1ABD8AD8006F8BDF /* ReactiveCocoa.framework in Frameworks */,
 				24A4C8991ABD8AD8006F8BDF /* LlamaKit.framework in Frameworks */,
 			);
@@ -212,6 +225,7 @@
 		245ABEEF1AC0AF0100AA339A /* Dram */ = {
 			isa = PBXGroup;
 			children = (
+				244AD3FB1AD98F9200F7C48D /* CloudKitDramRepository.swift */,
 				2474C5191ACC536B0028A641 /* Delta.swift */,
 				24BC95AF1ABDBF9D00CF4108 /* Dram.swift */,
 				2402FDFC1AC9E38600B629D7 /* DramCell.swift */,
@@ -324,6 +338,8 @@
 				24FFF8D11A36D658002C1E88 /* AppDelegate.swift */,
 				248F7F2D1AC3D414007DE22B /* Basename.swift */,
 				2415B66F1AC4B1F70039AF34 /* EditingState.swift */,
+				244AD3FF1AD9970A00F7C48D /* SetOperators.swift */,
+				24B6090E1ADA61CC001E3DEB /* SignalingCompletionHandler.swift */,
 				245ABEEF1AC0AF0100AA339A /* Dram */,
 				246BA42F1AC27F3400532F6D /* Logging */,
 				24FFF8DA1A36D658002C1E88 /* LaunchScreen.xib */,
@@ -339,6 +355,7 @@
 				24FFF8D01A36D658002C1E88 /* Info.plist */,
 				246BA42D1AC27D1800532F6D /* Logging.plist */,
 				24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */,
+				244AD3FD1AD9900A00F7C48D /* CloudKit.framework */,
 				24EDAF9E1AC6C48500514E45 /* ExSwift */,
 				24A4C8971ABD8AD8006F8BDF /* LlamaKit.framework */,
 				24A4C8981ABD8AD8006F8BDF /* ReactiveCocoa.framework */,
@@ -351,6 +368,8 @@
 			children = (
 				248F7F2F1AC3D468007DE22B /* BasenameSpec.swift */,
 				2402FDFE1ACA826900B629D7 /* NimbleMatchers.swift */,
+				244AD4011AD9984600F7C48D /* SetOperatorsSpec.swift */,
+				24B609101ADA645D001E3DEB /* SignalingCompletionHandlerSpec.swift */,
 				245ABEF01AC0AF1400AA339A /* Dram */,
 				246BA4301AC27F3D00532F6D /* Logging */,
 				24FFF8E51A36D658002C1E88 /* Supporting Files */,
@@ -436,7 +455,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -520,6 +539,7 @@
 				246BA43A1AC2848400532F6D /* Configuration.swift in Sources */,
 				246BA43C1AC2887A00532F6D /* ConfigurationProvider.swift in Sources */,
 				24EDAFB11AC6C48500514E45 /* ExSwift.swift in Sources */,
+				24B6090F1ADA61CC001E3DEB /* SignalingCompletionHandler.swift in Sources */,
 				246BA4461AC28F8900532F6D /* PlistConfigurationProvider.swift in Sources */,
 				24EDAFAF1AC6C48500514E45 /* Dictionary.swift in Sources */,
 				248F7F2E1AC3D414007DE22B /* Basename.swift in Sources */,
@@ -533,6 +553,7 @@
 				24EDAFB51AC6C48500514E45 /* NSArray.swift in Sources */,
 				247E22E21AC0C1960012045C /* DramRepository.swift in Sources */,
 				24AA19241AC1EB4600AFE71E /* InMemoryDramRepository.swift in Sources */,
+				244AD4001AD9970A00F7C48D /* SetOperators.swift in Sources */,
 				246BA4321AC27F8600532F6D /* Logger.swift in Sources */,
 				24AA19281AC1EE2200AFE71E /* DramRepositoryManager.swift in Sources */,
 				246BA44C1AC2A15900532F6D /* DefaultMessageFormatter.swift in Sources */,
@@ -549,6 +570,7 @@
 				246BA4421AC28EEB00532F6D /* PrintlnMessageWriter.swift in Sources */,
 				24EDAFAD1AC6C48500514E45 /* Array.swift in Sources */,
 				24EDAFAE1AC6C48500514E45 /* Character.swift in Sources */,
+				244AD3FC1AD98F9200F7C48D /* CloudKitDramRepository.swift in Sources */,
 				24EDAFB41AC6C48500514E45 /* Int.swift in Sources */,
 				24EDAFB91AC6C48500514E45 /* String.swift in Sources */,
 				2402FDFD1AC9E38600B629D7 /* DramCell.swift in Sources */,
@@ -562,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24B609111ADA645D001E3DEB /* SignalingCompletionHandlerSpec.swift in Sources */,
 				24AA19261AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift in Sources */,
 				248F7F321AC3D943007DE22B /* PrintlnMessageWriterSpec.swift in Sources */,
 				248F7F2C1AC36746007DE22B /* MessageWriterManagerSpec.swift in Sources */,
@@ -573,6 +596,7 @@
 				24030E911AC30D7A00E3AC6A /* ConfigurationSpec.swift in Sources */,
 				24030E951AC30FF400E3AC6A /* LevelSpec.swift in Sources */,
 				242C6E301AC153B100CF7624 /* DramsControllerSpec.swift in Sources */,
+				244AD4021AD9984600F7C48D /* SetOperatorsSpec.swift in Sources */,
 				247E22E01AC0895B0012045C /* NewDramControllerSpec.swift in Sources */,
 				2402FE011ACA87C000B629D7 /* DramCellSpec.swift in Sources */,
 				248F7F301AC3D468007DE22B /* BasenameSpec.swift in Sources */,

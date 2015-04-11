@@ -5,18 +5,18 @@ import Foundation
 
 public struct Dram {
 
-    public let id: String = NSUUID().UUIDString
-
-    public var identifier: String?
+    public var id: String?
 
     public var date: NSDate? = NSDate()
 
     public var rating: Rating?
 
+    private let syntheticKey: String = NSUUID().UUIDString
+
     public init() {}
 
-    public init(identifier: String?, date: NSDate?, rating: Rating?) {
-        self.identifier = identifier;
+    public init(id: String?, date: NSDate?, rating: Rating?) {
+        self.id = id;
         self.date = date
         self.rating = rating
     }
@@ -25,15 +25,15 @@ public struct Dram {
 // MARK: - Equatable
 extension Dram: Equatable {}
 public func ==(x: Dram, y: Dram) -> Bool {
-    return x.id == y.id
+    return x.syntheticKey == y.syntheticKey
 }
 
 // MARK: - Hashable
 extension Dram: Hashable {
-    public var hashValue: Int { return id.hashValue }
+    public var hashValue: Int { return syntheticKey.hashValue }
 }
 
 // MARK: - Printable
 extension Dram: Printable {
-    public var description: String { return "<Dram: \(self.id); identifer=\(self.identifier), date=\(self.date), rating=\(self.rating)>" }
+    public var description: String { return "<Dram: \(self.syntheticKey); id=\(self.id), date=\(self.date), rating=\(self.rating)>" }
 }

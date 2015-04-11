@@ -18,13 +18,13 @@ public struct Delta {
         self.added = (new - old).map { new.indexOf($0)! }
         self.deleted = (old - new).map { old.indexOf($0)! }
         self.modified = (old & new)
-            .filter { $0.exactMatch(new[new.indexOf($0)!]) }
+            .filter { $0.contentMatch(new[new.indexOf($0)!]) }
             .map { old.indexOf($0)! }
     }
 }
 
 extension Dram {
-    public func exactMatch(dram: Dram) -> Bool {
-        return self.identifier == dram.identifier && self.date == dram.date && self.rating == dram.rating
+    public func contentMatch(dram: Dram) -> Bool {
+        return self.id == dram.id && self.date == dram.date && self.rating == dram.rating
     }
 }

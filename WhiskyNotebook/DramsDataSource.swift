@@ -6,11 +6,17 @@ import UIKit
 
 public final class DramsDataSource: NSObject, UITableViewDataSource {
 
-    public let currentDrams: MutableProperty<[Dram]> = MutableProperty([])
+    private let content: MutableProperty<[Dram]> = MutableProperty([])
+
+    public let drams: SignalProducer<[Dram], NoError>
 
     private let logger = Logger()
 
     public var repository = DramRepositoryManager.sharedInstance
+
+    override public init() {
+        self.drams = self.content.producer
+    }
 
     public func viewDidLoad() {
         initModelUpdate()
@@ -29,14 +35,14 @@ extension DramsDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("Dram", forIndexPath: indexPath) as! UITableViewCell
 
         if let cell = cell as? DramCell {
-            cell.currentDram.value = currentDrams.value[indexPath.row]
+            cell.configure(content.value[indexPath.row])
         }
 
         return cell
     }
 
     public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.currentDrams.value.count
+        return self.content.value.count
     }
 
 }
@@ -51,9 +57,9 @@ extension DramsDataSource {
     public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         self.logger.info("Delete initiated")
 
-        SignalProducer<Dram, NoError>(value: self.currentDrams.value[indexPath.row])
-            |> observeOn(QueueScheduler())
-            |> start(next: { self.repository.delete($0)} )
+        QueueScheduler().schedule {
+            self.repository.delete(self.content.value[indexPath.row])
+        }
     }
 
     public func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
@@ -64,7 +70,7 @@ extension DramsDataSource {
 // MARK: - Model Update
 extension DramsDataSource {
     private func initModelUpdate() {
-        self.currentDrams <~ self.repository.currentDrams.producer
+        self.content <~ self.repository.drams
             |> map { sorted($0, self.reverseChronological) }
     }
 

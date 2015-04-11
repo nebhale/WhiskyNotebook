@@ -57,8 +57,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="date" destination="h8s-jZ-TZz" id="fzS-Jp-3qe"/>
-                                    <outlet property="identifier" destination="QKZ-jl-qK8" id="3NP-gc-nHC"/>
+                                    <outlet property="date" destination="h8s-jZ-TZz" id="nDL-cZ-IjK"/>
+                                    <outlet property="id" destination="QKZ-jl-qK8" id="dwq-0X-UMG"/>
                                     <outlet property="rating" destination="ajp-yg-nnG" id="TKD-CH-ASL"/>
                                 </connections>
                             </tableViewCell>

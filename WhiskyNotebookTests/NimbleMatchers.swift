@@ -2,7 +2,6 @@
 
 import Nimble
 
-
 func equalToDay(expectedValue: NSDate) -> NonNilMatcherFunc<NSDate> {
     return NonNilMatcherFunc { actualExpression, failureMessage in
         failureMessage.postfixMessage = "equal to day <\(expectedValue)>"
@@ -21,4 +20,3 @@ func equalToDay(expectedValue: NSDate) -> NonNilMatcherFunc<NSDate> {
         }
     }
 }
-
