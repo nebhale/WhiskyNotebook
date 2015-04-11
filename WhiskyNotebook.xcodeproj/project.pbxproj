@@ -17,6 +17,8 @@
 		242A43491ABCAF750002B938 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A43481ABCAF750002B938 /* Nimble.framework */; };
 		242A434B1ABCAF800002B938 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A434A1ABCAF800002B938 /* Quick.framework */; };
 		242C6E301AC153B100CF7624 /* DramsControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C6E2F1AC153B100CF7624 /* DramsControllerSpec.swift */; };
+		24516C0C1AD95CC8000FB800 /* DramsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24516C0B1AD95CC8000FB800 /* DramsDataSource.swift */; };
+		24516C0E1AD96611000FB800 /* DramsDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24516C0D1AD96611000FB800 /* DramsDataSourceSpec.swift */; };
 		246BA42E1AC27D1800532F6D /* Logging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 246BA42D1AC27D1800532F6D /* Logging.plist */; };
 		246BA4321AC27F8600532F6D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4311AC27F8600532F6D /* Logger.swift */; };
 		246BA4341AC2800700532F6D /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA4331AC2800700532F6D /* LoggerSpec.swift */; };
@@ -117,6 +119,8 @@
 		242A434A1ABCAF800002B938 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		242C6E2F1AC153B100CF7624 /* DramsControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramsControllerSpec.swift; sourceTree = "<group>"; };
 		24342AEE1A72C3FA00F3451C /* WhiskyNotebook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WhiskyNotebook.entitlements; sourceTree = "<group>"; };
+		24516C0B1AD95CC8000FB800 /* DramsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramsDataSource.swift; sourceTree = "<group>"; };
+		24516C0D1AD96611000FB800 /* DramsDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DramsDataSourceSpec.swift; sourceTree = "<group>"; };
 		246BA42D1AC27D1800532F6D /* Logging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Logging.plist; sourceTree = "<group>"; };
 		246BA4311AC27F8600532F6D /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		246BA4331AC2800700532F6D /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				247E22E11AC0C1960012045C /* DramRepository.swift */,
 				24AA19271AC1EE2200AFE71E /* DramRepositoryManager.swift */,
 				24BC95B51ABDCA8100CF4108 /* DramsController.swift */,
+				24516C0B1AD95CC8000FB800 /* DramsDataSource.swift */,
 				24AA19231AC1EB4600AFE71E /* InMemoryDramRepository.swift */,
 				24BC95B31ABDCA0800CF4108 /* NewDramController.swift */,
 				24B84B391ACA8EDC007E52AB /* Rating.swift */,
@@ -224,13 +229,14 @@
 		245ABEF01AC0AF1400AA339A /* Dram */ = {
 			isa = PBXGroup;
 			children = (
+				2474C51B1ACC72680028A641 /* DeltaSpec.swift */,
 				2402FE001ACA87C000B629D7 /* DramCellSpec.swift */,
 				247E22E31AC0C1BE0012045C /* DramRepositoryManagerSpec.swift */,
 				242C6E2F1AC153B100CF7624 /* DramsControllerSpec.swift */,
+				24516C0D1AD96611000FB800 /* DramsDataSourceSpec.swift */,
 				24BC95B11ABDC2EC00CF4108 /* DramSpec.swift */,
 				24AA19251AC1EBC900AFE71E /* InMemoryDramRepositorySpec.swift */,
 				247E22DF1AC0895B0012045C /* NewDramControllerSpec.swift */,
-				2474C51B1ACC72680028A641 /* DeltaSpec.swift */,
 			);
 			name = Dram;
 			sourceTree = "<group>";
@@ -533,6 +539,7 @@
 				2415B6701AC4B1F70039AF34 /* EditingState.swift in Sources */,
 				24BC95B01ABDBF9D00CF4108 /* Dram.swift in Sources */,
 				24FFF8D21A36D658002C1E88 /* AppDelegate.swift in Sources */,
+				24516C0C1AD95CC8000FB800 /* DramsDataSource.swift in Sources */,
 				246BA4401AC28CFB00532F6D /* MessageWriter.swift in Sources */,
 				246BA4361AC282EA00532F6D /* MessageProvider.swift in Sources */,
 				24B84B3A1ACA8EDC007E52AB /* Rating.swift in Sources */,
@@ -569,6 +576,7 @@
 				247E22E01AC0895B0012045C /* NewDramControllerSpec.swift in Sources */,
 				2402FE011ACA87C000B629D7 /* DramCellSpec.swift in Sources */,
 				248F7F301AC3D468007DE22B /* BasenameSpec.swift in Sources */,
+				24516C0E1AD96611000FB800 /* DramsDataSourceSpec.swift in Sources */,
 				2402FDFF1ACA826900B629D7 /* NimbleMatchers.swift in Sources */,
 				248F7F2A1AC366B8007DE22B /* MessagePositionSpec.swift in Sources */,
 				24EF82CB1AC3F2F7009E6588 /* DefaultMessageFormatterSpec.swift in Sources */,

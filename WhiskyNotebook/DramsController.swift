@@ -10,57 +10,14 @@ public final class DramsController: UITableViewController {
 
     private let currentEditingState = MutableProperty<EditingState>(.NotEditing)
 
-    private let logger = Logger()
-
-    public var repository = DramRepositoryManager.sharedInstance
+    @IBOutlet
+    public var dataSource: DramsDataSource!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
         initModelUpdate()
         initNavigationBarContents()
-    }
-}
-
-// MARK: - Display Drams
-extension DramsController {
-
-    override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("Dram", forIndexPath: indexPath) as! UITableViewCell
-
-        if let cell = cell as? DramCell {
-            cell.currentDram.value = currentDrams[indexPath.row]
-        }
-
-        return cell
-    }
-
-    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.currentDrams.count
-    }
-}
-
-// MARK: - Edit Drams
-extension DramsController {
-
-    override public func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-
-    override public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        self.logger.info("Delete initiated")
-
-        SignalProducer<Dram, NoError>(value: self.currentDrams[indexPath.row])
-            |> observeOn(QueueScheduler())
-            |> start(next: { self.repository.delete($0)} )
-    }
-
-    override public func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return tableView.editing ? .Delete : .None
     }
 }
 
@@ -91,8 +48,8 @@ extension DramsController {
 // MARK: - Model Update
 extension DramsController {
     private func initModelUpdate() {
-        self.repository.currentDrams.producer
-            |> map { sorted($0, self.reverseChronological) }
+        self.dataSource.viewDidLoad()
+        self.dataSource.currentDrams.producer
             |> map { Delta(old: self.currentDrams, new: $0) }
             |> observeOn(UIScheduler())
             |> start(next: { delta in
@@ -107,9 +64,5 @@ extension DramsController {
 
     private func toIndexPaths(rows: [Int], section: Int) -> [NSIndexPath] {
         return rows.map { NSIndexPath(forRow: $0, inSection: section) }
-    }
-
-    private func reverseChronological(x: Dram, y: Dram) -> Bool {
-        return x.date > y.date
     }
 }

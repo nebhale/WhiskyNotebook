@@ -64,7 +64,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="0EK-Pb-KkY" id="wqU-Ml-EXC"/>
+                            <outlet property="dataSource" destination="n56-dN-YgG" id="TZ5-jx-nZ3"/>
                             <outlet property="delegate" destination="0EK-Pb-KkY" id="VeJ-mz-jbk"/>
                         </connections>
                     </tableView>
@@ -77,8 +77,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dataSource" destination="n56-dN-YgG" id="MXc-sW-hmm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypS-ia-42b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="n56-dN-YgG" customClass="DramsDataSource" customModule="WhiskyNotebook" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2839" y="655"/>
         </scene>
