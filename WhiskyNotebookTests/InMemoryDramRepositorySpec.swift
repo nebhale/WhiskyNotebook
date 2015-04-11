@@ -19,30 +19,30 @@ final class InMemoryDramRepositorySpec: QuickSpec {
             it("deletes dram") {
                 let dram = Dram()
                 repository.save(dram)
-                expect(repository.drams.value.count).to(equal(1))
+                expect(repository.currentDrams.value.count).to(equal(1))
                 repository.delete(dram)
-                expect(repository.drams.value.count).to(equal(0))
+                expect(repository.currentDrams.value.count).to(equal(0))
             }
 
             it("saves dram") {
-                expect(repository.drams.value.count).to(equal(0))
+                expect(repository.currentDrams.value.count).to(equal(0))
                 repository.save(Dram())
-                expect(repository.drams.value.count).to(equal(1))
+                expect(repository.currentDrams.value.count).to(equal(1))
             }
 
             it("replaces existing dram") {
                 let dram = Dram()
-                expect(repository.drams.value.count).to(equal(0))
+                expect(repository.currentDrams.value.count).to(equal(0))
                 repository.save(dram)
-                expect(repository.drams.value.count).to(equal(1))
+                expect(repository.currentDrams.value.count).to(equal(1))
                 repository.save(dram)
-                expect(repository.drams.value.count).to(equal(1))
+                expect(repository.currentDrams.value.count).to(equal(1))
             }
 
             it("signals changes to drams") {
                 let dram = Dram()
-                let sentValue = MutableProperty<[Dram]>([])
-                sentValue <~ repository.drams.producer
+                let sentValue = MutableProperty<Set<Dram>>([])
+                sentValue <~ repository.currentDrams.producer
 
                 repository.save(dram)
 

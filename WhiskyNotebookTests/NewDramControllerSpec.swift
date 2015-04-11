@@ -31,18 +31,18 @@ final class NewDramControllerSpec: QuickSpec {
                 expect(maximumDate).to(equalToDay(today))
             }
 
-            describe("Cancel") {
+            describe("Done") {
                 var command: RACCommand!
                 var button: UIBarButtonItem!
 
                 beforeEach {
-                    button = controller.cancel
+                    button = controller.done
                     command = button.rac_command
                 }
 
                 it("dismisses view when pressed") {
                     command.execute(button)
-                    expect(repository.drams.value).to(beEmpty())
+                    expect(repository.currentDrams.value).to(beEmpty())
                 }
             }
 
@@ -72,33 +72,30 @@ final class NewDramControllerSpec: QuickSpec {
                 }
             }
 
-            describe("Interface Update") {
-                it("enables save button when drams is valid") {
-                    expect(controller.save.enabled).to(beFalse())
+            describe("Save") {
+                it("saves the dram when drams is valid") {
                     controller.id.text = "1.2"
                     controller.id.sendActionsForControlEvents(.EditingChanged)
-                    expect(controller.save.enabled).to(beTrue())
+                    expect(repository.currentDrams.value).toEventuallyNot(beEmpty())
                 }
 
-                it("disables save button when dram is invalid") {
-                    controller.save.enabled = true
-                    expect(controller.save.enabled).to(beTrue())
+                it("does not save the dram when dram is invalid") {
                     controller.id.text = ""
                     controller.id.sendActionsForControlEvents(.EditingChanged)
-                    expect(controller.save.enabled).to(beFalse())
+                    expect(repository.currentDrams.value).toEventually(beEmpty())
                 }
 
-                it("validates Dram id") {
+                it("validates Dram identifier") {
                     expect(Dram().validId()).to(beFalse())
-                    expect(Dram(id: "", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "test-id", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "1.", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: ".1", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "1234.1", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "1.1234", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "1.2", date: nil, rating: nil).validId()).to(beTrue())
-                    expect(Dram(id: "12.34", date: nil, rating: nil).validId()).to(beTrue())
-                    expect(Dram(id: "123.456", date: nil, rating: nil).validId()).to(beTrue())
+                    expect(Dram(identifier: "", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(identifier: "test-id", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(identifier: "1.", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(identifier: ".1", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(identifier: "1234.1", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(identifier: "1.1234", date: nil, rating: nil).validId()).to(beFalse())
+                    expect(Dram(identifier: "1.2", date: nil, rating: nil).validId()).to(beTrue())
+                    expect(Dram(identifier: "12.34", date: nil, rating: nil).validId()).to(beTrue())
+                    expect(Dram(identifier: "123.456", date: nil, rating: nil).validId()).to(beTrue())
                 }
 
                 it("validates Dram date") {
@@ -106,28 +103,10 @@ final class NewDramControllerSpec: QuickSpec {
                     let past = now.dateByAddingTimeInterval(-86400)
                     let future = now.dateByAddingTimeInterval(86400)
 
-                    expect(Dram(id: nil, date: now, rating: nil).validDate()).to(beTrue())
-                    expect(Dram(id: nil, date: past, rating: nil).validDate()).to(beTrue())
-                    expect(Dram(id: nil, date: future, rating: nil).validDate()).to(beFalse())
-                    expect(Dram(id: nil, date: nil, rating: nil).validDate()).to(beFalse())
-                }
-            }
-
-            describe("Save") {
-                var command: RACCommand!
-                var button: UIBarButtonItem!
-                var action: Action<AnyObject?, AnyObject?, NSError>!
-
-                beforeEach {
-                    button = controller.save
-                    command = button.rac_command
-                    action = command.toAction()
-                }
-
-                it("saves the Dram") {
-                    expect(repository.drams.value).to(beEmpty())
-                    command.execute(button)
-                    expect(repository.drams.value).toEventuallyNot(beEmpty())
+                    expect(Dram(identifier: nil, date: now, rating: nil).validDate()).to(beTrue())
+                    expect(Dram(identifier: nil, date: past, rating: nil).validDate()).to(beTrue())
+                    expect(Dram(identifier: nil, date: future, rating: nil).validDate()).to(beFalse())
+                    expect(Dram(identifier: nil, date: nil, rating: nil).validDate()).to(beFalse())
                 }
             }
         }

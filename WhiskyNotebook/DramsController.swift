@@ -6,9 +6,9 @@ import UIKit
 
 public final class DramsController: UITableViewController {
 
-    private var drams: [Dram] = []
+    private var currentDrams: [Dram] = []
 
-    private let (editingStateSignal, editingStateSink) = Signal<EditingState, NoError>.pipe()
+    private let currentEditingState = MutableProperty<EditingState>(.NotEditing)
 
     private let logger = Logger()
 
@@ -33,14 +33,14 @@ extension DramsController {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Dram", forIndexPath: indexPath) as! UITableViewCell
 
         if let cell = cell as? DramCell {
-            cell.dram.value = drams[indexPath.row]
+            cell.currentDram.value = currentDrams[indexPath.row]
         }
 
         return cell
     }
 
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.drams.count
+        return self.currentDrams.count
     }
 }
 
@@ -54,7 +54,7 @@ extension DramsController {
     override public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         self.logger.info("Delete initiated")
 
-        SignalProducer<Dram, NoError>(value: self.drams[indexPath.row])
+        SignalProducer<Dram, NoError>(value: self.currentDrams[indexPath.row])
             |> observeOn(QueueScheduler())
             |> start(next: { self.repository.delete($0)} )
     }
@@ -71,8 +71,8 @@ extension DramsController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         let addButton = self.navigationItem.rightBarButtonItem
 
-        self.editingStateSignal
-            |> observe(next: { editingState in
+        self.currentEditingState.producer
+            |> start(next: { editingState in
                 switch(editingState) {
                 case .Editing:
                     self.navigationItem.setRightBarButtonItem(nil, animated: true)
@@ -84,18 +84,19 @@ extension DramsController {
 
     override public func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        sendNext(self.editingStateSink, editing ? .Editing : .NotEditing)
+        self.currentEditingState.value = editing ? .Editing : .NotEditing
     }
 }
 
 // MARK: - Model Update
 extension DramsController {
     private func initModelUpdate() {
-        self.repository.drams.producer
-            |> map { Delta(old: self.drams, new: $0) }
+        self.repository.currentDrams.producer
+            |> map { sorted($0, self.reverseChronological) }
+            |> map { Delta(old: self.currentDrams, new: $0) }
             |> observeOn(UIScheduler())
             |> start(next: { delta in
-                self.drams = delta.new
+                self.currentDrams = delta.new
                 self.tableView.beginUpdates()
                 self.tableView.deleteRowsAtIndexPaths(self.toIndexPaths(delta.deleted, section: 0), withRowAnimation: .Automatic)
                 self.tableView.reloadRowsAtIndexPaths(self.toIndexPaths(delta.modified, section: 0), withRowAnimation: .Automatic)
@@ -106,5 +107,9 @@ extension DramsController {
 
     private func toIndexPaths(rows: [Int], section: Int) -> [NSIndexPath] {
         return rows.map { NSIndexPath(forRow: $0, inSection: section) }
+    }
+
+    private func reverseChronological(x: Dram, y: Dram) -> Bool {
+        return x.date > y.date
     }
 }

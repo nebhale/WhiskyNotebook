@@ -4,7 +4,9 @@ import ReactiveCocoa
 import UIKit
 
 
-public class DramCell: UITableViewCell {
+public final class DramCell: UITableViewCell {
+
+    public let currentDram = MutableProperty<Dram>(Dram())
 
     @IBOutlet
     public var date: UILabel!
@@ -15,10 +17,8 @@ public class DramCell: UITableViewCell {
         return dateFormatter
         }()
 
-    public let dram = MutableProperty<Dram>(Dram())
-
     @IBOutlet
-    public var id: UILabel!
+    public var identifier: UILabel!
 
     private let logger = Logger()
 
@@ -38,7 +38,7 @@ public class DramCell: UITableViewCell {
 // MARK: - Interface Update
 extension DramCell {
     private func initInterfaceUpdate() {
-        DynamicProperty(object: self.date, keyPath: "text") <~ self.dram.producer
+        DynamicProperty(object: self.date, keyPath: "text") <~ self.currentDram.producer
             |> observeOn(UIScheduler())
             |> map { dram in
                 if let date = dram.date {
@@ -48,15 +48,15 @@ extension DramCell {
                 }
         }
 
-        DynamicProperty(object: self.id, keyPath: "text") <~ self.dram.producer
+        DynamicProperty(object: self.identifier, keyPath: "text") <~ self.currentDram.producer
             |> observeOn(UIScheduler())
-            |> map { $0.id }
+            |> map { $0.identifier }
 
-        DynamicProperty(object: self.rating, keyPath: "enabled") <~ self.dram.producer
+        DynamicProperty(object: self.rating, keyPath: "enabled") <~ self.currentDram.producer
             |> observeOn(UIScheduler())
             |> map { $0.rating == nil }
 
-        DynamicProperty(object: self.rating, keyPath: "selectedSegmentIndex") <~ self.dram.producer
+        DynamicProperty(object: self.rating, keyPath: "selectedSegmentIndex") <~ self.currentDram.producer
             |> observeOn(UIScheduler())
             |> map { dram in
                 if let rating = dram.rating {
@@ -68,17 +68,15 @@ extension DramCell {
     }
 }
 
-
-
 // MARK: - Save
 extension DramCell {
     private func initSave() {
-        self.rating.rac_signalForControlEvents(.ValueChanged).toSignalProducer()
-            |> map { ($0 as? UISegmentedControl)?.selectedSegmentIndex.toRating() }
+                self.rating.rac_newSelectedSegmentIndexChannelWithNilValue(UISegmentedControlNoSegment).toSignalProducer()
+            |> map { ($0 as? Int)?.toRating() }
             |> start(next: { rating in
                 self.logger.info("Save initiated")
 
-                var dram = self.dram.value
+                var dram = self.currentDram.value
                 dram.rating = rating
 
                 SignalProducer<Dram, NoError>(value: dram)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7JM-e1-Jsg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7JM-e1-Jsg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -58,7 +58,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="date" destination="h8s-jZ-TZz" id="fzS-Jp-3qe"/>
-                                    <outlet property="id" destination="QKZ-jl-qK8" id="tHj-E9-VrB"/>
+                                    <outlet property="identifier" destination="QKZ-jl-qK8" id="3NP-gc-nHC"/>
                                     <outlet property="rating" destination="ajp-yg-nnG" id="TKD-CH-ASL"/>
                                 </connections>
                             </tableViewCell>
@@ -130,7 +130,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fFe-uL-jxb">
-                                                    <rect key="frame" x="8" y="-0.5" width="584" height="162"/>
+                                                    <rect key="frame" x="8" y="-1" width="584" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="449434776.26549298">
                                                         <!--2015-03-30 18:59:36 +0000-->
                                                     </date>
@@ -156,15 +156,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Dram" id="8Kd-ia-9yM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AlJ-WY-V81"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="save" id="rr5-jV-P32"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="rr5-jV-P32"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancel" destination="AlJ-WY-V81" id="wuh-5L-UNO"/>
                         <outlet property="date" destination="fFe-uL-jxb" id="q8o-P5-lzl"/>
+                        <outlet property="done" destination="rr5-jV-P32" id="buj-5S-uKQ"/>
                         <outlet property="id" destination="RTC-W8-Fgi" id="5FJ-UQ-RV5"/>
                         <outlet property="rating" destination="aAW-tm-zFK" id="hta-sA-2yN"/>
-                        <outlet property="save" destination="rr5-jV-P32" id="LC9-FG-o0N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULs-Gt-lMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
