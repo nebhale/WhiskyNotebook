@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7JM-e1-Jsg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cvt-oB-0fK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -84,7 +84,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypS-ia-42b" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="n56-dN-YgG" customClass="DramsDataSource" customModule="WhiskyNotebook" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="2839" y="655"/>
+            <point key="canvasLocation" x="3513" y="-969"/>
         </scene>
         <!--New Dram-->
         <scene sceneID="jTi-KP-qTu">
@@ -171,12 +171,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULs-Gt-lMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4463" y="655"/>
+            <point key="canvasLocation" x="4289" y="-225"/>
         </scene>
         <!--Drams Navigation-->
         <scene sceneID="5sr-LU-O2E">
             <objects>
                 <navigationController title="Drams Navigation" automaticallyAdjustsScrollViewInsets="NO" id="7JM-e1-Jsg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Drams" image="DramsIcon" id="0Rb-TA-LtB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="88C-aU-i4T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -189,7 +190,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIr-pt-V9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2027" y="655"/>
+            <point key="canvasLocation" x="2743" y="-969"/>
         </scene>
         <!--New Dram Navigation-->
         <scene sceneID="2sX-nz-y0f">
@@ -207,7 +208,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5r-iv-Nrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3651" y="655"/>
+            <point key="canvasLocation" x="3513" y="-225"/>
+        </scene>
+        <!--Root-->
+        <scene sceneID="fLy-ff-1ST">
+            <objects>
+                <tabBarController title="Root" automaticallyAdjustsScrollViewInsets="NO" id="Cvt-oB-0fK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="hvC-eu-3gn">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7JM-e1-Jsg" kind="relationship" relationship="viewControllers" id="MG2-bD-igp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eTp-2H-K0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1803" y="-969"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DramsIcon" width="30" height="30"/>
+    </resources>
 </document>
