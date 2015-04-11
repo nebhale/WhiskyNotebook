@@ -22,9 +22,7 @@ public func ==(x: Configuration, y: Configuration) -> Bool {
 
 // MARK: - Hashable
 extension Configuration: Hashable {
-    public var hashValue: Int {
-        return self.name.hashValue
-    }
+    public var hashValue: Int { return self.name.hashValue }
 }
 
 // MARK: - Printable

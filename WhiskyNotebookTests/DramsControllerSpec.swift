@@ -33,7 +33,7 @@ final class DramsControllerSpec: QuickSpec {
                 }
 
                 it("provides a DramCell") {
-                    var dram = Dram(id: "test", date: NSDate(), rating: nil)
+                    var dram = Dram(identifier: "test", date: NSDate(), rating: nil)
                     repository.save(dram)
 
                     let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
@@ -45,6 +45,28 @@ final class DramsControllerSpec: QuickSpec {
                     repository.save(Dram())
                     expect(controller.tableView(controller.tableView, numberOfRowsInSection: 0)).to(equal(1))
                 }
+
+                it("sorts the drams in reverse chronological order") {
+                    let now = NSDate()
+                    let past = now.dateByAddingTimeInterval(-86400)
+                    let future = now.dateByAddingTimeInterval(86400)
+
+                    let dram1 = Dram(identifier: nil, date: now, rating: nil)
+                    let dram2 = Dram(identifier: nil, date: past, rating: nil)
+                    let dram3 = Dram(identifier: nil, date: future, rating: nil)
+
+                    repository.save(dram1)
+                    repository.save(dram2)
+                    repository.save(dram3)
+
+                    let cell1 = controller.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)) as! DramCell
+                    let cell2 = controller.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)) as! DramCell
+                    let cell3 = controller.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0)) as! DramCell
+
+                    expect(cell1.currentDram.value).to(equal(dram3))
+                    expect(cell2.currentDram.value).to(equal(dram1))
+                    expect(cell3.currentDram.value).to(equal(dram2))
+                }
             }
 
             describe("Edit Drams") {
@@ -54,9 +76,9 @@ final class DramsControllerSpec: QuickSpec {
 
                 it("deletes dram") {
                     repository.save(Dram())
-                    expect(repository.drams.value.count).to(equal(1))
+                    expect(repository.currentDrams.value.count).to(equal(1))
                     controller.tableView(tableView, commitEditingStyle: .Delete, forRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-                    expect(repository.drams.value.count).toEventually(equal(0))
+                    expect(repository.currentDrams.value.count).toEventually(equal(0))
                 }
 
                 it("specifies editing style depending on table editing mode") {

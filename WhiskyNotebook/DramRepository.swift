@@ -5,7 +5,7 @@ import ReactiveCocoa
 
 public protocol DramRepository {
 
-    var drams: MutableProperty<[Dram]> { get }
+    var currentDrams: MutableProperty<Set<Dram>> { get }
 
     func delete(dram: Dram)
 

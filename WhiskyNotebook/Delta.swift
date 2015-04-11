@@ -25,6 +25,6 @@ public struct Delta {
 
 extension Dram {
     public func exactMatch(dram: Dram) -> Bool {
-        return self.id == dram.id && self.date == dram.date && self.rating == dram.rating
+        return self.identifier == dram.identifier && self.date == dram.date && self.rating == dram.rating
     }
 }
