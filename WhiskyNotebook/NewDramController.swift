@@ -6,13 +6,13 @@ import UIKit
 
 public final class NewDramController: UITableViewController {
 
-    public var currentDram = MutableProperty<Dram>(Dram())
-
     @IBOutlet
     public var date: UIDatePicker!
 
     @IBOutlet
     public var done: UIBarButtonItem!
+
+    private let dram = MutableProperty<Dram>(Dram())
 
     @IBOutlet
     public var id: UITextField!
@@ -52,15 +52,15 @@ extension NewDramController {
     private func initDramUpdate() {
         self.date.rac_newDateChannelWithNilValue(NSDate()).toSignalProducer()
             |> map { $0 as? NSDate }
-            |> start(next: { self.currentDram.value.date = $0 })
+            |> start(next: { self.dram.value.date = $0 })
 
         self.id.rac_textSignal().toSignalProducer()
             |> map { $0 as? String  }
-            |> start(next: { self.currentDram.value.identifier = $0 })
+            |> start(next: { self.dram.value.id = $0 })
 
         self.rating.rac_newSelectedSegmentIndexChannelWithNilValue(UISegmentedControlNoSegment).toSignalProducer()
             |> map { ($0 as? Int)?.toRating() }
-            |> start(next: { self.currentDram.value.rating = $0 })
+            |> start(next: { self.dram.value.rating = $0 })
     }
 }
 
@@ -80,7 +80,7 @@ extension Dram {
     }
 
     public func validId() -> Bool {
-        if let id = self.identifier {
+        if let id = self.id {
             return id =~ "^[\\d]{1,3}\\.[\\d]{1,3}$"
         } else {
             return false
@@ -91,7 +91,7 @@ extension Dram {
 // MARK: - Save
 extension NewDramController {
     private func initSave() {
-        self.currentDram.producer
+        self.dram.producer
             |> filter { $0.validId() && $0.validDate() }
             |> observeOn(QueueScheduler())
             |> start(next: {

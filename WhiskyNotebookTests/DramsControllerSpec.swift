@@ -2,7 +2,6 @@
 
 import Nimble
 import Quick
-import ReactiveCocoa
 import UIKit
 import WhiskyNotebook
 
