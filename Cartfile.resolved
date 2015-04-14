@@ -1,5 +1,5 @@
-github "pNre/ExSwift" "a2d49455df9460759f225a71603503eeddff1af0"
+github "pNre/ExSwift" "0b6ebf95e30a74b29083060304088f499a0393d8"
 github "LlamaKit/LlamaKit" "v0.6.0"
 github "Quick/Nimble" "v0.4.2"
 github "Quick/Quick" "v0.3.1"
-github "ReactiveCocoa/ReactiveCocoa" "6fddd9498b5fd30a3e50c9f7085ffd3d2740dcff"
+github "ReactiveCocoa/ReactiveCocoa" "fa50eb340107bea8ac7fde189d9e47594c07924d"
