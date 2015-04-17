@@ -11,7 +11,7 @@ final class DramSpec: QuickSpec {
             it("initializes all properties to nil") {
                 let dram = Dram()
                 expect(dram.id).to(beNil())
-                expect(dram.date).toNot(beNil())
+                expect(dram.date).to(beNil())
                 expect(dram.rating).to(beNil())
             }
 

@@ -18,7 +18,8 @@ final class NewDramControllerSpec: QuickSpec {
 
             beforeEach {
                 repository = InMemoryDramRepository()
-                repository.drams |> start(next: { drams = $0 })
+                repository.drams
+                    |> start { drams = $0 }
 
                 controller = storyboard.instantiateViewControllerWithIdentifier("NewDramController") as! NewDramController
                 controller.repository = repository
@@ -33,82 +34,49 @@ final class NewDramControllerSpec: QuickSpec {
                 expect(maximumDate).to(equalToDay(today))
             }
 
-            describe("Done") {
-                var command: RACCommand!
-                var button: UIBarButtonItem!
-
-                beforeEach {
-                    button = controller.done
-                    command = button.rac_command
-                }
-
+            describe("Cancel") {
                 it("dismisses view when pressed") {
-                    command.execute(button)
-                    expect(drams).toEventually(beEmpty())
-                }
-            }
+                    var dismissed = false
+                    controller.rac_signalForSelector(Selector("dismissViewControllerAnimated:completion:")).toSignalProducer()
+                        |> start { _ in dismissed = true }
 
-            describe("Dram Update") {
-                it("updates dram with id text") {
-                    expect(controller.id.text).to(beEmpty())
-                    controller.id.text = "1.2"
-                    controller.id.sendActionsForControlEvents(.EditingChanged)
-                    expect(controller.id.text).to(equal("1.2"))
-                }
-
-                it("updates dram with date value") {
-                    let today = NSDate()
-                    let yesterday = today.dateByAddingTimeInterval(-86400)
-                    expect(controller.date.date).to(equalToDay(today))
-                    controller.date.date = yesterday
-                    controller.date.sendActionsForControlEvents(.ValueChanged)
-                    expect(controller.date.date).to(equalToDay(yesterday))
-                }
-
-                it("updates dram with rating value") {
-                    let rating = Rating.Neutral
-                    expect(controller.rating.selectedSegmentIndex).to(equal(UISegmentedControlNoSegment))
-                    controller.rating.selectedSegmentIndex = rating.rawValue
-                    controller.rating.sendActionsForControlEvents(.ValueChanged)
-                    expect(controller.rating.selectedSegmentIndex).to(equal(rating.rawValue))
+                    controller.cancelAndDismiss()
+                    expect(dismissed).toEventually(beTrue())
                 }
             }
 
             describe("Save") {
-                it("saves the dram when drams is valid") {
+                it("enables save when the id is valid") {
+                    let save = controller.save
+
+                    expect(save.enabled).toEventuallyNot(beTrue())
                     controller.id.text = "1.2"
                     controller.id.sendActionsForControlEvents(.EditingChanged)
-                    expect(drams).toEventuallyNot(beEmpty())
+                    expect(save.enabled).toEventually(beTrue())
                 }
 
-                it("does not save the dram when dram is invalid") {
-                    controller.id.text = ""
+                it("disables save when the dram is invalid") {
+                    let save = controller.save
+                    save.enabled = true
+
+                    expect(save.enabled).toEventually(beTrue())
+                    controller.id.text = "invalid"
                     controller.id.sendActionsForControlEvents(.EditingChanged)
-                    expect(drams).toEventually(beEmpty())
+                    expect(save.enabled).toEventuallyNot(beTrue())
                 }
 
-                it("validates Dram id") {
-                    expect(Dram().validId()).to(beFalse())
-                    expect(Dram(id: "", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "test-id", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "1.", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: ".1", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "1234.1", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "1.1234", date: nil, rating: nil).validId()).to(beFalse())
-                    expect(Dram(id: "1.2", date: nil, rating: nil).validId()).to(beTrue())
-                    expect(Dram(id: "12.34", date: nil, rating: nil).validId()).to(beTrue())
-                    expect(Dram(id: "123.456", date: nil, rating: nil).validId()).to(beTrue())
+                it("dismisses view when pressed") {
+                    var dismissed = false
+                    controller.rac_signalForSelector(Selector("dismissViewControllerAnimated:completion:")).toSignalProducer()
+                        |> start{ _ in dismissed = true }
+
+                    controller.saveAndDismiss()
+                    expect(dismissed).toEventually(beTrue())
                 }
 
-                it("validates Dram date") {
-                    let now = NSDate()
-                    let past = now.dateByAddingTimeInterval(-86400)
-                    let future = now.dateByAddingTimeInterval(86400)
-
-                    expect(Dram(id: nil, date: now, rating: nil).validDate()).to(beTrue())
-                    expect(Dram(id: nil, date: past, rating: nil).validDate()).to(beTrue())
-                    expect(Dram(id: nil, date: future, rating: nil).validDate()).to(beFalse())
-                    expect(Dram(id: nil, date: nil, rating: nil).validDate()).to(beFalse())
+                it("saves dram when pressed") {
+                    controller.saveAndDismiss()
+                    expect(drams.count).toEventually(equal(1))
                 }
             }
         }

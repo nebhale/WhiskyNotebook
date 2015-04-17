@@ -27,14 +27,14 @@ extension DramsController {
         let addButton = self.navigationItem.rightBarButtonItem
 
         self.editingState
-            |> observe(next: { editingState in
+            |> observe { editingState in
                 switch(editingState) {
                 case .Editing:
                     self.navigationItem.setRightBarButtonItem(nil, animated: true)
                 case .NotEditing:
                     self.navigationItem.setRightBarButtonItem(addButton, animated: true)
                 }
-            })
+        }
     }
 
     override public func setEditing(editing: Bool, animated: Bool) {
@@ -49,15 +49,19 @@ extension DramsController {
         self.dataSource.viewDidLoad()
         self.dataSource.drams
             |> combinePrevious([])
-            |> map { Delta(old: $0, new: $1) }
+            |> map { Delta(old: $0, new: $1, contentMatches: self.contentMatches) }
             |> observeOn(UIScheduler())
-            |> start(next: { delta in
+            |> start { delta in
                 self.tableView.beginUpdates()
                 self.tableView.deleteRowsAtIndexPaths(self.toIndexPaths(delta.deleted, section: 0), withRowAnimation: .Automatic)
                 self.tableView.reloadRowsAtIndexPaths(self.toIndexPaths(delta.modified, section: 0), withRowAnimation: .Automatic)
                 self.tableView.insertRowsAtIndexPaths(self.toIndexPaths(delta.added, section: 0), withRowAnimation: .Automatic)
                 self.tableView.endUpdates()
-            })
+        }
+    }
+
+    private func contentMatches(x: Dram, y: Dram) -> Bool {
+        return x.id == y.id && x.date == y.date && x.rating == y.rating
     }
 
     private func toIndexPaths(rows: [Int], section: Int) -> [NSIndexPath] {

@@ -71,10 +71,10 @@ extension DramsDataSource {
 extension DramsDataSource {
     private func initModelUpdate() {
         self.content <~ self.repository.drams
-            |> map { sorted($0, self.reverseChronological) }
+            |> map { reverse(sorted($0, self.byDate)) }
     }
 
-    private func reverseChronological(x: Dram, y: Dram) -> Bool {
-        return x.date > y.date
+    private func byDate(x: Dram, y: Dram) -> Bool {
+        return x.date < y.date
     }
 }

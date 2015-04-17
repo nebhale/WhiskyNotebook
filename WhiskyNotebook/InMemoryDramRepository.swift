@@ -17,12 +17,12 @@ public final class InMemoryDramRepository: DramRepository {
     }
 
     public func delete(dram: Dram) {
-        self.logger.info("Deleting Dram: \(dram)")
+        self.logger.info("Deleting: \(dram)")
         self.content.value - dram
     }
 
     public func save(dram: Dram) {
-        self.logger.info("Saving Dram: \(dram)")
+        self.logger.info("Saving: \(dram)")
         self.content.value + dram
     }
 }

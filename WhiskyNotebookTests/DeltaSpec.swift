@@ -9,16 +9,16 @@ import WhiskyNotebook
 final class DeltaSpec: QuickSpec {
     override func spec() {
         describe("DeltaSpec") {
-            let dram1 = Dram(id: "1", date: nil, rating: .Positive)
-            let dram2 = Dram(id: "2", date: nil, rating: .Positive)
-            let dram3 = Dram(id: "3", date: nil, rating: .Positive)
+            let dram1 = TestStruct(id: "1")
+            let dram2 = TestStruct(id: "2")
+            let dram3 = TestStruct(id: "3")
 
             var dram2b = dram2
-            dram2b.rating = .Neutral
+            dram2b.id = "2b"
 
             let old = [dram1, dram2]
             let new = [dram2b, dram3]
-            let delta = Delta(old: old, new: new)
+            let delta = Delta(old: old, new: new, contentMatches: self.contentMatches)
 
             it("assigns old and new") {
                 expect(delta.old).to(equal(old))
@@ -38,4 +38,17 @@ final class DeltaSpec: QuickSpec {
             }
         }
     }
+
+    private func contentMatches(x: TestStruct, y: TestStruct) -> Bool {
+        return x.id == y.id
+    }
+}
+
+private struct TestStruct: Equatable {
+    var id: String
+    private let key = NSUUID().UUIDString
+}
+
+private func ==(x: TestStruct, y: TestStruct) -> Bool {
+    return x.key == y.key
 }
