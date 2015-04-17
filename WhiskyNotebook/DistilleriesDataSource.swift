@@ -14,6 +14,8 @@ public final class DistilleriesDataSource: NSObject, UITableViewDataSource {
 
     public var repository = DistilleryRepositoryManager.sharedInstance
 
+    public var scheduler: SchedulerType = QueueScheduler()
+
     override public init() {
         self.distilleries = self.content.producer
     }
@@ -57,7 +59,7 @@ extension DistilleriesDataSource {
     public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         self.logger.info("Delete initiated")
 
-        QueueScheduler().schedule {
+        self.scheduler.schedule {
             self.repository.delete(self.content.value[indexPath.row])
         }
     }
@@ -71,6 +73,7 @@ extension DistilleriesDataSource {
 extension DistilleriesDataSource {
     private func initModelUpdate() {
         self.content <~ self.repository.distilleries
+            |> observeOn(self.scheduler)
             |> map { sorted($0, self.byRegionThenId) }
     }
 
@@ -99,8 +102,8 @@ extension Region {
 extension String {
     private func rank() -> Int {
         if let matches = self.matches("^[A-Z]?([\\d]+)$") {
-            let range = matches[0].rangeAtIndex(0)
-            if let digits = self[range.location...(range.location + range.length)] {
+            let range = matches[0].rangeAtIndex(1)
+            if let digits = self[range.location..<(range.location + range.length)] {
                 return digits.toInt() ?? 0
             }
         }

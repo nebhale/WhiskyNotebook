@@ -14,15 +14,20 @@ final class DistilleriesDataSourceSpec: QuickSpec {
         describe("DistilleriesDataSource") {
             var dataSource: DistilleriesDataSource!
             var repository: DistilleryRepository!
+            var scheduler: TestScheduler!
             var tableView: UITableView!
 
             beforeEach {
+                scheduler = TestScheduler()
+
                 let controller = storyboard.instantiateViewControllerWithIdentifier("DistilleriesController") as! DistilleriesController
+                controller.scheduler = scheduler
 
                 repository = InMemoryDistilleryRepository()
 
                 dataSource = controller.dataSource
                 dataSource.repository = repository
+                dataSource.scheduler = scheduler
                 dataSource.viewDidLoad()
 
                 tableView = controller.tableView
@@ -37,6 +42,7 @@ final class DistilleriesDataSourceSpec: QuickSpec {
                 it("provides a DistilleryCell") {
                     var distillery = Distillery()
                     repository.save(distillery)
+                    scheduler.advance()
 
                     let cell = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
                     expect(cell).to(beAnInstanceOf(DistilleryCell))
@@ -45,6 +51,7 @@ final class DistilleriesDataSourceSpec: QuickSpec {
                 it("specifies the number of distilleries as the number of rows in section") {
                     expect(dataSource.tableView(tableView, numberOfRowsInSection: 0)).to(equal(0))
                     repository.save(Distillery())
+                    scheduler.advance()
                     expect(dataSource.tableView(tableView, numberOfRowsInSection: 0)).to(equal(1))
                 }
 
@@ -61,19 +68,21 @@ final class DistilleriesDataSourceSpec: QuickSpec {
                     repository.save(distillery2)
                     repository.save(distillery3)
 
+                    scheduler.advance()
+
                     let cell1 = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)) as! DistilleryCell
                     let cell2 = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)) as! DistilleryCell
                     let cell3 = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0)) as! DistilleryCell
 
-                    expect(cell1.id.text).toEventually(equal("1"))
-                    expect(cell2.id.text).toEventually(equal("2"))
-                    expect(cell3.id.text).toEventually(equal("G1"))
+                    expect(cell1.id.text).to(equal("1"))
+                    expect(cell2.id.text).to(equal("2"))
+                    expect(cell3.id.text).to(equal("G1"))
                 }
             }
 
             describe("Edit Distilleries") {
                 it("specifes that all cells can be edited") {
-                    expect(dataSource.tableView(tableView, canEditRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))).to(beTrue())
+                    expect(dataSource.tableView(tableView, canEditRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))).to(beTruthy())
                 }
 
                 it("deletes distillery") {
@@ -82,9 +91,12 @@ final class DistilleriesDataSourceSpec: QuickSpec {
                         |> start { distilleries = $0 }
 
                     repository.save(Distillery())
-                    expect(distilleries.count).toEventually(equal(1))
+                    scheduler.advance()
+
+                    expect(distilleries.count).to(equal(1))
                     dataSource.tableView(tableView, commitEditingStyle: .Delete, forRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-                    expect(distilleries.count).toEventually(equal(0))
+                    scheduler.advance()
+                    expect(distilleries.count).to(equal(0))
                 }
 
                 it("specifies editing style depending on table editing mode") {

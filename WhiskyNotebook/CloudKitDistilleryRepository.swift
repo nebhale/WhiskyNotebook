@@ -15,6 +15,8 @@ public final class CloudKitDistilleryRepository: DistilleryRepository {
 
     private let logger = Logger()
 
+    public var scheduler: SchedulerType = QueueScheduler()
+
     public init() {
         self.distilleries = self.content.producer
             |> map { Set($0.keys) }
@@ -26,11 +28,10 @@ public final class CloudKitDistilleryRepository: DistilleryRepository {
 
     public func delete(distillery: Distillery) {
         Signal<CKRecordID, NSError> { sink in
-            self.logger.info("Deleting: \(distillery)")
-            self.database.deleteRecordWithID(self.getRecord(distillery).recordID, completionHandler: signalingCompletionHandler(sink))
-            return nil
-            }
-            |> observeOn(QueueScheduler())
+            return self.scheduler.schedule{
+                self.logger.info("Deleting: \(distillery)")
+                self.database.deleteRecordWithID(self.getRecord(distillery).recordID, completionHandler: signalingCompletionHandler(sink))
+            }}
             |> observe(
                 error: { error in self.logger.error("Error deleting: \(error)") }, // TODO: Handle CloudKit errors better than this
                 next: { _ in self.content.value[distillery] = nil }
@@ -39,11 +40,10 @@ public final class CloudKitDistilleryRepository: DistilleryRepository {
 
     public func save(distillery: Distillery) {
         Signal<CKRecord, NSError> { sink in
-            self.logger.info("Saving: \(distillery)")
-            self.database.saveRecord(self.getRecord(distillery).updateWith(distillery), completionHandler: signalingCompletionHandler(sink))
-            return nil
-            }
-            |> observeOn(QueueScheduler())
+            return self.scheduler.schedule {
+                self.logger.info("Saving: \(distillery)")
+                self.database.saveRecord(self.getRecord(distillery).updateWith(distillery), completionHandler: signalingCompletionHandler(sink))
+            }}
             |> observe(
                 error: { error in self.logger.error("Error saving: \(error)") }, // TODO: Handle CloudKit errors better than this
                 next: { record in
@@ -58,7 +58,7 @@ public final class CloudKitDistilleryRepository: DistilleryRepository {
         let (recordSignal, recordSink) = Signal<CKRecord, NSError>.pipe()
 
         operationSignal
-            |> observeOn(QueueScheduler())
+            |> observeOn(self.scheduler)
             |> observe { operation in
                 self.logger.info("Fetching")
 

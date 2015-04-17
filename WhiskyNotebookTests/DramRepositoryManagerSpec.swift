@@ -9,7 +9,7 @@ final class DramRepositoryManagerSpec: QuickSpec {
     override func spec() {
         describe("DramRepositoryManager") {
             it("returns CloudKitDramRepository shared instance") {
-                expect(DramRepositoryManager.sharedInstance is CloudKitDramRepository).to(beTrue())
+                expect(DramRepositoryManager.sharedInstance is CloudKitDramRepository).to(beTruthy())
             }
         }
     }

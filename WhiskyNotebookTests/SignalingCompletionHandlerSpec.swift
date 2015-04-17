@@ -24,9 +24,9 @@ final class SingalingCompletionHandlerSpec: QuickSpec {
                 signal
                     |> observe(error: { error = $0 })
 
-                expect(error).toEventually(beNil())
+                expect(error).to(beNil())
                 handler(value: nil, error: NSError(domain: "test", code: -1, userInfo: [:]))
-                expect(error).toEventuallyNot(beNil())
+                expect(error).toNot(beNil())
             }
 
             it("signals a value") {
@@ -34,9 +34,9 @@ final class SingalingCompletionHandlerSpec: QuickSpec {
                 signal
                     |> observe { value = $0 }
 
-                expect(value).toEventually(beNil())
+                expect(value).to(beNil())
                 handler(value: 1, error: nil)
-                expect(value).toEventuallyNot(beNil())
+                expect(value).toNot(beNil())
             }
         }
     }

@@ -13,16 +13,20 @@ final class NewDistilleryControllerSpec: QuickSpec {
 
         describe("NewDistilleryController") {
             var controller: NewDistilleryController!
-            var repository: DistilleryRepository!
             var distilleries: Set<Distillery>!
+            var repository: DistilleryRepository!
+            var scheduler: TestScheduler!
 
             beforeEach {
                 repository = InMemoryDistilleryRepository()
                 repository.distilleries
                     |> start { distilleries = $0 }
 
+                scheduler = TestScheduler()
+
                 controller = storyboard.instantiateViewControllerWithIdentifier("NewDistilleryController") as! NewDistilleryController
                 controller.repository = repository
+                controller.scheduler = scheduler
 
                 controller.loadView()
                 controller.viewDidLoad()
@@ -35,7 +39,7 @@ final class NewDistilleryControllerSpec: QuickSpec {
                         |> start { _ in dismissed = true }
 
                     controller.cancelAndDismiss()
-                    expect(dismissed).toEventually(beTrue())
+                    expect(dismissed).to(beTruthy())
                 }
             }
 
@@ -43,7 +47,7 @@ final class NewDistilleryControllerSpec: QuickSpec {
                 it("enables save when the id, latitude, longitude, name, and region are valid") {
                     let save = controller.save
 
-                    expect(save.enabled).toEventuallyNot(beTrue())
+                    expect(save.enabled).toNot(beTruthy())
                     controller.id.text = "0"
                     controller.id.sendActionsForControlEvents(.EditingChanged)
                     controller.latitude.text = "0"
@@ -54,17 +58,19 @@ final class NewDistilleryControllerSpec: QuickSpec {
                     controller.name.sendActionsForControlEvents(.EditingChanged)
                     controller.region.text = "Campbeltown"
                     controller.region.sendActionsForControlEvents(.EditingChanged)
-                    expect(save.enabled).toEventually(beTrue())
+                    scheduler.advance()
+                    expect(save.enabled).to(beTruthy())
                 }
 
                 it("disables save when the distillery is invalid") {
                     let save = controller.save
                     save.enabled = true
 
-                    expect(save.enabled).toEventually(beTrue())
+                    expect(save.enabled).to(beTruthy())
                     controller.id.text = "invalid"
                     controller.id.sendActionsForControlEvents(.EditingChanged)
-                    expect(save.enabled).toEventuallyNot(beTrue())
+                    scheduler.advance()
+                    expect(save.enabled).toNot(beTruthy())
                 }
 
                 it("dismisses view when pressed") {
@@ -73,12 +79,12 @@ final class NewDistilleryControllerSpec: QuickSpec {
                         |> start{ _ in dismissed = true }
 
                     controller.saveAndDismiss()
-                    expect(dismissed).toEventually(beTrue())
+                    expect(dismissed).to(beTruthy())
                 }
 
                 it("saves distiler when pressed") {
                     controller.saveAndDismiss()
-                    expect(distilleries.count).toEventually(equal(1))
+                    expect(distilleries.count).to(equal(1))
                 }
             }
         }

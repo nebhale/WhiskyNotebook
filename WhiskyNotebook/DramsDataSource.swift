@@ -14,6 +14,8 @@ public final class DramsDataSource: NSObject, UITableViewDataSource {
 
     public var repository = DramRepositoryManager.sharedInstance
 
+    public var scheduler: SchedulerType = QueueScheduler()
+
     override public init() {
         self.drams = self.content.producer
     }
@@ -57,7 +59,7 @@ extension DramsDataSource {
     public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         self.logger.info("Delete initiated")
 
-        QueueScheduler().schedule {
+        self.scheduler.schedule {
             self.repository.delete(self.content.value[indexPath.row])
         }
     }

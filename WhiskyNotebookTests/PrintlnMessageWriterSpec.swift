@@ -30,17 +30,17 @@ final class PrintlnMessageWriterSpec: QuickSpec {
 
         it("does not print if log level is below configuration level") {
             messageWriter.write(configuration: configuration, level: Level.Debug, messagePosition: messagePosition, messageProvider: { "" })
-            expect(messageFormatter.called).to(beFalse())
+            expect(messageFormatter.called).to(beFalsy())
         }
 
         it("prints if log level is equal to configuration level") {
             messageWriter.write(configuration: configuration, level: Level.Info, messagePosition: messagePosition, messageProvider: { "" })
-            expect(messageFormatter.called).to(beTrue())
+            expect(messageFormatter.called).to(beTruthy())
         }
 
         it("prints if log level is above configuration level") {
             messageWriter.write(configuration: configuration, level: Level.Warn, messagePosition: messagePosition, messageProvider: { "" })
-            expect(messageFormatter.called).to(beTrue())
+            expect(messageFormatter.called).to(beTruthy())
         }
     }
 }

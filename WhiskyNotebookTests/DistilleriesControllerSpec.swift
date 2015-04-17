@@ -2,6 +2,7 @@
 
 import Nimble
 import Quick
+import ReactiveCocoa
 import UIKit
 import WhiskyNotebook
 
@@ -12,13 +13,22 @@ final class DistilleriesControllerSpec: QuickSpec {
 
         describe("DistilleriesController") {
             var controller: DistilleriesController!
+            var navigationController: UINavigationController!
             var repository: DistilleryRepository!
+            var scheduler: TestScheduler!
 
             beforeEach {
                 repository = InMemoryDistilleryRepository()
+                scheduler = TestScheduler()
 
                 controller = storyboard.instantiateViewControllerWithIdentifier("DistilleriesController") as! DistilleriesController
-                controller.dataSource.repository = repository
+
+                navigationController = UINavigationController()
+                navigationController.pushViewController(controller, animated: false)
+
+                let datasource = controller.dataSource
+                datasource.repository = repository
+                datasource.scheduler = scheduler
 
                 controller.loadView()
                 controller.viewDidLoad()
@@ -30,13 +40,20 @@ final class DistilleriesControllerSpec: QuickSpec {
                     controller.setEditing(true, animated: false)
                     expect(controller.navigationItem.rightBarButtonItem).to(beNil())
                 }
+
+                it("sets the toolbar to visible when editing") {
+                    expect(controller.navigationController?.toolbarHidden).to(beTruthy())
+                    controller.setEditing(true, animated: false)
+                    expect(controller.navigationController?.toolbarHidden).to(beFalsy())
+                }
             }
 
             describe("Model Update") {
                 it("updates the rows in the table when the model is updated") {
                     expect(controller.tableView.numberOfRowsInSection(0)).to(equal(0))
                     repository.save(Distillery())
-                    expect(controller.tableView.numberOfRowsInSection(0)).toEventually(equal(1))
+                    scheduler.advance()
+                    expect(controller.tableView.numberOfRowsInSection(0)).to(equal(1))
                 }
             }
         }

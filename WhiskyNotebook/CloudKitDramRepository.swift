@@ -15,6 +15,8 @@ public final class CloudKitDramRepository: DramRepository {
 
     private let logger = Logger()
 
+    private let scheduler: SchedulerType = QueueScheduler()
+
     public init() {
         self.drams = self.content.producer
             |> map { Set($0.keys) }
@@ -26,11 +28,10 @@ public final class CloudKitDramRepository: DramRepository {
 
     public func delete(dram: Dram) {
         Signal<CKRecordID, NSError> { sink in
-            self.logger.info("Deleting: \(dram)")
-            self.database.deleteRecordWithID(self.getRecord(dram).recordID, completionHandler: signalingCompletionHandler(sink))
-            return nil
-            }
-            |> observeOn(QueueScheduler())
+            return self.scheduler.schedule {
+                self.logger.info("Deleting: \(dram)")
+                self.database.deleteRecordWithID(self.getRecord(dram).recordID, completionHandler: signalingCompletionHandler(sink))
+            }}
             |> observe(
                 error: { error in self.logger.error("Error deleting: \(error)") }, // TODO: Handle CloudKit errors better than this
                 next: { _ in self.content.value[dram] = nil }
@@ -39,11 +40,10 @@ public final class CloudKitDramRepository: DramRepository {
 
     public func save(dram: Dram) {
         Signal<CKRecord, NSError> { sink in
-            self.logger.info("Saving: \(dram)")
-            self.database.saveRecord(self.getRecord(dram).updateWith(dram), completionHandler: signalingCompletionHandler(sink))
-            return nil
-            }
-            |> observeOn(QueueScheduler())
+            return self.scheduler.schedule {
+                self.logger.info("Saving: \(dram)")
+                self.database.saveRecord(self.getRecord(dram).updateWith(dram), completionHandler: signalingCompletionHandler(sink))
+            }}
             |> observe(
                 error: { error in self.logger.error("Error saving: \(error)") }, // TODO: Handle CloudKit errors better than this
                 next: { record in
@@ -58,7 +58,7 @@ public final class CloudKitDramRepository: DramRepository {
         let (recordSignal, recordSink) = Signal<CKRecord, NSError>.pipe()
 
         operationSignal
-            |> observeOn(QueueScheduler())
+            |> observeOn(self.scheduler)
             |> observe { operation in
                 self.logger.info("Fetching")
 

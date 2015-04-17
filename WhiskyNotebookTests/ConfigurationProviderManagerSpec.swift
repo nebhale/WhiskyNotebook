@@ -9,7 +9,7 @@ final class ConfigurationProviderManagerSpec: QuickSpec {
     override func spec() {
         describe("ConfigurationProviderManager") {
             it("returns PlistConfigurationProvider default instance") {
-                expect(ConfigurationProviderManager.defaultInstance is PlistConfigurationProvider).to(beTrue())
+                expect(ConfigurationProviderManager.defaultInstance is PlistConfigurationProvider).to(beTruthy())
             }
         }
     }

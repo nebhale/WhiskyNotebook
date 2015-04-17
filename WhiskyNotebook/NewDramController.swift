@@ -26,6 +26,8 @@ public final class NewDramController: UITableViewController {
     @IBOutlet
     public var save: UIBarButtonItem!
 
+    public var scheduler: SchedulerType = UIScheduler()
+
     override public func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,7 +51,7 @@ extension NewDramController {
 
     private func initSaveEnabled() {
         self.id.rac_textSignal().toSignalProducer()
-            |> observeOn(UIScheduler())
+            |> observeOn(self.scheduler)
             |> map { $0 as? String }
             |> start { self.save.enabled = $0?.validId() ?? false }
     }
