@@ -38,7 +38,7 @@ public final class DefaultMessageFormatter: MessageFormatter {
 
 // MARK: - Level Logging
 extension Level {
-    public func toLoggingString() -> String {
+    private func toLoggingString() -> String {
         return pad(self.toString().uppercaseString, size: 5)
     }
 
@@ -53,11 +53,11 @@ extension Level {
 public typealias ReplacementGenerator = [String] -> AnyObject
 
 extension String {
-    public func replace(pattern: String, @autoclosure with replacement: () -> AnyObject) -> String {
+    private func replace(pattern: String, @autoclosure with replacement: () -> AnyObject) -> String {
         return replace(pattern, with: { regex in replacement() })
     }
 
-    public func replace(pattern: String, @noescape with replacement: ReplacementGenerator) -> String {
+    private func replace(pattern: String, @noescape with replacement: ReplacementGenerator) -> String {
         let captures = self.matches(pattern)?.map { match -> [String] in
             return (0..<match.numberOfRanges).map { i -> String in
                 let range = match.rangeAtIndex(i)

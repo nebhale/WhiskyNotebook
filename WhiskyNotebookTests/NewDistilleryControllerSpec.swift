@@ -7,31 +7,25 @@ import UIKit
 import WhiskyNotebook
 
 
-final class NewDramControllerSpec: QuickSpec {
+final class NewDistilleryControllerSpec: QuickSpec {
     override func spec() {
         let storyboard = UIStoryboard(name: "WhiskyNotebook", bundle: nil)
 
-        describe("NewDramController") {
-            var controller: NewDramController!
-            var repository: DramRepository!
-            var drams: Set<Dram>!
+        describe("NewDistilleryController") {
+            var controller: NewDistilleryController!
+            var repository: DistilleryRepository!
+            var distilleries: Set<Distillery>!
 
             beforeEach {
-                repository = InMemoryDramRepository()
-                repository.drams
-                    |> start { drams = $0 }
+                repository = InMemoryDistilleryRepository()
+                repository.distilleries
+                    |> start { distilleries = $0 }
 
-                controller = storyboard.instantiateViewControllerWithIdentifier("NewDramController") as! NewDramController
+                controller = storyboard.instantiateViewControllerWithIdentifier("NewDistilleryController") as! NewDistilleryController
                 controller.repository = repository
 
                 controller.loadView()
                 controller.viewDidLoad()
-            }
-
-            it("sets maxium date to today") {
-                let maximumDate = controller.date.maximumDate
-                let today = NSDate()
-                expect(maximumDate).to(equalToDay(today))
             }
 
             describe("Cancel") {
@@ -46,16 +40,24 @@ final class NewDramControllerSpec: QuickSpec {
             }
 
             describe("Save") {
-                it("enables save when the id is valid") {
+                it("enables save when the id, latitude, longitude, name, and region are valid") {
                     let save = controller.save
 
                     expect(save.enabled).toEventuallyNot(beTrue())
-                    controller.id.text = "1.2"
+                    controller.id.text = "0"
                     controller.id.sendActionsForControlEvents(.EditingChanged)
+                    controller.latitude.text = "0"
+                    controller.latitude.sendActionsForControlEvents(.EditingChanged)
+                    controller.longitude.text = "0"
+                    controller.longitude.sendActionsForControlEvents(.EditingChanged)
+                    controller.name.text = "test-name"
+                    controller.name.sendActionsForControlEvents(.EditingChanged)
+                    controller.region.text = "Campbeltown"
+                    controller.region.sendActionsForControlEvents(.EditingChanged)
                     expect(save.enabled).toEventually(beTrue())
                 }
 
-                it("disables save when the dram is invalid") {
+                it("disables save when the distillery is invalid") {
                     let save = controller.save
                     save.enabled = true
 
@@ -74,9 +76,9 @@ final class NewDramControllerSpec: QuickSpec {
                     expect(dismissed).toEventually(beTrue())
                 }
 
-                it("saves dram when pressed") {
+                it("saves distiler when pressed") {
                     controller.saveAndDismiss()
-                    expect(drams.count).toEventually(equal(1))
+                    expect(distilleries.count).toEventually(equal(1))
                 }
             }
         }

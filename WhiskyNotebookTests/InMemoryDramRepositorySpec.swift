@@ -15,7 +15,8 @@ final class InMemoryDramRepositorySpec: QuickSpec {
 
             beforeEach {
                 repository = InMemoryDramRepository()
-                repository.drams |> start(next: { drams = $0 })
+                repository.drams
+                    |> start { drams = $0 }
             }
 
             it("deletes dram") {

@@ -8,7 +8,7 @@ import WhiskyNotebook
 final class DramRepositoryManagerSpec: QuickSpec {
     override func spec() {
         describe("DramRepositoryManager") {
-            it("returns InMemoryDramRepository shared instance") {
+            it("returns CloudKitDramRepository shared instance") {
                 expect(DramRepositoryManager.sharedInstance is CloudKitDramRepository).to(beTrue())
             }
         }

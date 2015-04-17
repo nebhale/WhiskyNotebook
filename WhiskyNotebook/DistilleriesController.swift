@@ -4,12 +4,12 @@ import ReactiveCocoa
 import UIKit
 
 
-public final class DramsController: UITableViewController {
+public final class DistilleriesController: UITableViewController {
 
     private let (editingState, sink) = Signal<EditingState, NoError>.pipe()
 
     @IBOutlet
-    public var dataSource: DramsDataSource!
+    public var dataSource: DistilleriesDataSource!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,7 @@ public final class DramsController: UITableViewController {
 }
 
 // MARK: - Interface Update
-extension DramsController {
-
+extension DistilleriesController {
     private func initNavigationBarContents() {
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         let addButton = self.navigationItem.rightBarButtonItem
@@ -44,10 +43,10 @@ extension DramsController {
 }
 
 // MARK: - Model Update
-extension DramsController {
+extension DistilleriesController {
     private func initModelUpdate() {
         self.dataSource.viewDidLoad()
-        self.dataSource.drams
+        self.dataSource.distilleries
             |> combinePrevious([])
             |> map { Delta(old: $0, new: $1, contentMatches: self.contentMatches) }
             |> observeOn(UIScheduler())
@@ -60,8 +59,8 @@ extension DramsController {
         }
     }
 
-    private func contentMatches(x: Dram, y: Dram) -> Bool {
-        return x.id == y.id && x.date == y.date && x.rating == y.rating
+    private func contentMatches(x: Distillery, y: Distillery) -> Bool {
+        return x.id == y.id && x.name == y.name && x.region == y.region
     }
 
     private func toIndexPaths(rows: [Int], section: Int) -> [NSIndexPath] {

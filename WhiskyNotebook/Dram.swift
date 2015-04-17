@@ -7,7 +7,7 @@ public struct Dram {
 
     public var id: String?
 
-    public var date: NSDate? = NSDate()
+    public var date: NSDate?
 
     public var rating: Rating?
 
@@ -30,7 +30,7 @@ public func ==(x: Dram, y: Dram) -> Bool {
 
 // MARK: - Hashable
 extension Dram: Hashable {
-    public var hashValue: Int { return syntheticKey.hashValue }
+    public var hashValue: Int { return self.syntheticKey.hashValue }
 }
 
 // MARK: - Printable

@@ -35,7 +35,7 @@ final class DramsDataSourceSpec: QuickSpec {
                 }
 
                 it("provides a DramCell") {
-                    var dram = Dram(id: "test", date: NSDate(), rating: nil)
+                    var dram = Dram()
                     repository.save(dram)
 
                     let cell = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
@@ -78,7 +78,8 @@ final class DramsDataSourceSpec: QuickSpec {
 
                 it("deletes dram") {
                     var drams = Set<Dram>()
-                    repository.drams |> start(next: { drams = $0 })
+                    repository.drams
+                        |> start { drams = $0 }
 
                     repository.save(Dram())
                     expect(drams.count).toEventually(equal(1))

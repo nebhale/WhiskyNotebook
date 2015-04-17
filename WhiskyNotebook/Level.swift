@@ -29,7 +29,6 @@ extension Level: Printable {
 
 // MARK: - String Representation
 extension Level {
-
     public func toString() -> String {
         switch(self) {
         case .Debug:

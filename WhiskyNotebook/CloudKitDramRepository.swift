@@ -21,34 +21,33 @@ public final class CloudKitDramRepository: DramRepository {
 
         fetchRecords()
             |> map(mapRecords)
-            |> observe(next: { self.content.value = $0 })
+            |> observe { self.content.value = $0 }
     }
 
     public func delete(dram: Dram) {
         Signal<CKRecordID, NSError> { sink in
-            self.logger.info("Deleting Dram: \(dram)")
+            self.logger.info("Deleting: \(dram)")
             self.database.deleteRecordWithID(self.getRecord(dram).recordID, completionHandler: signalingCompletionHandler(sink))
             return nil
             }
             |> observeOn(QueueScheduler())
             |> observe(
-                error: { error in self.logger.error("Error deleting distillery: \(error)") },  // TODO: Handle CloudKit errors better than this
-                next: { _ in
-                    self.content.value[dram] = nil
-            })
+                error: { error in self.logger.error("Error deleting: \(error)") }, // TODO: Handle CloudKit errors better than this
+                next: { _ in self.content.value[dram] = nil }
+        )
     }
 
     public func save(dram: Dram) {
         Signal<CKRecord, NSError> { sink in
-            self.logger.info("Saving Dram: \(dram)")
+            self.logger.info("Saving: \(dram)")
             self.database.saveRecord(self.getRecord(dram).updateWith(dram), completionHandler: signalingCompletionHandler(sink))
             return nil
             }
             |> observeOn(QueueScheduler())
             |> observe(
-                error: { error in self.logger.error("Error saving distillery: \(error)") }, // TODO: Handle CloudKit errors better than this
+                error: { error in self.logger.error("Error saving: \(error)") }, // TODO: Handle CloudKit errors better than this
                 next: { record in
-                    self.logger.info("Dram Saved: \(record)")
+                    self.logger.info("Saved: \(record)")
                     var mutableDram = dram
                     self.content.value[mutableDram.updateWith(record)] = record
             })
@@ -60,8 +59,8 @@ public final class CloudKitDramRepository: DramRepository {
 
         operationSignal
             |> observeOn(QueueScheduler())
-            |> observe(next: { operation in
-                self.logger.info("Fetching Drams")
+            |> observe { operation in
+                self.logger.info("Fetching")
 
                 operation.recordFetchedBlock = { sendNext(recordSink, $0) }
                 operation.queryCompletionBlock = { cursor, error in
@@ -75,7 +74,7 @@ public final class CloudKitDramRepository: DramRepository {
                 }
 
                 self.database.addOperation(operation)
-            })
+        }
 
         sendNext(operationSink, CKQueryOperation(query: CKQuery(recordType: "Dram", predicate: NSPredicate(format: "TRUEPREDICATE"))))
 
@@ -84,11 +83,11 @@ public final class CloudKitDramRepository: DramRepository {
     }
 
     private func getRecord(dram: Dram) -> CKRecord {
-        return self.content.value.has(dram) ? self.content.value[dram] : CKRecord(recordType: "Dram")
+        return self.content.value[dram] ?? CKRecord(recordType: "Dram")
     }
 
     private func mapRecords(records: [CKRecord]) -> [Dram : CKRecord] {
-        var content: [Dram: CKRecord] = [:]
+        var content: [Dram : CKRecord] = [:]
 
         for record in records {
             var dram = Dram()
@@ -101,7 +100,7 @@ public final class CloudKitDramRepository: DramRepository {
 
 // MARK: - Updates
 extension Dram {
-    public mutating func updateWith(record: CKRecord) -> Dram {
+    private mutating func updateWith(record: CKRecord) -> Dram {
         self.id = record.objectForKey("Id") as? String
         self.date = record.objectForKey("Date") as? NSDate
 
@@ -114,7 +113,7 @@ extension Dram {
 }
 
 extension CKRecord {
-    public func updateWith(dram: Dram) -> CKRecord {
+    private func updateWith(dram: Dram) -> CKRecord {
         self.setObject(dram.id, forKey: "Id")
         self.setObject(dram.date, forKey: "Date")
         self.setObject(dram.rating?.rawValue, forKey: "Rating")

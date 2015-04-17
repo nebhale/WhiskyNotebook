@@ -1,30 +1,28 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
-public struct Delta {
+public struct Delta<T: Equatable> {
+
     public let added: [Int]
 
     public let deleted: [Int]
 
     public let modified: [Int]
 
-    public let new: [Dram]
+    public let new: [T]
 
-    public let old: [Dram]
+    public let old: [T]
 
-    public init(old: [Dram], new: [Dram]) {
+    typealias ContentMatcher = (x: T, y: T) -> Bool
+
+    public init(old: [T], new: [T], contentMatches: ContentMatcher) {
         self.old = old
         self.new = new
 
         self.added = (new - old).map { new.indexOf($0)! }
         self.deleted = (old - new).map { old.indexOf($0)! }
         self.modified = (old & new)
-            .filter { $0.contentMatch(new[new.indexOf($0)!]) }
+            .filter { contentMatches(x: $0, y: new[new.indexOf($0)!]) }
             .map { old.indexOf($0)! }
     }
-}
 
-extension Dram {
-    public func contentMatch(dram: Dram) -> Bool {
-        return self.id == dram.id && self.date == dram.date && self.rating == dram.rating
-    }
 }
