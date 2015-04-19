@@ -27,39 +27,39 @@ final class DistilleryCellSpec: QuickSpec {
 
             describe("Interface Update") {
                 it("configures id when nil") {
-                    expect(id.text).toEventually(beNil())
+                    expect(id.text).to(beNil())
                     cell.configure(Distillery(id: nil, location: nil, name: nil, region: nil))
-                    expect(id.text).toEventually(beNil())
+                    expect(id.text).to(beNil())
                 }
 
                 it("configures id when not nil") {
-                    expect(id.text).toEventually(beNil())
+                    expect(id.text).to(beNil())
                     cell.configure(Distillery(id: "test-id", location: nil, name: nil, region: nil))
-                    expect(id.text).toEventually(equal("test-id"))
+                    expect(id.text).to(equal("test-id"))
                 }
 
                 it("configures name when nil") {
-                    expect(name.text).toEventually(beNil())
+                    expect(name.text).to(beNil())
                     cell.configure(Distillery(id: nil, location: nil, name: nil, region: nil))
-                    expect(name.text).toEventually(beNil())
+                    expect(name.text).to(beNil())
                 }
 
                 it("configures name when not nil") {
-                    expect(name.text).toEventually(beNil())
+                    expect(name.text).to(beNil())
                     cell.configure(Distillery(id: nil, location: nil, name: "test-name", region: nil))
-                    expect(name.text).toEventually(equal("test-name"))
+                    expect(name.text).to(equal("test-name"))
                 }
 
                 it("configures region when nil") {
-                    expect(region.text).toEventually(beNil())
+                    expect(region.text).to(beNil())
                     cell.configure(Distillery(id: nil, location: nil, name: nil, region: nil))
-                    expect(region.text).toEventually(beNil())
+                    expect(region.text).to(beNil())
                 }
 
                 it("configures region when not nil") {
-                    expect(region.text).toEventually(beNil())
+                    expect(region.text).to(beNil())
                     cell.configure(Distillery(id: nil, location: nil, name: nil, region: .Campbeltown))
-                    expect(region.text).toEventually(equal("Campbeltown"))
+                    expect(region.text).to(equal("Campbeltown"))
                 }
             }
         }

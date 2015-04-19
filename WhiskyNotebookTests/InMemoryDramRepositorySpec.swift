@@ -22,30 +22,30 @@ final class InMemoryDramRepositorySpec: QuickSpec {
             it("deletes dram") {
                 let dram = Dram()
                 repository.save(dram)
-                expect(drams.count).toEventually(equal(1))
+                expect(drams.count).to(equal(1))
                 repository.delete(dram)
-                expect(drams.count).toEventually(equal(0))
+                expect(drams.count).to(equal(0))
             }
 
             it("saves dram") {
-                expect(drams.count).toEventually(equal(0))
+                expect(drams.count).to(equal(0))
                 repository.save(Dram())
-                expect(drams.count).toEventually(equal(1))
+                expect(drams.count).to(equal(1))
             }
 
             it("replaces existing dram") {
                 let dram = Dram()
-                expect(drams.count).toEventually(equal(0))
+                expect(drams.count).to(equal(0))
                 repository.save(dram)
-                expect(drams.count).toEventually(equal(1))
+                expect(drams.count).to(equal(1))
                 repository.save(dram)
-                expect(drams.count).toEventually(equal(1))
+                expect(drams.count).to(equal(1))
             }
 
             it("signals changes to drams") {
                 let dram = Dram()
                 repository.save(dram)
-                expect(drams).toEventually(contain(dram))
+                expect(drams).to(contain(dram))
             }
         }
     }

@@ -14,6 +14,10 @@ public final class DramsDataSource: NSObject, UITableViewDataSource {
 
     public var repository = DramRepositoryManager.sharedInstance
 
+    public var schedulerAsync: SchedulerType = QueueScheduler()
+
+    public var schedulerSync: SchedulerType = UIScheduler()
+
     override public init() {
         self.drams = self.content.producer
     }
@@ -57,7 +61,7 @@ extension DramsDataSource {
     public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         self.logger.info("Delete initiated")
 
-        QueueScheduler().schedule {
+        self.schedulerAsync.schedule {
             self.repository.delete(self.content.value[indexPath.row])
         }
     }
@@ -71,7 +75,9 @@ extension DramsDataSource {
 extension DramsDataSource {
     private func initModelUpdate() {
         self.content <~ self.repository.drams
+            |> observeOn(self.schedulerAsync)
             |> map { reverse(sorted($0, self.byDate)) }
+            |> observeOn(self.schedulerSync)
     }
 
     private func byDate(x: Dram, y: Dram) -> Bool {

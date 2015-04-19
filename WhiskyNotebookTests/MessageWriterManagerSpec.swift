@@ -9,7 +9,7 @@ final class MessageWriterManagerSpec: QuickSpec {
     override func spec() {
         describe("MessageWriterManager") {
             it("returns PrintlnMessageWriter default instance") {
-                expect(MessageWriterManager.defaultInstance is PrintlnMessageWriter).to(beTrue())
+                expect(MessageWriterManager.defaultInstance is PrintlnMessageWriter).to(beTruthy())
             }
         }
     }

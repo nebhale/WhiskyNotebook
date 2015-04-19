@@ -6,10 +6,15 @@ import UIKit
 
 public final class DramsController: UITableViewController {
 
+    @IBOutlet
+    public var add: UIBarButtonItem!
+
     private let (editingState, sink) = Signal<EditingState, NoError>.pipe()
 
     @IBOutlet
     public var dataSource: DramsDataSource!
+
+    public var scheduler: SchedulerType = UIScheduler()
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +26,18 @@ public final class DramsController: UITableViewController {
 
 // MARK: - Interface Update
 extension DramsController {
-
     private func initNavigationBarContents() {
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        let addButton = self.navigationItem.rightBarButtonItem
 
         self.editingState
             |> observe { editingState in
                 switch(editingState) {
                 case .Editing:
+                    self.navigationController?.setToolbarHidden(false, animated: true)
                     self.navigationItem.setRightBarButtonItem(nil, animated: true)
                 case .NotEditing:
-                    self.navigationItem.setRightBarButtonItem(addButton, animated: true)
+                    self.navigationController?.setToolbarHidden(true, animated: true)
+                    self.navigationItem.setRightBarButtonItem(self.add, animated: true)
                 }
         }
     }
@@ -50,7 +55,7 @@ extension DramsController {
         self.dataSource.drams
             |> combinePrevious([])
             |> map { Delta(old: $0, new: $1, contentMatches: self.contentMatches) }
-            |> observeOn(UIScheduler())
+            |> observeOn(self.scheduler)
             |> start { delta in
                 self.tableView.beginUpdates()
                 self.tableView.deleteRowsAtIndexPaths(self.toIndexPaths(delta.deleted, section: 0), withRowAnimation: .Automatic)

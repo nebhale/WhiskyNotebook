@@ -22,30 +22,30 @@ final class InMemoryDistilleryRepositorySpec: QuickSpec {
             it("deletes distillery") {
                 let distillery = Distillery()
                 repository.save(distillery)
-                expect(distilleries.count).toEventually(equal(1))
+                expect(distilleries.count).to(equal(1))
                 repository.delete(distillery)
-                expect(distilleries.count).toEventually(equal(0))
+                expect(distilleries.count).to(equal(0))
             }
 
             it("saves distillery") {
-                expect(distilleries.count).toEventually(equal(0))
+                expect(distilleries.count).to(equal(0))
                 repository.save(Distillery())
-                expect(distilleries.count).toEventually(equal(1))
+                expect(distilleries.count).to(equal(1))
             }
 
             it("replaces existing distillery") {
                 let distillery = Distillery()
-                expect(distilleries.count).toEventually(equal(0))
+                expect(distilleries.count).to(equal(0))
                 repository.save(distillery)
-                expect(distilleries.count).toEventually(equal(1))
+                expect(distilleries.count).to(equal(1))
                 repository.save(distillery)
-                expect(distilleries.count).toEventually(equal(1))
+                expect(distilleries.count).to(equal(1))
             }
 
             it("signals changes to distilleries") {
                 let distillery = Distillery()
                 repository.save(distillery)
-                expect(distilleries).toEventually(contain(distillery))
+                expect(distilleries).to(contain(distillery))
             }
         }
     }

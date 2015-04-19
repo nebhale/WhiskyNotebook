@@ -27,40 +27,40 @@ final class DramCellSpec: QuickSpec {
 
             describe("Interface Update") {
                 it("configures id when nil") {
-                    expect(id.text).toEventually(beNil())
+                    expect(id.text).to(beNil())
                     cell.configure(Dram(id: nil, date: nil, rating: nil))
-                    expect(id.text).toEventually(beNil())
+                    expect(id.text).to(beNil())
                 }
 
                 it("configures id when not nil") {
-                    expect(id.text).toEventually(beNil())
+                    expect(id.text).to(beNil())
                     cell.configure(Dram(id: "test-id", date: nil, rating: nil))
-                    expect(id.text).toEventually(equal("test-id"))
+                    expect(id.text).to(equal("test-id"))
                 }
 
                 it("configures date when nil") {
-                    expect(date.text).toEventually(beNil())
+                    expect(date.text).to(beNil())
                     cell.configure(Dram(id: nil, date: nil, rating: nil))
-                    expect(date.text).toEventually(beNil())
+                    expect(date.text).to(beNil())
                 }
 
                 it("configures date when not nil") {
-                    expect(date.text).toEventually(beNil())
+                    expect(date.text).to(beNil())
                     cell.configure(Dram(id: nil, date: NSDate(), rating: nil))
-                    expect(date.text).toEventuallyNot(beNil())
+                    expect(date.text).toNot(beNil())
                 }
 
                 it("configures rating when nil") {
-                    expect(cell.rating.selectedSegmentIndex).toEventually(equal(UISegmentedControlNoSegment))
+                    expect(cell.rating.selectedSegmentIndex).to(equal(UISegmentedControlNoSegment))
                     cell.configure(Dram(id: nil, date: nil, rating: nil))
-                    expect(cell.rating.selectedSegmentIndex).toEventually(equal(UISegmentedControlNoSegment))
+                    expect(cell.rating.selectedSegmentIndex).to(equal(UISegmentedControlNoSegment))
                 }
 
                 it("configures rating when not nil") {
                     let rating = Rating.Neutral
-                    expect(cell.rating.selectedSegmentIndex).toEventually(equal(UISegmentedControlNoSegment))
+                    expect(cell.rating.selectedSegmentIndex).to(equal(UISegmentedControlNoSegment))
                     cell.configure(Dram(id: nil, date: nil, rating: rating))
-                    expect(cell.rating.selectedSegmentIndex).toEventually(equal(rating.rawValue))
+                    expect(cell.rating.selectedSegmentIndex).to(equal(rating.rawValue))
                 }
             }
         }

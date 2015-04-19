@@ -29,6 +29,8 @@ public final class NewDistilleryController: UITableViewController {
     @IBOutlet
     public var save: UIBarButtonItem!
 
+    public var scheduler: SchedulerType = UIScheduler()
+
     override public func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,7 +54,7 @@ extension NewDistilleryController {
 
     private func initSaveEnabled() {
         combineLatest(self.id.rac_textSignal().toSignalProducer(), self.latitude.rac_textSignal().toSignalProducer(), self.longitude.rac_textSignal().toSignalProducer(), self.name.rac_textSignal().toSignalProducer(), self.region.rac_textSignal().toSignalProducer())
-            |> observeOn(UIScheduler())
+            |> observeOn(self.scheduler)
             |> map { id, latitude, longitude, name, region in
                 return (id as? String, latitude as? String, longitude as? String, name as? String, region as? String)
             }
@@ -65,13 +67,7 @@ extension NewDistilleryController {
     public func saveAndDismiss() {
         self.logger.info("Save initiated")
 
-        let location: CLLocation?
-        if let latitude = self.latitude.text.toDouble(), let longitude = self.longitude.text.toDouble() {
-            location = CLLocation(latitude: latitude, longitude: longitude)
-        } else {
-            location = nil
-        }
-
+        let location = locationFrom(self.latitude.text, self.longitude.text)
         let distillery = Distillery(id: self.id.text, location: location, name: self.name.text, region: Region(rawValue: self.region.text))
         self.repository.save(distillery)
 

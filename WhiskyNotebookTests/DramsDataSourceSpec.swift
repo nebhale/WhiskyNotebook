@@ -14,15 +14,21 @@ final class DramsDataSourceSpec: QuickSpec {
         describe("DramsDataSource") {
             var dataSource: DramsDataSource!
             var repository: DramRepository!
+            var scheduler: TestScheduler!
             var tableView: UITableView!
 
             beforeEach {
+                scheduler = TestScheduler()
+
                 let controller = storyboard.instantiateViewControllerWithIdentifier("DramsController") as! DramsController
+                controller.scheduler = scheduler
 
                 repository = InMemoryDramRepository()
 
                 dataSource = controller.dataSource
                 dataSource.repository = repository
+                dataSource.schedulerAsync = scheduler
+                dataSource.schedulerSync = scheduler
                 dataSource.viewDidLoad()
 
                 tableView = controller.tableView
@@ -37,6 +43,7 @@ final class DramsDataSourceSpec: QuickSpec {
                 it("provides a DramCell") {
                     var dram = Dram()
                     repository.save(dram)
+                    scheduler.advance()
 
                     let cell = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
                     expect(cell).to(beAnInstanceOf(DramCell))
@@ -45,6 +52,7 @@ final class DramsDataSourceSpec: QuickSpec {
                 it("specifies the number of drams as the number of rows in section") {
                     expect(dataSource.tableView(tableView, numberOfRowsInSection: 0)).to(equal(0))
                     repository.save(Dram())
+                    scheduler.advance()
                     expect(dataSource.tableView(tableView, numberOfRowsInSection: 0)).to(equal(1))
                 }
 
@@ -61,19 +69,21 @@ final class DramsDataSourceSpec: QuickSpec {
                     repository.save(dram2)
                     repository.save(dram3)
 
+                    scheduler.advance()
+
                     let cell1 = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)) as! DramCell
                     let cell2 = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)) as! DramCell
                     let cell3 = dataSource.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0)) as! DramCell
 
-                    expect(cell1.id.text).toEventually(equal("future"))
-                    expect(cell2.id.text).toEventually(equal("now"))
-                    expect(cell3.id.text).toEventually(equal("past"))
+                    expect(cell1.id.text).to(equal("future"))
+                    expect(cell2.id.text).to(equal("now"))
+                    expect(cell3.id.text).to(equal("past"))
                 }
             }
 
             describe("Edit Drams") {
                 it("specifes that all cells can be edited") {
-                    expect(dataSource.tableView(tableView, canEditRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))).to(beTrue())
+                    expect(dataSource.tableView(tableView, canEditRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))).to(beTruthy())
                 }
 
                 it("deletes dram") {
@@ -82,9 +92,12 @@ final class DramsDataSourceSpec: QuickSpec {
                         |> start { drams = $0 }
 
                     repository.save(Dram())
-                    expect(drams.count).toEventually(equal(1))
+                    scheduler.advance()
+
+                    expect(drams.count).to(equal(1))
                     dataSource.tableView(tableView, commitEditingStyle: .Delete, forRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-                    expect(drams.count).toEventually(equal(0))
+                    scheduler.advance()
+                    expect(drams.count).to(equal(0))
                 }
 
                 it("specifies editing style depending on table editing mode") {
