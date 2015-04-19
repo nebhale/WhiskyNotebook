@@ -11,7 +11,7 @@ public final class DramCell: UITableViewCell {
 
     private let dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.dateStyle = .ShortStyle
         return dateFormatter
         }()
 

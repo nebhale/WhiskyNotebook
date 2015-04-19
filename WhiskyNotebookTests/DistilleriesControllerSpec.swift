@@ -26,9 +26,10 @@ final class DistilleriesControllerSpec: QuickSpec {
                 navigationController = UINavigationController()
                 navigationController.pushViewController(controller, animated: false)
 
-                let datasource = controller.dataSource
-                datasource.repository = repository
-                datasource.scheduler = scheduler
+                let dataSource = controller.dataSource
+                dataSource.repository = repository
+                dataSource.schedulerAsync = scheduler
+                dataSource.schedulerSync = scheduler
 
                 controller.loadView()
                 controller.viewDidLoad()

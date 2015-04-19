@@ -4,11 +4,18 @@ import ReactiveCocoa
 import UIKit
 
 
-public final class DistilleriesExporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
+public final class DramsExporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
+
+    private let dateFormatter: NSDateFormatter = {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        return dateFormatter
+        }()
 
     private let logger = Logger()
 
-    public var repository = DistilleryRepositoryManager.sharedInstance
+    public var repository = DramRepositoryManager.sharedInstance
 
     public var scheduler: SchedulerType = QueueScheduler()
 
@@ -21,20 +28,20 @@ public final class DistilleriesExporter: NSObject, UIDocumentMenuDelegate, UIDoc
     }
 
     public func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
-        self.logger.info("Exported distilleries to: \(url)")
+        self.logger.info("Exported drams to: \(url)")
     }
 
     @IBAction
-    public func exportDistilleries() {
-        self.repository.distilleries
+    public func exportDrams() {
+        self.repository.drams
             |> observeOn(self.scheduler)
-            |> start { distilleries in
+            |> start { drams in
                 if let url = self.url() {
                     var error: NSError?
-                    self.content(distilleries).writeToURL(url, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
+                    self.content(drams).writeToURL(url, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
 
                     if let error = error {
-                        self.logger.error("Error writing distilleries: \(error)") // TODO: Handle errors better
+                        self.logger.error("Error writing drams: \(error)") // TODO: Handle errors better
                     } else {
                         let documentMenuController = UIDocumentMenuViewController(URL: url, inMode: .ExportToService)
                         documentMenuController.delegate = self
@@ -44,18 +51,16 @@ public final class DistilleriesExporter: NSObject, UIDocumentMenuDelegate, UIDoc
         }
     }
 
-    private func components(distillery: Distillery) -> [String] {
+    private func components(dram: Dram) -> [String] {
         return [
-            distillery.id ?? "",
-            distillery.name ?? "",
-            distillery.region?.rawValue ?? "",
-            distillery.location?.coordinate.latitude.toString() ?? "",
-            distillery.location?.coordinate.longitude.toString() ?? ""
+            dram.date != nil ? self.dateFormatter.stringFromDate(dram.date!) : "",
+            dram.id ?? "",
+            dram.rating?.rawValue.toString() ?? ""
         ]
     }
 
-    private func content(distilleries: Set<Distillery>) -> String {
-        return "\n".join(Array<Distillery>(distilleries)
+    private func content(drams: Set<Dram>) -> String {
+        return "\n".join(Array(drams)
             .map(self.components)
             .map(self.lines))
     }
@@ -65,12 +70,12 @@ public final class DistilleriesExporter: NSObject, UIDocumentMenuDelegate, UIDoc
     }
 
     private func url() -> NSURL? {
-        return NSURL(fileURLWithPath: NSTemporaryDirectory().stringByAppendingPathComponent("distilleries.csv"))
+        return NSURL(fileURLWithPath: NSTemporaryDirectory().stringByAppendingPathComponent("drams.csv"))
     }
 }
 
-extension Double {
+extension Int {
     func toString() -> String {
-        return String(format: "%f", self)
+        return String(format: "%d", self)
     }
 }

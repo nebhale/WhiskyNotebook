@@ -27,7 +27,8 @@ final class DistilleriesDataSourceSpec: QuickSpec {
 
                 dataSource = controller.dataSource
                 dataSource.repository = repository
-                dataSource.scheduler = scheduler
+                dataSource.schedulerAsync = scheduler
+                dataSource.schedulerSync = scheduler
                 dataSource.viewDidLoad()
 
                 tableView = controller.tableView
