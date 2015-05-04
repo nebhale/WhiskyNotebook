@@ -1,16 +1,15 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import Nimble
 import Quick
 import ReactiveCocoa
 import UIKit
-import WhiskyNotebook
-
 
 final class DramsDataSourceSpec: QuickSpec {
     override func spec() {
         let storyboard = UIStoryboard(name: "WhiskyNotebook", bundle: nil)
-        
+
         describe("DramsDataSource") {
             var dataSource: DramsDataSource!
             var repository: DramRepository!

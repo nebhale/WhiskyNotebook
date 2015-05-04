@@ -1,10 +1,9 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import CoreLocation
 import Nimble
 import Quick
-import WhiskyNotebook
-
 
 final class DistillerySpec: QuickSpec {
     override func spec() {

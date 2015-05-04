@@ -1,10 +1,11 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
+import LoggerLogger
 import ReactiveCocoa
 import UIKit
 
-
-public final class DramsExporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
+final class DramsExporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
 
     private let dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
@@ -15,24 +16,24 @@ public final class DramsExporter: NSObject, UIDocumentMenuDelegate, UIDocumentPi
 
     private let logger = Logger()
 
-    public var repository = DramRepositoryManager.sharedInstance
+    var repository = DramRepositoryManager.sharedInstance
 
-    public var scheduler: SchedulerType = QueueScheduler()
+    var scheduler: SchedulerType = QueueScheduler()
 
     @IBOutlet
-    public var viewController: UIViewController!
+    var viewController: UIViewController!
 
-    public func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
         self.viewController.presentViewController(documentPicker, animated: true, completion: nil)
     }
 
-    public func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
+    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
         self.logger.info("Exported drams to: \(url)")
     }
 
     @IBAction
-    public func exportDrams() {
+    func exportDrams() {
         self.repository.drams
             |> observeOn(self.scheduler)
             |> start { drams in

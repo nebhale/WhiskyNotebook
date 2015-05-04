@@ -1,31 +1,32 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
+import LoggerLogger
 import ReactiveCocoa
 import UIKit
 
-
-public final class DistilleriesExporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
+final class DistilleriesExporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
 
     private let logger = Logger()
 
-    public var repository = DistilleryRepositoryManager.sharedInstance
+    var repository = DistilleryRepositoryManager.sharedInstance
 
-    public var scheduler: SchedulerType = QueueScheduler()
+    var scheduler: SchedulerType = QueueScheduler()
 
     @IBOutlet
-    public var viewController: UIViewController!
+    var viewController: UIViewController!
 
-    public func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
         self.viewController.presentViewController(documentPicker, animated: true, completion: nil)
     }
 
-    public func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
+    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
         self.logger.info("Exported distilleries to: \(url)")
     }
 
     @IBAction
-    public func exportDistilleries() {
+    func exportDistilleries() {
         self.repository.distilleries
             |> observeOn(self.scheduler)
             |> start { distilleries in
@@ -70,7 +71,7 @@ public final class DistilleriesExporter: NSObject, UIDocumentMenuDelegate, UIDoc
 }
 
 extension Double {
-    func toString() -> String {
+    private func toString() -> String {
         return String(format: "%f", self)
     }
 }

@@ -1,22 +1,22 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import ReactiveCocoa
 import UIKit
 
-
-public final class DramsController: UITableViewController {
+final class DramsController: UITableViewController {
 
     @IBOutlet
-    public var add: UIBarButtonItem!
+    var add: UIBarButtonItem!
 
     private let (editingState, sink) = Signal<EditingState, NoError>.pipe()
 
     @IBOutlet
-    public var dataSource: DramsDataSource!
+    var dataSource: DramsDataSource!
 
-    public var scheduler: SchedulerType = UIScheduler()
+    var scheduler: SchedulerType = UIScheduler()
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         initModelUpdate()
@@ -42,7 +42,7 @@ extension DramsController {
         }
     }
 
-    override public func setEditing(editing: Bool, animated: Bool) {
+    override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         sendNext(sink, editing ? .Editing : .NotEditing)
     }

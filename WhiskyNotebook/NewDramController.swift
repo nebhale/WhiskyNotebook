@@ -1,34 +1,35 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
+import LoggerLogger
 import ReactiveCocoa
 import UIKit
 
-
-public final class NewDramController: UITableViewController {
+final class NewDramController: UITableViewController {
 
     @IBOutlet
-    public var date: UIDatePicker! {
+    var date: UIDatePicker! {
         willSet(date) {
             date.maximumDate = NSDate()
         }
     }
 
     @IBOutlet
-    public var id: UITextField!
+    var id: UITextField!
 
     private let logger = Logger()
 
     @IBOutlet
-    public var rating: UISegmentedControl!
+    var rating: UISegmentedControl!
 
-    public var repository = DramRepositoryManager.sharedInstance
+    var repository = DramRepositoryManager.sharedInstance
 
     @IBOutlet
-    public var save: UIBarButtonItem!
+    var save: UIBarButtonItem!
 
-    public var scheduler: SchedulerType = UIScheduler()
+    var scheduler: SchedulerType = UIScheduler()
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         initSaveEnabled()
@@ -39,7 +40,7 @@ public final class NewDramController: UITableViewController {
 extension NewDramController {
 
     @IBAction
-    public func cancelAndDismiss() {
+    func cancelAndDismiss() {
         self.logger.info("Cancel initiated")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -57,7 +58,7 @@ extension NewDramController {
     }
 
     @IBAction
-    public func saveAndDismiss() {
+    func saveAndDismiss() {
         self.logger.info("Save initiated")
         let dram = Dram(id: self.id.text, date: self.date.date, rating: Rating(rawValue: self.rating.selectedSegmentIndex))
         self.repository.save(dram)

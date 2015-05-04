@@ -1,39 +1,32 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import Foundation
 
+struct Dram {
 
-public struct Dram {
+    var id: String?
 
-    public var id: String?
+    var date: NSDate?
 
-    public var date: NSDate?
+    var rating: Rating?
 
-    public var rating: Rating?
+    let syntheticKey: String = NSUUID().UUIDString
 
-    private let syntheticKey: String = NSUUID().UUIDString
-
-    public init() {}
-
-    public init(id: String?, date: NSDate?, rating: Rating?) {
-        self.id = id;
-        self.date = date
-        self.rating = rating
-    }
 }
 
 // MARK: - Equatable
 extension Dram: Equatable {}
-public func ==(x: Dram, y: Dram) -> Bool {
+func ==(x: Dram, y: Dram) -> Bool {
     return x.syntheticKey == y.syntheticKey
 }
 
 // MARK: - Hashable
 extension Dram: Hashable {
-    public var hashValue: Int { return self.syntheticKey.hashValue }
+    var hashValue: Int { return self.syntheticKey.hashValue }
 }
 
 // MARK: - Printable
 extension Dram: Printable {
-    public var description: String { return "<Dram: \(self.syntheticKey); id=\(self.id), date=\(self.date), rating=\(self.rating)>" }
+    var description: String { return "<Dram: \(self.syntheticKey); id=\(self.id), date=\(self.date), rating=\(self.rating)>" }
 }

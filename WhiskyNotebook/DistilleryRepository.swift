@@ -1,9 +1,9 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import ReactiveCocoa
 
-
-public protocol DistilleryRepository {
+protocol DistilleryRepository {
 
     var distilleries: SignalProducer<Set<Distillery>, NoError> { get }
 

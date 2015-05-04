@@ -1,6 +1,7 @@
 # Copyright 2014-2015 Ben Hale. All Rights Reserved
 
-github "pNre/ExSwift" "Swift-1.2"
-github "Quick/Nimble"
-github "Quick/Quick"
+github "nebhale/LoggerLogger"        ~> 1.0
+github "pNre/ExSwift"                "Swift-1.2"
+github "Quick/Nimble"                ~> 0.4
+github "Quick/Quick"                 ~> 0.3
 github "ReactiveCocoa/ReactiveCocoa" "swift-development"

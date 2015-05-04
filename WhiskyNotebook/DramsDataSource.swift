@@ -1,28 +1,29 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
+import LoggerLogger
 import ReactiveCocoa
 import UIKit
 
-
-public final class DramsDataSource: NSObject, UITableViewDataSource {
+final class DramsDataSource: NSObject, UITableViewDataSource {
 
     private let content: MutableProperty<[Dram]> = MutableProperty([])
 
-    public let drams: SignalProducer<[Dram], NoError>
+    let drams: SignalProducer<[Dram], NoError>
 
     private let logger = Logger()
 
-    public var repository = DramRepositoryManager.sharedInstance
+    var repository = DramRepositoryManager.sharedInstance
 
-    public var schedulerAsync: SchedulerType = QueueScheduler()
+    var schedulerAsync: SchedulerType = QueueScheduler()
 
-    public var schedulerSync: SchedulerType = UIScheduler()
+    var schedulerSync: SchedulerType = UIScheduler()
 
-    override public init() {
+    override init() {
         self.drams = self.content.producer
     }
 
-    public func viewDidLoad() {
+    func viewDidLoad() {
         initModelUpdate()
     }
 
@@ -31,11 +32,11 @@ public final class DramsDataSource: NSObject, UITableViewDataSource {
 // MARK: - Display Drams
 extension DramsDataSource {
 
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Dram", forIndexPath: indexPath) as! UITableViewCell
 
         if let cell = cell as? DramCell {
@@ -45,7 +46,7 @@ extension DramsDataSource {
         return cell
     }
 
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.content.value.count
     }
 
@@ -54,11 +55,11 @@ extension DramsDataSource {
 // MARK: - Edit Drams
 extension DramsDataSource {
 
-    public func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
 
-    public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         self.logger.info("Delete initiated")
 
         self.schedulerAsync.schedule {
@@ -66,7 +67,7 @@ extension DramsDataSource {
         }
     }
 
-    public func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         return tableView.editing ? .Delete : .None
     }
 }

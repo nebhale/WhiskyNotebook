@@ -1,37 +1,38 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import CoreLocation
+import LoggerLogger
 import ReactiveCocoa
 import UIKit
 
-
-public final class NewDistilleryController: UITableViewController {
+final class NewDistilleryController: UITableViewController {
 
     @IBOutlet
-    public var id: UITextField!
+    var id: UITextField!
 
     private let logger = Logger()
 
     @IBOutlet
-    public var latitude: UITextField!
+    var latitude: UITextField!
 
     @IBOutlet
-    public var longitude: UITextField!
+    var longitude: UITextField!
 
     @IBOutlet
-    public var name: UITextField!
+    var name: UITextField!
 
-    public var repository = DistilleryRepositoryManager.sharedInstance
-
-    @IBOutlet
-    public var region: UITextField!
+    var repository = DistilleryRepositoryManager.sharedInstance
 
     @IBOutlet
-    public var save: UIBarButtonItem!
+    var region: UITextField!
 
-    public var scheduler: SchedulerType = UIScheduler()
+    @IBOutlet
+    var save: UIBarButtonItem!
 
-    override public func viewDidLoad() {
+    var scheduler: SchedulerType = UIScheduler()
+
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         initSaveEnabled()
@@ -42,7 +43,7 @@ public final class NewDistilleryController: UITableViewController {
 extension NewDistilleryController {
 
     @IBAction
-    public func cancelAndDismiss() {
+    func cancelAndDismiss() {
         self.logger.info("Cancel initiated")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -64,7 +65,7 @@ extension NewDistilleryController {
     }
 
     @IBAction
-    public func saveAndDismiss() {
+    func saveAndDismiss() {
         self.logger.info("Save initiated")
 
         let location = locationFrom(self.latitude.text, self.longitude.text)

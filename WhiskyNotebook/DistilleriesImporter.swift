@@ -1,26 +1,27 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
+import LoggerLogger
 import ReactiveCocoa
 import UIKit
 
-
-public final class DistilleriesImporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
+final class DistilleriesImporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
 
     private let logger = Logger()
 
-    public var repository = DistilleryRepositoryManager.sharedInstance
+    var repository = DistilleryRepositoryManager.sharedInstance
 
-    public var scheduler: SchedulerType = QueueScheduler()
+    var scheduler: SchedulerType = QueueScheduler()
 
     @IBOutlet
-    public var viewController: UIViewController!
+    var viewController: UIViewController!
 
-    public func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
         self.viewController.presentViewController(documentPicker, animated: true, completion: nil)
     }
 
-    public func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
+    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
         self.logger.info("Importing distilleries from: \(url)")
 
         Signal<String, NSError> { sink in
@@ -45,7 +46,7 @@ public final class DistilleriesImporter: NSObject, UIDocumentMenuDelegate, UIDoc
     }
 
     @IBAction
-    public func importDistilleries() {
+    func importDistilleries() {
         self.logger.info("Import initiated")
 
         let documentMenuController = UIDocumentMenuViewController(documentTypes: ["public.comma-separated-values-text"], inMode: .Import)

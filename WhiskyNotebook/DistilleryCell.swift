@@ -1,24 +1,23 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import ReactiveCocoa
 import UIKit
 
-
-public final class DistilleryCell: UITableViewCell {
-
-    @IBOutlet
-    public var id: UILabel!
+final class DistilleryCell: UITableViewCell {
 
     @IBOutlet
-    public var name: UILabel!
+    var id: UILabel!
 
     @IBOutlet
-    public var region: UILabel!
+    var name: UILabel!
 
-    public func configure(distillery: Distillery) {
+    @IBOutlet
+    var region: UILabel!
+
+    func configure(distillery: Distillery) {
         self.id.text = distillery.id
         self.name.text = distillery.name
         self.region.text = distillery.region?.rawValue
     }
-    
 }
