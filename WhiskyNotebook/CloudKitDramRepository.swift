@@ -1,23 +1,24 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import CloudKit
 import Foundation
+import LoggerLogger
 import ReactiveCocoa
 
-
-public final class CloudKitDramRepository: DramRepository {
+final class CloudKitDramRepository: DramRepository {
 
     private let content: MutableProperty<[Dram : CKRecord]> = MutableProperty([:])
 
     private let database = CKContainer.defaultContainer().privateCloudDatabase
 
-    public let drams: SignalProducer<Set<Dram>, NoError>
+    let drams: SignalProducer<Set<Dram>, NoError>
 
     private let logger = Logger()
 
     private let scheduler: SchedulerType = QueueScheduler()
 
-    public init() {
+    init() {
         self.drams = self.content.producer
             |> map { Set($0.keys) }
 
@@ -26,7 +27,7 @@ public final class CloudKitDramRepository: DramRepository {
             |> observe { self.content.value = $0 }
     }
 
-    public func delete(dram: Dram) {
+    func delete(dram: Dram) {
         Signal<CKRecordID, NSError> { sink in
             return self.scheduler.schedule {
                 self.logger.info("Deleting: \(dram)")
@@ -38,7 +39,7 @@ public final class CloudKitDramRepository: DramRepository {
         )
     }
 
-    public func save(dram: Dram) {
+    func save(dram: Dram) {
         Signal<CKRecord, NSError> { sink in
             return self.scheduler.schedule {
                 self.logger.info("Saving: \(dram)")

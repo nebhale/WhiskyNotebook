@@ -1,20 +1,21 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
-public struct Delta<T: Equatable> {
 
-    public let added: [Int]
+struct Delta<T: Equatable> {
 
-    public let deleted: [Int]
+    let added: [Int]
 
-    public let modified: [Int]
+    let deleted: [Int]
 
-    public let new: [T]
+    let modified: [Int]
 
-    public let old: [T]
+    let new: [T]
+
+    let old: [T]
 
     typealias ContentMatcher = (x: T, y: T) -> Bool
 
-    public init(old: [T], new: [T], contentMatches: ContentMatcher) {
+    init(old: [T], new: [T], contentMatches: ContentMatcher) {
         self.old = old
         self.new = new
 

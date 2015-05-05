@@ -1,10 +1,9 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import Nimble
 import Quick
 import UIKit
-import WhiskyNotebook
-
 
 final class DeltaSpec: QuickSpec {
     override func spec() {
@@ -32,7 +31,7 @@ final class DeltaSpec: QuickSpec {
             it("calculates what was deleted") {
                 expect(delta.deleted).to(equal([0]))
             }
-            
+
             it("calculates what was modified") {
                 expect(delta.modified).to(equal([1]))
             }

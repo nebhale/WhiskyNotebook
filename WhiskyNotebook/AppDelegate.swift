@@ -1,7 +1,7 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
-import UIKit
 
+import UIKit
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -1,10 +1,11 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
+import LoggerLogger
 import ReactiveCocoa
 import UIKit
 
-
-public final class DramsImporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
+final class DramsImporter: NSObject, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
 
     private let dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
@@ -15,19 +16,19 @@ public final class DramsImporter: NSObject, UIDocumentMenuDelegate, UIDocumentPi
 
     private let logger = Logger()
 
-    public var repository = DramRepositoryManager.sharedInstance
+    var repository = DramRepositoryManager.sharedInstance
 
-    public var scheduler: SchedulerType = QueueScheduler()
+    var scheduler: SchedulerType = QueueScheduler()
 
     @IBOutlet
-    public var viewController: UIViewController!
+    var viewController: UIViewController!
 
-    public func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
         self.viewController.presentViewController(documentPicker, animated: true, completion: nil)
     }
 
-    public func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
+    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
         self.logger.info("Importing drams from: \(url)")
 
         Signal<String, NSError> { sink in
@@ -52,7 +53,7 @@ public final class DramsImporter: NSObject, UIDocumentMenuDelegate, UIDocumentPi
     }
 
     @IBAction
-    public func importDrams() {
+    func importDrams() {
         self.logger.info("Import initiated")
 
         let documentMenuController = UIDocumentMenuViewController(documentTypes: ["public.comma-separated-values-text"], inMode: .Import)

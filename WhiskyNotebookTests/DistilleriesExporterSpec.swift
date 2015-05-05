@@ -1,11 +1,10 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import Nimble
 import Quick
 import ReactiveCocoa
 import UIKit
-import WhiskyNotebook
-
 
 final class DistilleriesExporterSpec: QuickSpec {
     override func spec() {

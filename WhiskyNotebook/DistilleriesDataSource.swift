@@ -1,28 +1,29 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
+import LoggerLogger
 import ReactiveCocoa
 import UIKit
 
-
-public final class DistilleriesDataSource: NSObject, UITableViewDataSource {
+final class DistilleriesDataSource: NSObject, UITableViewDataSource {
 
     private let content: MutableProperty<[Distillery]> = MutableProperty([])
 
-    public let distilleries: SignalProducer<[Distillery], NoError>
+    let distilleries: SignalProducer<[Distillery], NoError>
 
     private let logger = Logger()
 
-    public var repository = DistilleryRepositoryManager.sharedInstance
+    var repository = DistilleryRepositoryManager.sharedInstance
 
-    public var schedulerAsync: SchedulerType = QueueScheduler()
+    var schedulerAsync: SchedulerType = QueueScheduler()
 
-    public var schedulerSync: SchedulerType = UIScheduler()
+    var schedulerSync: SchedulerType = UIScheduler()
 
-    override public init() {
+    override init() {
         self.distilleries = self.content.producer
     }
 
-    public func viewDidLoad() {
+    func viewDidLoad() {
         initModelUpdate()
     }
 
@@ -31,11 +32,11 @@ public final class DistilleriesDataSource: NSObject, UITableViewDataSource {
 // MARK: - Display Drams
 extension DistilleriesDataSource {
 
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Distillery", forIndexPath: indexPath) as! UITableViewCell
 
         if let cell = cell as? DistilleryCell {
@@ -45,7 +46,7 @@ extension DistilleriesDataSource {
         return cell
     }
 
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.content.value.count
     }
 
@@ -54,11 +55,11 @@ extension DistilleriesDataSource {
 // MARK: - Edit Drams
 extension DistilleriesDataSource {
 
-    public func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
 
-    public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         self.logger.info("Delete initiated")
 
         self.schedulerAsync.schedule {
@@ -66,7 +67,7 @@ extension DistilleriesDataSource {
         }
     }
 
-    public func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         return tableView.editing ? .Delete : .None
     }
 }

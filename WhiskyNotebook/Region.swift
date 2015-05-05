@@ -1,7 +1,7 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
 
-public enum Region: String {
+enum Region: String {
     case Campbeltown = "Campbeltown"
     case Grain       = "Grain"
     case Highland    = "Highland"
@@ -15,5 +15,5 @@ public enum Region: String {
 
 // MARK - Printable
 extension Region: Printable {
-    public var description: String { return "<Region: \(self.rawValue)>" }
+    var description: String { return "<Region: \(self.rawValue)>" }
 }

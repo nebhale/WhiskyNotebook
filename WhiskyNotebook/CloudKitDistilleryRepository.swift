@@ -1,23 +1,24 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import CloudKit
 import Foundation
+import LoggerLogger
 import ReactiveCocoa
 
-
-public final class CloudKitDistilleryRepository: DistilleryRepository {
+final class CloudKitDistilleryRepository: DistilleryRepository {
 
     private let content: MutableProperty<[Distillery : CKRecord]> = MutableProperty([:])
 
     private let database = CKContainer.defaultContainer().publicCloudDatabase
 
-    public let distilleries: SignalProducer<Set<Distillery>, NoError>
+    let distilleries: SignalProducer<Set<Distillery>, NoError>
 
     private let logger = Logger()
 
-    public var scheduler: SchedulerType = QueueScheduler()
+    var scheduler: SchedulerType = QueueScheduler()
 
-    public init() {
+    init() {
         self.distilleries = self.content.producer
             |> map { Set($0.keys) }
 
@@ -26,7 +27,7 @@ public final class CloudKitDistilleryRepository: DistilleryRepository {
             |> observe { self.content.value = $0}
     }
 
-    public func delete(distillery: Distillery) {
+    func delete(distillery: Distillery) {
         Signal<CKRecordID, NSError> { sink in
             return self.scheduler.schedule{
                 self.logger.info("Deleting: \(distillery)")
@@ -38,7 +39,7 @@ public final class CloudKitDistilleryRepository: DistilleryRepository {
         )
     }
 
-    public func save(distillery: Distillery) {
+    func save(distillery: Distillery) {
         Signal<CKRecord, NSError> { sink in
             return self.scheduler.schedule {
                 self.logger.info("Saving: \(distillery)")

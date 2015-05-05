@@ -1,43 +1,35 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import CoreLocation
 import Foundation
 
+struct Distillery {
 
-public struct Distillery {
+    var id: String?
 
-    public var id: String?
+    var location: CLLocation?
 
-    public var location: CLLocation?
+    var name: String?
 
-    public var name: String?
-
-    public var region: Region?
+    var region: Region?
 
     private let syntheticKey: String = NSUUID().UUIDString
 
-    public init() {}
-
-    public init(id: String?, location: CLLocation?, name: String?, region: Region?) {
-        self.id = id;
-        self.location = location
-        self.name = name
-        self.region = region
-    }
 }
 
 // MARK: - Equatable
 extension Distillery: Equatable {}
-public func ==(x: Distillery, y: Distillery) -> Bool {
+func ==(x: Distillery, y: Distillery) -> Bool {
     return x.syntheticKey == y.syntheticKey
 }
 
 // MARK: - Hashable
 extension Distillery: Hashable {
-    public var hashValue: Int { return self.syntheticKey.hashValue }
+    var hashValue: Int { return self.syntheticKey.hashValue }
 }
 
 // MARK: - Printable
 extension Distillery: Printable {
-    public var description: String { return "<Distillery: \(self.syntheticKey); id=\(self.id), location=\(self.location), name=\(self.name), region=\(self.region)>" }
+    var description: String { return "<Distillery: \(self.syntheticKey); id=\(self.id), location=\(self.location), name=\(self.name), region=\(self.region)>" }
 }

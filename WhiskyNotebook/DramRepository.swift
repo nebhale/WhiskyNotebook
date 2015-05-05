@@ -1,9 +1,9 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import ReactiveCocoa
 
-
-public protocol DramRepository {
+protocol DramRepository {
 
     var drams: SignalProducer<Set<Dram>, NoError> { get }
 

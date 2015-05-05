@@ -1,11 +1,10 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import Nimble
 import Quick
 import ReactiveCocoa
 import UIKit
-import WhiskyNotebook
-
 
 final class DramsImporterSpec: QuickSpec {
     override func spec() {
@@ -69,7 +68,7 @@ final class DramsImporterSpec: QuickSpec {
 
                     importer.documentPicker(UIDocumentPickerViewController(), didPickDocumentAtURL: url)
                     scheduler.advance()
-                    
+
                     expect(drams.count).to(equal(3))
                 }
             }

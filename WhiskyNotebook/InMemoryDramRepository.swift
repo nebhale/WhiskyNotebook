@@ -1,27 +1,28 @@
 // Copyright 2014-2015 Ben Hale. All Rights Reserved
 
+
 import Foundation
+import LoggerLogger
 import ReactiveCocoa
 
-
-public final class InMemoryDramRepository: DramRepository {
+final class InMemoryDramRepository: DramRepository {
 
     private let content: MutableProperty<Set<Dram>> = MutableProperty([])
 
-    public let drams: SignalProducer<Set<Dram>, NoError>
+    let drams: SignalProducer<Set<Dram>, NoError>
 
     private let logger = Logger()
 
-    public init() {
+    init() {
         self.drams = self.content.producer
     }
 
-    public func delete(dram: Dram) {
+    func delete(dram: Dram) {
         self.logger.info("Deleting: \(dram)")
         self.content.value - dram
     }
 
-    public func save(dram: Dram) {
+    func save(dram: Dram) {
         self.logger.info("Saving: \(dram)")
         self.content.value + dram
     }
