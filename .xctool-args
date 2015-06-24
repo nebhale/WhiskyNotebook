@@ -1,5 +1,0 @@
-[
-  "-project", "WhiskyNotebook.xcodeproj",
-  "-scheme", "WhiskyNotebook",
-  "-sdk", "iphonesimulator8.3"
-]

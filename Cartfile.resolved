@@ -1,7 +1,0 @@
-github "robrix/Box" "1.2.2"
-github "pNre/ExSwift" "f1411fc6320a053afca00ef975648c975a30ca75"
-github "nebhale/LoggerLogger" "v1.1"
-github "Quick/Nimble" "v0.4.2"
-github "Quick/Quick" "v0.3.1"
-github "antitypical/Result" "0.4.1"
-github "ReactiveCocoa/ReactiveCocoa" "a01ab1ecc8c0752e20b543890ac5f6db24ac3913"
