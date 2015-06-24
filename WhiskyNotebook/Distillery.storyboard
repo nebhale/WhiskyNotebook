@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8152.3" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NLd-Ay-Pwb">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Distillery LIst Controller-->
+        <scene sceneID="PCU-tJ-4qW">
+            <objects>
+                <tableViewController storyboardIdentifier="DistilleryList" id="RH8-x8-Bqj" userLabel="Distillery LIst Controller" customClass="DistilleryListController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" id="A1S-dY-Obm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Distillery" id="gqr-U1-Jle" customClass="DistilleryCell" customModule="WhiskyNotebook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="86" width="600" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gqr-U1-Jle" id="UoB-BP-EMU">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="45"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBq-N0-gsf">
+                                            <rect key="frame" x="8" y="8" width="50" height="29"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Db2-Rt-fxR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLT-dF-zPI">
+                                            <rect key="frame" x="66" y="8" width="43" height="20"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvD-Lc-a0Y">
+                                            <rect key="frame" x="66" y="23" width="37" height="14"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="bLT-dF-zPI" firstAttribute="top" secondItem="BBq-N0-gsf" secondAttribute="top" id="Ett-D7-ZW2"/>
+                                        <constraint firstItem="BBq-N0-gsf" firstAttribute="leading" secondItem="UoB-BP-EMU" secondAttribute="leadingMargin" id="RrS-P3-J9w"/>
+                                        <constraint firstItem="BBq-N0-gsf" firstAttribute="top" secondItem="UoB-BP-EMU" secondAttribute="topMargin" id="VWq-sQ-ODU"/>
+                                        <constraint firstItem="bLT-dF-zPI" firstAttribute="leading" secondItem="BBq-N0-gsf" secondAttribute="trailing" constant="8" symbolic="YES" id="Wo1-sg-5Xg"/>
+                                        <constraint firstItem="jvD-Lc-a0Y" firstAttribute="bottom" secondItem="BBq-N0-gsf" secondAttribute="bottom" id="YIB-Wv-RXo"/>
+                                        <constraint firstItem="jvD-Lc-a0Y" firstAttribute="leading" secondItem="BBq-N0-gsf" secondAttribute="trailing" constant="8" symbolic="YES" id="gfI-K6-eXT"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BBq-N0-gsf" secondAttribute="bottom" id="rHq-T6-IhI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="id" destination="BBq-N0-gsf" id="wf1-BV-Mva"/>
+                                    <outlet property="name" destination="bLT-dF-zPI" id="c7L-8P-C7K"/>
+                                    <outlet property="region" destination="jvD-Lc-a0Y" id="51a-VI-0b0"/>
+                                    <segue destination="H3M-dQ-aaY" kind="show" identifier="DistilleryDetails" id="Dvu-A1-hHE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RH8-x8-Bqj" id="HRX-oF-CxA"/>
+                            <outlet property="delegate" destination="RH8-x8-Bqj" id="Kh5-Nx-9J1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Distilleries" id="ORx-Vw-lpS"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ti-g5-RcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1374" y="368"/>
+        </scene>
+        <!--Distillery Map Controller-->
+        <scene sceneID="pJZ-p5-jPe">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="n7v-49-0nG" customClass="DistilleryMapController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4uN-SG-rjG"/>
+                        <viewControllerLayoutGuide type="bottom" id="rOJ-3m-nbd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hRF-4B-WGA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C5f-Dm-6QH">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C5f-Dm-6QH" firstAttribute="leading" secondItem="hRF-4B-WGA" secondAttribute="leading" id="ZUD-GH-YY9"/>
+                            <constraint firstItem="rOJ-3m-nbd" firstAttribute="top" secondItem="C5f-Dm-6QH" secondAttribute="bottom" id="o9L-tg-hNy"/>
+                            <constraint firstItem="C5f-Dm-6QH" firstAttribute="top" secondItem="4uN-SG-rjG" secondAttribute="bottom" id="ogv-HA-Ry9"/>
+                            <constraint firstAttribute="trailing" secondItem="C5f-Dm-6QH" secondAttribute="trailing" id="pCL-Pu-eTw"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xRF-0C-DNw"/>
+                    </toolbarItems>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="C5f-Dm-6QH" id="eDT-sR-eTw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bk1-wj-SPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3048" y="368"/>
+        </scene>
+        <!--Distillery Details Controller-->
+        <scene sceneID="88J-mC-tuP">
+            <objects>
+                <viewController storyboardIdentifier="DistilleryDetailsController" hidesBottomBarWhenPushed="YES" id="H3M-dQ-aaY" userLabel="Distillery Details Controller" customClass="DistilleryDetailsController" customModule="WhiskyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lQo-jh-bo9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Aow-mm-3Av"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YZk-VH-4jZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-O1-dFJ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="236"/>
+                                <animations/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="e21-Nc-G62" appends="YES" id="eC7-21-5ca"/>
+                                </connections>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ys-jr-X1L">
+                                <rect key="frame" x="0.0" y="300" width="600" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2c-vg-4xS">
+                                        <rect key="frame" x="16" y="8" width="16" height="28"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsk-DI-9K5">
+                                        <rect key="frame" x="40" y="8" width="45" height="28"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYL-31-3Gk">
+                                        <rect key="frame" x="531" y="8" width="53" height="28"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="16K-dB-4bZ"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="uYL-31-3Gk" secondAttribute="bottom" id="Mtm-er-j5e"/>
+                                    <constraint firstItem="Nsk-DI-9K5" firstAttribute="top" secondItem="5ys-jr-X1L" secondAttribute="topMargin" id="Pne-lF-8eD"/>
+                                    <constraint firstItem="N2c-vg-4xS" firstAttribute="leading" secondItem="5ys-jr-X1L" secondAttribute="leadingMargin" constant="8" id="USA-fw-RmR"/>
+                                    <constraint firstItem="Nsk-DI-9K5" firstAttribute="leading" secondItem="N2c-vg-4xS" secondAttribute="trailing" constant="8" symbolic="YES" id="cBq-RS-McV"/>
+                                    <constraint firstItem="uYL-31-3Gk" firstAttribute="top" secondItem="5ys-jr-X1L" secondAttribute="topMargin" id="cmd-v9-FuV"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="uYL-31-3Gk" secondAttribute="trailing" constant="8" id="gyR-77-ScA"/>
+                                    <constraint firstItem="N2c-vg-4xS" firstAttribute="top" secondItem="5ys-jr-X1L" secondAttribute="topMargin" id="khD-nK-fdf"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Nsk-DI-9K5" secondAttribute="bottom" id="l9Z-wL-e4D"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="N2c-vg-4xS" secondAttribute="bottom" id="mIH-ga-Jia"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5ys-jr-X1L" secondAttribute="trailing" id="25O-HJ-QcA"/>
+                            <constraint firstItem="5ys-jr-X1L" firstAttribute="leading" secondItem="YZk-VH-4jZ" secondAttribute="leading" id="KjQ-57-Trj"/>
+                            <constraint firstItem="5ys-jr-X1L" firstAttribute="top" secondItem="aFo-O1-dFJ" secondAttribute="bottom" id="KwD-Ic-GG7"/>
+                            <constraint firstAttribute="centerYWithinMargins" secondItem="aFo-O1-dFJ" secondAttribute="bottom" id="Ri4-Kv-huu"/>
+                            <constraint firstAttribute="trailing" secondItem="aFo-O1-dFJ" secondAttribute="trailing" id="VrS-rU-v2Y"/>
+                            <constraint firstItem="aFo-O1-dFJ" firstAttribute="leading" secondItem="YZk-VH-4jZ" secondAttribute="leading" id="ZBW-8Z-lNa"/>
+                            <constraint firstItem="aFo-O1-dFJ" firstAttribute="top" secondItem="lQo-jh-bo9" secondAttribute="bottom" id="dpr-zG-sJz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="sh8-eh-sri"/>
+                    <connections>
+                        <outlet property="id" destination="N2c-vg-4xS" id="HL3-j7-dSw"/>
+                        <outlet property="mapView" destination="aFo-O1-dFJ" id="Dey-Ve-ro0"/>
+                        <outlet property="name" destination="Nsk-DI-9K5" id="QoC-XO-5Y8"/>
+                        <outlet property="region" destination="uYL-31-3Gk" id="qYT-gV-o7T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TsX-ot-UWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="e21-Nc-G62">
+                    <connections>
+                        <segue destination="n7v-49-0nG" kind="show" identifier="DistilleryMap" id="Wge-M3-Iy5"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2210" y="368"/>
+        </scene>
+        <!--Navigation-->
+        <scene sceneID="h3V-ZR-A0V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NLd-Ay-Pwb" userLabel="Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Distilleries" image="DistilleriesIcon" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xeq-xF-1YE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RH8-x8-Bqj" kind="relationship" relationship="rootViewController" id="hcg-2z-83S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMT-2y-RPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="562" y="368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DistilleriesIcon" width="30" height="30"/>
+    </resources>
+</document>

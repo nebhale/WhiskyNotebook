@@ -1,0 +1,5 @@
+github "nebhale/LoggerLogger" "v2.2"
+github "Quick/Nimble" "v2.0.0-rc.1"
+github "antitypical/Result" "0.5"
+github "nebhale/CacheCache" "v2.5"
+github "ReactiveCocoa/ReactiveCocoa" "ee29c84fdb2142e3862fd198ec9625a7719d632b"

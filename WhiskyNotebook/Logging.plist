@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Level</key>
+	<string>Info</string>
+	<key>Format</key>
+	<string>%date{HH:mm:ss} %level &lt;%thread&gt; [%file:%line] %message</string>
+	<key>PropertyListCache</key>
+	<dict>
+		<key>Level</key>
+		<string>Info</string>
+		<key>Format</key>
+		<string>%date{HH:mm:ss} %level &lt;%thread&gt; [%file:%line] %message</string>
+	</dict>
+	<key>NotificationCenterNotificationRepository</key>
+	<dict>
+		<key>Level</key>
+		<string>Info</string>
+		<key>Format</key>
+		<string>%date{HH:mm:ss} %level &lt;%thread&gt; [%file:%line] %message</string>
+	</dict>
+</dict>
+</plist>

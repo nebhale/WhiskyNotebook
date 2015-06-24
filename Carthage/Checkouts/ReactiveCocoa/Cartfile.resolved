@@ -1,0 +1,4 @@
+github "Quick/Nimble" "463b70b9d4c0d4d9879fb35e24b2d2109b648eb8"
+github "Quick/Quick" "f251029a43c3f7765939cd25d64f1da13b487602"
+github "antitypical/Result" "0.5"
+github "jspahrsummers/xcconfigs" "0.8.1"

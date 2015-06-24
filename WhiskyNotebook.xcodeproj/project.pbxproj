@@ -1,0 +1,845 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		242A8CA21B592219005F7A82 /* ICloudEnforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242A8CA11B592219005F7A82 /* ICloudEnforcer.swift */; };
+		242B92081B562271000B1FA7 /* DistilleryDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B92071B562271000B1FA7 /* DistilleryDataSourceTests.swift */; };
+		24319DD11B5B6FE600896B81 /* IMProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24319DD01B5B6FE600896B81 /* IMProfileRepository.swift */; };
+		24319DD31B5B7C6700896B81 /* DistilleryMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24319DD21B5B7C6700896B81 /* DistilleryMapController.swift */; };
+		243349771B50E07800C89A7C /* Distillery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243349761B50E07800C89A7C /* Distillery.swift */; };
+		243349791B50E14B00C89A7C /* DistilleryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243349781B50E14B00C89A7C /* DistilleryRepository.swift */; };
+		2433497B1B50E41200C89A7C /* CKDistilleryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2433497A1B50E41200C89A7C /* CKDistilleryRepository.swift */; };
+		2433497F1B50F80200C89A7C /* ApplicationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2433497E1B50F80200C89A7C /* ApplicationContext.swift */; };
+		243349811B51084A00C89A7C /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243349801B51084A00C89A7C /* Region.swift */; };
+		243349831B510BF100C89A7C /* CKDistillery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243349821B510BF100C89A7C /* CKDistillery.swift */; };
+		243349851B51633600C89A7C /* DistilleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243349841B51633600C89A7C /* DistilleryDataSource.swift */; };
+		243FBCE31B56D42C004995CA /* DistilleryCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FBCE21B56D42C004995CA /* DistilleryCellTests.swift */; };
+		243FBCE51B56D61D004995CA /* DistilleryControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FBCE41B56D61D004995CA /* DistilleryControllerTest.swift */; };
+		244ABAB71B51A0EB00897A13 /* DistilleryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244ABAB61B51A0EB00897A13 /* DistilleryDetailsController.swift */; };
+		24520F8D1B5C1D620009417B /* ReactiveCoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24520F8C1B5C1D620009417B /* ReactiveCoreLocation.swift */; };
+		2457834C1B3C019F001A8F46 /* Dram.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2457834A1B3C019F001A8F46 /* Dram.storyboard */; };
+		2457834E1B3C01B5001A8F46 /* Distillery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2457834D1B3C01B5001A8F46 /* Distillery.storyboard */; };
+		249B78C51B3AAD1300610C3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249B78C41B3AAD1300610C3F /* AppDelegate.swift */; };
+		249B78C71B3AAD1300610C3F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249B78C61B3AAD1300610C3F /* FirstViewController.swift */; };
+		249B78CC1B3AAD1300610C3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 249B78CA1B3AAD1300610C3F /* Main.storyboard */; };
+		249B78CE1B3AAD1300610C3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 249B78CD1B3AAD1300610C3F /* Assets.xcassets */; };
+		249B78D11B3AAD1300610C3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 249B78CF1B3AAD1300610C3F /* LaunchScreen.storyboard */; };
+		249B78E71B3AAD1300610C3F /* MainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249B78E61B3AAD1300610C3F /* MainUITests.swift */; };
+		249B78F51B3AB4CA00610C3F /* LoggerLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249B78F41B3AB4CA00610C3F /* LoggerLogger.framework */; };
+		24B470DD1B56D91C0036532D /* DistilleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B470DC1B56D91C0036532D /* DistilleryCell.swift */; };
+		24B470E11B59AD900036532D /* ReactiveCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B470E01B59AD900036532D /* ReactiveCloudKit.swift */; };
+		24BBDBC41B5A4E6100887ECD /* DistilleryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBDBC31B5A4E6100887ECD /* DistilleryAnnotation.swift */; };
+		24BBDBC61B5AE69300887ECD /* IMProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBDBC51B5AE69300887ECD /* IMProfile.swift */; };
+		24BC2B611B3E5F860015EA00 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC2B601B3E5F860015EA00 /* Profile.swift */; };
+		24BC2B641B3E62CA0015EA00 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BC2B621B3E62CA0015EA00 /* ReactiveCocoa.framework */; };
+		24BC2B651B3E62CA0015EA00 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BC2B631B3E62CA0015EA00 /* Result.framework */; };
+		24BC2B661B3E62D40015EA00 /* ReactiveCocoa.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 24BC2B621B3E62CA0015EA00 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24BC2B671B3E62D40015EA00 /* Result.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 24BC2B631B3E62CA0015EA00 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24BC2B691B3E63330015EA00 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC2B681B3E63330015EA00 /* ProfileRepository.swift */; };
+		24BC2B6D1B3E63ED0015EA00 /* CKProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC2B6C1B3E63ED0015EA00 /* CKProfileRepository.swift */; };
+		24BC2B6F1B3E64DF0015EA00 /* CKProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC2B6E1B3E64DF0015EA00 /* CKProfile.swift */; };
+		24BC2B7C1B4092610015EA00 /* CacheCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BC2B7B1B4092610015EA00 /* CacheCache.framework */; };
+		24BC2B7D1B4092610015EA00 /* CacheCache.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 24BC2B7B1B4092610015EA00 /* CacheCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24BE7A411B3AD81200FB91CE /* Logging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24BE7A401B3AD81200FB91CE /* Logging.plist */; };
+		24C30BC31B5A389C00ACD614 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C30BC21B5A389C00ACD614 /* CloudKit.framework */; };
+		24C30BC51B5A3E6D00ACD614 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C30BC41B5A3E6D00ACD614 /* MapKit.framework */; };
+		24CAB7401B411DF10097E818 /* NotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CAB73F1B411DF10097E818 /* NotificationRepository.swift */; };
+		24CAB7431B4123850097E818 /* NotificationCenterNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CAB7421B4123850097E818 /* NotificationCenterNotificationRepository.swift */; };
+		24D90A4D1B4FD38900F3DC3C /* DistilleyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D90A4C1B4FD38900F3DC3C /* DistilleyListController.swift */; };
+		24E53BDE1B3AB87E0002327E /* LoggerLogger.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 249B78F41B3AB4CA00610C3F /* LoggerLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24E53BE11B3AD1C30002327E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E53BDF1B3AD1C30002327E /* Nimble.framework */; };
+		24E53BE41B3AD3220002327E /* Nimble.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 24E53BDF1B3AD1C30002327E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24E53BE61B3AD3890002327E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E53BDF1B3AD1C30002327E /* Nimble.framework */; };
+		24E53BE91B3AD4810002327E /* Nimble.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 24E53BDF1B3AD1C30002327E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24EE5AC51B52B4AA0071E353 /* ApplicationContextStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EE5AC41B52B4AA0071E353 /* ApplicationContextStatus.swift */; };
+		24EE5B071B5424DB0071E353 /* NotificationCenterNotificationRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EE5B061B5424DB0071E353 /* NotificationCenterNotificationRepositoryTests.swift */; };
+		24EE5B101B54D2D10071E353 /* IMDistillery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EE5B0F1B54D2D10071E353 /* IMDistillery.swift */; };
+		24EF74801B54D5440018E97B /* IMDistilleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF747F1B54D5440018E97B /* IMDistilleryTests.swift */; };
+		24FDBAD51B54E75A00AABEA8 /* CKDistilleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FDBAD41B54E75A00AABEA8 /* CKDistilleryTests.swift */; };
+		24FDBAD91B54F4D300AABEA8 /* IMDistilleryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FDBAD81B54F4D300AABEA8 /* IMDistilleryRepository.swift */; };
+		24FDBADB1B54F98800AABEA8 /* IMDistilleryRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FDBADA1B54F98800AABEA8 /* IMDistilleryRepositoryTests.swift */; };
+		24FDBADD1B54FA5200AABEA8 /* DistilleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FDBADC1B54FA5200AABEA8 /* DistilleryUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		249B78D81B3AAD1300610C3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 249B78B91B3AAD1300610C3F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 249B78C01B3AAD1300610C3F;
+			remoteInfo = WhiskyNotebook;
+		};
+		249B78E31B3AAD1300610C3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 249B78B91B3AAD1300610C3F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 249B78C01B3AAD1300610C3F;
+			remoteInfo = WhiskyNotebook;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		24E53BDD1B3AB86F0002327E /* Copy Carthage Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24BC2B7D1B4092610015EA00 /* CacheCache.framework in Copy Carthage Frameworks */,
+				24BC2B661B3E62D40015EA00 /* ReactiveCocoa.framework in Copy Carthage Frameworks */,
+				24BC2B671B3E62D40015EA00 /* Result.framework in Copy Carthage Frameworks */,
+				24E53BDE1B3AB87E0002327E /* LoggerLogger.framework in Copy Carthage Frameworks */,
+			);
+			name = "Copy Carthage Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24E53BE31B3AD3140002327E /* Copy Carthage Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24E53BE41B3AD3220002327E /* Nimble.framework in Copy Carthage Frameworks */,
+			);
+			name = "Copy Carthage Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24E53BE81B3AD4700002327E /* Copy Carthage Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24E53BE91B3AD4810002327E /* Nimble.framework in Copy Carthage Frameworks */,
+			);
+			name = "Copy Carthage Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		242A8CA11B592219005F7A82 /* ICloudEnforcer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICloudEnforcer.swift; sourceTree = "<group>"; };
+		242B92071B562271000B1FA7 /* DistilleryDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryDataSourceTests.swift; sourceTree = "<group>"; };
+		24319DD01B5B6FE600896B81 /* IMProfileRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMProfileRepository.swift; sourceTree = "<group>"; };
+		24319DD21B5B7C6700896B81 /* DistilleryMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryMapController.swift; sourceTree = "<group>"; };
+		243349761B50E07800C89A7C /* Distillery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distillery.swift; sourceTree = "<group>"; };
+		243349781B50E14B00C89A7C /* DistilleryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryRepository.swift; sourceTree = "<group>"; };
+		2433497A1B50E41200C89A7C /* CKDistilleryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDistilleryRepository.swift; sourceTree = "<group>"; };
+		2433497E1B50F80200C89A7C /* ApplicationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationContext.swift; sourceTree = "<group>"; };
+		243349801B51084A00C89A7C /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		243349821B510BF100C89A7C /* CKDistillery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDistillery.swift; sourceTree = "<group>"; };
+		243349841B51633600C89A7C /* DistilleryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryDataSource.swift; sourceTree = "<group>"; };
+		243FBCE21B56D42C004995CA /* DistilleryCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryCellTests.swift; sourceTree = "<group>"; };
+		243FBCE41B56D61D004995CA /* DistilleryControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryControllerTest.swift; sourceTree = "<group>"; };
+		244ABAB61B51A0EB00897A13 /* DistilleryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryDetailsController.swift; sourceTree = "<group>"; };
+		24520F8C1B5C1D620009417B /* ReactiveCoreLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveCoreLocation.swift; sourceTree = "<group>"; };
+		2457834B1B3C019F001A8F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dram.storyboard; sourceTree = "<group>"; };
+		2457834D1B3C01B5001A8F46 /* Distillery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Distillery.storyboard; sourceTree = "<group>"; };
+		249B78C11B3AAD1300610C3F /* WhiskyNotebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiskyNotebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		249B78C41B3AAD1300610C3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		249B78C61B3AAD1300610C3F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		249B78CB1B3AAD1300610C3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		249B78CD1B3AAD1300610C3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		249B78D01B3AAD1300610C3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		249B78D21B3AAD1300610C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		249B78D71B3AAD1300610C3F /* WhiskyNotebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhiskyNotebookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		249B78DD1B3AAD1300610C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		249B78E21B3AAD1300610C3F /* WhiskyNotebookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhiskyNotebookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		249B78E61B3AAD1300610C3F /* MainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITests.swift; sourceTree = "<group>"; };
+		249B78E81B3AAD1300610C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		249B78F41B3AB4CA00610C3F /* LoggerLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoggerLogger.framework; path = Carthage/Build/iOS/LoggerLogger.framework; sourceTree = "<group>"; };
+		24B470DC1B56D91C0036532D /* DistilleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryCell.swift; sourceTree = "<group>"; };
+		24B470E01B59AD900036532D /* ReactiveCloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveCloudKit.swift; sourceTree = "<group>"; };
+		24BBDBC31B5A4E6100887ECD /* DistilleryAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryAnnotation.swift; sourceTree = "<group>"; };
+		24BBDBC51B5AE69300887ECD /* IMProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMProfile.swift; sourceTree = "<group>"; };
+		24BC2B601B3E5F860015EA00 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		24BC2B621B3E62CA0015EA00 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		24BC2B631B3E62CA0015EA00 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		24BC2B681B3E63330015EA00 /* ProfileRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		24BC2B6C1B3E63ED0015EA00 /* CKProfileRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKProfileRepository.swift; sourceTree = "<group>"; };
+		24BC2B6E1B3E64DF0015EA00 /* CKProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKProfile.swift; sourceTree = "<group>"; };
+		24BC2B701B3EC3190015EA00 /* WhiskyNotebook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WhiskyNotebook.entitlements; sourceTree = "<group>"; };
+		24BC2B7B1B4092610015EA00 /* CacheCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CacheCache.framework; path = Carthage/Build/iOS/CacheCache.framework; sourceTree = "<group>"; };
+		24BE7A401B3AD81200FB91CE /* Logging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Logging.plist; sourceTree = "<group>"; };
+		24C30BC21B5A389C00ACD614 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		24C30BC41B5A3E6D00ACD614 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		24CAB73F1B411DF10097E818 /* NotificationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRepository.swift; sourceTree = "<group>"; };
+		24CAB7421B4123850097E818 /* NotificationCenterNotificationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterNotificationRepository.swift; sourceTree = "<group>"; };
+		24D90A4C1B4FD38900F3DC3C /* DistilleyListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleyListController.swift; sourceTree = "<group>"; };
+		24E53BDF1B3AD1C30002327E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		24EE5AC41B52B4AA0071E353 /* ApplicationContextStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationContextStatus.swift; sourceTree = "<group>"; };
+		24EE5B061B5424DB0071E353 /* NotificationCenterNotificationRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterNotificationRepositoryTests.swift; sourceTree = "<group>"; };
+		24EE5B0F1B54D2D10071E353 /* IMDistillery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDistillery.swift; sourceTree = "<group>"; };
+		24EF747F1B54D5440018E97B /* IMDistilleryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDistilleryTests.swift; sourceTree = "<group>"; };
+		24FDBAD41B54E75A00AABEA8 /* CKDistilleryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDistilleryTests.swift; sourceTree = "<group>"; };
+		24FDBAD81B54F4D300AABEA8 /* IMDistilleryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDistilleryRepository.swift; sourceTree = "<group>"; };
+		24FDBADA1B54F98800AABEA8 /* IMDistilleryRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDistilleryRepositoryTests.swift; sourceTree = "<group>"; };
+		24FDBADC1B54FA5200AABEA8 /* DistilleryUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryUITests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		249B78BE1B3AAD1300610C3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24BC2B7C1B4092610015EA00 /* CacheCache.framework in Frameworks */,
+				24C30BC31B5A389C00ACD614 /* CloudKit.framework in Frameworks */,
+				249B78F51B3AB4CA00610C3F /* LoggerLogger.framework in Frameworks */,
+				24BC2B641B3E62CA0015EA00 /* ReactiveCocoa.framework in Frameworks */,
+				24C30BC51B5A3E6D00ACD614 /* MapKit.framework in Frameworks */,
+				24BC2B651B3E62CA0015EA00 /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		249B78D41B3AAD1300610C3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24E53BE11B3AD1C30002327E /* Nimble.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		249B78DF1B3AAD1300610C3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24E53BE61B3AD3890002327E /* Nimble.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		245783481B3C018B001A8F46 /* Dram */ = {
+			isa = PBXGroup;
+			children = (
+				2457834A1B3C019F001A8F46 /* Dram.storyboard */,
+			);
+			name = Dram;
+			sourceTree = "<group>";
+		};
+		245783491B3C0191001A8F46 /* Distillery */ = {
+			isa = PBXGroup;
+			children = (
+				243349821B510BF100C89A7C /* CKDistillery.swift */,
+				2433497A1B50E41200C89A7C /* CKDistilleryRepository.swift */,
+				2457834D1B3C01B5001A8F46 /* Distillery.storyboard */,
+				243349761B50E07800C89A7C /* Distillery.swift */,
+				24BBDBC31B5A4E6100887ECD /* DistilleryAnnotation.swift */,
+				24B470DC1B56D91C0036532D /* DistilleryCell.swift */,
+				243349841B51633600C89A7C /* DistilleryDataSource.swift */,
+				244ABAB61B51A0EB00897A13 /* DistilleryDetailsController.swift */,
+				24319DD21B5B7C6700896B81 /* DistilleryMapController.swift */,
+				243349781B50E14B00C89A7C /* DistilleryRepository.swift */,
+				24D90A4C1B4FD38900F3DC3C /* DistilleyListController.swift */,
+				24EE5B0F1B54D2D10071E353 /* IMDistillery.swift */,
+				24FDBAD81B54F4D300AABEA8 /* IMDistilleryRepository.swift */,
+				243349801B51084A00C89A7C /* Region.swift */,
+			);
+			name = Distillery;
+			sourceTree = "<group>";
+		};
+		249B78B81B3AAD1300610C3F = {
+			isa = PBXGroup;
+			children = (
+				249B78C31B3AAD1300610C3F /* WhiskyNotebook */,
+				249B78DA1B3AAD1300610C3F /* WhiskyNotebookTests */,
+				249B78E51B3AAD1300610C3F /* WhiskyNotebookUITests */,
+				249B78F61B3AB4E600610C3F /* Frameworks */,
+				249B78C21B3AAD1300610C3F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		249B78C21B3AAD1300610C3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				249B78C11B3AAD1300610C3F /* WhiskyNotebook.app */,
+				249B78D71B3AAD1300610C3F /* WhiskyNotebookTests.xctest */,
+				249B78E21B3AAD1300610C3F /* WhiskyNotebookUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		249B78C31B3AAD1300610C3F /* WhiskyNotebook */ = {
+			isa = PBXGroup;
+			children = (
+				249B78C41B3AAD1300610C3F /* AppDelegate.swift */,
+				2433497E1B50F80200C89A7C /* ApplicationContext.swift */,
+				24EE5AC41B52B4AA0071E353 /* ApplicationContextStatus.swift */,
+				249B78C61B3AAD1300610C3F /* FirstViewController.swift */,
+				245783491B3C0191001A8F46 /* Distillery */,
+				245783481B3C018B001A8F46 /* Dram */,
+				24BC2B5F1B3E5F4C0015EA00 /* Profile */,
+				24CAB7411B4122EC0097E818 /* Utiltity */,
+				249B78CD1B3AAD1300610C3F /* Assets.xcassets */,
+				249B78CF1B3AAD1300610C3F /* LaunchScreen.storyboard */,
+				249B78CA1B3AAD1300610C3F /* Main.storyboard */,
+				24BC2B701B3EC3190015EA00 /* WhiskyNotebook.entitlements */,
+				249B78D21B3AAD1300610C3F /* Info.plist */,
+				24BE7A401B3AD81200FB91CE /* Logging.plist */,
+			);
+			path = WhiskyNotebook;
+			sourceTree = "<group>";
+		};
+		249B78DA1B3AAD1300610C3F /* WhiskyNotebookTests */ = {
+			isa = PBXGroup;
+			children = (
+				24EE5B0A1B545A3C0071E353 /* Distillery */,
+				24EE5B051B5424CF0071E353 /* Utility */,
+				249B78DD1B3AAD1300610C3F /* Info.plist */,
+			);
+			path = WhiskyNotebookTests;
+			sourceTree = "<group>";
+		};
+		249B78E51B3AAD1300610C3F /* WhiskyNotebookUITests */ = {
+			isa = PBXGroup;
+			children = (
+				24FDBADC1B54FA5200AABEA8 /* DistilleryUITests.swift */,
+				249B78E61B3AAD1300610C3F /* MainUITests.swift */,
+				249B78E81B3AAD1300610C3F /* Info.plist */,
+			);
+			path = WhiskyNotebookUITests;
+			sourceTree = "<group>";
+		};
+		249B78F61B3AB4E600610C3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24BC2B7B1B4092610015EA00 /* CacheCache.framework */,
+				24C30BC21B5A389C00ACD614 /* CloudKit.framework */,
+				249B78F41B3AB4CA00610C3F /* LoggerLogger.framework */,
+				24C30BC41B5A3E6D00ACD614 /* MapKit.framework */,
+				24E53BDF1B3AD1C30002327E /* Nimble.framework */,
+				24BC2B621B3E62CA0015EA00 /* ReactiveCocoa.framework */,
+				24BC2B631B3E62CA0015EA00 /* Result.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		24BC2B5F1B3E5F4C0015EA00 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				24BC2B6E1B3E64DF0015EA00 /* CKProfile.swift */,
+				24BC2B6C1B3E63ED0015EA00 /* CKProfileRepository.swift */,
+				24BBDBC51B5AE69300887ECD /* IMProfile.swift */,
+				24319DD01B5B6FE600896B81 /* IMProfileRepository.swift */,
+				24BC2B601B3E5F860015EA00 /* Profile.swift */,
+				24BC2B681B3E63330015EA00 /* ProfileRepository.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		24CAB7411B4122EC0097E818 /* Utiltity */ = {
+			isa = PBXGroup;
+			children = (
+				242A8CA11B592219005F7A82 /* ICloudEnforcer.swift */,
+				24CAB7421B4123850097E818 /* NotificationCenterNotificationRepository.swift */,
+				24CAB73F1B411DF10097E818 /* NotificationRepository.swift */,
+				24B470E01B59AD900036532D /* ReactiveCloudKit.swift */,
+				24520F8C1B5C1D620009417B /* ReactiveCoreLocation.swift */,
+			);
+			name = Utiltity;
+			sourceTree = "<group>";
+		};
+		24EE5B051B5424CF0071E353 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				24EE5B061B5424DB0071E353 /* NotificationCenterNotificationRepositoryTests.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		24EE5B0A1B545A3C0071E353 /* Distillery */ = {
+			isa = PBXGroup;
+			children = (
+				24FDBAD41B54E75A00AABEA8 /* CKDistilleryTests.swift */,
+				243FBCE21B56D42C004995CA /* DistilleryCellTests.swift */,
+				243FBCE41B56D61D004995CA /* DistilleryControllerTest.swift */,
+				242B92071B562271000B1FA7 /* DistilleryDataSourceTests.swift */,
+				24FDBADA1B54F98800AABEA8 /* IMDistilleryRepositoryTests.swift */,
+				24EF747F1B54D5440018E97B /* IMDistilleryTests.swift */,
+			);
+			name = Distillery;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		249B78C01B3AAD1300610C3F /* WhiskyNotebook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 249B78EB1B3AAD1300610C3F /* Build configuration list for PBXNativeTarget "WhiskyNotebook" */;
+			buildPhases = (
+				249B78BD1B3AAD1300610C3F /* Sources */,
+				249B78BE1B3AAD1300610C3F /* Frameworks */,
+				249B78BF1B3AAD1300610C3F /* Resources */,
+				24E53BDD1B3AB86F0002327E /* Copy Carthage Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhiskyNotebook;
+			productName = WhiskyNotebook;
+			productReference = 249B78C11B3AAD1300610C3F /* WhiskyNotebook.app */;
+			productType = "com.apple.product-type.application";
+		};
+		249B78D61B3AAD1300610C3F /* WhiskyNotebookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 249B78EE1B3AAD1300610C3F /* Build configuration list for PBXNativeTarget "WhiskyNotebookTests" */;
+			buildPhases = (
+				249B78D31B3AAD1300610C3F /* Sources */,
+				249B78D41B3AAD1300610C3F /* Frameworks */,
+				249B78D51B3AAD1300610C3F /* Resources */,
+				24E53BE31B3AD3140002327E /* Copy Carthage Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				249B78D91B3AAD1300610C3F /* PBXTargetDependency */,
+			);
+			name = WhiskyNotebookTests;
+			productName = WhiskyNotebookTests;
+			productReference = 249B78D71B3AAD1300610C3F /* WhiskyNotebookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		249B78E11B3AAD1300610C3F /* WhiskyNotebookUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 249B78F11B3AAD1300610C3F /* Build configuration list for PBXNativeTarget "WhiskyNotebookUITests" */;
+			buildPhases = (
+				249B78DE1B3AAD1300610C3F /* Sources */,
+				249B78DF1B3AAD1300610C3F /* Frameworks */,
+				249B78E01B3AAD1300610C3F /* Resources */,
+				24E53BE81B3AD4700002327E /* Copy Carthage Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				249B78E41B3AAD1300610C3F /* PBXTargetDependency */,
+			);
+			name = WhiskyNotebookUITests;
+			productName = WhiskyNotebookUITests;
+			productReference = 249B78E21B3AAD1300610C3F /* WhiskyNotebookUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		249B78B91B3AAD1300610C3F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Ben Hale";
+				TargetAttributes = {
+					249B78C01B3AAD1300610C3F = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 37P3YGWA67;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					249B78D61B3AAD1300610C3F = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 249B78C01B3AAD1300610C3F;
+					};
+					249B78E11B3AAD1300610C3F = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 249B78C01B3AAD1300610C3F;
+					};
+				};
+			};
+			buildConfigurationList = 249B78BC1B3AAD1300610C3F /* Build configuration list for PBXProject "WhiskyNotebook" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 249B78B81B3AAD1300610C3F;
+			productRefGroup = 249B78C21B3AAD1300610C3F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				249B78C01B3AAD1300610C3F /* WhiskyNotebook */,
+				249B78D61B3AAD1300610C3F /* WhiskyNotebookTests */,
+				249B78E11B3AAD1300610C3F /* WhiskyNotebookUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		249B78BF1B3AAD1300610C3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				249B78D11B3AAD1300610C3F /* LaunchScreen.storyboard in Resources */,
+				249B78CE1B3AAD1300610C3F /* Assets.xcassets in Resources */,
+				2457834C1B3C019F001A8F46 /* Dram.storyboard in Resources */,
+				24BE7A411B3AD81200FB91CE /* Logging.plist in Resources */,
+				249B78CC1B3AAD1300610C3F /* Main.storyboard in Resources */,
+				2457834E1B3C01B5001A8F46 /* Distillery.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		249B78D51B3AAD1300610C3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		249B78E01B3AAD1300610C3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		249B78BD1B3AAD1300610C3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24FDBAD91B54F4D300AABEA8 /* IMDistilleryRepository.swift in Sources */,
+				24EE5B101B54D2D10071E353 /* IMDistillery.swift in Sources */,
+				243349771B50E07800C89A7C /* Distillery.swift in Sources */,
+				24319DD11B5B6FE600896B81 /* IMProfileRepository.swift in Sources */,
+				243349811B51084A00C89A7C /* Region.swift in Sources */,
+				24BBDBC61B5AE69300887ECD /* IMProfile.swift in Sources */,
+				24CAB7401B411DF10097E818 /* NotificationRepository.swift in Sources */,
+				24B470E11B59AD900036532D /* ReactiveCloudKit.swift in Sources */,
+				2433497F1B50F80200C89A7C /* ApplicationContext.swift in Sources */,
+				24B470DD1B56D91C0036532D /* DistilleryCell.swift in Sources */,
+				24520F8D1B5C1D620009417B /* ReactiveCoreLocation.swift in Sources */,
+				24BC2B6F1B3E64DF0015EA00 /* CKProfile.swift in Sources */,
+				243349791B50E14B00C89A7C /* DistilleryRepository.swift in Sources */,
+				24BC2B611B3E5F860015EA00 /* Profile.swift in Sources */,
+				243349831B510BF100C89A7C /* CKDistillery.swift in Sources */,
+				24D90A4D1B4FD38900F3DC3C /* DistilleyListController.swift in Sources */,
+				244ABAB71B51A0EB00897A13 /* DistilleryDetailsController.swift in Sources */,
+				242A8CA21B592219005F7A82 /* ICloudEnforcer.swift in Sources */,
+				249B78C51B3AAD1300610C3F /* AppDelegate.swift in Sources */,
+				2433497B1B50E41200C89A7C /* CKDistilleryRepository.swift in Sources */,
+				24EE5AC51B52B4AA0071E353 /* ApplicationContextStatus.swift in Sources */,
+				24CAB7431B4123850097E818 /* NotificationCenterNotificationRepository.swift in Sources */,
+				243349851B51633600C89A7C /* DistilleryDataSource.swift in Sources */,
+				24BC2B691B3E63330015EA00 /* ProfileRepository.swift in Sources */,
+				24BBDBC41B5A4E6100887ECD /* DistilleryAnnotation.swift in Sources */,
+				24BC2B6D1B3E63ED0015EA00 /* CKProfileRepository.swift in Sources */,
+				24319DD31B5B7C6700896B81 /* DistilleryMapController.swift in Sources */,
+				249B78C71B3AAD1300610C3F /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		249B78D31B3AAD1300610C3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				242B92081B562271000B1FA7 /* DistilleryDataSourceTests.swift in Sources */,
+				24FDBADB1B54F98800AABEA8 /* IMDistilleryRepositoryTests.swift in Sources */,
+				24EF74801B54D5440018E97B /* IMDistilleryTests.swift in Sources */,
+				24FDBAD51B54E75A00AABEA8 /* CKDistilleryTests.swift in Sources */,
+				243FBCE31B56D42C004995CA /* DistilleryCellTests.swift in Sources */,
+				243FBCE51B56D61D004995CA /* DistilleryControllerTest.swift in Sources */,
+				24EE5B071B5424DB0071E353 /* NotificationCenterNotificationRepositoryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		249B78DE1B3AAD1300610C3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24FDBADD1B54FA5200AABEA8 /* DistilleryUITests.swift in Sources */,
+				249B78E71B3AAD1300610C3F /* MainUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		249B78D91B3AAD1300610C3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 249B78C01B3AAD1300610C3F /* WhiskyNotebook */;
+			targetProxy = 249B78D81B3AAD1300610C3F /* PBXContainerItemProxy */;
+		};
+		249B78E41B3AAD1300610C3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 249B78C01B3AAD1300610C3F /* WhiskyNotebook */;
+			targetProxy = 249B78E31B3AAD1300610C3F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2457834A1B3C019F001A8F46 /* Dram.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2457834B1B3C019F001A8F46 /* Base */,
+			);
+			name = Dram.storyboard;
+			sourceTree = "<group>";
+		};
+		249B78CA1B3AAD1300610C3F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				249B78CB1B3AAD1300610C3F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		249B78CF1B3AAD1300610C3F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				249B78D01B3AAD1300610C3F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		249B78E91B3AAD1300610C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		249B78EA1B3AAD1300610C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		249B78EC1B3AAD1300610C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhiskyNotebook/WhiskyNotebook.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = WhiskyNotebook/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nebhale.WhiskyNotebook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		249B78ED1B3AAD1300610C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhiskyNotebook/WhiskyNotebook.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = WhiskyNotebook/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nebhale.WhiskyNotebook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		249B78EF1B3AAD1300610C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = WhiskyNotebookTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nebhale.WhiskyNotebookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhiskyNotebook.app/WhiskyNotebook";
+			};
+			name = Debug;
+		};
+		249B78F01B3AAD1300610C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = WhiskyNotebookTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nebhale.WhiskyNotebookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhiskyNotebook.app/WhiskyNotebook";
+			};
+			name = Release;
+		};
+		249B78F21B3AAD1300610C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = WhiskyNotebookUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nebhale.WhiskyNotebookUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WhiskyNotebook;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		249B78F31B3AAD1300610C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = WhiskyNotebookUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nebhale.WhiskyNotebookUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WhiskyNotebook;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		249B78BC1B3AAD1300610C3F /* Build configuration list for PBXProject "WhiskyNotebook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				249B78E91B3AAD1300610C3F /* Debug */,
+				249B78EA1B3AAD1300610C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		249B78EB1B3AAD1300610C3F /* Build configuration list for PBXNativeTarget "WhiskyNotebook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				249B78EC1B3AAD1300610C3F /* Debug */,
+				249B78ED1B3AAD1300610C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		249B78EE1B3AAD1300610C3F /* Build configuration list for PBXNativeTarget "WhiskyNotebookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				249B78EF1B3AAD1300610C3F /* Debug */,
+				249B78F01B3AAD1300610C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		249B78F11B3AAD1300610C3F /* Build configuration list for PBXNativeTarget "WhiskyNotebookUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				249B78F21B3AAD1300610C3F /* Debug */,
+				249B78F31B3AAD1300610C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 249B78B91B3AAD1300610C3F /* Project object */;
+}
