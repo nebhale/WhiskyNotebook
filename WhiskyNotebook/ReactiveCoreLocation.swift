@@ -27,6 +27,10 @@ private final class LocationManagerDelegate: NSObject, CLLocationManagerDelegate
     @objc
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         sendNext(self.observer, status)
+
+        if status != .NotDetermined {
+            sendCompleted(self.observer)
+        }
     }
 }
 
