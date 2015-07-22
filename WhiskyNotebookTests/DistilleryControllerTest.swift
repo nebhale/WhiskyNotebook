@@ -10,14 +10,14 @@ import XCTest
 
 final class DistilleryControllerTests: XCTestCase {
 
-    private var distilleryController: DistilleryController!
+    private var distilleryController: DistilleryDetailsController!
 
     private let storyboard = UIStoryboard(name: "Distillery", bundle: nil)
 
     // MARK: - Setup
 
     override func setUp() {
-        self.distilleryController = self.storyboard.instantiateViewControllerWithIdentifier("DistilleryController") as! DistilleryController
+        self.distilleryController = self.storyboard.instantiateViewControllerWithIdentifier("DistilleryDetailsController") as! DistilleryDetailsController
     }
 
     // MARK: Tests

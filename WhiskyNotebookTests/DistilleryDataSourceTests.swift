@@ -24,7 +24,7 @@ final class DistilleryDataSourceTests: XCTestCase {
         self.distilleryRepository = StubDistilleryRepository()
         self.distilleryDataSource = DistilleryDataSource(distilleryRepository: self.distilleryRepository)
 
-        let distilleriesController = self.storyboard.instantiateViewControllerWithIdentifier("DistilleriesController") as! DistilleriesController
+        let distilleriesController = self.storyboard.instantiateViewControllerWithIdentifier("DistilleryListController") as! DistilleryListController
         self.tableView = distilleriesController.tableView
     }
 

@@ -97,7 +97,7 @@ expect(seagull.squawk).to(equal("Squee!"))
 ```objc
 // Objective-C
 
-#import <Nimble/Nimble.h>
+@import Nimble;
 
 expect(seagull.squawk).to(equal(@"Squee!"));
 ```
@@ -121,7 +121,7 @@ expect(seagull.squawk).notTo(equal("Oh, hello there!"))
 ```objc
 // Objective-C
 
-#import <Nimble/Nimble.h>
+@import Nimble;
 
 expect(seagull.squawk).toNot(equal(@"Oh, hello there!"));
 expect(seagull.squawk).notTo(equal(@"Oh, hello there!"));
@@ -199,14 +199,14 @@ value:
 NSException *exception = [NSException exceptionWithName:NSInternalInconsistencyException
                                                  reason:@"Not enough fish in the sea."
                                                userInfo:nil];
-expectAction([exception raise]).to(raiseException());
+expectAction(^{ [exception raise]; }).to(raiseException());
 
 // Use the property-block syntax to be more specific.
-expectAction([exception raise]).to(raiseException().named(NSInternalInconsistencyException));
-expectAction([exception raise]).to(raiseException().
+expectAction(^{ [exception raise]; }).to(raiseException().named(NSInternalInconsistencyException));
+expectAction(^{ [exception raise]; }).to(raiseException().
     named(NSInternalInconsistencyException).
     reason("Not enough fish in the sea"));
-expectAction([exception raise]).to(raiseException().
+expectAction(^{ [exception raise]; }).to(raiseException().
     named(NSInternalInconsistencyException).
     reason("Not enough fish in the sea").
     userInfo(@{@"something": @"is fishy"}));
@@ -349,7 +349,7 @@ to keep in mind when using Nimble in Objective-C:
    ```objc
    // Objective-C
 
-   #import <Nimble/Nimble.h>
+   @import Nimble;
 
    expect(@(1 + 1)).to(equal(@2));
    expect(@"Hello world").to(contain(@"world"));
@@ -362,7 +362,7 @@ to keep in mind when using Nimble in Objective-C:
    ```objc
    // Objective-C
 
-   expectAction([exception raise]).to(raiseException());
+   expectAction(^{ [exception raise]; }).to(raiseException());
    ```
 
 ## Disabling Objective-C Shorthand
@@ -375,7 +375,7 @@ importing Nimble:
 ```objc
 #define NIMBLE_DISABLE_SHORT_SYNTAX 1
 
-#import <Nimble/Nimble.h>
+@import Nimble;
 
 NMB_expect(^{ return seagull.squawk; }, __FILE__, __LINE__).to(NMB_equal(@"Squee!"));
 ```

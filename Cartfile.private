@@ -2,5 +2,5 @@
 
 github "nebhale/CacheCache"          ~> 2.0
 github "nebhale/LoggerLogger"        ~> 2.0
-github "Quick/Nimble"                ~> 2.0
-github "ReactiveCocoa/ReactiveCocoa" "swift2"
+github "Quick/Nimble"                "swift-2.0"
+github "ReactiveCocoa/ReactiveCocoa" "xcode7-beta4"

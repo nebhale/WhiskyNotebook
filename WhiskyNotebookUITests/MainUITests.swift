@@ -24,7 +24,7 @@ final class MainUITests: XCTestCase {
         let buttons = self.app.tabBars.buttons
 
         expect(buttons.count).to(equal(2))
-        expect(buttons.elementBoundByIndex(0).title).to(equal("Drams"))
-        expect(buttons.elementBoundByIndex(1).title).to(equal("Distilleries"))
+        expect(buttons.elementBoundByIndex(0).label).to(equal("Drams"))
+        expect(buttons.elementBoundByIndex(1).label).to(equal("Distilleries"))
     }
 }
