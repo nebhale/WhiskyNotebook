@@ -50,7 +50,7 @@
 		24C30BC51B5A3E6D00ACD614 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C30BC41B5A3E6D00ACD614 /* MapKit.framework */; };
 		24CAB7401B411DF10097E818 /* NotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CAB73F1B411DF10097E818 /* NotificationRepository.swift */; };
 		24CAB7431B4123850097E818 /* NotificationCenterNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CAB7421B4123850097E818 /* NotificationCenterNotificationRepository.swift */; };
-		24D90A4D1B4FD38900F3DC3C /* DistilleyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D90A4C1B4FD38900F3DC3C /* DistilleyListController.swift */; };
+		24D90A4D1B4FD38900F3DC3C /* DistilleryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D90A4C1B4FD38900F3DC3C /* DistilleryListController.swift */; };
 		24E53BDE1B3AB87E0002327E /* LoggerLogger.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 249B78F41B3AB4CA00610C3F /* LoggerLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24E53BE11B3AD1C30002327E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E53BDF1B3AD1C30002327E /* Nimble.framework */; };
 		24E53BE41B3AD3220002327E /* Nimble.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 24E53BDF1B3AD1C30002327E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -170,7 +170,7 @@
 		24C30BC41B5A3E6D00ACD614 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		24CAB73F1B411DF10097E818 /* NotificationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRepository.swift; sourceTree = "<group>"; };
 		24CAB7421B4123850097E818 /* NotificationCenterNotificationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterNotificationRepository.swift; sourceTree = "<group>"; };
-		24D90A4C1B4FD38900F3DC3C /* DistilleyListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleyListController.swift; sourceTree = "<group>"; };
+		24D90A4C1B4FD38900F3DC3C /* DistilleryListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistilleryListController.swift; sourceTree = "<group>"; };
 		24E53BDF1B3AD1C30002327E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		24EE5AC41B52B4AA0071E353 /* ApplicationContextStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationContextStatus.swift; sourceTree = "<group>"; };
 		24EE5B061B5424DB0071E353 /* NotificationCenterNotificationRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterNotificationRepositoryTests.swift; sourceTree = "<group>"; };
@@ -234,9 +234,9 @@
 				24B470DC1B56D91C0036532D /* DistilleryCell.swift */,
 				243349841B51633600C89A7C /* DistilleryDataSource.swift */,
 				244ABAB61B51A0EB00897A13 /* DistilleryDetailsController.swift */,
+				24D90A4C1B4FD38900F3DC3C /* DistilleryListController.swift */,
 				24319DD21B5B7C6700896B81 /* DistilleryMapController.swift */,
 				243349781B50E14B00C89A7C /* DistilleryRepository.swift */,
-				24D90A4C1B4FD38900F3DC3C /* DistilleyListController.swift */,
 				24EE5B0F1B54D2D10071E353 /* IMDistillery.swift */,
 				24FDBAD81B54F4D300AABEA8 /* IMDistilleryRepository.swift */,
 				243349801B51084A00C89A7C /* Region.swift */,
@@ -532,7 +532,7 @@
 				243349791B50E14B00C89A7C /* DistilleryRepository.swift in Sources */,
 				24BC2B611B3E5F860015EA00 /* Profile.swift in Sources */,
 				243349831B510BF100C89A7C /* CKDistillery.swift in Sources */,
-				24D90A4D1B4FD38900F3DC3C /* DistilleyListController.swift in Sources */,
+				24D90A4D1B4FD38900F3DC3C /* DistilleryListController.swift in Sources */,
 				244ABAB71B51A0EB00897A13 /* DistilleryDetailsController.swift in Sources */,
 				242A8CA21B592219005F7A82 /* ICloudEnforcer.swift in Sources */,
 				249B78C51B3AAD1300610C3F /* AppDelegate.swift in Sources */,
